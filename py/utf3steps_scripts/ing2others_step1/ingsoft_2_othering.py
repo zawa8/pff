@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import fontforge
 ############### "ing",
-def ingsoftutf_2_othering(sfdroot,encoding,ftype):
+def ingsoftutf_2_other_ing(sfdroot,encoding,ftype):
     ffobz_ingenglosoftw8utf = fontforge.open(f"{sfdroot}/englosoftw8/englosoftw8utf/inglishenglosoftw8utf.sfd")
     sfddir=f"{sfdroot}/{encoding}/{encoding}{ftype}/"
     ffobz_ing = fontforge.open(f"{sfddir}/inglish{encoding}{ftype}.sfd")
@@ -23,11 +23,9 @@ if __name__ == "__main__":
 
     for encoding in ("englodotw8","onlyw8"):
         for ftype in ("utf","asc"):
-            ingsoftutf_2_othering(sfdroot,encoding,ftype)
+            ingsoftutf_2_other_ing(sfdroot,encoding,ftype)
     #########
-    encoding = "englosoftw8"
-    for ftype in ("utf","asc","mono"):
-        ingsoftutf_2_othering(sfdroot,encoding,"asc")
+    ingsoftutf_2_other_ing(sfdroot,"englosoftw8","asc")
     #########
     # encoding = "onlyw8"
     # for ftype in ("utf","asc","mono"):
