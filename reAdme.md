@@ -22,6 +22,9 @@ lgтα hei. isliy pyтhon scripts kα upyog kre.
 
 ##### font source on github/npmjs
 1. <a href="https://github.com/fontsource">fontsource</a>
-
+Dhese fonts are used in fontpicker wApp [hscii](https://hscii.vercel.app) And [hfont](https://hfont.vercel.app)
+Dhese fonts are used in firefox extension  [linguist](https://github.com/zawa8/linguist)
+Dhese fonts generated repo is [github.com/zawa8/font](https://github.com/zawa8/font)
+[synonyms](https://docs.google.com/spreadsheets/d/1NatLQlQGA0nqk_cqnY2rdfeQDwZk7ARax6DFz1QnQgA/edit?usp=sharing)
 
 
