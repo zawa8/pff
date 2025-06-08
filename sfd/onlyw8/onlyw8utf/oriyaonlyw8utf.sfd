@@ -23,7 +23,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1573797574
-ModificationTime: 1749321464
+ModificationTime: 1749389851
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -93,9 +93,9 @@ ShortTable: maxp 16
 EndShort
 LangName: 1033 "github.com/zawa8/font hscii4(4phinger maths) hscii5" "" "regular" "oriyaonlyw8utf hscii 4finger1thumb 4f1t maths 2025-04-18 0.000;zawa;hscii5 oriyaonlyw8utf-regular" "" "wersion 0.0000" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "license file present in : https://github.com/zawa8/font/" "https://github.com/zawa8/font"
 GaspTable: 1 65535 15 1
-OtfFeatName: 'ss01' 1033 "KaTaRa Alternate"
-OtfFeatName: 'ss02' 1033 "Oriya to Latin Figures"
 OtfFeatName: 'ss03' 1033 "Latin to Oriya Figures"
+OtfFeatName: 'ss02' 1033 "Oriya to Latin Figures"
+OtfFeatName: 'ss01' 1033 "KaTaRa Alternate"
 Encoding: UnicodeBmp
 UnicodeInterp: none
 NameList: AGL For New Fonts
