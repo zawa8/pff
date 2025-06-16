@@ -11,7 +11,7 @@ pffdir = f"{zw8dir}/pff/"
 sfdroot = f"{pffdir}/sfd/"
 fontroot = f"{zw8dir}/font/"
 #######
-encodings = ("englodotw8", "englosoftw8", "onlyw8","hscii4w8")
+encodings = ("englodotw8", "englosoftw8", "onlyw8","hscii4w8", "indikw8")
 ftypes = ("asc", "utf", "mono")
 languages = (
     "inglish",  "korean", "russian",
