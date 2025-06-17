@@ -86,5 +86,5 @@ def uhin_2_others(sfdroot,encoding):
 ##############
 if __name__ == "__main__":
     sfdroot=f"/home/viml/mg/zw8/pff/sfd/"
-    for encoding in ("englodotw8","englosoftw8","onlyw8"):
+    for encoding in ("englodotw8","englosoftw8","onlyw8","indikw8"):
         uhin_2_others(sfdroot,encoding)

@@ -30,4 +30,5 @@ if __name__ == "__main__":
     asc_2_uhin(sfdroot,"englosoftw8",asc_2_uhin_dikt)
     asc_2_uhin(sfdroot,"englodotw8",asc_2_uhin_dikt)
     asc_2_uhin(sfdroot,"onlyw8",asc_2_uhin_dikt)
+    asc_2_uhin(sfdroot,"indikw8",asc_2_uhin_dikt)
 

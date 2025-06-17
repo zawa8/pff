@@ -61,7 +61,7 @@ def ing_2_langs(sfdroot,encoding,ftype):
 if __name__ == "__main__":
     sfdroot = "/home/viml/mg/zw8/pff/sfd/"
     #########
-    for encoding in ("englosoftw8","englodotw8"):
+    for encoding in ("englosoftw8","englodotw8","indikw8",):
         for ftype in ("utf","asc","mono"):
             ing_2_langs(sfdroot,encoding,ftype)
     #########
