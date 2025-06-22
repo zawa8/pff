@@ -23,7 +23,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1633362791
-ModificationTime: 1750361829
+ModificationTime: 1750624648
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -98,10 +98,10 @@ ShortTable: maxp 16
 EndShort
 LangName: 1033 "github.com/zawa8/font hscii4(4phinger maths) hscii5" "" "regular" "inglishenglosoftw8mono hscii 4finger1thumb 4f1t maths 2025-04-18 0.000;zawa;hscii5 inglishenglosoftw8mono-regular" "" "wersion 0.0000" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "license file present in : https://github.com/zawa8/font/" "https://github.com/zawa8/font"
 GaspTable: 1 65535 15 1
-OtfFeatName: 'ss07' 1033 "iota adscript"
-OtfFeatName: 'ss06' 1033 "Accented Greek SC"
-OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
 OtfFeatName: 'ss03' 1033 "florin symbol"
+OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
+OtfFeatName: 'ss06' 1033 "Accented Greek SC"
+OtfFeatName: 'ss07' 1033 "iota adscript"
 Encoding: UnicodeFull
 UnicodeInterp: none
 NameList: AGL For New Fonts
@@ -112,7 +112,7 @@ WidthSeparation: 150
 WinInfo: 54 27 9
 BeginPrivate: 0
 EndPrivate
-BeginChars: 1115682 99
+BeginChars: 1115682 100
 
 StartChar: NULL
 Encoding: 0 0 0
@@ -6592,6 +6592,30 @@ SplineSet
  440.1796875 12 440.1796875 12 450.6796875 12.2001953125 c 4,141,142
  467.1796875 13 467.1796875 13 464.1796875 16.400390625 c 4,118,119
 EndSplineSet
+EndChar
+
+StartChar: uni0089
+Encoding: 137 137 99
+Width: 600
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+240.67578125 609.454101562 m 1
+ 215.250976562 642.916992188 l 1
+ 274.573242188 721 l 1
+ 215.250976562 799.083007812 l 1
+ 240.67578125 832.545898438 l 1
+ 299.998046875 754.463867188 l 1
+ 359.3203125 832.545898438 l 1
+ 384.745117188 799.083007812 l 1
+ 325.422851562 721 l 1
+ 384.745117188 642.916992188 l 1
+ 359.3203125 609.454101562 l 1
+ 299.998046875 687.536132812 l 1
+ 240.67578125 609.454101562 l 1
+EndSplineSet
+Refer: 90 120 N 1 0 0 1 0.000390576 -20 2
 EndChar
 EndChars
 EndSplineFont
