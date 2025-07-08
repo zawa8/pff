@@ -23,7 +23,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1573797574
-ModificationTime: 1750625767
+ModificationTime: 1751976807
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -1912,7 +1912,7 @@ StartChar: b
 Encoding: 98 98 42
 Width: 600
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1984,7 +1984,7 @@ StartChar: d
 Encoding: 100 100 44
 Width: 600
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2068,7 +2068,7 @@ StartChar: f
 Encoding: 102 102 46
 Width: 600
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2340,7 +2340,7 @@ StartChar: k
 Encoding: 107 107 51
 Width: 600
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2434,7 +2434,7 @@ StartChar: l
 Encoding: 108 108 52
 Width: 600
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2503,7 +2503,7 @@ StartChar: m
 Encoding: 109 109 53
 Width: 600
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2634,7 +2634,7 @@ StartChar: n
 Encoding: 110 110 54
 Width: 600
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2707,7 +2707,7 @@ StartChar: p
 Encoding: 112 112 56
 Width: 600
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2848,7 +2848,7 @@ StartChar: r
 Encoding: 114 114 58
 Width: 600
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2882,7 +2882,7 @@ StartChar: s
 Encoding: 115 115 59
 Width: 600
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2926,7 +2926,7 @@ StartChar: t
 Encoding: 116 116 60
 Width: 600
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -3290,7 +3290,7 @@ StartChar: y
 Encoding: 121 121 65
 Width: 600
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -3398,7 +3398,7 @@ StartChar: z
 Encoding: 122 122 66
 Width: 600
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
