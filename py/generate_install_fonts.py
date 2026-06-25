@@ -6,7 +6,7 @@ import fontforge
 
 # Directory paths
 thisdir = os.getcwd()
-zw8dir = f"/home/viml/mg/zw8"
+zw8dir = f"../../"
 pffdir = f"{zw8dir}/pff/"
 sfdroot = f"{pffdir}/sfd/"
 fontroot = f"{zw8dir}/font/"
