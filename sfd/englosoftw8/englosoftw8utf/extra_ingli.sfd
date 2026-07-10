@@ -23,7 +23,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1633362791
-ModificationTime: 1783377618
+ModificationTime: 1783718068
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -98,17 +98,17 @@ ShortTable: maxp 16
 EndShort
 LangName: 1033 "github.com/zawa8/font hscii4(4phinger maths) hscii5" "" "regular" "inglishenglosoftw8utf hscii 4finger1thumb 4f1t maths 2025-04-18 0.000;zawa;hscii5 inglishenglosoftw8utf-regular" "" "wersion 0.0000" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "license file present in : https://github.com/zawa8/font/" "https://github.com/zawa8/font"
 GaspTable: 1 65535 15 1
-OtfFeatName: 'ss07' 1033 "iota adscript"
-OtfFeatName: 'ss06' 1033 "Accented Greek SC"
-OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
 OtfFeatName: 'ss03' 1033 "florin symbol"
+OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
+OtfFeatName: 'ss06' 1033 "Accented Greek SC"
+OtfFeatName: 'ss07' 1033 "iota adscript"
 Encoding: UnicodeFull
 UnicodeInterp: none
 NameList: AGL For New Fonts
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 0
-WinInfo: 54 27 9
+WinInfo: 38 38 11
 BeginPrivate: 0
 EndPrivate
 BeginChars: 1115682 1241
@@ -29254,8 +29254,8 @@ EndSplineSet
 Refer: 90 120 N 1 0 0 1 2.51992 0 2
 EndChar
 
-StartChar: dcroat
-Encoding: 273 273 1240
+StartChar: ccedilla
+Encoding: 231 231 1240
 Width: 380
 Flags: W
 LayerCount: 2
