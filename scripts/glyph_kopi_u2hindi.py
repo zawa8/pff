@@ -5,27 +5,19 @@ and paste them into hindixv38.sfd at hskii positions.
 """
 
 import fontforge
-import urllib.request
 from pathlib import Path
 
 # Paths
 script_dir = Path(__file__).parent
-fonts_dir = script_dir.parent / "fonts_temp"
-fonts_dir.mkdir(exist_ok=True)
-
-noto_font_path = fonts_dir / "NotoSansDevanagari-Regular.ttf"
+noto_fonts_dir = script_dir.parent / "notofonts"
+noto_font_path = noto_fonts_dir / "NotoSansDevanagari-Regular.ttf"
 sfd_path = script_dir.parent / "sfd/x38ifont/x38iasc/hindixv38.sfd"
 
-# Download Noto font if needed
+# Check if Noto font exists
 if not noto_font_path.exists():
-    print("Downloading Noto Sans Devanagari...")
-    url = "https://github.com/notofonts/devanagari/raw/main/fonts/NotoSansDevanagari-Regular.ttf"
-    try:
-        urllib.request.urlretrieve(url, str(noto_font_path))
-        print(f"Downloaded to {noto_font_path}")
-    except Exception as e:
-        print(f"Error: {e}")
-        exit(1)
+    print(f"✗ Font not found: {noto_font_path}")
+    print("Please download NotoSansDevanagari-Regular.ttf to notofonts folder")
+    exit(1)
 
 # hskii mapping: {hskii_char: devanagari_unicode}
 hskii_mapping = {
@@ -59,6 +51,7 @@ hskii_mapping = {
 
     # Nasal
     'n': 0x0928,  # न
+    'N': 0x0928,  # न i used fontforge and dot xbxw.
 
     # Labial consonants
     'p': 0x092A,  # प
@@ -70,6 +63,7 @@ hskii_mapping = {
     # Semivowels
     'y': 0x092F,  # य
     'r': 0x0930,  # र
+    'R': 0x095C,  # ड़
     'l': 0x0932,  # ल
     'w': 0x0935,  # व
 
@@ -78,7 +72,7 @@ hskii_mapping = {
     'S': 0x0936,  # श
 
     # Glottal (dono positions par ह)
-    'H': 0x0939,  # ह at ASCII 72
+    'H': 0x0939,  # ह at ASCII 72  i used fontforge and dot xbxw.
     'v': 0x0939,  # ह at ASCII 118
 }
 
@@ -89,7 +83,7 @@ noto_font = fontforge.open(str(noto_font_path))
 # Open hindixv38.sfd
 print(f"Opening {sfd_path}...")
 if not sfd_path.exists():
-    print(f"File not found: {sfd_path}")
+    print(f"✗ File not found: {sfd_path}")
     noto_font.close()
     exit(1)
 
@@ -126,7 +120,7 @@ for hskii_char, dev_unicode in hskii_mapping.items():
     except Exception as e:
         print(f"✗ Error for {hskii_char}: {e}")
         error_count += 1
-        
+
 print(f"\nSuccess: {success_count}, Errors: {error_count}")
 
 if success_count > 0:
