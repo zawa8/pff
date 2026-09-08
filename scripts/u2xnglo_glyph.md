@@ -2,55 +2,89 @@
 
 ## Overview
 
-Ye file Devanagari Unicode code points ka xNglo hskii characters me mapping
-batati hai. Font `hindixv38.sfd` me in glyphs ko copy kiya jata hai.
+Devanagari Unicode code points ka xNglo hskii characters me mapping.
+Font `hindixv38.sfd` me in glyphs ko copy kiya jata hai.
 
-## Mapping Table
+## Vowels
 
-| Unicode | Codepoint | Devanagari | xNglo | Sound |
-|---------|-----------|------------|-------|-------|
-| 0x0915 | U+0915 | क | k | ka (velar unaspirated) |
-| 0x0916 | U+0916 | ख | K | kha (velar aspirated) |
-| 0x0917 | U+0917 | ग | g | ga (velar unaspirated) |
-| 0x0918 | U+0918 | घ | G | gha (velar aspirated) |
-| 0x091A | U+091A | च | c | cha (palatal unaspirated) |
-| 0x091B | U+091B | छ | C | chha (palatal aspirated) |
-| 0x091C | U+091C | ज | z | ja (palatal unaspirated) |
-| 0x091D | U+091D | झ | Z | jha (palatal aspirated) |
-| 0x091F | U+091F | ट | t | ta (retroflex unaspirated) |
-| 0x0920 | U+0920 | ठ | J | tha (retroflex aspirated) |
-| 0x0921 | U+0921 | ड | d | da (retroflex unaspirated) |
-| 0x0922 | U+0922 | ढ | Q | dha (retroflex aspirated) |
-| 0x0924 | U+0924 | त | T | ta (dental unaspirated) |
-| 0x0925 | U+0925 | थ | j | tha (dental aspirated) |
-| 0x0926 | U+0926 | द | D | da (dental unaspirated) |
-| 0x0927 | U+0927 | ध | q | dha (dental aspirated) |
-| 0x0928 | U+0928 | न | n | na (nasal) |
-| 0x092A | U+092A | प | p | pa (labial unaspirated) |
-| 0x092B | U+092B | फ | f | pha (labial aspirated) |
-| 0x092C | U+092C | ब | b | ba (labial unaspirated) |
-| 0x092D | U+092D | भ | B | bha (labial aspirated) |
-| 0x092E | U+092E | म | m | ma (nasal) |
-| 0x092F | U+092F | य | y | ya (semivowel) |
-| 0x0930 | U+0930 | र | r | ra (liquid) |
-| 0x0932 | U+0932 | ल | l | la (liquid) |
-| 0x0935 | U+0935 | व | w | va (semivowel) |
-| 0x0938 | U+0938 | स | s | sa (dental sibilant) |
-| 0x0936 | U+0936 | श | S | sha (palatal sibilant) |
-| 0x0939 | U+0939 | ह | H | ha (glottal) |
-| 0x0939 | U+0939 | ह | v | ha (glottal alt) |
+| Unicode | Devanagari | xNglo | Sound |
+|---------|------------|-------|-------|
+| 0x0905 | अ | x | schwa |
+| 0x0972 | ॲ | A | candra a |
 
-## Total Glyphs
+## Velar Consonants
 
-28 unique Devanagari consonants mapped to 30 xNglo positions
-(H aur v dono par ह).
+| Unicode | Devanagari | xNglo | Sound |
+|---------|------------|-------|-------|
+| 0x0915 | क | k | ka |
+| 0x0916 | ख | K | kha |
+| 0x0917 | ग | g | ga |
+| 0x0918 | घ | G | gha |
 
-## Source Font
+## Palatal Consonants
 
-- Noto Sans Devanagari: https://github.com/notofonts/devanagari
+| Unicode | Devanagari | xNglo | Sound |
+|---------|------------|-------|-------|
+| 0x091A | च | c | cha |
+| 0x091B | छ | C | chha |
+| 0x091C | ज | z | ja |
+| 0x091D | झ | Z | jha |
+
+## Retroflex Consonants
+
+| Unicode | Devanagari | xNglo | Sound |
+|---------|------------|-------|-------|
+| 0x091F | ट | t | ta |
+| 0x0920 | ठ | J | tha |
+| 0x0921 | ड | d | da |
+| 0x0922 | ढ | Q | dha |
+
+## Dental Consonants
+
+| Unicode | Devanagari | xNglo | Sound |
+|---------|------------|-------|-------|
+| 0x0924 | त | T | ta |
+| 0x0925 | थ | j | tha |
+| 0x0926 | द | D | da |
+| 0x0927 | ध | q | dha |
+| 0x0928 | न | n | na |
+
+## Labial Consonants
+
+| Unicode | Devanagari | xNglo | Sound |
+|---------|------------|-------|-------|
+| 0x092A | प | p | pa |
+| 0x092B | फ | f | pha |
+| 0x092C | ब | b | ba |
+| 0x092D | भ | B | bha |
+| 0x092E | म | m | ma |
+
+## Semivowels
+
+| Unicode | Devanagari | xNglo | Sound |
+|---------|------------|-------|-------|
+| 0x092F | य | y | ya |
+| 0x0930 | र | r | ra |
+| 0x0932 | ल | l | la |
+| 0x0935 | व | w | va |
+
+## Sibilants
+
+| Unicode | Devanagari | xNglo | Sound |
+|---------|------------|-------|-------|
+| 0x0938 | स | s | sa |
+| 0x0936 | श | S | sha |
+
+## Glottal
+
+| Unicode | Devanagari | xNglo | Sound |
+|---------|------------|-------|-------|
+| 0x0939 | ह | H | ha (primary) |
+| 0x0939 | ह | v | ha (alt) |
+
+## Total: 30 glyph mappings
+
+## Source
+
+- Noto Sans Devanagari
 - Target: hindixv38.sfd
-
-## Script
-
-- Python FontForge script me use hota hai
-- Path: scripts/copy_glyphs.py
