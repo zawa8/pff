@@ -105,8 +105,8 @@ for hskii_char, dev_unicode in hskii_mapping.items():
             error_count += 1
             continue
 
+        # Copy from Noto
         noto_font.selection.select(dev_unicode)
-        noto_font.editSelectAll()
         noto_font.copy()
 
         ascii_code = ord(hskii_char)
@@ -126,7 +126,7 @@ for hskii_char, dev_unicode in hskii_mapping.items():
     except Exception as e:
         print(f"✗ Error for {hskii_char}: {e}")
         error_count += 1
-
+        
 print(f"\nSuccess: {success_count}, Errors: {error_count}")
 
 if success_count > 0:
