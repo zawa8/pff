@@ -2,6 +2,7 @@
 """
 Script to copy Devanagari glyphs from Noto Sans Devanagari
 and paste them into hindixv38.sfd at hskii positions.
+Generates .ttf and .woff2 in font repo.
 """
 
 import fontforge
@@ -9,9 +10,23 @@ from pathlib import Path
 
 # Paths
 script_dir = Path(__file__).parent
-noto_fonts_dir = script_dir.parent / "notofonts"
+pff_root = script_dir.parent
+
+# Source
+noto_fonts_dir = pff_root / "notofonts"
 noto_font_path = noto_fonts_dir / "NotoSansDevanagari-Regular.ttf"
-sfd_path = script_dir.parent / "sfd/x38ifont/x38iasc/hindixv38.sfd"
+
+# SFD (edit)
+sfd_path = pff_root / "sfd/x38ifont/x38iasc/hindixv38.sfd"
+
+# Output (font repo)
+font_repo = Path("C:/Users/ravi_/OneDrive/Desktop/Vimal/wimxlprogs/gitt/font")
+ttf_output_dir = font_repo / "ttf/hscii/xi38font"
+woff2_output_dir = font_repo / "woff2/hscii/xi38font"
+
+# Create output dirs if not exist
+ttf_output_dir.mkdir(parents=True, exist_ok=True)
+woff2_output_dir.mkdir(parents=True, exist_ok=True)
 
 # Check if Noto font exists
 if not noto_font_path.exists():
@@ -51,7 +66,7 @@ hskii_mapping = {
 
     # Nasal
     'n': 0x0928,  # न
-    'N': 0x0928,  # न i used fontforge and dot xbxw.
+    'N': 0x0928,  # न
 
     # Labial consonants
     'p': 0x092A,  # प
@@ -71,9 +86,9 @@ hskii_mapping = {
     's': 0x0938,  # स
     'S': 0x0936,  # श
 
-    # Glottal (dono positions par ह)
-    'H': 0x0939,  # ह at ASCII 72  i used fontforge and dot xbxw.
-    'v': 0x0939,  # ह at ASCII 118
+    # Glottal
+    'H': 0x0939,  # ह
+    'v': 0x0939,  # ह
 }
 
 # Open Noto font
@@ -124,12 +139,19 @@ for hskii_char, dev_unicode in hskii_mapping.items():
 print(f"\nSuccess: {success_count}, Errors: {error_count}")
 
 if success_count > 0:
+    # Save SFD
     hindixv38.save(str(sfd_path))
     print(f"✓ Saved SFD: {sfd_path}")
 
-    ttf_path = sfd_path.parent / "hindixv38.ttf"
+    # Generate TTF in font repo
+    ttf_path = ttf_output_dir / "hindixv38.ttf"
     hindixv38.generate(str(ttf_path))
     print(f"✓ Generated TTF: {ttf_path}")
+
+    # Generate WOFF2 in font repo
+    woff2_path = woff2_output_dir / "hindixv38.woff2"
+    hindixv38.generate(str(woff2_path))
+    print(f"✓ Generated WOFF2: {woff2_path}")
 
 noto_font.close()
 hindixv38.close()
