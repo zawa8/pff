@@ -50,37 +50,37 @@ Python).
 11. **`generate_xi52_ttf.py`** — generates `.ttf`/`.woff2` from xi52utf.
 12. **`generate_mono_ttf.py`** — generates `.ttf`/`.woff2` from xi52mono.
 
-## Redundant files (verified byte-identical leftovers from xi38py)
+## Removed: redundant files (were byte-identical leftovers from xi38py)
 
-These were checked with `diff` against their `scripts/xi38py`
-counterparts and are **byte-for-byte identical** — they still operate
-on xi38 paths/fonts despite living in the xi52py folder, and each has
-a properly-adapted xi52 replacement already in this directory. Good
-candidates for deletion, but confirm with the repo owner first:
+The following were checked with `diff` against their `scripts/xi38py`
+counterparts, found **byte-for-byte identical** — still operating on
+xi38 paths/fonts despite having lived in the xi52py folder, each with a
+properly-adapted xi52 replacement already in this directory — and have
+been deleted. See git history if any are needed for reference.
 
-- **`generate_utf_ttf.py`** — docstring literally says *"Generate TTF
-  and WOFF2 from xi38utf SFD files"*; reads from
-  `sfd/xi38font/xi38utf` and writes to `.../ttf/hscii/xi38utf`.
-  Superseded by `generate_xi52_ttf.py` (step 11 above).
+- **`generate_utf_ttf.py`** — docstring literally said *"Generate TTF
+  and WOFF2 from xi38utf SFD files"*; read from `sfd/xi38font/xi38utf`
+  and wrote to `.../ttf/hscii/xi38utf`. Superseded by
+  `generate_xi52_ttf.py` (step 11 above).
 - **`glyph_kopi_u2hindi.py`**, **`glyph_kopi_u2utf.py`**,
   **`glyph_kopi_u9scripts.py`**, **`glyph_kopi_usinhala.py`** — all
-  identical to their `scripts/xi38py` originals, all still read/write
+  identical to their `scripts/xi38py` originals, all still read/wrote
   xi38 paths. xi52 never sources glyphs from Noto directly — it derives
   everything from the already-built xi38 fonts via the `copy_xi38_*`
-  scripts (steps 1 & 3 above) — so these four have no real job here.
+  scripts (steps 1 & 3 above) — so these four had no real job here.
 - **`rename_utf_fonts.py`** — identical to `scripts/xi38py/rename_utf_fonts.py`,
-  renames xi38 (not xi52) font internals. Superseded by
+  renamed xi38 (not xi52) font internals. Superseded by
   `rename_utf_fonts_52.py` (step 6 above).
 
-One more near-duplicate, *not* byte-identical but functionally the same:
+One more near-duplicate, *not* byte-identical but functionally the
+same, also removed:
 
 - **`add_unicode_ranges_utf52.py`** vs. **`add_unicode_ranges_utf_52.py`**
-  (note the underscore placement is the only filename difference) — same
-  `copyReference()` logic against the same xi52utf SFDs. The no-underscore
-  version is more verbose (extra comments, an inline "← REFERENCE COPY!"
-  note) and logs to a differently-named file; the underscored version
-  looks like the cleaned-up, current one. Treat `add_unicode_ranges_utf52.py`
-  as an earlier draft rather than a separately-needed script.
+  (note the underscore placement was the only filename difference) —
+  same `copyReference()` logic against the same xi52utf SFDs. The
+  no-underscore version was more verbose (extra comments, an inline
+  "← REFERENCE COPY!" note) and logged to a differently-named file; the
+  underscored version is the cleaned-up, current one that remains.
 
 `test.html` is byte-identical to `scripts/xi38py/test.html` (a
 `@font-face` smoke-test page) — consider making this one shared file

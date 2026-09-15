@@ -63,15 +63,15 @@ copy of this file also lives in `scripts/xi52py/test.html`** — worth
 deciding whether that should be one shared file instead of two copies
 that can silently drift apart.
 
-## Known issue: stale/redundant script
+## Removed: stale/redundant script
 
-**`glyph_kopi_u2hindi.py`** looks like an older, Hindi-only draft of
-step 2's job (copies just Devanagari glyphs into `hindixv38.sfd`,
-using the same stale `sfd/x38ifont/x38iasc` path as
-`glyph_kopi_u9scripts.py`). Since `glyph_kopi_u9scripts.py` already
-covers Hindi as one of its 9 configured scripts, this script's separate
-existence looks like dead code left over from before the 9-script
-version was written — confirm with the repo owner before deleting.
+**`glyph_kopi_u2hindi.py`** (removed) was an older, Hindi-only draft of
+step 2's job (copied just Devanagari glyphs into `hindixv38.sfd`, using
+the same stale `sfd/x38ifont/x38iasc` path as `glyph_kopi_u9scripts.py`).
+`glyph_kopi_u9scripts.py` already covers Hindi as one of its 9
+configured scripts, so this was dead code left over from before the
+9-script version was written. Deleted; see git history if it's ever
+needed for reference.
 
 ## Other notes
 
