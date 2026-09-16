@@ -65,8 +65,8 @@ logging.getLogger('').addHandler(console)
 
 # Sources
 noto_font_path = pff_root / "notofonts" / "NotoSansSinhala-Regular.ttf"
-english_sfd = pff_root / "sfd/x38ifont/x38iasc/eNgliSxe38.sfd"
-sfd_path = pff_root / "sfd/x38ifont/x38iasc/sinhlaxs38.sfd"
+english_sfd = pff_root / "sfd/xi38font/xi38asc/eNgliSxe38.sfd"
+sfd_path = pff_root / "sfd/xi38font/xi38asc/sinhlaxs38.sfd"
 
 # Output
 font_repo = Path("C:/Users/ravi_/OneDrive/Desktop/Vimal/wimxlprogs/gitt/font")

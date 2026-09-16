@@ -32,9 +32,9 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Source (asc)
-asc_dir = pff_root / "sfd/x38ifont/x38iasc"
+asc_dir = pff_root / "sfd/xi38font/xi38asc"
 # Target (utf)
-utf_dir = pff_root / "sfd/x38ifont/x38iutf"
+utf_dir = pff_root / "sfd/xi38font/xi38utf"
 utf_dir.mkdir(parents=True, exist_ok=True)
 
 # Output (font repo)
