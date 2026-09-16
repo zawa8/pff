@@ -34,7 +34,7 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Source: English font
-english_sfd = pff_root / "sfd/x38ifont/x38iasc/eNgliSxe38.sfd"
+english_sfd = pff_root / "sfd/xi38font/xi38asc/eNgliSxe38.sfd"
 
 # Source: Noto Devanagari (for ड़)
 noto_devanagari = pff_root / "notofonts/NotoSansDevanagari-Regular.ttf"
@@ -101,12 +101,12 @@ SCRIPTS = {
 CONSONANT_MAP = {
     ### below are hewing issues for 52 series and p1only branch
     ### so comment in case of 52 series and p1only branch
-    0x1A: 'c',
-    0x1B: 'C',
-    0x17: 'g', 0x18: 'G',
-    0x20: 'J', 0x25: 'j',
-    0x27: 'q', 0x22: 'Q',
-    0x39: 'v', 0x5: 'x',
+    # 0x1A: 'c',
+    # 0x1B: 'C',
+    # 0x17: 'g', 0x18: 'G',
+    # 0x20: 'J', 0x25: 'j',
+    # 0x27: 'q', 0x22: 'Q',
+    # 0x39: 'v', 0x5: 'x',
     
     ### below no issues for 52/p1only
     0x39: 'H', 0x5: 'A',
@@ -156,7 +156,7 @@ def process_script(script_name):
     config = SCRIPTS[script_name]
 
     noto_font_path = pff_root / "notofonts" / config['noto']
-    sfd_path = pff_root / "sfd/x38ifont/x38iasc" / config['sfd']
+    sfd_path = pff_root / "sfd/xi38font/xi38asc" / config['sfd']
 
     # font_repo = Path("C:/Users/ravi_/OneDrive/Desktop/Vimal/wimxlprogs/gitt/font")
     # ttf_dir = font_repo / "ttf/hscii/xi38font"
