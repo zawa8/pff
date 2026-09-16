@@ -16,7 +16,7 @@ from datetime import datetime
 
 # Paths
 script_dir = Path(__file__).parent
-pff_root = script_dir.parent
+pff_root = script_dir.parent.parent.parent  # glyph_copy/ is 2 levels deeper than xi52py/'s other scripts
 
 # Log
 log_dir = pff_root / "logs"
