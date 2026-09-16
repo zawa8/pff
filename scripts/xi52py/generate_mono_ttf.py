@@ -31,9 +31,8 @@ logging.getLogger('').addHandler(console)
 mono_dir = pff_root / "sfd/xi52font/xi52mono"
 
 # Output
-font_repo = Path("C:/Users/ravi_/OneDrive/Desktop/Vimal/wimxlprogs/gitt/font")
-ttf_dir = font_repo / "ttf/hscii/xi52mono"
-woff2_dir = font_repo / "woff2/hscii/xi52mono"
+ttf_dir = pff_root / "xnglofonts/ttf/xi52fonts/xi52mono"
+woff2_dir = pff_root / "xnglofonts/woff2/xi52fonts/xi52mono"
 ttf_dir.mkdir(parents=True, exist_ok=True)
 woff2_dir.mkdir(parents=True, exist_ok=True)
 

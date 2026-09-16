@@ -1,0 +1,54 @@
+name: Build xi52 fonts (p1onli)
+
+on:
+  push:
+    branches: [p1onli]
+    paths:
+      - "scripts/xi52py/**"
+      - "sfd/xi38font/**"
+      - "notofonts/**"
+      - ".github/workflows/build-xi52-p1onli.yml"
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install FontForge
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fontforge
+
+      - name: Run xi52 pipeline (main.py)
+        run: fontforge -script scripts/xi52py/main.py
+
+      - name: Upload generated SFDs (xi38 + xi52)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xi52-p1onli-sfd
+          path: |
+            sfd/xi38font/
+            sfd/xi52font/
+          if-no-files-found: warn
+
+      - name: Upload generated TTF/WOFF2
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xi52-p1onli-fonts
+          path: xnglofonts/
+          if-no-files-found: warn
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xi52-p1onli-logs
+          path: |
+            logs/
+            scripts/logs/
+          if-no-files-found: ignore

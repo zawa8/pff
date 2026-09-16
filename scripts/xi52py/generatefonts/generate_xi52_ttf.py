@@ -10,7 +10,7 @@ from datetime import datetime
 
 # Paths
 script_dir = Path(__file__).parent
-pff_root = script_dir.parent.parent
+pff_root = script_dir.parent.parent.parent  # generatefonts/ is one level deeper than its siblings
 
 # Log
 log_dir = pff_root / "logs"
@@ -31,9 +31,8 @@ logging.getLogger('').addHandler(console)
 utf_dir = pff_root / "sfd/xi52font/xi52utf"
 
 # Output
-font_repo = Path("C:/Users/ravi_/OneDrive/Desktop/Vimal/wimxlprogs/gitt/font")
-ttf_dir = font_repo / "ttf/hscii/xi52utf"
-woff2_dir = font_repo / "woff2/hscii/xi52utf"
+ttf_dir = pff_root / "xnglofonts/ttf/xi52fonts/xi52utf"
+woff2_dir = pff_root / "xnglofonts/woff2/xi52fonts/xi52utf"
 ttf_dir.mkdir(parents=True, exist_ok=True)
 woff2_dir.mkdir(parents=True, exist_ok=True)
 

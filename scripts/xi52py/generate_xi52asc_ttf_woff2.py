@@ -30,11 +30,11 @@ logging.getLogger('').addHandler(console)
 sfd_dir = pff_root / "sfd/xi52font/xi52asc"
 
 # Output: xi52asc TTF
-ttf_dir = pff_root.parent / "font/ttf/hscii/xi52asc"
+ttf_dir = pff_root / "xnglofonts/ttf/xi52fonts/xi52asc"
 ttf_dir.mkdir(parents=True, exist_ok=True)
 
 # Output: xi52asc WOFF2
-woff2_dir = pff_root.parent / "font/woff2/hscii/xi52asc"
+woff2_dir = pff_root / "xnglofonts/woff2/xi52fonts/xi52asc"
 woff2_dir.mkdir(parents=True, exist_ok=True)
 
 FONTS = [
