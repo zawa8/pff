@@ -73,6 +73,7 @@ PIPELINE = [
     ("rebuild xi38asc consonants, 9 scripts (p1onli set)", run_u9scripts_p1onli),
     ("rebuild xi38asc Sinhala (p1onli set)", run_main("glyph_copy/glyph_kopi_usinhala_p1onli.py")),
     ("rebuild xi38utf from xi38asc (p1onli set)", run_main("glyph_copy/glyph_kopi_u2utf_p1onli.py")),
+    ("generate ttf/woff2 from xi38utf (p1onli set)", run_main("generatefonts/generate_xi38utf_ttf_p1onli.py")),
     ("copy xi38asc -> xi52asc", run_main("copy_xi38_to_xi52.py")),
     ("copy English chars into xi52asc", run_main("copy_e52_chars_xi52.py")),
     ("copy xi38utf -> xi52utf", run_main("copy_xi38utf_to_xi52utf.py")),
