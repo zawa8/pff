@@ -34,7 +34,9 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Source: English font
-english_sfd = pff_root / "sfd/xi38font/xi38asc/eNgliSxe38.sfd"
+english38_sfd = pff_root / "sfd/xi38font/xi38asc/eNgliSxe38.sfd"
+# "C:\progxs\pff\sfd\xi52font\xi52asc\eNgliSxe52.sfd"
+english52_sfd = pff_root / "sfd/xi52font/xi52asc/eNgliSxe52.sfd"
 
 # Source: Noto Devanagari (for ड़)
 noto_devanagari = pff_root / "notofonts/NotoSansDevanagari-Regular.ttf"
@@ -98,7 +100,27 @@ SCRIPTS = {
 }
 
 # CONSONANTS: from Noto (script-specific) # 0915 क
-CONSONANT_MAP = {
+CONSONANT_MAP_38 = {
+    0x1A: 'c',
+    0x1B: 'C',
+    0x17: 'g', 0x18: 'G',
+    0x20: 'J', 0x25: 'j',
+    0x27: 'q', 0x22: 'Q',
+    0x39: 'v', 0x5: 'x',
+    
+    ### below no issues for 52/p1only
+    0x39: 'H', 0x5: 'A',
+    0x15: 'k', 0x16: 'K',
+    0x1C: 'z', 0x1D: 'Z',
+    0x1F: 't',  0x21: 'd',  
+    0x24: 'T',  0x26: 'D', 
+    0x2A: 'p', 0x2B: 'f', 0x2C: 'b', 0x2D: 'B', 0x2E: 'm',
+    0x2F: 'y', 0x30: 'r', 0x32: 'l', 0x35: 'w', 0x36: 'S', 0x37: 's', 0x38: 's', 
+    0x1E: 'n',
+    0x23: 'n',
+    0x28: 'n',  
+}
+CONSONANT_MAP_52 = {
     ### below are hewing issues for 52 series and p1only branch
     ### so comment in case of 52 series and p1only branch
     # 0x1A: 'c',
@@ -118,12 +140,10 @@ CONSONANT_MAP = {
     0x2F: 'y', 0x30: 'r', 0x32: 'l', 0x35: 'w', 0x36: 'S', 0x37: 's', 0x38: 's', 
     0x1E: 'n',
     0x23: 'n',
-    0x28: 'n',
-    
+    0x28: 'n',  
 }
-
-# ENGLISH CHARS: from eNgliSxe38.sfd
-ENGLISH_KEEP = [
+# ENGLISH CHARS: from eNgliSxe52.sfd in 
+ENGLISH_KEEP_IN_52 = [
     ord('c'),
     ord('C'),
     ord('g'), ord('G'),
@@ -137,7 +157,20 @@ ENGLISH_KEEP = [
     ord('E'), ord('I'), ord('O'), ord('U'),ord('M'), ord('X'),
     ord('a'), ord('i'), ord('u'), ord('e'), ord('o'), ord('h'),
 ]
-
+ENGLISH_KEEP_IN_38 = [
+    # ord('c'),
+    # ord('C'),
+    # ord('g'), ord('G'),
+    # ord('j'), ord('J'),
+    # ord('q'), ord('Q'),
+    # ord('v'), ord('A'), ord('x'),
+    
+    ### 0123456789LYVWPF 10=F+1=wnti=8+8=4*4=ten + 6=L+6
+    ord('L'),ord('Y'),ord('V'),ord('W'),ord('P'),ord('F'),
+    
+    ord('E'), ord('I'), ord('O'), ord('U'),ord('M'), ord('X'),
+    ord('a'), ord('i'), ord('u'), ord('e'), ord('o'), ord('h'),
+]
 # अ (schwa): from Noto (respective Indian language)
 # x = अ (0x0905 for Hindi, 0x0985 for Bengali, etc.)
 SCHWA_OFFSET = 0x05  # अ is at offset 0x05 in all 9 scripts
@@ -185,7 +218,7 @@ def process_script(script_name):
         return False
 
     try:
-        eng_font = fontforge.open(str(english_sfd))
+        eng38_font = fontforge.open(str(english38_sfd))
     except Exception as e:
         logging.error(f"Error opening English: {e}")
         return False
@@ -200,7 +233,7 @@ def process_script(script_name):
     base = config['base_unicode']
 
     # STEP 1: Copy consonants from Noto
-    for offset, hskii_char in CONSONANT_MAP.items():
+    for offset, hskii_char in CONSONANT_MAP_52.items():
         src_unicode = base + offset
         if src_unicode not in noto_font:
             continue
@@ -218,12 +251,12 @@ def process_script(script_name):
             logging.warning(f"  Error consonant 0x{offset:02X}: {e}")
 
     # STEP 2: Copy English chars from eNgliSxe38.sfd
-    for ascii_code in ENGLISH_KEEP:
-        if ascii_code not in eng_font or ascii_code not in target_font:
+    for ascii_code in ENGLISH_KEEP_IN_52:
+        if ascii_code not in eng38_font or ascii_code not in target_font:
             continue
         try:
-            eng_font.selection.select(ascii_code)
-            eng_font.copy()
+            eng38_font.selection.select(ascii_code)
+            eng38_font.copy()
             target_font.selection.select(ascii_code)
             glyph = target_font[ascii_code]
             glyph.clear()
