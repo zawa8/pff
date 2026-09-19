@@ -1,4 +1,4 @@
-e52,xe38_src,xv52_src,xv38_src
+e52,xe38_src,xh52_src,xh38_src
 # G1 (20) - Indic scripts from Noto
 k,xe52,noto,noto
 K,xe52,noto,noto
@@ -20,7 +20,7 @@ l,xe52,noto,noto
 w,xe52,noto,noto
 s,xe52,noto,noto
 S,xe52,noto,noto
-# G2 (10) - xv52 from xe52, xv38 from noto
+# G2 (10) - xh52 from xe52, xh38 from noto
 x,xe52,xe52,noto
 j,xe52,xe52,noto
 J,xe52,xe52,noto

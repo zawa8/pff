@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Script to copy Sinhala glyphs from Noto to sinhlaxs38.sfd.
-Also copies 0x00-0x40, a,e,i,u,o,N, and E,I,M,L,O,P,U,V,W,X,Y from eNgliSxe38.sfd.
+Script to copy Sinhala glyphs from Noto to sinhlaxs38asc.sfd.
+Also copies 0x00-0x40, a,e,i,u,o,N, and E,I,M,L,O,P,U,V,W,X,Y from eNgliSxe38asc.sfd.
 
 Mapping (ASCII | Sinhala | Hindi):
     B | භ 0DB7 | भ 092D
@@ -65,8 +65,8 @@ logging.getLogger('').addHandler(console)
 
 # Sources
 noto_font_path = pff_root / "notofonts" / "NotoSansSinhala-Regular.ttf"
-english_sfd = pff_root / "sfd/x38ifont/x38iasc/eNgliSxe38.sfd"
-sfd_path = pff_root / "sfd/x38ifont/x38iasc/sinhlaxs38.sfd"
+english_sfd = pff_root / "sfd/x38ifont/x38iasc/eNgliSxe38asc.sfd"
+sfd_path = pff_root / "sfd/x38ifont/x38iasc/sinhlaxs38asc.sfd"
 
 # Output
 font_repo = Path("C:/Users/ravi_/OneDrive/Desktop/Vimal/wimxlprogs/gitt/font")
@@ -115,7 +115,7 @@ SINHALA_OFFSET_MAP = {
 
 SINHALA_BASE = 0x0D80
 
-# Extra English chars from eNgliSxe38.sfd
+# Extra English chars from eNgliSxe38asc.sfd
 EXTRA_ENGLISH = [
     ord('N'),  # N | (English)
     ord('a'),  # a | (English)

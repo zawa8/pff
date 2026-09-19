@@ -3,7 +3,7 @@
 Script to copy glyphs from Noto font to xi38asc SFD for 9 Indian scripts.
 
 Consonants: from Noto (script-specific)
-English chars (E,F,L,M,N,O,P,U,V,W,X,Y,a,i,u,e,o): from eNgliSxe38.sfd
+English chars (E,F,L,M,N,O,P,U,V,W,X,Y,a,i,u,e,o): from eNgliSxe38asc.sfd
 x and A: अ from Noto (respective Indian language)
 R (ड़): from Noto Devanagari (Hindi only)
 """
@@ -34,7 +34,7 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Source: English font
-english_sfd = pff_root / "sfd/x38ifont/x38iasc/eNgliSxe38.sfd"
+english_sfd = pff_root / "sfd/x38ifont/x38iasc/eNgliSxe38asc.sfd"
 
 # Source: Noto Devanagari (for ड़)
 noto_devanagari = pff_root / "notofonts/NotoSansDevanagari-Regular.ttf"
@@ -43,55 +43,55 @@ noto_devanagari = pff_root / "notofonts/NotoSansDevanagari-Regular.ttf"
 SCRIPTS = {
     'hindi': {
         'noto': 'NotoSansDevanagari-Regular.ttf',
-        'sfd': 'hindixv38.sfd',
-        'output': 'hindixv38',
+        'sfd': 'hindixh38asc.sfd',
+        'output': 'hindixh38',
         'base_unicode': 0x0900,
     },
     'bengali': {
         'noto': 'NotoSansBengali-Regular.ttf',
-        'sfd': 'bengalixb38.sfd',
+        'sfd': 'bengalixb38asc.sfd',
         'output': 'bengalixb38',
         'base_unicode': 0x0980,
     },
     'punjabi': {
         'noto': 'NotoSansGurmukhi-Regular.ttf',
-        'sfd': 'pnzabixp38.sfd',
+        'sfd': 'pnzabixp38asc.sfd',
         'output': 'pnzabixp38',
         'base_unicode': 0x0A00,
     },
     'gujarati': {
         'noto': 'NotoSansGujarati-Regular.ttf',
-        'sfd': 'guzrajixg38.sfd',
+        'sfd': 'guzrajixg38asc.sfd',
         'output': 'guzrajixg38',
         'base_unicode': 0x0A80,
     },
     'oriya': {
         'noto': 'NotoSansOriya-Regular.ttf',
-        'sfd': 'oriyaxo38.sfd',
+        'sfd': 'oriyaxo38asc.sfd',
         'output': 'oriyaxo38',
         'base_unicode': 0x0B00,
     },
     'tamil': {
         'noto': 'NotoSansTamil-Regular.ttf',
-        'sfd': 'tmilxt38.sfd',
+        'sfd': 'tmilxt38asc.sfd',
         'output': 'tmilxt38',
         'base_unicode': 0x0B80,
     },
     'telugu': {
         'noto': 'NotoSansTelugu-Regular.ttf',
-        'sfd': 'jeluguxj38.sfd',
+        'sfd': 'jeluguxj38asc.sfd',
         'output': 'jeluguxj38',
         'base_unicode': 0x0C00,
     },
     'kannada': {
         'noto': 'NotoSansKannada-Regular.ttf',
-        'sfd': 'knRaxk38.sfd',
+        'sfd': 'knRaxk38asc.sfd',
         'output': 'knRaxk38',
         'base_unicode': 0x0C80,
     },
     'malayalam': {
         'noto': 'NotoSansMalayalam-Regular.ttf',
-        'sfd': 'mlyalxmxm38.sfd',
+        'sfd': 'mlyalxmxm38asc.sfd',
         'output': 'mlyalxmxm38',
         'base_unicode': 0x0D00,
     },
@@ -109,7 +109,7 @@ CONSONANT_MAP = {
     0x35: 'w', 0x36: 'S', 0x37: 's', 0x38: 's', 0x39: 'H',
 }
 
-# ENGLISH CHARS: from eNgliSxe38.sfd
+# ENGLISH CHARS: from eNgliSxe38asc.sfd
 ENGLISH_KEEP = [
     ord('E'),  # 69
     ord('F'),  # 70
@@ -204,7 +204,7 @@ def process_script(script_name):
         except Exception as e:
             logging.warning(f"  Error consonant 0x{offset:02X}: {e}")
 
-    # STEP 2: Copy English chars from eNgliSxe38.sfd
+    # STEP 2: Copy English chars from eNgliSxe38asc.sfd
     for ascii_code in ENGLISH_KEEP:
         if ascii_code not in eng_font or ascii_code not in target_font:
             continue

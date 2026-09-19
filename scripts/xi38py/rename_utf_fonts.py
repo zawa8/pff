@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Script to update font names in xi38utf SFD files using FontForge API.
-Changes ALL occurrences: hindixv38 → hindixv38utf
+Changes ALL occurrences: hindixh38 → hindixh38utf
 """
 
 import fontforge
@@ -30,11 +30,11 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # UTF folder
-utf_dir = pff_root / "sfd/xi38font/xi38utf"
+utf_dir = pff_root / "sfd/xi38sfd/xi38utf"
 
 # Font name mappings (old → new)
 FONT_RENAMES = {
-    'hindixv38utf.sfd':    ('hindixv38',    'hindixv38utf'),
+    'hindixh38utf.sfd':    ('hindixh38',    'hindixh38utf'),
     'bengalixb38utf.sfd':  ('bengalixb38',  'bengalixb38utf'),
     'pnzabixp38utf.sfd':   ('pnzabixp38',   'pnzabixp38utf'),
     'guzrajixg38utf.sfd':  ('guzrajixg38',  'guzrajixg38utf'),

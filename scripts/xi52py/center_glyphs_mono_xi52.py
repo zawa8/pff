@@ -28,10 +28,10 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Mono folder
-mono_dir = pff_root / "sfd/xi52font/xi52mono"
+mono_dir = pff_root / "sfd/xi52sfd/xi52mono"
 
 FONTS = [
-    'hindixv52mono.sfd',
+    'hindixh52mono.sfd',
     'bengalixb52mono.sfd',
     'pnzabixp52mono.sfd',
     'guzrajixg52mono.sfd',

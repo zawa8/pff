@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Script to copy Devanagari glyphs from Noto Sans Devanagari
-and paste them into hindixv38.sfd at hskii positions.
+and paste them into hindixh38asc.sfd at hskii positions.
 Generates .ttf and .woff2 in font repo.
 """
 
@@ -17,7 +17,7 @@ noto_fonts_dir = pff_root / "notofonts"
 noto_font_path = noto_fonts_dir / "NotoSansDevanagari-Regular.ttf"
 
 # SFD (edit)
-sfd_path = pff_root / "sfd/x38ifont/x38iasc/hindixv38.sfd"
+sfd_path = pff_root / "sfd/x38ifont/x38iasc/hindixh38asc.sfd"
 
 # Output (font repo)
 font_repo = Path("C:/Users/ravi_/OneDrive/Desktop/Vimal/wimxlprogs/gitt/font")
@@ -95,14 +95,14 @@ hskii_mapping = {
 print("Opening Noto Sans Devanagari...")
 noto_font = fontforge.open(str(noto_font_path))
 
-# Open hindixv38.sfd
+# Open hindixh38asc.sfd
 print(f"Opening {sfd_path}...")
 if not sfd_path.exists():
     print(f"✗ File not found: {sfd_path}")
     noto_font.close()
     exit(1)
 
-hindixv38 = fontforge.open(str(sfd_path))
+hindixh38 = fontforge.open(str(sfd_path))
 
 success_count = 0
 error_count = 0
@@ -120,11 +120,11 @@ for hskii_char, dev_unicode in hskii_mapping.items():
 
         ascii_code = ord(hskii_char)
 
-        if ascii_code in hindixv38:
-            hindixv38.selection.select(ascii_code)
-            glyph = hindixv38[ascii_code]
+        if ascii_code in hindixh38:
+            hindixh38.selection.select(ascii_code)
+            glyph = hindixh38[ascii_code]
             glyph.clear()
-            hindixv38.paste()
+            hindixh38.paste()
 
             print(f"✓ {hskii_char} (ASCII {ascii_code}) ← U+{dev_unicode:04X}")
             success_count += 1
@@ -140,19 +140,19 @@ print(f"\nSuccess: {success_count}, Errors: {error_count}")
 
 if success_count > 0:
     # Save SFD
-    hindixv38.save(str(sfd_path))
+    hindixh38.save(str(sfd_path))
     print(f"✓ Saved SFD: {sfd_path}")
 
     # Generate TTF in font repo
-    ttf_path = ttf_output_dir / "hindixv38.ttf"
-    hindixv38.generate(str(ttf_path))
+    ttf_path = ttf_output_dir / "hindixh38asc.ttf"
+    hindixh38.generate(str(ttf_path))
     print(f"✓ Generated TTF: {ttf_path}")
 
     # Generate WOFF2 in font repo
-    woff2_path = woff2_output_dir / "hindixv38.woff2"
-    hindixv38.generate(str(woff2_path))
+    woff2_path = woff2_output_dir / "hindixh38asc.woff2"
+    hindixh38.generate(str(woff2_path))
     print(f"✓ Generated WOFF2: {woff2_path}")
 
 noto_font.close()
-hindixv38.close()
+hindixh38.close()
 print("\nDone!")

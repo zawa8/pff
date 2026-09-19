@@ -28,7 +28,7 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # UTF folder
-utf_dir = pff_root / "sfd/xi38font/xi38utf"
+utf_dir = pff_root / "sfd/xi38sfd/xi38utf"
 
 # Output
 font_repo = Path("C:/Users/ravi_/OneDrive/Desktop/Vimal/wimxlprogs/gitt/font")
@@ -38,7 +38,7 @@ ttf_dir.mkdir(parents=True, exist_ok=True)
 woff2_dir.mkdir(parents=True, exist_ok=True)
 
 FONTS = [
-    'hindixv38utf.sfd',
+    'hindixh38utf.sfd',
     'bengalixb38utf.sfd',
     'pnzabixp38utf.sfd',
     'guzrajixg38utf.sfd',
@@ -63,7 +63,7 @@ def generate_fonts(sfd_path):
     try:
         font = fontforge.open(str(sfd_path))
 
-        base_name = sfd_path.stem  # e.g. hindixv38utf
+        base_name = sfd_path.stem  # e.g. hindixh38utf
 
         # Generate TTF
         ttf_path = ttf_dir / f"{base_name}.ttf"

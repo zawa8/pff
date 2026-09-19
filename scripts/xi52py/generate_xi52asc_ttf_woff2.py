@@ -27,28 +27,28 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Source: xi52asc SFD
-sfd_dir = pff_root / "sfd/xi52font/xi52asc"
+sfd_dir = pff_root / "sfd/xi52sfd/xi52asc"
 
 # Output: xi52asc TTF
-ttf_dir = pff_root / "xnglofonts/ttf/xi52fonts/xi52asc"
+ttf_dir = pff_root / "xnglofonts/ttf/xi52ttf/xi52asc"
 ttf_dir.mkdir(parents=True, exist_ok=True)
 
 # Output: xi52asc WOFF2
-woff2_dir = pff_root / "xnglofonts/woff2/xi52fonts/xi52asc"
+woff2_dir = pff_root / "xnglofonts/woff2/xi52woff2/xi52asc"
 woff2_dir.mkdir(parents=True, exist_ok=True)
 
 FONTS = [
-    'hindixv52.sfd',
-    'bengalixb52.sfd',
-    'pnzabixp52.sfd',
-    'guzrajixg52.sfd',
-    'oriyaxo52.sfd',
-    'tmilxt52.sfd',
-    'jeluguxj52.sfd',
-    'knRaxk52.sfd',
-    'mlyalxmxm52.sfd',
-    'sinhlaxs52.sfd',
-    'eNgliSxe52.sfd',
+    'hindixh52asc.sfd',
+    'bengalixb52asc.sfd',
+    'pnzabixp52asc.sfd',
+    'guzrajixg52asc.sfd',
+    'oriyaxo52asc.sfd',
+    'tmilxt52asc.sfd',
+    'jeluguxj52asc.sfd',
+    'knRaxk52asc.sfd',
+    'mlyalxmxm52asc.sfd',
+    'sinhlaxs52asc.sfd',
+    'eNgliSxe52asc.sfd',
 ]
 
 

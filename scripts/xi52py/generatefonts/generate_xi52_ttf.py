@@ -28,16 +28,16 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # UTF folder
-utf_dir = pff_root / "sfd/xi52font/xi52utf"
+utf_dir = pff_root / "sfd/xi52sfd/xi52utf"
 
 # Output
-ttf_dir = pff_root / "xnglofonts/ttf/xi52fonts/xi52utf"
-woff2_dir = pff_root / "xnglofonts/woff2/xi52fonts/xi52utf"
+ttf_dir = pff_root / "xnglofonts/ttf/xi52ttf/xi52utf"
+woff2_dir = pff_root / "xnglofonts/woff2/xi52woff2/xi52utf"
 ttf_dir.mkdir(parents=True, exist_ok=True)
 woff2_dir.mkdir(parents=True, exist_ok=True)
 
 FONTS = [
-    'hindixv52utf.sfd',
+    'hindixh52utf.sfd',
     'bengalixb52utf.sfd',
     'pnzabixp52utf.sfd',
     'guzrajixg52utf.sfd',

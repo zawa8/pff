@@ -28,16 +28,16 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Mono folder
-mono_dir = pff_root / "sfd/xi52font/xi52mono"
+mono_dir = pff_root / "sfd/xi52sfd/xi52mono"
 
 # Output
-ttf_dir = pff_root / "xnglofonts/ttf/xi52fonts/xi52mono"
-woff2_dir = pff_root / "xnglofonts/woff2/xi52fonts/xi52mono"
+ttf_dir = pff_root / "xnglofonts/ttf/xi52ttf/xi52mono"
+woff2_dir = pff_root / "xnglofonts/woff2/xi52woff2/xi52mono"
 ttf_dir.mkdir(parents=True, exist_ok=True)
 woff2_dir.mkdir(parents=True, exist_ok=True)
 
 FONTS = [
-    'hindixv52mono.sfd',
+    'hindixh52mono.sfd',
     'bengalixb52mono.sfd',
     'pnzabixp52mono.sfd',
     'guzrajixg52mono.sfd',

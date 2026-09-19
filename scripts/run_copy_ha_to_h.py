@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Execute the single glyph copy operation: ह → H
-Copy Devanagari Letter Ha from Noto Sans Devanagari to 'H' position in hindixv38
+Copy Devanagari Letter Ha from Noto Sans Devanagari to 'H' position in hindixh38
 """
 
 import sys
@@ -43,7 +43,7 @@ def main():
     print("="*70 + "\n")
     
     # Paths
-    sfd_path = scripts_dir.parent / "sfd/x38ifont/x38iasc/hindixv38.sfd"
+    sfd_path = scripts_dir.parent / "sfd/x38ifont/x38iasc/hindixh38asc.sfd"
     
     # Check SFD exists
     if not sfd_path.exists():
@@ -79,34 +79,34 @@ def main():
         print(f"✗ Error: {e}")
         sys.exit(1)
     
-    # Step 2: Open hindixv38 and paste to H
-    print("Step 2: Pasting into hindixv38 at 'H' position...")
+    # Step 2: Open hindixh38 and paste to H
+    print("Step 2: Pasting into hindixh38 at 'H' position...")
     print("-" * 70)
     try:
-        hindixv38 = fontforge.open(str(sfd_path))
+        hindixh38 = fontforge.open(str(sfd_path))
         
         h_unicode = 0x0048  # H
-        if h_unicode not in hindixv38:
+        if h_unicode not in hindixh38:
             print(f"✗ Glyph H (U+{h_unicode:04X}) not found")
-            hindixv38.close()
+            hindixh38.close()
             sys.exit(1)
         
-        glyph = hindixv38[h_unicode]
+        glyph = hindixh38[h_unicode]
         print(f"✓ Found glyph: {glyph.glyphname}")
         
         # Clear and paste
         glyph.clear()
         print(f"✓ Cleared glyph")
         
-        hindixv38.selection.select(h_unicode)
-        hindixv38.paste()
+        hindixh38.selection.select(h_unicode)
+        hindixh38.paste()
         print(f"✓ Pasted ह into H\n")
         
         # Save SFD
-        hindixv38.save(str(sfd_path))
+        hindixh38.save(str(sfd_path))
         print(f"✓ Saved: {sfd_path}\n")
         
-        hindixv38.close()
+        hindixh38.close()
     except Exception as e:
         print(f"✗ Error: {e}")
         sys.exit(1)
@@ -115,11 +115,11 @@ def main():
     print("Step 3: Generating TTF file...")
     print("-" * 70)
     try:
-        hindixv38 = fontforge.open(str(sfd_path))
+        hindixh38 = fontforge.open(str(sfd_path))
         ttf_path = sfd_path.with_suffix('.ttf')
-        hindixv38.generate(str(ttf_path))
+        hindixh38.generate(str(ttf_path))
         print(f"✓ Generated: {ttf_path}\n")
-        hindixv38.close()
+        hindixh38.close()
     except Exception as e:
         print(f"✗ Error generating TTF: {e}")
         sys.exit(1)

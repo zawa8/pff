@@ -29,14 +29,14 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Source
-src_sfd = pff_root / "sfd/xi52font/xi52utf/eNgliSxe52utf.sfd"
+src_sfd = pff_root / "sfd/xi52sfd/xi52utf/eNgliSxe52utf.sfd"
 
 # Target folder
-target_dir = pff_root / "sfd/xi52font/xi52utf"
+target_dir = pff_root / "sfd/xi52sfd/xi52utf"
 
 # Target fonts (10 languages)
 TARGET_FONTS = [
-    'hindixv52utf.sfd',
+    'hindixh52utf.sfd',
     'bengalixb52utf.sfd',
     'pnzabixp52utf.sfd',
     'guzrajixg52utf.sfd',

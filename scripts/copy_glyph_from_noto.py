@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Script to copy ॲ (Devanagari Letter Aw) glyph from Noto Sans Devanagari
-and paste it into hindixv38.sfd at code 'A' (Unicode 0x41)
+and paste it into hindixh38asc.sfd at code 'A' (Unicode 0x41)
 """
 
 import fontforge
@@ -54,24 +54,24 @@ print(f"✓ Copied ॲ glyph")
 
 noto_font.close()
 
-# Open hindixv38.sfd
-sfd_path = script_dir.parent / "sfd/x38ifont/x38iasc/hindixv38.sfd"
+# Open hindixh38asc.sfd
+sfd_path = script_dir.parent / "sfd/x38ifont/x38iasc/hindixh38asc.sfd"
 print(f"\nOpening {sfd_path}...")
 
 if not sfd_path.exists():
     print(f"✗ File not found: {sfd_path}")
     exit(1)
 
-hindixv38 = fontforge.open(str(sfd_path))
-print("✓ Opened hindixv38.sfd")
+hindixh38 = fontforge.open(str(sfd_path))
+print("✓ Opened hindixh38asc.sfd")
 
 # Unicode for 'A' (Latin Capital Letter A)
 a_unicode = 0x41
 
 # Select the 'A' glyph
-if a_unicode in hindixv38:
-    hindixv38.selection.select(a_unicode)
-    glyph = hindixv38[a_unicode]
+if a_unicode in hindixh38:
+    hindixh38.selection.select(a_unicode)
+    glyph = hindixh38[a_unicode]
     print(f"✓ Selected glyph 'A' (U+{a_unicode:04X})")
     
     # Clear the existing glyph
@@ -79,25 +79,25 @@ if a_unicode in hindixv38:
     print("✓ Cleared existing 'A' glyph")
     
     # Paste the ॲ glyph
-    hindixv38.paste()
+    hindixh38.paste()
     print("✓ Pasted ॲ glyph into 'A' position")
     
     # Save the modified SFD
-    hindixv38.save(str(sfd_path))
+    hindixh38.save(str(sfd_path))
     print(f"✓ Saved modified SFD: {sfd_path}")
     
     # Generate TTF
-    ttf_path = sfd_path.parent / "hindixv38.ttf"
-    hindixv38.generate(str(ttf_path))
+    ttf_path = sfd_path.parent / "hindixh38asc.ttf"
+    hindixh38.generate(str(ttf_path))
     print(f"✓ Generated TTF: {ttf_path}")
     
     print("\n✓ SUCCESS! Glyph ॲ has been copied to 'A' position")
     print(f"  - Modified SFD: {sfd_path}")
     print(f"  - Generated TTF: {ttf_path}")
 else:
-    print(f"✗ Glyph 'A' (U+{a_unicode:04X}) not found in hindixv38.sfd")
-    hindixv38.close()
+    print(f"✗ Glyph 'A' (U+{a_unicode:04X}) not found in hindixh38asc.sfd")
+    hindixh38.close()
     exit(1)
 
-hindixv38.close()
+hindixh38.close()
 print("\nDone!")

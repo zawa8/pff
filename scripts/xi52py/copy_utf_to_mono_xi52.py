@@ -29,15 +29,15 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Source (xi52utf)
-src_dir = pff_root / "sfd/xi52font/xi52utf"
+src_dir = pff_root / "sfd/xi52sfd/xi52utf"
 
 # Target (xi52mono)
-target_dir = pff_root / "sfd/xi52font/xi52mono"
+target_dir = pff_root / "sfd/xi52sfd/xi52mono"
 target_dir.mkdir(parents=True, exist_ok=True)
 
 # Font mappings: (src_file, old_name, new_name)
 FONTS = [
-    ('hindixv52utf.sfd',    'hindixv52utf',    'hindixv52mono'),
+    ('hindixh52utf.sfd',    'hindixh52utf',    'hindixh52mono'),
     ('bengalixb52utf.sfd',  'bengalixb52utf',  'bengalixb52mono'),
     ('pnzabixp52utf.sfd',   'pnzabixp52utf',   'pnzabixp52mono'),
     ('guzrajixg52utf.sfd',  'guzrajixg52utf',  'guzrajixg52mono'),

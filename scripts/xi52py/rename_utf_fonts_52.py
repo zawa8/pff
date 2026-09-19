@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Script to update font names in xi52utf SFD files.
-Changes: hindixv52 → hindixv52utf
+Changes: hindixh52 → hindixh52utf
 """
 
 import fontforge
@@ -27,10 +27,10 @@ console = logging.StreamHandler()
 console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
-utf_dir = pff_root / "sfd/xi52font/xi52utf"
+utf_dir = pff_root / "sfd/xi52sfd/xi52utf"
 
 FONT_RENAMES = {
-    'hindixv52utf.sfd':    ('hindixv52',    'hindixv52utf'),
+    'hindixh52utf.sfd':    ('hindixh52',    'hindixh52utf'),
     'bengalixb52utf.sfd':  ('bengalixb52',  'bengalixb52utf'),
     'pnzabixp52utf.sfd':   ('pnzabixp52',   'pnzabixp52utf'),
     'guzrajixg52utf.sfd':  ('guzrajixg52',  'guzrajixg52utf'),

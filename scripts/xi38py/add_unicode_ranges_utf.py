@@ -29,10 +29,10 @@ console = logging.StreamHandler()
 console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
-utf_dir = pff_root / "sfd/xi38font/xi38utf"
+utf_dir = pff_root / "sfd/xi38sfd/xi38utf"
 
 FONTS = [
-    'hindixv38utf.sfd',
+    'hindixh38utf.sfd',
     'bengalixb38utf.sfd',
     'pnzabixp38utf.sfd',
     'guzrajixg38utf.sfd',

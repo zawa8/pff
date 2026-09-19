@@ -17,7 +17,7 @@ Run with FontForge's own Python (every step imports `fontforge`):
 Steps 1-3 rebuild the xi38 base fonts themselves (Noto glyph sourcing,
 using this branch's p1onli-restricted consonant set --
 see glyph_copy/glyph_kopi_u9scripts_p1onli.py). Every step after that
-derives xi52 from whatever is in sfd/xi38font/ at that point. If
+derives xi52 from whatever is in sfd/xi38sfd/ at that point. If
 you've already rebuilt xi38 and only want to redo the xi52 derivation,
 skip straight to step 4 with --from 4.
 

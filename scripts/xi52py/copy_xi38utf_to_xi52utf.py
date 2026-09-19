@@ -31,15 +31,15 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Source (xi38utf)
-src_dir = pff_root / "sfd/xi38font/xi38utf"
+src_dir = pff_root / "sfd/xi38sfd/xi38utf"
 
 # Target (xi52utf)
-target_dir = pff_root / "sfd/xi52font/xi52utf"
+target_dir = pff_root / "sfd/xi52sfd/xi52utf"
 target_dir.mkdir(parents=True, exist_ok=True)
 
 # Font mappings: (src_file, old_name, new_name)
 FONTS = [
-    ('hindixv38utf.sfd',    'hindixv38utf',    'hindixv52utf'),
+    ('hindixh38utf.sfd',    'hindixh38utf',    'hindixh52utf'),
     ('bengalixb38utf.sfd',  'bengalixb38utf',  'bengalixb52utf'),
     ('pnzabixp38utf.sfd',   'pnzabixp38utf',   'pnzabixp52utf'),
     ('guzrajixg38utf.sfd',  'guzrajixg38utf',  'guzrajixg52utf'),

@@ -3,7 +3,7 @@
 Script to copy glyphs from Noto font to xi38asc SFD for 9 Indian scripts.
 
 Consonants: from Noto (script-specific)
-English chars (E,F,L,M,N,O,P,U,V,W,X,Y,a,i,u,e,o): from eNgliSxe38.sfd
+English chars (E,F,L,M,N,O,P,U,V,W,X,Y,a,i,u,e,o): from eNgliSxe38asc.sfd
 x and A: अ from Noto (respective Indian language)
 R (ड़): from Noto Devanagari (Hindi only)
 """
@@ -34,9 +34,9 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Source: English font
-english38_sfd = pff_root / "sfd/xi38font/xi38asc/eNgliSxe38.sfd"
-# "C:\progxs\pff\sfd\xi52font\xi52asc\eNgliSxe52.sfd"
-english52_sfd = pff_root / "sfd/xi52font/xi52asc/eNgliSxe52.sfd"
+english38_sfd = pff_root / "sfd/xi38sfd/xi38asc/eNgliSxe38asc.sfd"
+# "C:\progxs\pff\sfd\xi52font\xi52asc\eNgliSxe52asc.sfd"
+english52_sfd = pff_root / "sfd/xi52sfd/xi52asc/eNgliSxe52asc.sfd"
 
 # Source: Noto Devanagari (for ड़)
 noto_devanagari = pff_root / "notofonts/NotoSansDevanagari-Regular.ttf"
@@ -45,55 +45,55 @@ noto_devanagari = pff_root / "notofonts/NotoSansDevanagari-Regular.ttf"
 SCRIPTS = {
     'hindi': {
         'noto': 'NotoSansDevanagari-Regular.ttf',
-        'sfd': 'hindixv38.sfd',
-        'output': 'hindixv38',
+        'sfd': 'hindixh38asc.sfd',
+        'output': 'hindixh38',
         'base_unicode': 0x0900,
     },
     'bengali': {
         'noto': 'NotoSansBengali-Regular.ttf',
-        'sfd': 'bengalixb38.sfd',
+        'sfd': 'bengalixb38asc.sfd',
         'output': 'bengalixb38',
         'base_unicode': 0x0980,
     },
     'punjabi': {
         'noto': 'NotoSansGurmukhi-Regular.ttf',
-        'sfd': 'pnzabixp38.sfd',
+        'sfd': 'pnzabixp38asc.sfd',
         'output': 'pnzabixp38',
         'base_unicode': 0x0A00,
     },
     'gujarati': {
         'noto': 'NotoSansGujarati-Regular.ttf',
-        'sfd': 'guzrajixg38.sfd',
+        'sfd': 'guzrajixg38asc.sfd',
         'output': 'guzrajixg38',
         'base_unicode': 0x0A80,
     },
     'oriya': {
         'noto': 'NotoSansOriya-Regular.ttf',
-        'sfd': 'oriyaxo38.sfd',
+        'sfd': 'oriyaxo38asc.sfd',
         'output': 'oriyaxo38',
         'base_unicode': 0x0B00,
     },
     'tamil': {
         'noto': 'NotoSansTamil-Regular.ttf',
-        'sfd': 'tmilxt38.sfd',
+        'sfd': 'tmilxt38asc.sfd',
         'output': 'tmilxt38',
         'base_unicode': 0x0B80,
     },
     'telugu': {
         'noto': 'NotoSansTelugu-Regular.ttf',
-        'sfd': 'jeluguxj38.sfd',
+        'sfd': 'jeluguxj38asc.sfd',
         'output': 'jeluguxj38',
         'base_unicode': 0x0C00,
     },
     'kannada': {
         'noto': 'NotoSansKannada-Regular.ttf',
-        'sfd': 'knRaxk38.sfd',
+        'sfd': 'knRaxk38asc.sfd',
         'output': 'knRaxk38',
         'base_unicode': 0x0C80,
     },
     'malayalam': {
         'noto': 'NotoSansMalayalam-Regular.ttf',
-        'sfd': 'mlyalxmxm38.sfd',
+        'sfd': 'mlyalxmxm38asc.sfd',
         'output': 'mlyalxmxm38',
         'base_unicode': 0x0D00,
     },
@@ -142,7 +142,7 @@ CONSONANT_MAP_52 = {
     0x23: 'n',
     0x28: 'n',  
 }
-# ENGLISH CHARS: from eNgliSxe52.sfd in 
+# ENGLISH CHARS: from eNgliSxe52asc.sfd in 
 ENGLISH_KEEP_IN_52 = [
     ord('c'),
     ord('C'),
@@ -189,7 +189,7 @@ def process_script(script_name):
     config = SCRIPTS[script_name]
 
     noto_font_path = pff_root / "notofonts" / config['noto']
-    sfd_path = pff_root / "sfd/xi38font/xi38asc" / config['sfd']
+    sfd_path = pff_root / "sfd/xi38sfd/xi38asc" / config['sfd']
 
     # font_repo = Path("C:/Users/ravi_/OneDrive/Desktop/Vimal/wimxlprogs/gitt/font")
     # ttf_dir = font_repo / "ttf/hscii/xi38font"
@@ -197,8 +197,8 @@ def process_script(script_name):
     
     # "C:\Users\ravi_\OneDrive\Desktop\Vimal\wimxlprogs\gitt\pff\xnglofonts"
     # C:\Users\ravi_\OneDrive\Desktop\Vimal\wimxlprogs\gitt\pff\xnglofonts\ttf\xi38fonts\xi38asc
-    ttf_dir = pff_root / "xnglofonts/ttf/xi38fonts/xi38asc"
-    woff2_dir = pff_root / "xnglofonts/woff2/xi38fonts/xi38asc"
+    ttf_dir = pff_root / "xnglofonts/ttf/xi38ttf/xi38asc"
+    woff2_dir = pff_root / "xnglofonts/woff2/xi38woff2/xi38asc"
 
     if not noto_font_path.exists():
         logging.error(f"Noto not found: {noto_font_path}")
@@ -250,7 +250,7 @@ def process_script(script_name):
         except Exception as e:
             logging.warning(f"  Error consonant 0x{offset:02X}: {e}")
 
-    # STEP 2: Copy English chars from eNgliSxe38.sfd
+    # STEP 2: Copy English chars from eNgliSxe38asc.sfd
     for ascii_code in ENGLISH_KEEP_IN_52:
         if ascii_code not in eng38_font or ascii_code not in target_font:
             continue
