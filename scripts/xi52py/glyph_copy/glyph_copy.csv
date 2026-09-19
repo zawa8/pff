@@ -1,0 +1,58 @@
+e52,xe38_src,xv52_src,xv38_src
+# G1 (20) - Indic scripts from Noto
+k,xe52,noto,noto
+K,xe52,noto,noto
+z,xe52,noto,noto
+Z,xe52,noto,noto
+t,xe52,noto,noto
+T,xe52,noto,noto
+d,xe52,noto,noto
+D,xe52,noto,noto
+n,xe52,noto,noto
+p,xe52,noto,noto
+f,xe52,noto,noto
+b,xe52,noto,noto
+B,xe52,noto,noto
+m,xe52,noto,noto
+y,xe52,noto,noto
+r,xe52,noto,noto
+l,xe52,noto,noto
+w,xe52,noto,noto
+s,xe52,noto,noto
+S,xe52,noto,noto
+# G2 (10) - xv52 from xe52, xv38 from noto
+x,xe52,xe52,noto
+j,xe52,xe52,noto
+J,xe52,xe52,noto
+q,xe52,xe52,noto
+Q,xe52,xe52,noto
+v,xe52,xe52,noto
+c,xe52,xe52,noto
+C,xe52,xe52,noto
+g,xe52,xe52,noto
+G,xe52,xe52,noto
+# G3 (14) - all from xe52
+N,xe52,xe52,xe52
+R,xe52,xe52,xe52
+a,xe52,xe52,xe52
+i,xe52,xe52,xe52
+u,xe52,xe52,xe52
+e,xe52,xe52,xe52
+o,xe52,xe52,xe52
+h,xe52,xe52,xe52
+L,xe52,xe52,xe52
+Y,xe52,xe52,xe52
+V,xe52,xe52,xe52
+W,xe52,xe52,xe52
+P,xe52,xe52,xe52
+F,xe52,xe52,xe52
+# G4 (6) - from Noto Math (do not overwrite after first copy)
+E,noto_math,xe52,xe38
+I,noto_math,xe52,xe38
+O,noto_math,xe52,xe38
+U,noto_math,xe52,xe38
+M,noto_math,xe52,xe38
+X,noto_math,xe52,xe38
+# G5 (2) - aliases, Indic from Noto
+A,xe52,noto,noto
+H,xe52,noto,noto
