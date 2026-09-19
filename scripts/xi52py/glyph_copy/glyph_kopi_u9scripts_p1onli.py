@@ -1,14 +1,30 @@
 #!/usr/bin/env python3
 """
-Script to copy glyphs from Noto font to xi38asc SFD for 9 Indian scripts.
+glyph_kopi_u9scripts_p1onli.py
 
-Consonants: from Noto (script-specific)
-English chars (E,F,L,M,N,O,P,U,V,W,X,Y,a,i,u,e,o): from eNgliSxe38asc.sfd
-x and A: अ from Noto (respective Indian language)
-R (ड़): from Noto Devanagari (Hindi only)
+Build xi38asc and xi52asc SFDs for 9 Indian scripts using the G1–G5
+copy rules from glyph_copy.csv.
+
+For each script (e.g. hindi):
+  - xh38asc.sfd (hindixh38asc.sfd)  ← xh38_src
+  - xh52asc.sfd (hindixh52asc.sfd)  ← xh52_src
+
+Sources:
+  - eNgliSxe52asc.sfd            (Latin, master)
+  - eNgliSxe38asc.sfd            (Latin, xi38 English)
+  - NotoSansMath-Regular.ttf     (EIOUMX symbols)
+  - NotoSans{Script}-Regular.ttf (Indic consonants, per script)
+
+Does NOT generate TTF/WOFF2. Does NOT build eNgliSxe38asc.sfd
+(that's a separate manual/script task).
+
+Run with FontForge's Python:
+    fontforge -script glyph_kopi_u9scripts_p1onli.py
+    fontforge -script glyph_kopi_u9scripts_p1onli.py hindi
 """
 
 import sys
+import csv
 import fontforge
 import logging
 from pathlib import Path
@@ -16,326 +32,218 @@ from datetime import datetime
 
 # Paths
 script_dir = Path(__file__).parent
-pff_root = script_dir.parent.parent.parent  # glyph_copy/ is 2 levels deeper than xi52py/'s other scripts
+pff_root = script_dir.parent.parent.parent
 
-# Log
 log_dir = pff_root / "logs"
 log_dir.mkdir(exist_ok=True)
 log_file = log_dir / "glyph_kopi_u9scripts.log"
 
 logging.basicConfig(
-    filename=str(log_file),
-    level=logging.DEBUG,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    filemode='w'
+    filename=str(log_file), level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s', filemode='w'
 )
 console = logging.StreamHandler()
 console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
-# Source: English font
-english38_sfd = pff_root / "sfd/xi38sfd/xi38asc/eNgliSxe38asc.sfd"
-# "C:\progxs\pff\sfd\xi52font\xi52asc\eNgliSxe52asc.sfd"
-english52_sfd = pff_root / "sfd/xi52sfd/xi52asc/eNgliSxe52asc.sfd"
+ENGLISH_52 = pff_root / "sfd/xi52sfd/xi52asc/eNgliSxe52asc.sfd"
+ENGLISH_38 = pff_root / "sfd/xi38sfd/xi38asc/eNgliSxe38asc.sfd"
+NOTO_MATH  = pff_root / "notofonts/NotoSansMath-Regular.ttf"
+CSV_PATH   = script_dir / "glyph_copy.csv"
 
-# Source: Noto Devanagari (for ड़)
-noto_devanagari = pff_root / "notofonts/NotoSansDevanagari-Regular.ttf"
-
-# 9 scripts configuration
+# 9 scripts (Sinhala has its own script)
 SCRIPTS = {
-    'hindi': {
-        'noto': 'NotoSansDevanagari-Regular.ttf',
-        'sfd': 'hindixh38asc.sfd',
-        'output': 'hindixh38',
-        'base_unicode': 0x0900,
-    },
-    'bengali': {
-        'noto': 'NotoSansBengali-Regular.ttf',
-        'sfd': 'bengalixb38asc.sfd',
-        'output': 'bengalixb38',
-        'base_unicode': 0x0980,
-    },
-    'punjabi': {
-        'noto': 'NotoSansGurmukhi-Regular.ttf',
-        'sfd': 'pnzabixp38asc.sfd',
-        'output': 'pnzabixp38',
-        'base_unicode': 0x0A00,
-    },
-    'gujarati': {
-        'noto': 'NotoSansGujarati-Regular.ttf',
-        'sfd': 'guzrajixg38asc.sfd',
-        'output': 'guzrajixg38',
-        'base_unicode': 0x0A80,
-    },
-    'oriya': {
-        'noto': 'NotoSansOriya-Regular.ttf',
-        'sfd': 'oriyaxo38asc.sfd',
-        'output': 'oriyaxo38',
-        'base_unicode': 0x0B00,
-    },
-    'tamil': {
-        'noto': 'NotoSansTamil-Regular.ttf',
-        'sfd': 'tmilxt38asc.sfd',
-        'output': 'tmilxt38',
-        'base_unicode': 0x0B80,
-    },
-    'telugu': {
-        'noto': 'NotoSansTelugu-Regular.ttf',
-        'sfd': 'jeluguxj38asc.sfd',
-        'output': 'jeluguxj38',
-        'base_unicode': 0x0C00,
-    },
-    'kannada': {
-        'noto': 'NotoSansKannada-Regular.ttf',
-        'sfd': 'knRaxk38asc.sfd',
-        'output': 'knRaxk38',
-        'base_unicode': 0x0C80,
-    },
-    'malayalam': {
-        'noto': 'NotoSansMalayalam-Regular.ttf',
-        'sfd': 'mlyalxmxm38asc.sfd',
-        'output': 'mlyalxmxm38',
-        'base_unicode': 0x0D00,
-    },
+    'hindi':     {'noto': 'NotoSansDevanagari-Regular.ttf', 'base': 0x0900,
+                  'sfd38': 'hindixh38asc.sfd',  'sfd52': 'hindixh52asc.sfd'},
+    'bengali':   {'noto': 'NotoSansBengali-Regular.ttf',    'base': 0x0980,
+                  'sfd38': 'bengalixb38asc.sfd','sfd52': 'bengalixb52asc.sfd'},
+    'punjabi':   {'noto': 'NotoSansGurmukhi-Regular.ttf',   'base': 0x0A00,
+                  'sfd38': 'pnzabixp38asc.sfd', 'sfd52': 'pnzabixp52asc.sfd'},
+    'gujarati':  {'noto': 'NotoSansGujarati-Regular.ttf',   'base': 0x0A80,
+                  'sfd38': 'guzrajixg38asc.sfd','sfd52': 'guzrajixg52asc.sfd'},
+    'oriya':     {'noto': 'NotoSansOriya-Regular.ttf',      'base': 0x0B00,
+                  'sfd38': 'oriyaxo38asc.sfd',  'sfd52': 'oriyaxo52asc.sfd'},
+    'tamil':     {'noto': 'NotoSansTamil-Regular.ttf',      'base': 0x0B80,
+                  'sfd38': 'tmilxt38asc.sfd',   'sfd52': 'tmilxt52asc.sfd'},
+    'telugu':    {'noto': 'NotoSansTelugu-Regular.ttf',     'base': 0x0C00,
+                  'sfd38': 'jeluguxj38asc.sfd', 'sfd52': 'jeluguxj52asc.sfd'},
+    'kannada':   {'noto': 'NotoSansKannada-Regular.ttf',    'base': 0x0C80,
+                  'sfd38': 'knRaxk38asc.sfd',   'sfd52': 'knRaxk52asc.sfd'},
+    'malayalam': {'noto': 'NotoSansMalayalam-Regular.ttf',  'base': 0x0D00,
+                  'sfd38': 'mlyalxmxm38asc.sfd','sfd52': 'mlyalxmxm52asc.sfd'},
 }
 
-# CONSONANTS: from Noto (script-specific) # 0915 क
-CONSONANT_MAP_38 = {
-    0x1A: 'c',
-    0x1B: 'C',
-    0x17: 'g', 0x18: 'G',
-    0x20: 'J', 0x25: 'j',
-    0x27: 'q', 0x22: 'Q',
-    0x39: 'v', 0x5: 'x',
-    
-    ### below no issues for 52/p1only
-    0x39: 'H', 0x5: 'A',
-    0x15: 'k', 0x16: 'K',
-    0x1C: 'z', 0x1D: 'Z',
-    0x1F: 't',  0x21: 'd',  
-    0x24: 'T',  0x26: 'D', 
-    0x2A: 'p', 0x2B: 'f', 0x2C: 'b', 0x2D: 'B', 0x2E: 'm',
-    0x2F: 'y', 0x30: 'r', 0x32: 'l', 0x35: 'w', 0x36: 'S', 0x37: 's', 0x38: 's', 
-    0x1E: 'n',
-    0x23: 'n',
-    0x28: 'n',  
+# Indic consonants (Latin <- Noto offset) for the 8 scripts with same layout
+# Priority for duplicate letters (n appears 3 times) is set explicitly in
+# offset_for_letter().
+CONSONANT_OFFSETS = {
+    0x15: 'k',  0x16: 'K',
+    0x17: 'g',  0x18: 'G',
+    0x1A: 'c',  0x1B: 'C',
+    0x1C: 'z',  0x1D: 'Z',
+    0x1F: 't',  0x20: 'J',
+    0x21: 'd',  0x22: 'Q',
+    0x24: 'T',  0x25: 'j',
+    0x26: 'D',  0x27: 'q',
+    0x2A: 'p',  0x2B: 'f',
+    0x2C: 'b',  0x2D: 'B',
+    0x2E: 'm',  0x2F: 'y',
+    0x30: 'r',  0x32: 'l',
+    0x35: 'w',  0x36: 'S',
+    0x37: 's',  0x38: 's',
+    0x39: 'H',
 }
-CONSONANT_MAP_52 = {
-    ### below are hewing issues for 52 series and p1only branch
-    ### so comment in case of 52 series and p1only branch
-    # 0x1A: 'c',
-    # 0x1B: 'C',
-    # 0x17: 'g', 0x18: 'G',
-    # 0x20: 'J', 0x25: 'j',
-    # 0x27: 'q', 0x22: 'Q',
-    # 0x39: 'v', 0x5: 'x',
-    
-    ### below no issues for 52/p1only
-    0x39: 'H', 0x5: 'A',
-    0x15: 'k', 0x16: 'K',
-    0x1C: 'z', 0x1D: 'Z',
-    0x1F: 't',  0x21: 'd',  
-    0x24: 'T',  0x26: 'D', 
-    0x2A: 'p', 0x2B: 'f', 0x2C: 'b', 0x2D: 'B', 0x2E: 'm',
-    0x2F: 'y', 0x30: 'r', 0x32: 'l', 0x35: 'w', 0x36: 'S', 0x37: 's', 0x38: 's', 
-    0x1E: 'n',
-    0x23: 'n',
-    0x28: 'n',  
+
+# For duplicate Latin targets, pick the correct Noto codepoint.
+# (n → न, not ञ or ण)
+LETTER_OVERRIDES = {
+    'n': 0x28,   # न
 }
-# ENGLISH CHARS: from eNgliSxe52asc.sfd in 
-ENGLISH_KEEP_IN_52 = [
-    ord('c'),
-    ord('C'),
-    ord('g'), ord('G'),
-    ord('j'), ord('J'),
-    ord('q'), ord('Q'),
-    ord('v'), ord('A'), ord('x'),
-    
-    ### 0123456789LYVWPF 10=F+1=wnti=8+8=4*4=ten + 6=L+6
-    ord('L'),ord('Y'),ord('V'),ord('W'),ord('P'),ord('F'),
-    
-    ord('E'), ord('I'), ord('O'), ord('U'),ord('M'), ord('X'),
-    ord('a'), ord('i'), ord('u'), ord('e'), ord('o'), ord('h'),
-]
-ENGLISH_KEEP_IN_38 = [
-    # ord('c'),
-    # ord('C'),
-    # ord('g'), ord('G'),
-    # ord('j'), ord('J'),
-    # ord('q'), ord('Q'),
-    # ord('v'), ord('A'), ord('x'),
-    
-    ### 0123456789LYVWPF 10=F+1=wnti=8+8=4*4=ten + 6=L+6
-    ord('L'),ord('Y'),ord('V'),ord('W'),ord('P'),ord('F'),
-    
-    ord('E'), ord('I'), ord('O'), ord('U'),ord('M'), ord('X'),
-    ord('a'), ord('i'), ord('u'), ord('e'), ord('o'), ord('h'),
-]
-# अ (schwa): from Noto (respective Indian language)
-# x = अ (0x0905 for Hindi, 0x0985 for Bengali, etc.)
-SCHWA_OFFSET = 0x05  # अ is at offset 0x05 in all 9 scripts
 
-# R (ड़): from Noto Devanagari (Hindi only)
-R_FIX = [
-    (ord('R'), 0x095C),  # R = ड़
-]
+MATH_SYMBOLS = {
+    ord('E'): 0x2261,  # ≡
+    ord('I'): 0x2260,  # ≠
+    ord('O'): 0x2192,  # →
+    ord('U'): 0x2193,  # ↓
+    ord('M'): 0x2265,  # ≥
+    ord('X'): 0x2264,  # ≤
+}
+
+SCHWA_OFFSET = 0x05
 
 
-def process_script(script_name):
-    if script_name not in SCRIPTS:
-        logging.error(f"Unknown script: {script_name}")
-        return False
-
-    config = SCRIPTS[script_name]
-
-    noto_font_path = pff_root / "notofonts" / config['noto']
-    sfd_path = pff_root / "sfd/xi38sfd/xi38asc" / config['sfd']
-
-    # font_repo = Path("C:/Users/ravi_/OneDrive/Desktop/Vimal/wimxlprogs/gitt/font")
-    # ttf_dir = font_repo / "ttf/hscii/xi38font"
-    # woff2_dir = font_repo / "woff2/hscii/xi38font"
-    
-    # "C:\Users\ravi_\OneDrive\Desktop\Vimal\wimxlprogs\gitt\pff\xnglofonts"
-    # C:\Users\ravi_\OneDrive\Desktop\Vimal\wimxlprogs\gitt\pff\xnglofonts\ttf\xi38fonts\xi38asc
-    ttf_dir = pff_root / "xnglofonts/ttf/xi38ttf/xi38asc"
-    woff2_dir = pff_root / "xnglofonts/woff2/xi38woff2/xi38asc"
-
-    if not noto_font_path.exists():
-        logging.error(f"Noto not found: {noto_font_path}")
-        return False
-
-    if not sfd_path.exists():
-        logging.error(f"SFD not found: {sfd_path}")
-        return False
-
-    logging.info(f"\n{'='*60}")
-    logging.info(f"Processing: {script_name}")
-
-    try:
-        noto_font = fontforge.open(str(noto_font_path))
-    except Exception as e:
-        logging.error(f"Error opening Noto: {e}")
-        return False
-
-    try:
-        eng38_font = fontforge.open(str(english38_sfd))
-    except Exception as e:
-        logging.error(f"Error opening English: {e}")
-        return False
-
-    try:
-        target_font = fontforge.open(str(sfd_path))
-    except Exception as e:
-        logging.error(f"Error opening target: {e}")
-        return False
-
-    success = 0
-    base = config['base_unicode']
-
-    # STEP 1: Copy consonants from Noto
-    for offset, hskii_char in CONSONANT_MAP_52.items():
-        src_unicode = base + offset
-        if src_unicode not in noto_font:
-            continue
-        dst_ascii = ord(hskii_char)
-        try:
-            noto_font.selection.select(src_unicode)
-            noto_font.copy()
-            if dst_ascii in target_font:
-                target_font.selection.select(dst_ascii)
-                glyph = target_font[dst_ascii]
-                glyph.clear()
-                target_font.paste()
-                success += 1
-        except Exception as e:
-            logging.warning(f"  Error consonant 0x{offset:02X}: {e}")
-
-    # STEP 2: Copy English chars from eNgliSxe38asc.sfd
-    for ascii_code in ENGLISH_KEEP_IN_52:
-        if ascii_code not in eng38_font or ascii_code not in target_font:
-            continue
-        try:
-            eng38_font.selection.select(ascii_code)
-            eng38_font.copy()
-            target_font.selection.select(ascii_code)
-            glyph = target_font[ascii_code]
-            glyph.clear()
-            target_font.paste()
-            success += 1
-        except Exception as e:
-            logging.warning(f"  Error English {ascii_code}: {e}")
-
-    # STEP 3: Copy अ (schwa) to both 'x' and 'A'
-    schwa_unicode = base + SCHWA_OFFSET
-    if schwa_unicode in noto_font:
-        for ascii_char in ['x', 'A']:
-            ascii_code = ord(ascii_char)
-            if ascii_code not in target_font:
+def read_csv():
+    rows = []
+    with open(CSV_PATH, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or line.startswith("e52,"):
                 continue
-            try:
-                noto_font.selection.select(schwa_unicode)
-                noto_font.copy()
-                target_font.selection.select(ascii_code)
-                glyph = target_font[ascii_code]
-                glyph.clear()
-                target_font.paste()
-                success += 1
-                logging.info(f"  ✓ '{ascii_char}' ← अ (U+{schwa_unicode:04X})")
-            except Exception as e:
-                logging.warning(f"  Error schwa for {ascii_char}: {e}")
+            parts = [p.strip() for p in line.split(",")]
+            if len(parts) < 4:
+                continue
+            rows.append({
+                "e52":      parts[0],
+                "xe38_src": parts[1],
+                "xh52_src": parts[2],
+                "xh38_src": parts[3],
+            })
+    return rows
 
-    # STEP 4: Fix R (ड़) from Noto Devanagari (Hindi only)
-    if script_name == 'hindi' and noto_devanagari.exists():
-        try:
-            noto_dev = fontforge.open(str(noto_devanagari))
-            for ascii_code, noto_unicode in R_FIX:
-                if noto_unicode not in noto_dev or ascii_code not in target_font:
-                    continue
-                try:
-                    noto_dev.selection.select(noto_unicode)
-                    noto_dev.copy()
-                    target_font.selection.select(ascii_code)
-                    glyph = target_font[ascii_code]
-                    glyph.clear()
-                    target_font.paste()
-                    success += 1
-                except Exception as e:
-                    logging.warning(f"  Error R fix: {e}")
-            noto_dev.close()
-        except Exception as e:
-            logging.warning(f"  Error opening Noto Dev: {e}")
 
-    logging.info(f"  Success: {success}")
-
-    try:
-        target_font.save(str(sfd_path))
-        base_name = config['output']
-        target_font.generate(str(ttf_dir / f"{base_name}.ttf"))
-        target_font.generate(str(woff2_dir / f"{base_name}.woff2"))
-        logging.info(f"  ✓ Saved and regenerated: {base_name}")
-    except Exception as e:
-        logging.error(f"  Error saving: {e}")
-
+def copy_glyph(src_font, src_cp, dst_font, dst_cp):
+    if src_cp not in src_font or dst_cp not in dst_font:
+        return False
+    src_font.selection.select(("unicode",), src_cp)
+    src_font.copy()
+    glyph = dst_font[dst_cp]
+    glyph.clear()
+    dst_font.selection.select(("unicode",), dst_cp)
+    dst_font.paste()
     return True
 
 
+def offset_for_letter(letter):
+    """Return Noto offset for a Latin target letter."""
+    if letter in LETTER_OVERRIDES:
+        return LETTER_OVERRIDES[letter]
+    for off, ch in CONSONANT_OFFSETS.items():
+        if ch == letter:
+            return off
+    return None
+
+
+def apply_source(target_font, dst_cp, src_name, e52_char, ctx):
+    """Apply one source value to target_font at dst_cp."""
+    if src_name == "xe52":
+        return copy_glyph(ctx["xe52"], dst_cp, target_font, dst_cp)
+    if src_name == "xe38":
+        return copy_glyph(ctx["xe38"], dst_cp, target_font, dst_cp)
+    if src_name == "noto_math":
+        math_cp = MATH_SYMBOLS.get(dst_cp)
+        if math_cp and copy_glyph(ctx["noto_math"], math_cp, target_font, dst_cp):
+            return True
+        return False
+    if src_name == "noto":
+        off = offset_for_letter(e52_char)
+        if off is None:
+            # Not a consonant; try schwa (x, A)
+            if e52_char in ("x", "A"):
+                return copy_glyph(ctx["noto"], ctx["base"] + SCHWA_OFFSET,
+                                  target_font, dst_cp)
+            return False
+        return copy_glyph(ctx["noto"], ctx["base"] + off, target_font, dst_cp)
+    # 'manual' / unknown -> skip
+    return False
+
+
+def process_script(name, cfg, csv_rows, sources):
+    noto_path = pff_root / "notofonts" / cfg["noto"]
+    if not noto_path.exists():
+        logging.error(f"Noto not found: {noto_path}")
+        return
+
+    noto_font = fontforge.open(str(noto_path))
+    target_38 = fontforge.open(str(pff_root / "sfd/xi38sfd/xi38asc" / cfg["sfd38"]))
+    target_52 = fontforge.open(str(pff_root / "sfd/xi52sfd/xi52asc" / cfg["sfd52"]))
+
+    ctx = {
+        "xe52":      sources["xe52"],
+        "xe38":      sources["xe38"],
+        "noto_math": sources["noto_math"],
+        "noto":      noto_font,
+        "base":      cfg["base"],
+    }
+
+    ok38 = ok52 = 0
+
+    for row in csv_rows:
+        char = row["e52"]
+        dst_cp = ord(char)
+
+        # xi38 (hindixh38asc.sfd)
+        if apply_source(target_38, dst_cp, row["xh38_src"], char, ctx):
+            ok38 += 1
+
+        # xi52 (hindixh52asc.sfd)
+        if apply_source(target_52, dst_cp, row["xh52_src"], char, ctx):
+            ok52 += 1
+
+    target_38.save(str(pff_root / "sfd/xi38sfd/xi38asc" / cfg["sfd38"]))
+    target_52.save(str(pff_root / "sfd/xi52sfd/xi52asc" / cfg["sfd52"]))
+
+    logging.info(f"{name}: xi38 ok={ok38}, xi52 ok={ok52}")
+    print(f"  {name}: xi38={ok38}, xi52={ok52}")
+
+    noto_font.close()
+    target_38.close()
+    target_52.close()
+
+
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python glyph_kopi_u9scripts.py <script_name|all>")
-        sys.exit(1)
+    csv_rows = read_csv()
+    print(f"Read {len(csv_rows)} rows from {CSV_PATH.name}")
 
-    script_name = sys.argv[1].lower()
+    sources = {
+        "xe52":      fontforge.open(str(ENGLISH_52)),
+        "xe38":      fontforge.open(str(ENGLISH_38)),
+        "noto_math": fontforge.open(str(NOTO_MATH)),
+    }
 
-    logging.info(f"Started: {datetime.now()}")
-
-    if script_name == 'all':
-        for name in SCRIPTS.keys():
-            process_script(name)
+    if len(sys.argv) >= 2 and sys.argv[1].lower() != "all":
+        name = sys.argv[1].lower()
+        if name in SCRIPTS:
+            process_script(name, SCRIPTS[name], csv_rows, sources)
+        else:
+            print(f"Unknown script: {name}")
     else:
-        process_script(script_name)
+        for name, cfg in SCRIPTS.items():
+            process_script(name, cfg, csv_rows, sources)
 
-    logging.info(f"Finished: {datetime.now()}")
-    print(f"\n✓ Done! Logs: {log_file}")
+    for f in sources.values():
+        f.close()
+
+    print("Done.")
 
 
 if __name__ == "__main__":
