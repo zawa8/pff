@@ -69,9 +69,9 @@ english_sfd = pff_root / "sfd/xi38sfd/xi38asc/eNgliSxe38asc.sfd"
 sfd_path = pff_root / "sfd/xi38sfd/xi38asc/sinhlaxs38asc.sfd"
 
 # Output
-font_repo = Path("C:/Users/ravi_/OneDrive/Desktop/Vimal/wimxlprogs/gitt/font")
-ttf_dir = font_repo / "ttf/hscii/xi38font"
-woff2_dir = font_repo / "woff2/hscii/xi38font"
+# font_repo removed (use pff_root)
+ttf_dir = pff_root / "xnglofonts/ttf/xi38ttf/xi38asc"
+woff2_dir = pff_root / "xnglofonts/woff2/xi38woff2/xi38asc"
 
 # Sinhala consonants from Noto
 # Format: {offset: hskii_char}
@@ -214,11 +214,11 @@ def main():
     target_font.save(str(sfd_path))
     print(f"✓ Saved SFD: {sfd_path.name}")
 
-    target_font.generate(str(ttf_dir / "sinhlaxs38.ttf"))
-    print(f"✓ TTF: sinhlaxs38.ttf")
+    target_font.generate(str(ttf_dir / "sinhlaxs38asc.ttf"))
+    print(f"✓ TTF: sinhlaxs38asc.ttf")
 
-    target_font.generate(str(woff2_dir / "sinhlaxs38.woff2"))
-    print(f"✓ WOFF2: sinhlaxs38.woff2")
+    target_font.generate(str(woff2_dir / "sinhlaxs38asc.woff2"))
+    print(f"✓ WOFF2: sinhlaxs38asc.woff2")
 
     noto_font.close()
     eng_font.close()
