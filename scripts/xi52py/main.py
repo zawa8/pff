@@ -1,38 +1,15 @@
 #!/usr/bin/env python3
 """
-main.py -- xi52 build pipeline orchestrator (p1onli branch)
+main.py -- xi52 build pipeline orchestrator
 
-Runs the whole xi52 build end-to-end by loading each step's script as
-a module (via importlib, by file path -- these aren't a package with
-__init__.py files) and calling its function(s) directly, instead of
-invoking `fontforge -script <name>.py` once per file by hand.
+3 pipelines (asc, utf, mono) + final TTF/WOFF2 generation.
 
-Run with FontForge's own Python (every step imports `fontforge`):
+Run with FontForge's own Python:
 
-    fontforge -script main.py            # full pipeline, steps 1..N
-    fontforge -script main.py --list      # print the numbered steps and exit
-    fontforge -script main.py --from 4    # resume from step 4 (1-based)
-    fontforge -script main.py --only 7    # run just step 7
-
-Steps 1-3 rebuild the xi38 base fonts themselves (Noto glyph sourcing,
-using this branch's p1onli-restricted consonant set --
-see glyph_copy/glyph_kopi_u9scripts_p1onli.py). Every step after that
-derives xi52 from whatever is in sfd/xi38sfd/ at that point. If
-you've already rebuilt xi38 and only want to redo the xi52 derivation,
-skip straight to step 4 with --from 4.
-
-Known quirk, not fixed here: several of the called scripts set up
-their own `logging.basicConfig(...)` and `logging.getLogger('').
-addHandler(console)` at module import time. `logging.basicConfig` is a
-no-op once the root logger already has a handler, so only the *first*
-step's log FILE actually ends up receiving file-logged messages when
-run through this orchestrator (each script's own file-log path is
-still printed in its "Done! Logs: ..." line, but nothing is written
-there past step 1). The extra console `StreamHandler`s do all still
-get added though, so WARNING+ console output can appear duplicated
-more times as the pipeline goes on. Cosmetic only -- doesn't affect
-the actual font output -- but don't be alarmed if a later step's log
-file comes back empty or a warning prints several times.
+    fontforge -script main.py            # full pipeline
+    fontforge -script main.py --list     # print steps
+    fontforge -script main.py --from N   # resume from step N
+    fontforge -script main.py --only N   # run step N only
 """
 import argparse
 import importlib.util
@@ -40,11 +17,10 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+SCRIPT_DIR = HERE.parent  # scripts/xi52py/
 
 
 def load(rel_path: str):
-    """Import a script that lives at HERE/rel_path as its own module,
-    by file path -- avoids needing __init__.py or sys.path tricks."""
     path = HERE / rel_path
     spec = importlib.util.spec_from_file_location(path.stem, path)
     module = importlib.util.module_from_spec(spec)
@@ -53,49 +29,56 @@ def load(rel_path: str):
 
 
 def run_main(rel_path: str):
-    """Most steps just expose main() with no arguments -- wrap that
-    in a zero-arg callable for the PIPELINE table below."""
     def runner():
         load(rel_path).main()
     return runner
 
 
 def run_u9scripts_p1onli():
-    # glyph_kopi_u9scripts_p1onli.py's own main() reads sys.argv for a
-    # script name / "all", so call process_script() directly instead
-    # of going through main() and having to fake argv.
     mod = load("glyph_copy/glyph_kopi_u9scripts_p1onli.py")
-    for script_name in mod.SCRIPTS:
-        mod.process_script(script_name)
+    csv_rows = mod.read_csv()
+    sources = mod.build_sources()
+    for name, cfg in mod.SCRIPTS.items():
+        mod.process_script(name, cfg, csv_rows, sources)
+    for f in sources.values():
+        f.close()
 
-
+# ---------------------------------------------------------------
+# Pipeline
+# ---------------------------------------------------------------
 PIPELINE = [
-    ("rebuild xi38asc consonants, 9 scripts (p1onli set)", run_u9scripts_p1onli),
-    ("rebuild xi38asc Sinhala (p1onli set)", run_main("glyph_copy/glyph_kopi_usinhala_p1onli.py")),
-    ("rebuild xi38utf from xi38asc (p1onli set)", run_main("glyph_copy/glyph_kopi_u2utf_p1onli.py")),
-    ("generate ttf/woff2 from xi38utf (p1onli set)", run_main("generatefonts/generate_xi38utf_ttf_p1onli.py")),
-    ("copy xi38asc -> xi52asc", run_main("copy_xi38_to_xi52.py")),
-    ("copy English chars into xi52asc", run_main("copy_e52_chars_xi52.py")),
-    ("copy xi38utf -> xi52utf", run_main("copy_xi38utf_to_xi52utf.py")),
-    ("add unicode-range references to xi52utf", run_main("add_unicode_ranges_utf_52.py")),
-    ("copy English chars into xi52utf", run_main("copy_e52utf_chars_xi52utf.py")),
-    ("rename xi52utf font internals", run_main("rename_utf_fonts_52.py")),
-    ("copy xi52utf -> xi52mono", run_main("copy_utf_to_mono_xi52.py")),
-    ("center glyphs in xi52mono", run_main("center_glyphs_mono_xi52.py")),
-    ("fix glyph widths in xi52mono", run_main("fix_mono_width_xi52.py")),
-    ("generate ttf/woff2 from xi52asc", run_main("generate_xi52asc_ttf_woff2.py")),
-    ("generate ttf/woff2 from xi52utf", run_main("generatefonts/generate_xi52_ttf.py")),
-    ("generate ttf/woff2 from xi52mono", run_main("generate_mono_ttf.py")),
+    # --- Phase 1: asc (xi38asc + xi52asc parallel) ---
+    ("[asc] build xi38asc + xi52asc, 9 scripts (G1-G5)", run_u9scripts_p1onli),
+    ("[asc] build xi38asc + xi52asc, Sinhala", run_main("glyph_copy/glyph_kopi_usinhala_p1onli.py")),
+
+    # --- Phase 2: utf ---
+    ("[utf] xi38asc -> xi38utf (copy 128 + unicode refs)", run_main("glyph_copy/glyph_kopi_u2utf_p1onli.py")),
+    ("[utf] xi52asc -> xi52utf (copy + refs)", run_main("copy_xi38utf_to_xi52utf.py")),
+    ("[utf] add unicode-range refs to xi52utf", run_main("add_unicode_ranges_utf_52.py")),
+    ("[utf] rename xi52utf internals", run_main("rename_utf_fonts_52.py")),
+
+    # --- Phase 3: mono ---
+    ("[mono] xi52utf -> xi52mono", run_main("copy_utf_to_mono_xi52.py")),
+    ("[mono] center glyphs in xi52mono", run_main("center_glyphs_mono_xi52.py")),
+    ("[mono] fix widths in xi52mono", run_main("fix_mono_width_xi52.py")),
+    # TODO: xi38mono pipeline (not yet implemented)
+
+    # --- Phase 4: generate TTF/WOFF2 (last) ---
+    ("[gen] TTF/WOFF2 from xi38asc", run_main("generate_xi38asc_ttf_woff2.py")),
+    ("[gen] TTF/WOFF2 from xi38utf", run_main("generatefonts/generate_xi38utf_ttf_p1onli.py")),
+    ("[gen] TTF/WOFF2 from xi52asc", run_main("generate_xi52asc_ttf_woff2.py")),
+    ("[gen] TTF/WOFF2 from xi52utf", run_main("generatefonts/generate_xi52_ttf.py")),
+    ("[gen] TTF/WOFF2 from xi52mono", run_main("generate_mono_ttf.py")),
 ]
 
 
 def main():
-    parser = argparse.ArgumentParser(description="xi52 build pipeline orchestrator")
+    parser = argparse.ArgumentParser(description="xi52/xi38 build pipeline orchestrator")
     parser.add_argument("--list", action="store_true", help="print the numbered steps and exit")
     parser.add_argument("--from", dest="start", type=int, default=1,
-                         help="1-based step to start from (default: 1, i.e. run everything)")
+                        help="1-based step to start from (default: 1)")
     parser.add_argument("--only", type=int, default=None,
-                         help="run only this one 1-based step, ignoring --from")
+                        help="run only this one 1-based step")
     args = parser.parse_args()
 
     if args.list:

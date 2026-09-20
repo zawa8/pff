@@ -219,6 +219,12 @@ def process_script(name, cfg, csv_rows, sources):
     target_38.close()
     target_52.close()
 
+def build_sources():
+    return {
+        "xe52":      fontforge.open(str(ENGLISH_52)),
+        "xe38":      fontforge.open(str(ENGLISH_38)),
+        "noto_math": fontforge.open(str(NOTO_MATH)),
+    }
 
 def main():
     csv_rows = read_csv()
