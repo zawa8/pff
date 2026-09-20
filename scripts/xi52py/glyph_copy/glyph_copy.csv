@@ -21,7 +21,7 @@ w,noto
 s,noto
 S,noto
 # G2 (10) - xh52 from xh38 (Devanagari)
-x,xe52
+x,xh38
 j,xh38
 J,xh38
 q,xh38
@@ -54,5 +54,5 @@ U,noto_math
 M,noto_math
 X,noto_math
 # G5 (4) - xh52 from xe52 / xh38
-A,xe52
+A,xh38
 H,xh38
