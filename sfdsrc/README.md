@@ -1,4 +1,4 @@
-# source_sfd_and_new_designs
+# sfdsrc — master sources for xi52/xi38 pipeline
 
 Master sources for the xi52/xi38 font pipeline.
 
@@ -19,6 +19,7 @@ writes to `sfd/xi38sfd/` and `sfd/xi52sfd/`.
 2. Save back to this folder.
 3. Run pipeline to propagate to targets.
 
-## Future scripts
+## Noto fallback
 
-When we write Python scripts to improve designs, they go in `scripts/`.
+Noto TTFs (in `notofonts/`) are used only when a glyph is not
+present in this folder.
