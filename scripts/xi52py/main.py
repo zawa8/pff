@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-main.py -- xi52 build pipeline orchestrator
+main.py -- xi52/xi38 build pipeline orchestrator
 
-3 pipelines (asc, utf, mono) + final TTF/WOFF2 generation.
+3 phases (asc, utf, mono) + final TTF/WOFF2 generation.
 
 Run with FontForge's own Python:
 
@@ -17,10 +17,10 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-SCRIPT_DIR = HERE.parent  # scripts/xi52py/
 
 
 def load(rel_path: str):
+    """Import a script that lives at HERE/rel_path as its own module."""
     path = HERE / rel_path
     spec = importlib.util.spec_from_file_location(path.stem, path)
     module = importlib.util.module_from_spec(spec)
@@ -29,24 +29,37 @@ def load(rel_path: str):
 
 
 def run_main(rel_path: str):
+    """Most steps just expose main() with no arguments."""
     def runner():
         load(rel_path).main()
     return runner
 
 
 def run_u9scripts_p1onli():
+    """Build xi38asc + xi52asc for 9 scripts via G1-G5 rules.
+
+    Calls glyph_kopi_u9scripts_p1onli.py's functions directly,
+    bypassing its argparse-based main().
+    """
     mod = load("glyph_copy/glyph_kopi_u9scripts_p1onli.py")
     csv_rows = mod.read_csv()
-    sources = mod.build_sources()
-    for name, cfg in mod.SCRIPTS.items():
-        mod.process_script(name, cfg, csv_rows, sources)
-    for f in sources.values():
-        f.close()
+    sources = {
+        "xe52":      mod.fontforge.open(str(mod.ENGLISH_52)),
+        "xe38":      mod.fontforge.open(str(mod.ENGLISH_38)),
+        "noto_math": mod.fontforge.open(str(mod.NOTO_MATH)),
+    }
+    try:
+        for name, cfg in mod.SCRIPTS.items():
+            mod.process_script(name, cfg, csv_rows, sources)
+    finally:
+        for f in sources.values():
+            f.close()
 
-# ---------------------------------------------------------------
-# Pipeline
-# ---------------------------------------------------------------
+
 PIPELINE = [
+    # --- Phase 0: sources -> targets ---
+    ("[src] copy sources -> targets", run_main("copy_sources_to_targets.py")),
+
     # --- Phase 1: asc (xi38asc + xi52asc parallel) ---
     ("[asc] build xi38asc + xi52asc, 9 scripts (G1-G5)", run_u9scripts_p1onli),
     ("[asc] build xi38asc + xi52asc, Sinhala", run_main("glyph_copy/glyph_kopi_usinhala_p1onli.py")),
@@ -76,9 +89,9 @@ def main():
     parser = argparse.ArgumentParser(description="xi52/xi38 build pipeline orchestrator")
     parser.add_argument("--list", action="store_true", help="print the numbered steps and exit")
     parser.add_argument("--from", dest="start", type=int, default=1,
-                        help="1-based step to start from (default: 1)")
+                        help="1-based step to start from (default: 1, i.e. run everything)")
     parser.add_argument("--only", type=int, default=None,
-                        help="run only this one 1-based step")
+                        help="run only this one 1-based step, ignoring --from")
     args = parser.parse_args()
 
     if args.list:
