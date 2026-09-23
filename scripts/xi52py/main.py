@@ -54,7 +54,11 @@ def run_u9scripts_p1onli():
             mod.process_script(name, cfg, csv_rows, sources)
     finally:
         for f in sources.values():
-            f.close()
+            if f is not None:
+                try:
+                    f.close()
+                except Exception:
+                    pass
 
 
 PIPELINE = [
