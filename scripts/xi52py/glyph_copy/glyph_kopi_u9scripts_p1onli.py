@@ -183,39 +183,57 @@ def process_script(name, cfg, csv_rows, sources):
         logging.error(f"Noto not found: {noto_path}")
         return
 
-    noto_font = fontforge.open(str(noto_path))
-    target_38 = fontforge.open(str(pff_root / "sfd/xi38sfd/xi38asc" / cfg["sfd38"]))
-    target_52 = fontforge.open(str(pff_root / "sfd/xi52sfd/xi52asc" / cfg["sfd52"]))
+    noto_font = None
+    target_38 = None
+    target_52 = None
+    try:
+        noto_font = fontforge.open(str(noto_path))
+        target_38 = fontforge.open(str(pff_root / "sfd/xi38sfd/xi38asc" / cfg["sfd38"]))
+        target_52 = fontforge.open(str(pff_root / "sfd/xi52sfd/xi52asc" / cfg["sfd52"]))
 
-    ctx = {
-        "xe52":      sources["xe52"],
-        "xe38":      sources["xe38"],
-        "xh38":      sources.get("xh38"),
-        "noto_math": sources["noto_math"],
-        "noto":      noto_font,
-        "base":      cfg["base"],
-    }
+        ctx = {
+            "xe52":      sources["xe52"],
+            "xe38":      sources["xe38"],
+            "xh38":      sources.get("xh38"),
+            "noto_math": sources["noto_math"],
+            "noto":      noto_font,
+            "base":      cfg["base"],
+        }
 
-    ok38 = ok52 = 0
-    for row in csv_rows:
-        char = row["e52"]
-        dst_cp = ord(char)
+        ok38 = ok52 = 0
+        for row in csv_rows:
+            char = row["e52"]
+            dst_cp = ord(char)
 
-        if apply_source(target_38, dst_cp, row["src"], row["action"], char, ctx):
-            ok38 += 1
-        if apply_source(target_52, dst_cp, row["src"], row["action"], char, ctx):
-            ok52 += 1
+            try:
+                if apply_source(target_38, dst_cp, row["src"], row["action"], char, ctx):
+                    ok38 += 1
+            except Exception as e:
+                logging.warning(f"{name}: xi38 {char} failed: {e}")
 
-    target_38.save(str(pff_root / "sfd/xi38sfd/xi38asc" / cfg["sfd38"]))
-    target_52.save(str(pff_root / "sfd/xi52sfd/xi52asc" / cfg["sfd52"]))
+            try:
+                if apply_source(target_52, dst_cp, row["src"], row["action"], char, ctx):
+                    ok52 += 1
+            except Exception as e:
+                logging.warning(f"{name}: xi52 {char} failed: {e}")
 
-    logging.info(f"{name}: xi38 ok={ok38}, xi52 ok={ok52}")
-    print(f"  {name}: xi38={ok38}, xi52={ok52}")
+        target_38.save(str(pff_root / "sfd/xi38sfd/xi38asc" / cfg["sfd38"]))
+        target_52.save(str(pff_root / "sfd/xi52sfd/xi52asc" / cfg["sfd52"]))
 
-    noto_font.close()
-    target_38.close()
-    target_52.close()
+        logging.info(f"{name}: xi38 ok={ok38}, xi52 ok={ok52}")
+        print(f"  {name}: xi38={ok38}, xi52={ok52}")
 
+    except Exception as e:
+        logging.error(f"{name} failed: {e}")
+        print(f"  {name}: FAILED - {e}")
+        raise
+    finally:
+        for f in (noto_font, target_38, target_52):
+            if f is not None:
+                try:
+                    f.close()
+                except Exception as close_err:
+                    logging.warning(f"{name}: close failed: {close_err}")
 
 def main():
     csv_rows = read_csv()
