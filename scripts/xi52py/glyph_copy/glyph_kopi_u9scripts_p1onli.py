@@ -2,25 +2,21 @@
 """
 glyph_kopi_u9scripts_p1onli.py
 
-Build xi38asc and xi52asc SFDs for 9 Indian scripts using the G1–G5
-copy rules from glyph_copy.csv.
-
-For each script (e.g. hindi):
-  - xh38asc.sfd (hindixh38asc.sfd)  ← xh38_src
-  - xh52asc.sfd (hindixh52asc.sfd)  ← xh52_src
+Build xi38asc + xi52asc for 9 Indian scripts using per-glyph
+source/action from glyph_copy.csv (4 columns: e52, src, action, notes).
 
 Sources:
-  - eNgliSxe52asc.sfd            (Latin, master)
-  - eNgliSxe38asc.sfd            (Latin, xi38 English)
+  - eNgliSxe52asc.sfd            (English master, from sfdsrc/xe52)
+  - eNgliSxe38asc.sfd            (English xi38)
+  - hindixh38asc.sfd             (Hindi source, from sfdsrc/xh38)
   - NotoSansMath-Regular.ttf     (EIOUMX symbols)
-  - NotoSans{Script}-Regular.ttf (Indic consonants, per script)
+  - NotoSans{Script}-Regular.ttf (Indic consonants)
 
-Does NOT generate TTF/WOFF2. Does NOT build eNgliSxe38asc.sfd
-(that's a separate manual/script task).
-
-Run with FontForge's Python:
-    fontforge -script glyph_kopi_u9scripts_p1onli.py
-    fontforge -script glyph_kopi_u9scripts_p1onli.py hindi
+Actions:
+  - replace: copy from source into target
+  - keep:    leave target glyph as-is
+  - manual:  leave target glyph as-is (same as keep)
+  - remove:  (currently treated as keep)
 """
 
 import sys
@@ -46,12 +42,14 @@ console = logging.StreamHandler()
 console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
-ENGLISH_52 = pff_root / "sfd/xi52sfd/xi52asc/eNgliSxe52asc.sfd"
-ENGLISH_38 = pff_root / "sfd/xi38sfd/xi38asc/eNgliSxe38asc.sfd"
-NOTO_MATH  = pff_root / "notofonts/NotoSansMath-Regular.ttf"
-CSV_PATH   = script_dir / "glyph_copy.csv"
+# Sources (master from sfdsrc/, targets from sfd/)
+ENGLISH_52   = pff_root / "sfd/xi52sfd/xi52asc/eNgliSxe52asc.sfd"
+ENGLISH_38   = pff_root / "sfd/xi38sfd/xi38asc/eNgliSxe38asc.sfd"
+XH38_SOURCE  = pff_root / "sfd/xi38sfd/xi38asc/hindixh38asc.sfd"
+NOTO_MATH    = pff_root / "notofonts/NotoSansMath-Regular.ttf"
+CSV_PATH     = script_dir / "glyph_copy.csv"
 
-# 9 scripts (Sinhala has its own script)
+# 9 scripts (Sinhala handled separately)
 SCRIPTS = {
     'hindi':     {'noto': 'NotoSansDevanagari-Regular.ttf', 'base': 0x0900,
                   'sfd38': 'hindixh38asc.sfd',  'sfd52': 'hindixh52asc.sfd'},
@@ -73,9 +71,7 @@ SCRIPTS = {
                   'sfd38': 'mlyalxmxm38asc.sfd','sfd52': 'mlyalxmxm52asc.sfd'},
 }
 
-# Indic consonants (Latin <- Noto offset) for the 8 scripts with same layout
-# Priority for duplicate letters (n appears 3 times) is set explicitly in
-# offset_for_letter().
+# Indic consonants (Latin <- Noto offset) for the 8 scripts
 CONSONANT_OFFSETS = {
     0x15: 'k',  0x16: 'K',
     0x17: 'g',  0x18: 'G',
@@ -94,8 +90,6 @@ CONSONANT_OFFSETS = {
     0x39: 'H',
 }
 
-# For duplicate Latin targets, pick the correct Noto codepoint.
-# (n → न, not ञ or ण)
 LETTER_OVERRIDES = {
     'n': 0x28,   # न
 }
@@ -112,21 +106,23 @@ MATH_SYMBOLS = {
 SCHWA_OFFSET = 0x05
 
 
-def read_csv():
+def read_csv(csv_path=None):
+    """Read glyph copy CSV: e52, src, action, notes."""
     rows = []
-    with open(CSV_PATH, encoding="utf-8") as f:
+    path = csv_path or CSV_PATH
+    with open(path, encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if not line or line.startswith("#") or line.startswith("e52,"):
                 continue
             parts = [p.strip() for p in line.split(",")]
-            if len(parts) < 4:
+            if len(parts) < 3:
                 continue
             rows.append({
-                "e52":      parts[0],
-                "xe38_src": parts[1],
-                "xh52_src": parts[2],
-                "xh38_src": parts[3],
+                "e52":    parts[0],
+                "src":    parts[1],
+                "action": parts[2] if len(parts) > 2 else "replace",
+                "notes":  parts[3] if len(parts) > 3 else "",
             })
     return rows
 
@@ -144,7 +140,6 @@ def copy_glyph(src_font, src_cp, dst_font, dst_cp):
 
 
 def offset_for_letter(letter):
-    """Return Noto offset for a Latin target letter."""
     if letter in LETTER_OVERRIDES:
         return LETTER_OVERRIDES[letter]
     for off, ch in CONSONANT_OFFSETS.items():
@@ -153,12 +148,19 @@ def offset_for_letter(letter):
     return None
 
 
-def apply_source(target_font, dst_cp, src_name, e52_char, ctx):
+def apply_source(target_font, dst_cp, src_name, action, e52_char, ctx):
     """Apply one source value to target_font at dst_cp."""
+    if action in ("keep", "manual", "remove"):
+        return True  # preserve as-is
+
     if src_name == "xe52":
         return copy_glyph(ctx["xe52"], dst_cp, target_font, dst_cp)
     if src_name == "xe38":
         return copy_glyph(ctx["xe38"], dst_cp, target_font, dst_cp)
+    if src_name == "xh38":
+        if ctx.get("xh38") is None:
+            return False
+        return copy_glyph(ctx["xh38"], dst_cp, target_font, dst_cp)
     if src_name == "noto_math":
         math_cp = MATH_SYMBOLS.get(dst_cp)
         if math_cp and copy_glyph(ctx["noto_math"], math_cp, target_font, dst_cp):
@@ -167,13 +169,11 @@ def apply_source(target_font, dst_cp, src_name, e52_char, ctx):
     if src_name == "noto":
         off = offset_for_letter(e52_char)
         if off is None:
-            # Not a consonant; try schwa (x, A)
             if e52_char in ("x", "A"):
                 return copy_glyph(ctx["noto"], ctx["base"] + SCHWA_OFFSET,
                                   target_font, dst_cp)
             return False
         return copy_glyph(ctx["noto"], ctx["base"] + off, target_font, dst_cp)
-    # 'manual' / unknown -> skip
     return False
 
 
@@ -190,23 +190,20 @@ def process_script(name, cfg, csv_rows, sources):
     ctx = {
         "xe52":      sources["xe52"],
         "xe38":      sources["xe38"],
+        "xh38":      sources.get("xh38"),
         "noto_math": sources["noto_math"],
         "noto":      noto_font,
         "base":      cfg["base"],
     }
 
     ok38 = ok52 = 0
-
     for row in csv_rows:
         char = row["e52"]
         dst_cp = ord(char)
 
-        # xi38 (hindixh38asc.sfd)
-        if apply_source(target_38, dst_cp, row["xh38_src"], char, ctx):
+        if apply_source(target_38, dst_cp, row["src"], row["action"], char, ctx):
             ok38 += 1
-
-        # xi52 (hindixh52asc.sfd)
-        if apply_source(target_52, dst_cp, row["xh52_src"], char, ctx):
+        if apply_source(target_52, dst_cp, row["src"], row["action"], char, ctx):
             ok52 += 1
 
     target_38.save(str(pff_root / "sfd/xi38sfd/xi38asc" / cfg["sfd38"]))
@@ -219,12 +216,6 @@ def process_script(name, cfg, csv_rows, sources):
     target_38.close()
     target_52.close()
 
-def build_sources():
-    return {
-        "xe52":      fontforge.open(str(ENGLISH_52)),
-        "xe38":      fontforge.open(str(ENGLISH_38)),
-        "noto_math": fontforge.open(str(NOTO_MATH)),
-    }
 
 def main():
     csv_rows = read_csv()
@@ -233,6 +224,7 @@ def main():
     sources = {
         "xe52":      fontforge.open(str(ENGLISH_52)),
         "xe38":      fontforge.open(str(ENGLISH_38)),
+        "xh38":      fontforge.open(str(XH38_SOURCE)),
         "noto_math": fontforge.open(str(NOTO_MATH)),
     }
 
