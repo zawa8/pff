@@ -46,6 +46,7 @@ def run_u9scripts_p1onli():
     sources = {
         "xe52":      mod.fontforge.open(str(mod.ENGLISH_52)),
         "xe38":      mod.fontforge.open(str(mod.ENGLISH_38)),
+        "xh38":      mod.fontforge.open(str(mod.XH38_SOURCE)),
         "noto_math": mod.fontforge.open(str(mod.NOTO_MATH)),
     }
     try:
