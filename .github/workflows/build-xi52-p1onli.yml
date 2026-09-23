@@ -1,4 +1,4 @@
-name: Build fonts (xi38 + xi52)
+name: Build fonts (ASC only)
 
 on:
   push:
@@ -29,13 +29,21 @@ jobs:
           python3 -m py_compile scripts/xi52py/main.py
           python3 -m py_compile scripts/xi52py/copy_sources_to_targets.py
           python3 -m py_compile scripts/xi52py/glyph_copy/glyph_kopi_u9scripts_p1onli.py
+          python3 -m py_compile scripts/xi52py/generate_xi38asc_ttf_woff2.py
+          python3 -m py_compile scripts/xi52py/generate_xi52asc_ttf_woff2.py
 
-      - name: Run pipeline (step 0 + 1)
+      - name: Run ASC pipeline (build)
         run: |
           fontforge -script scripts/xi52py/main.py --only 1
           fontforge -script scripts/xi52py/main.py --only 2
+          fontforge -script scripts/xi52py/main.py --only 3
 
-      - name: Upload SFDs (xi38 + xi52, asc)
+      - name: Generate ASC TTF/WOFF2
+        run: |
+          fontforge -script scripts/xi52py/main.py --only 11
+          fontforge -script scripts/xi52py/main.py --only 13
+
+      - name: Upload SFDs
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -43,14 +51,17 @@ jobs:
           path: |
             sfd/xi38sfd/xi38asc/
             sfd/xi52sfd/xi52asc/
-          if-no-files-found: warn
+
+      - name: Upload TTF/WOFF2
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: asc-fonts
+          path: xnglofonts/
 
       - name: Upload logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: build-logs
-          path: |
-            logs/
-            scripts/logs/
-          if-no-files-found: ignore
+          path: logs/
