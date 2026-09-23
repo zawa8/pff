@@ -1,13 +1,15 @@
-name: Build xi52 fonts (p1onli)
+name: Build fonts (xi38 + xi52)
 
 on:
   push:
-    branches: [p1onli]
+    branches: [main]
     paths:
       - "scripts/xi52py/**"
-      - "sfd/xi38font/**"
+      - "sfdsrc/**"
       - "notofonts/**"
       - ".github/workflows/build-xi52-p1onli.yml"
+  pull_request:
+    branches: [main]
   workflow_dispatch: {}
 
 jobs:
@@ -20,34 +22,34 @@ jobs:
       - name: Install FontForge
         run: |
           sudo apt-get update
-          sudo apt-get install -y fontforge
+          sudo apt-get install -y fontforge python3-fontforge
 
-      - name: Run xi52 pipeline (main.py)
-        run: fontforge -script scripts/xi52py/main.py
+      - name: Verify Python syntax
+        run: |
+          python3 -m py_compile scripts/xi52py/main.py
+          python3 -m py_compile scripts/xi52py/copy_sources_to_targets.py
+          python3 -m py_compile scripts/xi52py/glyph_copy/glyph_kopi_u9scripts_p1onli.py
 
-      - name: Upload generated SFDs (xi38 + xi52)
+      - name: Run pipeline (step 0 + 1)
+        run: |
+          fontforge -script scripts/xi52py/main.py --only 1
+          fontforge -script scripts/xi52py/main.py --only 2
+
+      - name: Upload SFDs (xi38 + xi52, asc)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: xi52-p1onli-sfd
+          name: asc-sfd
           path: |
-            sfd/xi38font/
-            sfd/xi52font/
-          if-no-files-found: warn
-
-      - name: Upload generated TTF/WOFF2
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: xi52-p1onli-fonts
-          path: xnglofonts/
+            sfd/xi38sfd/xi38asc/
+            sfd/xi52sfd/xi52asc/
           if-no-files-found: warn
 
       - name: Upload logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: xi52-p1onli-logs
+          name: build-logs
           path: |
             logs/
             scripts/logs/
