@@ -31,12 +31,24 @@ jobs:
           python3 -m py_compile scripts/xi52py/glyph_copy/glyph_kopi_u9scripts_p1onli.py
           python3 -m py_compile scripts/xi52py/generate_xi38asc_ttf_woff2.py
           python3 -m py_compile scripts/xi52py/generate_xi52asc_ttf_woff2.py
+          python3 -m py_compile scripts/xi52py/update_font_metadata.py
 
       - name: Run ASC pipeline (build)
         run: |
           fontforge -script scripts/xi52py/main.py --only 1
           fontforge -script scripts/xi52py/main.py --only 2
           fontforge -script scripts/xi52py/main.py --only 3
+
+      - name: Update font metadata
+        run: |
+          fontforge -script scripts/xi52py/update_font_metadata.py
+
+      - name: Clean old fonts
+        run: |
+          rm -f xnglofonts/ttf/xi52ttf/xi52asc/*.ttf
+          rm -f xnglofonts/ttf/xi38ttf/xi38asc/*.ttf
+          rm -f xnglofonts/woff2/xi52woff2/xi52asc/*.woff2
+          rm -f xnglofonts/woff2/xi38woff2/xi38asc/*.woff2
 
       - name: Generate ASC TTF/WOFF2
         run: |
