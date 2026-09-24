@@ -14,12 +14,12 @@ logging.basicConfig(level=logging.INFO, format='%(message)s')
 
 COPIES = [
     (
-        pff_root / "sfdsrc/xe52/eNgliSxe52asc.sfd",
-        pff_root / "sfd/xi52sfd/xi52asc/eNgliSxe52asc.sfd",
+        pff_root / "sfdsrc/xe52/xe52asc.sfd",
+        pff_root / "sfd/xi52sfd/xi52asc/xe52asc.sfd",
     ),
     (
-        pff_root / "sfdsrc/xh38/hindixh38asc.sfd",
-        pff_root / "sfd/xi38sfd/xi38asc/hindixh38asc.sfd",
+        pff_root / "sfdsrc/xh38/xh38asc.sfd",
+        pff_root / "sfd/xi38sfd/xi38asc/xh38asc.sfd",
     ),
 ]
 

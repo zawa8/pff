@@ -37,17 +37,17 @@ target_dir.mkdir(parents=True, exist_ok=True)
 
 # Font mappings: (src_file, old_name, new_name)
 FONTS = [
-    ('eNgliSxe38asc.sfd',   'eNgliSxe38',   'eNgliSxe52'),
-    ('hindixh38asc.sfd',    'hindixh38',    'hindixh52'),
-    ('bengalixb38asc.sfd',  'bengalixb38',  'bengalixb52'),
-    ('pnzabixp38asc.sfd',   'pnzabixp38',   'pnzabixp52'),
-    ('guzrajixg38asc.sfd',  'guzrajixg38',  'guzrajixg52'),
-    ('oriyaxo38asc.sfd',    'oriyaxo38',    'oriyaxo52'),
-    ('tmilxt38asc.sfd',     'tmilxt38',     'tmilxt52'),
-    ('jeluguxj38asc.sfd',   'jeluguxj38',   'jeluguxj52'),
-    ('knRaxk38asc.sfd',     'knRaxk38',     'knRaxk52'),
-    ('mlyalxmxm38asc.sfd',  'mlyalxmxm38',  'mlyalxmxm52'),
-    ('sinhlaxs38asc.sfd',   'sinhlaxs38',   'sinhlaxs52'),
+    ('xe38asc.sfd',   'eNgliSxe38',   'eNgliSxe52'),
+    ('xh38asc.sfd',    'hindixh38',    'hindixh52'),
+    ('xb38asc.sfd',  'bengalixb38',  'bengalixb52'),
+    ('xp38asc.sfd',   'pnzabixp38',   'pnzabixp52'),
+    ('xg38asc.sfd',  'guzrajixg38',  'guzrajixg52'),
+    ('xo38asc.sfd',    'oriyaxo38',    'oriyaxo52'),
+    ('xt38asc.sfd',     'tmilxt38',     'tmilxt52'),
+    ('xj38asc.sfd',   'jeluguxj38',   'jeluguxj52'),
+    ('xk38asc.sfd',     'knRaxk38',     'knRaxk52'),
+    ('xm38asc.sfd',  'mlyalxmxm38',  'mlyalxmxm52'),
+    ('xs38asc.sfd',   'sinhlaxs38',   'sinhlaxs52'),
 ]
 
 

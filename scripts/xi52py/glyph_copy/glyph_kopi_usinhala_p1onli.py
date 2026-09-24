@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Script to copy Sinhala glyphs from Noto to sinhlaxs38asc.sfd.
-Also copies 0x00-0x40, a,e,i,u,o,N, and E,I,M,L,O,P,U,V,W,X,Y from eNgliSxe38asc.sfd.
+Script to copy Sinhala glyphs from Noto to xs38asc.sfd.
+Also copies 0x00-0x40, a,e,i,u,o,N, and E,I,M,L,O,P,U,V,W,X,Y from xe38asc.sfd.
 
 Mapping (ASCII | Sinhala | Hindi):
     B | භ 0DB7 | भ 092D
@@ -65,8 +65,8 @@ logging.getLogger('').addHandler(console)
 
 # Sources
 noto_font_path = pff_root / "notofonts" / "NotoSansSinhala-Regular.ttf"
-english_sfd = pff_root / "sfd/xi38sfd/xi38asc/eNgliSxe38asc.sfd"
-sfd_path = pff_root / "sfd/xi38sfd/xi38asc/sinhlaxs38asc.sfd"
+english_sfd = pff_root / "sfd/xi38sfd/xi38asc/xe38asc.sfd"
+sfd_path = pff_root / "sfd/xi38sfd/xi38asc/xs38asc.sfd"
 
 # Output
 # font_repo removed (use pff_root)
@@ -115,7 +115,7 @@ SINHALA_OFFSET_MAP = {
 
 SINHALA_BASE = 0x0D80
 
-# Extra English chars from eNgliSxe38asc.sfd
+# Extra English chars from xe38asc.sfd
 EXTRA_ENGLISH = [
     ord('N'),  # N | (English)
     ord('a'),  # a | (English)
@@ -214,11 +214,11 @@ def main():
     target_font.save(str(sfd_path))
     print(f"✓ Saved SFD: {sfd_path.name}")
 
-    target_font.generate(str(ttf_dir / "sinhlaxs38asc.ttf"))
-    print(f"✓ TTF: sinhlaxs38asc.ttf")
+    target_font.generate(str(ttf_dir / "xs38asc.ttf"))
+    print(f"✓ TTF: xs38asc.ttf")
 
-    target_font.generate(str(woff2_dir / "sinhlaxs38asc.woff2"))
-    print(f"✓ WOFF2: sinhlaxs38asc.woff2")
+    target_font.generate(str(woff2_dir / "xs38asc.woff2"))
+    print(f"✓ WOFF2: xs38asc.woff2")
 
     noto_font.close()
     eng_font.close()

@@ -8,7 +8,7 @@ from pathlib import Path
 
 PFF_ROOT   = Path("C:/progxs/pff")
 NOTO_MATH  = PFF_ROOT / "notofonts" / "NotoSansMath-Regular.ttf"
-TARGET_SFD = PFF_ROOT / "sfd" / "xi38sfd" / "xi38asc" / "eNgliSxe38asc.sfd"
+TARGET_SFD = PFF_ROOT / "sfd" / "xi38sfd" / "xi38asc" / "xe38asc.sfd"
 
 SYMBOL_MAP = {
     0x45: 0x2261,  # E -> ≡

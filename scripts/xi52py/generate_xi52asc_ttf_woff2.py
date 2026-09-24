@@ -38,17 +38,17 @@ woff2_dir = pff_root / "xnglofonts/woff2/xi52woff2/xi52asc"
 woff2_dir.mkdir(parents=True, exist_ok=True)
 
 FONTS = [
-    'hindixh52asc.sfd',
-    'bengalixb52asc.sfd',
-    'pnzabixp52asc.sfd',
-    'guzrajixg52asc.sfd',
-    'oriyaxo52asc.sfd',
-    'tmilxt52asc.sfd',
-    'jeluguxj52asc.sfd',
-    'knRaxk52asc.sfd',
-    'mlyalxmxm52asc.sfd',
-    'sinhlaxs52asc.sfd',
-    'eNgliSxe52asc.sfd',
+    'xh52asc.sfd',
+    'xb52asc.sfd',
+    'xp52asc.sfd',
+    'xg52asc.sfd',
+    'xo52asc.sfd',
+    'xt52asc.sfd',
+    'xj52asc.sfd',
+    'xk52asc.sfd',
+    'xm52asc.sfd',
+    'xs52asc.sfd',
+    'xe52asc.sfd',
 ]
 
 

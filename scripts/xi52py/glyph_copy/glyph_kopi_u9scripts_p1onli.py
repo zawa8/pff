@@ -6,9 +6,9 @@ Build xi38asc + xi52asc for 9 Indian scripts using per-glyph
 source/action from glyph_copy.csv (4 columns: e52, src, action, notes).
 
 Sources:
-  - eNgliSxe52asc.sfd            (English master, from sfdsrc/xe52)
-  - eNgliSxe38asc.sfd            (English xi38)
-  - hindixh38asc.sfd             (Hindi source, from sfdsrc/xh38)
+  - xe52asc.sfd            (English master, from sfdsrc/xe52)
+  - xe38asc.sfd            (English xi38)
+  - xh38asc.sfd             (Hindi source, from sfdsrc/xh38)
   - NotoSansMath-Regular.ttf     (EIOUMX symbols)
   - NotoSans{Script}-Regular.ttf (Indic consonants)
 
@@ -43,32 +43,32 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Sources (master from sfdsrc/, targets from sfd/)
-ENGLISH_52   = pff_root / "sfd/xi52sfd/xi52asc/eNgliSxe52asc.sfd"
-ENGLISH_38   = pff_root / "sfd/xi38sfd/xi38asc/eNgliSxe38asc.sfd"
-XH38_SOURCE  = pff_root / "sfd/xi38sfd/xi38asc/hindixh38asc.sfd"
+ENGLISH_52   = pff_root / "sfd/xi52sfd/xi52asc/xe52asc.sfd"
+ENGLISH_38   = pff_root / "sfd/xi38sfd/xi38asc/xe38asc.sfd"
+XH38_SOURCE  = pff_root / "sfd/xi38sfd/xi38asc/xh38asc.sfd"
 NOTO_MATH    = pff_root / "notofonts/NotoSansMath-Regular.ttf"
 CSV_PATH     = script_dir / "glyph_copy.csv"
 
 # 9 scripts (Sinhala handled separately)
 SCRIPTS = {
     'hindi':     {'noto': 'NotoSansDevanagari-Regular.ttf', 'base': 0x0900,
-                  'sfd38': 'hindixh38asc.sfd',  'sfd52': 'hindixh52asc.sfd'},
+                  'sfd38': 'xh38asc.sfd',  'sfd52': 'xh52asc.sfd'},
     'bengali':   {'noto': 'NotoSansBengali-Regular.ttf',    'base': 0x0980,
-                  'sfd38': 'bengalixb38asc.sfd','sfd52': 'bengalixb52asc.sfd'},
+                  'sfd38': 'xb38asc.sfd','sfd52': 'xb52asc.sfd'},
     'punjabi':   {'noto': 'NotoSansGurmukhi-Regular.ttf',   'base': 0x0A00,
-                  'sfd38': 'pnzabixp38asc.sfd', 'sfd52': 'pnzabixp52asc.sfd'},
+                  'sfd38': 'xp38asc.sfd', 'sfd52': 'xp52asc.sfd'},
     'gujarati':  {'noto': 'NotoSansGujarati-Regular.ttf',   'base': 0x0A80,
-                  'sfd38': 'guzrajixg38asc.sfd','sfd52': 'guzrajixg52asc.sfd'},
+                  'sfd38': 'xg38asc.sfd','sfd52': 'xg52asc.sfd'},
     'oriya':     {'noto': 'NotoSansOriya-Regular.ttf',      'base': 0x0B00,
-                  'sfd38': 'oriyaxo38asc.sfd',  'sfd52': 'oriyaxo52asc.sfd'},
+                  'sfd38': 'xo38asc.sfd',  'sfd52': 'xo52asc.sfd'},
     'tamil':     {'noto': 'NotoSansTamil-Regular.ttf',      'base': 0x0B80,
-                  'sfd38': 'tmilxt38asc.sfd',   'sfd52': 'tmilxt52asc.sfd'},
+                  'sfd38': 'xt38asc.sfd',   'sfd52': 'xt52asc.sfd'},
     'telugu':    {'noto': 'NotoSansTelugu-Regular.ttf',     'base': 0x0C00,
-                  'sfd38': 'jeluguxj38asc.sfd', 'sfd52': 'jeluguxj52asc.sfd'},
+                  'sfd38': 'xj38asc.sfd', 'sfd52': 'xj52asc.sfd'},
     'kannada':   {'noto': 'NotoSansKannada-Regular.ttf',    'base': 0x0C80,
-                  'sfd38': 'knRaxk38asc.sfd',   'sfd52': 'knRaxk52asc.sfd'},
+                  'sfd38': 'xk38asc.sfd',   'sfd52': 'xk52asc.sfd'},
     'malayalam': {'noto': 'NotoSansMalayalam-Regular.ttf',  'base': 0x0D00,
-                  'sfd38': 'mlyalxmxm38asc.sfd','sfd52': 'mlyalxmxm52asc.sfd'},
+                  'sfd38': 'xm38asc.sfd','sfd52': 'xm52asc.sfd'},
 }
 
 # Indic consonants (Latin <- Noto offset) for the 8 scripts

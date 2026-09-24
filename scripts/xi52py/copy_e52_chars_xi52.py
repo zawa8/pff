@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script to copy specific characters from eNgliSxe52asc.sfd
+Script to copy specific characters from xe52asc.sfd
 to all 10 xi52 language fonts.
 """
 
@@ -29,23 +29,23 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Source
-src_sfd = pff_root / "sfd/xi52sfd/xi52asc/eNgliSxe52asc.sfd"
+src_sfd = pff_root / "sfd/xi52sfd/xi52asc/xe52asc.sfd"
 
 # Target folder
 target_dir = pff_root / "sfd/xi52sfd/xi52asc"
 
 # Target fonts (10 languages)
 TARGET_FONTS = [
-    'hindixh52asc.sfd',
-    'bengalixb52asc.sfd',
-    'pnzabixp52asc.sfd',
-    'guzrajixg52asc.sfd',
-    'oriyaxo52asc.sfd',
-    'tmilxt52asc.sfd',
-    'jeluguxj52asc.sfd',
-    'knRaxk52asc.sfd',
-    'mlyalxmxm52asc.sfd',
-    'sinhlaxs52asc.sfd',
+    'xh52asc.sfd',
+    'xb52asc.sfd',
+    'xp52asc.sfd',
+    'xg52asc.sfd',
+    'xo52asc.sfd',
+    'xt52asc.sfd',
+    'xj52asc.sfd',
+    'xk52asc.sfd',
+    'xm52asc.sfd',
+    'xs52asc.sfd',
 ]
 
 # Characters to copy (ASCII codes)
