@@ -28,7 +28,7 @@ jobs:
         run: |
           python3 -m py_compile scripts/xi52py/main.py
           python3 -m py_compile scripts/xi52py/copy_sources_to_targets.py
-          python3 -m py_compile scripts/xi52py/glyph_copy/glyph_kopi_u9scripts_p1onli.py
+          python3 -m py_compile scripts/xi52py/glyph_copy/build_asc_fonts.py
           python3 -m py_compile scripts/xi52py/generate_xi38asc_ttf_woff2.py
           python3 -m py_compile scripts/xi52py/generate_xi52asc_ttf_woff2.py
           python3 -m py_compile scripts/xi52py/update_font_metadata.py

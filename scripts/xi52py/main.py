@@ -38,10 +38,10 @@ def run_main(rel_path: str):
 def run_u9scripts_p1onli():
     """Build xi38asc + xi52asc for 9 scripts via G1-G5 rules.
 
-    Calls glyph_kopi_u9scripts_p1onli.py's functions directly,
+    Calls build_asc_fonts.py's functions directly,
     bypassing its argparse-based main().
     """
-    mod = load("glyph_copy/glyph_kopi_u9scripts_p1onli.py")
+    mod = load("glyph_copy/build_asc_fonts.py")
     csv_rows = mod.read_csv()
     sources = {
         "xe52":      mod.fontforge.open(str(mod.ENGLISH_52)),

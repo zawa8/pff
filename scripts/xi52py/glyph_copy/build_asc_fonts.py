@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-glyph_kopi_u9scripts_p1onli.py
+build_asc_fonts.py
 
 Build xi38asc + xi52asc for 9 Indian scripts using per-glyph
 source/action from glyph_copy.csv (4 columns: e52, src, action, notes).

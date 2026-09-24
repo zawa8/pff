@@ -6,7 +6,7 @@ Adapted from scripts/xi38py/generate_utf_ttf.py: same FONTS list and
 generate_fonts() logic, but pointed at this branch's canonical output
 location (xnglofonts/ttf|woff2/xi38woff2/xi38utf, matching the
 xnglofonts/ttf/xi38ttf/readme.md placeholder already in the repo,
-and the same convention glyph_kopi_u9scripts_p1onli.py already uses
+and the same convention build_asc_fonts.py already uses
 for xi38asc) instead of the original's hardcoded Windows path.
 
 This is the step that was missing from main.py's pipeline: step 3
