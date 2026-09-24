@@ -77,7 +77,7 @@ Note: `xv` → `xh` everywhere (`xh` = xNglohinDi).
 - `sfd/*/xi*utf/*.sfd`
 - `sfd/*/xi*mono/*.sfd`
 
-Step 0 (`copy_sources_to_targets.py`) copies sources into targets
+Step 0 (`step0_copy_sources.py`) copies sources into targets
 before the build steps run. Sources themselves are never modified.
 
 ---

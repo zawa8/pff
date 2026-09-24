@@ -10,7 +10,7 @@ and the same convention build_asc_fonts.py already uses
 for xi38asc) instead of the original's hardcoded Windows path.
 
 This is the step that was missing from main.py's pipeline: step 3
-(glyph_kopi_u2utf_p1onli.py) builds the p1onli-restricted
+(build_utf_fonts.py) builds the p1onli-restricted
 sfd/xi38sfd/xi38utf/*.sfd files, but nothing turned those into usable
 .ttf/.woff2 -- this script is that step.
 """

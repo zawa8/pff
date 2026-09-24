@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-copy_sources_to_targets.py — step 0 of pipeline.
+step0_copy_sources.py — step 0 of pipeline.
 """
 
 import shutil

@@ -63,14 +63,14 @@ def run_u9scripts_p1onli():
 
 PIPELINE = [
     # --- Phase 0: sources -> targets ---
-    ("[src] copy sources -> targets", run_main("copy_sources_to_targets.py")),
+    ("[src] copy sources -> targets", run_main("step0_copy_sources.py")),
 
     # --- Phase 1: asc (xi38asc + xi52asc parallel) ---
     ("[asc] build xi38asc + xi52asc, 9 scripts (G1-G5)", run_u9scripts_p1onli),
-    ("[asc] build xi38asc + xi52asc, Sinhala", run_main("glyph_copy/glyph_kopi_usinhala_p1onli.py")),
+    ("[asc] build xi38asc + xi52asc, Sinhala", run_main("glyph_copy/build_sinhala.py")),
 
     # --- Phase 2: utf ---
-    ("[utf] xi38asc -> xi38utf (copy 128 + unicode refs)", run_main("glyph_copy/glyph_kopi_u2utf_p1onli.py")),
+    ("[utf] xi38asc -> xi38utf (copy 128 + unicode refs)", run_main("glyph_copy/build_utf_fonts.py")),
     ("[utf] xi52asc -> xi52utf (copy + refs)", run_main("copy_xi38utf_to_xi52utf.py")),
     ("[utf] add unicode-range refs to xi52utf", run_main("add_unicode_ranges_utf_52.py")),
     ("[utf] rename xi52utf internals", run_main("rename_utf_fonts_52.py")),
@@ -82,9 +82,9 @@ PIPELINE = [
     # TODO: xi38mono pipeline (not yet implemented)
 
     # --- Phase 4: generate TTF/WOFF2 (last) ---
-    ("[gen] TTF/WOFF2 from xi38asc", run_main("generate_xi38asc_ttf_woff2.py")),
+    ("[gen] TTF/WOFF2 from xi38asc", run_main("gen_xi38asc.py")),
     ("[gen] TTF/WOFF2 from xi38utf", run_main("generatefonts/generate_xi38utf_ttf_p1onli.py")),
-    ("[gen] TTF/WOFF2 from xi52asc", run_main("generate_xi52asc_ttf_woff2.py")),
+    ("[gen] TTF/WOFF2 from xi52asc", run_main("gen_xi52asc.py")),
     ("[gen] TTF/WOFF2 from xi52utf", run_main("generatefonts/generate_xi52_ttf.py")),
     ("[gen] TTF/WOFF2 from xi52mono", run_main("generate_mono_ttf.py")),
 ]

@@ -27,10 +27,10 @@ jobs:
       - name: Verify Python syntax
         run: |
           python3 -m py_compile scripts/xi52py/main.py
-          python3 -m py_compile scripts/xi52py/copy_sources_to_targets.py
+          python3 -m py_compile scripts/xi52py/step0_copy_sources.py
           python3 -m py_compile scripts/xi52py/glyph_copy/build_asc_fonts.py
-          python3 -m py_compile scripts/xi52py/generate_xi38asc_ttf_woff2.py
-          python3 -m py_compile scripts/xi52py/generate_xi52asc_ttf_woff2.py
+          python3 -m py_compile scripts/xi52py/gen_xi38asc.py
+          python3 -m py_compile scripts/xi52py/gen_xi52asc.py
           python3 -m py_compile scripts/xi52py/update_font_metadata.py
 
       - name: Run ASC pipeline (build)
