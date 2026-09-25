@@ -98,10 +98,10 @@ ShortTable: maxp 16
 EndShort
 LangName: 1033 "github.com/zawa8/font hscii4(4phinger maths) hscii5" "" "regular" "russianonlyw8asc hscii 4finger1thumb 4f1t maths 2025-04-20 0.000;zawa;hscii5 russianonlyw8asc-regular" "" "wersion 0.0000" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "license file present in : https://github.com/zawa8/font/" "https://github.com/zawa8/font"
 GaspTable: 1 65535 15 1
-OtfFeatName: 'ss03' 1033 "florin symbol"
-OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
-OtfFeatName: 'ss06' 1033 "Accented Greek SC"
 OtfFeatName: 'ss07' 1033 "iota adscript"
+OtfFeatName: 'ss06' 1033 "Accented Greek SC"
+OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
+OtfFeatName: 'ss03' 1033 "florin symbol"
 Encoding: UnicodeFull
 UnicodeInterp: none
 NameList: AGL For New Fonts
@@ -134,14 +134,14 @@ EndChar
 StartChar: space
 Encoding: 32 32 2
 Width: 260
-Flags: HW
+Flags: W
 LayerCount: 2
 EndChar
 
 StartChar: exclam
 Encoding: 33 33 3
 Width: 167
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -194,7 +194,7 @@ EndChar
 StartChar: quotedbl
 Encoding: 34 34 4
 Width: 408
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -214,7 +214,7 @@ EndChar
 StartChar: numbersign
 Encoding: 35 35 5
 Width: 504
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -258,7 +258,7 @@ EndChar
 StartChar: dollar
 Encoding: 36 36 6
 Width: 398
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -342,7 +342,7 @@ EndChar
 StartChar: percent
 Encoding: 37 37 7
 Width: 482
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -472,7 +472,7 @@ EndChar
 StartChar: ampersand
 Encoding: 38 38 8
 Width: 536
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -579,7 +579,7 @@ EndChar
 StartChar: quotesingle
 Encoding: 39 39 9
 Width: 225
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -594,7 +594,7 @@ EndChar
 StartChar: parenleft
 Encoding: 40 40 10
 Width: 300
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -651,7 +651,7 @@ EndChar
 StartChar: parenright
 Encoding: 41 41 11
 Width: 300
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -705,7 +705,7 @@ EndChar
 StartChar: asterisk
 Encoding: 42 42 12
 Width: 551
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -731,7 +731,7 @@ EndChar
 StartChar: plus
 Encoding: 43 43 13
 Width: 572
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -754,7 +754,7 @@ EndChar
 StartChar: comma
 Encoding: 44 44 14
 Width: 268
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -774,7 +774,7 @@ EndChar
 StartChar: hyphen
 Encoding: 45 45 15
 Width: 322
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -789,7 +789,7 @@ EndChar
 StartChar: period
 Encoding: 46 46 16
 Width: 263
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -835,7 +835,7 @@ EndChar
 StartChar: slash
 Encoding: 47 47 17
 Width: 399
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -889,7 +889,7 @@ EndChar
 StartChar: zero
 Encoding: 48 48 18
 Width: 396
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -950,7 +950,7 @@ EndChar
 StartChar: one
 Encoding: 49 49 19
 Width: 245
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1005,7 +1005,7 @@ EndChar
 StartChar: two
 Encoding: 50 50 20
 Width: 344
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1081,7 +1081,7 @@ EndChar
 StartChar: three
 Encoding: 51 51 21
 Width: 347
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1177,7 +1177,7 @@ EndChar
 StartChar: four
 Encoding: 52 52 22
 Width: 401
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1259,7 +1259,7 @@ EndChar
 StartChar: five
 Encoding: 53 53 23
 Width: 376
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1339,7 +1339,7 @@ EndChar
 StartChar: six
 Encoding: 54 54 24
 Width: 407
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1409,7 +1409,7 @@ EndChar
 StartChar: seven
 Encoding: 55 55 25
 Width: 318
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1465,7 +1465,7 @@ EndChar
 StartChar: eight
 Encoding: 56 56 26
 Width: 407
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1570,7 +1570,7 @@ EndChar
 StartChar: nine
 Encoding: 57 57 27
 Width: 402
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1658,7 +1658,7 @@ EndChar
 StartChar: colon
 Encoding: 58 58 28
 Width: 268
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 Refer: 16 46 N 1 0 0 1 1 401 2
@@ -1668,7 +1668,7 @@ EndChar
 StartChar: semicolon
 Encoding: 59 59 29
 Width: 268
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1705,7 +1705,7 @@ EndChar
 StartChar: less
 Encoding: 60 60 30
 Width: 572
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1723,7 +1723,7 @@ EndChar
 StartChar: equal
 Encoding: 61 61 31
 Width: 572
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1743,7 +1743,7 @@ EndChar
 StartChar: greater
 Encoding: 62 62 32
 Width: 572
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1761,7 +1761,7 @@ EndChar
 StartChar: question
 Encoding: 63 63 33
 Width: 434
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1805,7 +1805,7 @@ EndChar
 StartChar: at
 Encoding: 64 64 34
 Width: 575
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1920,7 +1920,7 @@ StartChar: A
 Encoding: 65 65 35
 Width: 572
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -1965,7 +1965,7 @@ StartChar: C
 Encoding: 67 67 37
 Width: 534
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 Refer: 16 46 N 0.936 0 0 0.936 148.288 597.432 2
@@ -1997,7 +1997,7 @@ StartChar: E
 Encoding: 69 69 39
 Width: 440
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2025,7 +2025,7 @@ StartChar: F
 Encoding: 70 70 40
 Width: 479
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2188,7 +2188,7 @@ StartChar: G
 Encoding: 71 71 41
 Width: 462
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2288,7 +2288,7 @@ StartChar: H
 Encoding: 72 72 42
 Width: 572
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2322,7 +2322,7 @@ StartChar: I
 Encoding: 73 73 43
 Width: 514
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2344,7 +2344,7 @@ StartChar: J
 Encoding: 74 74 44
 Width: 552
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2425,7 +2425,7 @@ StartChar: L
 Encoding: 76 76 46
 Width: 568
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2645,7 +2645,7 @@ StartChar: M
 Encoding: 77 77 47
 Width: 572
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2682,7 +2682,7 @@ StartChar: N
 Encoding: 78 78 48
 Width: 391
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2766,7 +2766,7 @@ StartChar: O
 Encoding: 79 79 49
 Width: 572
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2821,7 +2821,7 @@ StartChar: P
 Encoding: 80 80 50
 Width: 499
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -2999,7 +2999,7 @@ StartChar: Q
 Encoding: 81 81 51
 Width: 539
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -3069,7 +3069,7 @@ StartChar: R
 Encoding: 82 82 52
 Width: 365
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -3133,7 +3133,7 @@ StartChar: T
 Encoding: 84 84 54
 Width: 468
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -3212,7 +3212,7 @@ StartChar: U
 Encoding: 85 85 55
 Width: 572
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -3237,7 +3237,7 @@ Encoding: 86 86 56
 Width: 600
 VWidth: 0
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -3423,7 +3423,7 @@ StartChar: W
 Encoding: 87 87 57
 Width: 613
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -3674,7 +3674,7 @@ StartChar: X
 Encoding: 88 88 58
 Width: 741
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -3732,7 +3732,7 @@ StartChar: Y
 Encoding: 89 89 59
 Width: 530
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -4001,7 +4001,7 @@ EndChar
 StartChar: bracketleft
 Encoding: 91 91 61
 Width: 260
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -4057,7 +4057,7 @@ EndChar
 StartChar: backslash
 Encoding: 92 92 62
 Width: 384
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -4109,7 +4109,7 @@ EndChar
 StartChar: bracketright
 Encoding: 93 93 63
 Width: 239
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -4162,7 +4162,7 @@ EndChar
 StartChar: asciicircum
 Encoding: 94 94 64
 Width: 572
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -4180,7 +4180,7 @@ EndChar
 StartChar: underscore
 Encoding: 95 95 65
 Width: 444
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -4195,7 +4195,7 @@ EndChar
 StartChar: grave
 Encoding: 96 96 66
 Width: 281
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -4218,7 +4218,7 @@ StartChar: a
 Encoding: 97 97 67
 Width: 574
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -4312,7 +4312,7 @@ StartChar: c
 Encoding: 99 99 69
 Width: 537
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -4381,7 +4381,7 @@ StartChar: e
 Encoding: 101 101 71
 Width: 398
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -4506,7 +4506,7 @@ StartChar: g
 Encoding: 103 103 73
 Width: 462
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -4615,7 +4615,7 @@ StartChar: h
 Encoding: 104 104 74
 Width: 401
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -4698,7 +4698,7 @@ StartChar: i
 Encoding: 105 105 75
 Width: 169
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -4754,7 +4754,7 @@ StartChar: j
 Encoding: 106 106 76
 Width: 516
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -4901,7 +4901,7 @@ StartChar: o
 Encoding: 111 111 81
 Width: 630
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -4964,7 +4964,7 @@ StartChar: q
 Encoding: 113 113 83
 Width: 539
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -5099,7 +5099,7 @@ StartChar: t
 Encoding: 116 116 86
 Width: 422
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -5177,7 +5177,7 @@ StartChar: u
 Encoding: 117 117 87
 Width: 426
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -5321,7 +5321,7 @@ StartChar: w
 Encoding: 119 119 89
 Width: 613
 GlyphClass: 2
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -5472,9 +5472,9 @@ SplineSet
  13 13 13 13 13 24 c 0,7,8
  13 30.052734375 13 30.052734375 17.7998046875 38 c 2,9,-1
  200.200195312 340 l 2,10,11
- 219.400390625 379 l 0,12,13
+ 200.200195312 340 200.200195312 340 219.400390625 379 c 0,12,13
  219.400390625 385 219.400390625 385 214.599609375 393.5 c 0,14,15
- 203.799804688 410 l 2,16,-1
+ 214.599609375 393.5 214.599609375 393.5 203.799804688 410 c 2,16,-1
  41.7998046875 566 l 2,17,18
  38.2001953125 570 38.2001953125 570 30.400390625 587 c 0,19,20
  25 599 25 599 25 614 c 0,21,22
@@ -5489,7 +5489,7 @@ SplineSet
  292.599609375 481 292.599609375 481 295 481 c 256,37,-1
  311.799804688 503 l 2,38,-1
  447.400390625 642 l 2,39,40
- 460.599609375 653 l 0,41,42
+ 447.400390625 642 447.400390625 642 460.599609375 653 c 0,41,42
  465.400390625 656 465.400390625 656 477.400390625 656 c 256,43,44
  485.799804688 656 485.799804688 656 499.599609375 653 c 128,-1,45
  513.400390625 650 513.400390625 650 525.400390625 643 c 0,46,47
@@ -5641,7 +5641,7 @@ EndChar
 StartChar: braceleft
 Encoding: 123 123 93
 Width: 322
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -5716,7 +5716,7 @@ EndChar
 StartChar: bar
 Encoding: 124 124 94
 Width: 179
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -5752,7 +5752,7 @@ EndChar
 StartChar: braceright
 Encoding: 125 125 95
 Width: 313
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet
@@ -5827,7 +5827,7 @@ EndChar
 StartChar: asciitilde
 Encoding: 126 126 96
 Width: 572
-Flags: HW
+Flags: W
 LayerCount: 2
 Fore
 SplineSet

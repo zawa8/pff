@@ -1,7 +1,7 @@
 SplineFontDB: 3.2
-FontName: eNgliSxe38
-FullName: eNgliSxe38
-FamilyName: eNgliSxe38
+FontName: xe38asc
+FullName: xe38asc
+FamilyName: xe38asc
 Weight: Regular
 Copyright: github.com/zawa8/font hscii 4finger1thumb 4f1t maths
 Version: w0.000
@@ -98,10 +98,10 @@ ShortTable: maxp 16
 EndShort
 LangName: 1033 "github.com/zawa8/font hscii4(4phinger maths) hscii5" "" "regular" "eNgliSxe38 hscii 4finger1thumb 4f1t maths 2025-04-18 0.000;zawa;hscii5 eNgliSxe38-regular" "" "wersion 0.0000" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "license file present in : https://github.com/zawa8/font/" "https://github.com/zawa8/font"
 GaspTable: 1 65535 15 1
-OtfFeatName: 'ss03' 1033 "florin symbol"
-OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
-OtfFeatName: 'ss06' 1033 "Accented Greek SC"
 OtfFeatName: 'ss07' 1033 "iota adscript"
+OtfFeatName: 'ss06' 1033 "Accented Greek SC"
+OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
+OtfFeatName: 'ss03' 1033 "florin symbol"
 Encoding: UnicodeFull
 UnicodeInterp: none
 NameList: AGL For New Fonts

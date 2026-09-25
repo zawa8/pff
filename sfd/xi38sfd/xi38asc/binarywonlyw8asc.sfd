@@ -99,10 +99,10 @@ EndShort
 LangName: 1033 "github.com/zawa8/font hscii4(4phinger maths) hscii5" "" "regular" "binarywonlyw8asc hscii 4finger1thumb 4f1t maths 2025-04-18 0.000;zawa;hscii5 binarywonlyw8asc-regular" "" "wersion 0.0000" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "license file present in : https://github.com/zawa8/font/" "https://github.com/zawa8/font"
 LangName: 16393 "" "" "" "binaryw15b 0.000;zawa;hscii5 binaryw15s-regular" "" "wersion 0.0000" "" "hscii5/4 fonts 5/4phingrmaths" "simbAls hscii4 github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "please ask phur help/kuery at: https://github.com/zawa8/font/" "https://github.com/zawa8/font"
 GaspTable: 1 65535 15 1
-OtfFeatName: 'ss07' 1033 "iota adscript"
-OtfFeatName: 'ss06' 1033 "Accented Greek SC"
-OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
 OtfFeatName: 'ss03' 1033 "florin symbol"
+OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
+OtfFeatName: 'ss06' 1033 "Accented Greek SC"
+OtfFeatName: 'ss07' 1033 "iota adscript"
 Encoding: UnicodeFull
 UnicodeInterp: none
 NameList: AGL For New Fonts
@@ -3802,9 +3802,9 @@ SplineSet
  11 13 11 13 11 24 c 0,7,8
  11 30.0526315789 11 30.0526315789 15 38 c 2,9,-1
  167 340 l 2,10,11
- 183 379 l 0,12,13
+ 167 340 167 340 183 379 c 0,12,13
  183 385 183 385 179 393.5 c 0,14,15
- 170 410 l 2,16,-1
+ 179 393.5 179 393.5 170 410 c 2,16,-1
  35 566 l 2,17,18
  32 570 32 570 25.5 587 c 0,19,20
  21 599 21 599 21 614 c 0,21,22
@@ -3819,7 +3819,7 @@ SplineSet
  244 481 244 481 246 481 c 256,37,-1
  260 503 l 2,38,-1
  373 642 l 2,39,40
- 384 653 l 0,41,42
+ 373 642 373 642 384 653 c 0,41,42
  388 656 388 656 398 656 c 256,43,44
  405 656 405 656 416.5 653 c 128,-1,45
  428 650 428 650 438 643 c 0,46,47
@@ -3910,7 +3910,7 @@ SplineSet
  379 492 379 492 393.400390625 503.849609375 c 0,2,3
  403.546875 512.024414062 403.546875 512.024414062 414.75 536.400390625 c 0,4,5
  422 552 422 552 422.450195312 553.599609375 c 0,6,7
- 429.549804688 828.5 l 1,8,-1
+ 422.450195312 553.599609375 422.450195312 553.599609375 429.549804688 828.5 c 1,8,-1
  289 829.5 l 0,9,10
  276 829 276 829 271.150390625 823.549804688 c 0,11,12
  266 818 266 818 265.900390625 807.799804688 c 0,13,14
