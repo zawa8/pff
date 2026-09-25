@@ -1,0 +1,58 @@
+e52,ipa38,hinDi,notes
+# G1 (20) - Indic consonants from Noto
+k,k,क,velar unaspirated
+K,kʰ,ख,velar aspirated
+z,dʒ,ज,palatal voiced
+Z,dʒʱ,झ,palatal voiced aspirated
+t,ʈ,ट,retroflex unaspirated
+T,t,त,dental unaspirated
+d,ɖ,ड,retroflex voiced
+D,d,द,dental voiced
+n,n,न,dental nasal
+p,p,प,bilabial unaspirated
+f,pʰ,फ,bilabial aspirated
+b,b,ब,bilabial voiced
+B,bʱ,भ,bilabial voiced aspirated
+m,m,म,bilabial nasal
+y,j,य,palatal approximant
+r,r,र,alveolar trill
+l,l,ल,lateral approximant
+w,ʋ,व,labiodental approximant
+s,s,स,alveolar sibilant
+S,ʃ,श,palatal sibilant
+# G2 (10) - Hindi designs from xh38
+x,ə,अ,schwa
+j,tʰ,थ,dental aspirated
+J,ʈʰ,ठ,retroflex aspirated
+q,dʱ,ध,dental voiced aspirated
+Q,ɖʱ,ढ,retroflex voiced aspirated
+v,ɦ,ह,voiced glottal
+c,tʃ,च,palatal unaspirated
+C,tʃʰ,छ,palatal aspirated
+g,ɡ,ग,velar voiced
+G,ɡʱ,घ,velar voiced aspirated
+# G3 (14) - Latin shapes from xe52
+N,ŋ,ङ,velar nasal
+R,ɽ,ड़,retroflex flap
+a,aː,आ,long aa
+i,i,इ,short i
+u,u,उ,short u
+e,e,ए,e
+o,o,ओ,o
+h,ɦ,ह,voiced glottal
+L,ɭ,ळ,retroflex lateral
+Y,j,य,palatal approximant
+V,ʋ,व,labiodental approximant
+W,w,व,labiovelar approximant
+P,p,प,bilabial unaspirated
+F,f,फ,labiodental fricative
+# G4 (6) - Noto Math symbols
+E,,,math ≡
+I,,,math ≠
+O,,,math →
+U,,,math ↓
+M,,,math ≥
+X,,,math ≤
+# G5 (4) - Hindi designs from xh38
+A,ə,अ,schwa alias
+H,ɦ,ह,voiced glottal alias
