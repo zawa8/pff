@@ -1,4 +1,4 @@
-name: Build fonts (ASC only)
+name: Build fonts (ASC + UTF)
 
 on:
   push:
@@ -29,6 +29,7 @@ jobs:
           python3 -m py_compile scripts/xi52py/main.py
           python3 -m py_compile scripts/xi52py/step0_copy_sources.py
           python3 -m py_compile scripts/xi52py/glyph_copy/build_asc_fonts.py
+          python3 -m py_compile scripts/xi52py/glyph_copy/build_utf_fonts.py
           python3 -m py_compile scripts/xi52py/gen_xi38asc.py
           python3 -m py_compile scripts/xi52py/gen_xi52asc.py
           python3 -m py_compile scripts/xi52py/update_font_metadata.py
@@ -42,6 +43,13 @@ jobs:
       - name: Update font metadata
         run: |
           fontforge -script scripts/xi52py/update_font_metadata.py
+
+      - name: Run UTF pipeline (build)
+        run: |
+          fontforge -script scripts/xi52py/main.py --only 4
+          fontforge -script scripts/xi52py/main.py --only 5
+          fontforge -script scripts/xi52py/main.py --only 6
+          fontforge -script scripts/xi52py/main.py --only 7
 
       - name: Clean old fonts
         run: |
@@ -63,6 +71,8 @@ jobs:
           path: |
             sfd/xi38sfd/xi38asc/
             sfd/xi52sfd/xi52asc/
+            sfd/xi38sfd/xi38utf/
+            sfd/xi52sfd/xi52utf/
 
       - name: Upload TTF/WOFF2
         if: always()
