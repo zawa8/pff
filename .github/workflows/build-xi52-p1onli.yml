@@ -55,30 +55,37 @@ jobs:
         run: |
           rm -f xnglofonts/ttf/xi52ttf/xi52asc/*.ttf
           rm -f xnglofonts/ttf/xi38ttf/xi38asc/*.ttf
+          rm -f xnglofonts/ttf/xi52ttf/xi52utf/*.ttf
+          rm -f xnglofonts/ttf/xi38ttf/xi38utf/*.ttf
           rm -f xnglofonts/woff2/xi52woff2/xi52asc/*.woff2
           rm -f xnglofonts/woff2/xi38woff2/xi38asc/*.woff2
+          rm -f xnglofonts/woff2/xi52woff2/xi52utf/*.woff2
+          rm -f xnglofonts/woff2/xi38woff2/xi38utf/*.woff2
 
       - name: Generate ASC TTF/WOFF2
         run: |
           fontforge -script scripts/xi52py/main.py --only 11
           fontforge -script scripts/xi52py/main.py --only 13
 
+      - name: Generate UTF TTF/WOFF2
+        run: |
+          fontforge -script scripts/xi52py/main.py --only 12
+          fontforge -script scripts/xi52py/main.py --only 14
+
       - name: Upload SFDs
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: asc-sfd
+          name: sfd
           path: |
-            sfd/xi38sfd/xi38asc/
-            sfd/xi52sfd/xi52asc/
-            sfd/xi38sfd/xi38utf/
-            sfd/xi52sfd/xi52utf/
+            sfd/xi38sfd/
+            sfd/xi52sfd/
 
       - name: Upload TTF/WOFF2
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: asc-fonts
+          name: fonts
           path: xnglofonts/
 
       - name: Upload logs

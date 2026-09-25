@@ -83,9 +83,9 @@ PIPELINE = [
 
     # --- Phase 4: generate TTF/WOFF2 (last) ---
     ("[gen] TTF/WOFF2 from xi38asc", run_main("gen_xi38asc.py")),
-    ("[gen] TTF/WOFF2 from xi38utf", run_main("generatefonts/generate_xi38utf_ttf_p1onli.py")),
+    ("[gen] TTF/WOFF2 from xi38utf", run_main("generatefonts/gen_xi38utf.py")),
     ("[gen] TTF/WOFF2 from xi52asc", run_main("gen_xi52asc.py")),
-    ("[gen] TTF/WOFF2 from xi52utf", run_main("generatefonts/generate_xi52_ttf.py")),
+    ("[gen] TTF/WOFF2 from xi52utf", run_main("generatefonts/gen_xi52utf.py")),
     ("[gen] TTF/WOFF2 from xi52mono", run_main("generate_mono_ttf.py")),
 ]
 
