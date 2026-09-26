@@ -43,11 +43,28 @@ Two families:
     # Full pipeline (needs FontForge)
     fontforge -script scripts/xi52py/main.py
 
-    # List steps
+    # List numbered steps
     fontforge -script scripts/xi52py/main.py --list
 
-    # Run single step
+    # List phase names
+    fontforge -script scripts/xi52py/main.py --list-phases
+
+    # Run one phase (src|asc|utf|mono|meta|gen)
+    fontforge -script scripts/xi52py/main.py --phase asc
+
+    # Run a single step
     fontforge -script scripts/xi52py/main.py --only 2
+
+    # Dry run (print without executing)
+    fontforge -script scripts/xi52py/main.py --dry-run
+
+6 phases:
+  src   sources -> targets
+  asc   xi38asc + xi52asc build
+  utf   xi38utf + xi52utf build
+  mono  xi52mono build (WIP, not in CI)
+  meta  font metadata (Google Fonts format)
+  gen   TTF/WOFF2 generation
 
 ## Manual design
 
@@ -69,14 +86,17 @@ Two families:
 
 ## GitHub Actions
 
-`.github/workflows/build-xi52.yml` runs on push:
+`.github/workflows/build-xi52.yml` runs on push to `main` and on PRs:
 
-1. Sources → targets
-2. Build ASC (xi38asc + xi52asc)
-3. Update font metadata
-4. Clean old fonts
-5. Generate TTF/WOFF2
-6. Upload artifacts
+1. Install FontForge
+2. Verify Python syntax (`py_compile`)
+3. Sanity check (`main.py --list`)
+4. Run phases: `src`, `asc`
+5. Run phase: `utf`
+6. Run phase: `meta` (font metadata)
+7. Clean old TTF/WOFF2
+8. Generate ASC + UTF TTF/WOFF2
+9. Upload SFDs, fonts, logs as artifacts
 
 ## See also
 
