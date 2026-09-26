@@ -128,8 +128,6 @@ PIPELINE = [
              run_main("copy_xi38utf_to_xi52utf.py")),
     ("utf",  "[utf] add unicode-range refs to xi52utf",
              run_main("add_unicode_ranges_utf_52.py")),
-    ("utf",  "[utf] rename xi52utf internals",
-             run_main("rename_utf_fonts_52.py")),
 
     # ---- mono (WIP) ----
     ("mono", "[mono] xi52utf -> xi52mono",
@@ -197,7 +195,7 @@ def write_build_info(selected_steps):
         f"steps ({len(selected_steps)}):",
     ]
     for i, (phase, label, _fn) in selected_steps:
-        lines.append(f"  {i:2d}. [{phase}] {label}")
+        lines.append(f" {i:2d}. {label}")
     BUILD_INFO.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
@@ -207,7 +205,7 @@ def write_build_info(selected_steps):
 
 def _print_steps():
     for i, (phase, label, _fn) in enumerate(PIPELINE, 1):
-        print(f"{i:2d}. [{phase}] {label}")
+        print(f"{i:2d}. {label}")
 
 
 def _print_phases():
@@ -280,7 +278,7 @@ def main():
     if args.dry_run:
         print(f"dry-run: {len(steps)} step(s) would run:")
         for i, (phase, label, _fn) in steps:
-            print(f"  {i:2d}. [{phase}] {label}")
+            print(f" {i:2d}. {label}")
         return
 
     failures = []
@@ -304,3 +302,6 @@ def main():
         sys.exit(1)
 
     print(f"\n\u2713 all {len(steps)} step(s) completed.")
+
+if __name__ == "__main__":
+    main()

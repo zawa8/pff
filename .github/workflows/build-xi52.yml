@@ -34,22 +34,19 @@ jobs:
           python3 -m py_compile scripts/xi52py/gen_xi52asc.py
           python3 -m py_compile scripts/xi52py/update_font_metadata.py
 
-      - name: Run ASC pipeline (build)
+      - name: Sanity -- print pipeline
+        run: fontforge -script scripts/xi52py/main.py --list
+
+      - name: Run src + asc phases
         run: |
-          fontforge -script scripts/xi52py/main.py --only 1
-          fontforge -script scripts/xi52py/main.py --only 2
-          fontforge -script scripts/xi52py/main.py --only 3
+          fontforge -script scripts/xi52py/main.py --phase src
+          fontforge -script scripts/xi52py/main.py --phase asc
+
+      - name: Run utf phase
+        run: fontforge -script scripts/xi52py/main.py --phase utf
 
       - name: Update font metadata
-        run: |
-          fontforge -script scripts/xi52py/update_font_metadata.py
-
-      - name: Run UTF pipeline (build)
-        run: |
-          fontforge -script scripts/xi52py/main.py --only 4
-          fontforge -script scripts/xi52py/main.py --only 5
-          fontforge -script scripts/xi52py/main.py --only 6
-          fontforge -script scripts/xi52py/main.py --only 7
+        run: fontforge -script scripts/xi52py/main.py --phase meta
 
       - name: Clean old fonts
         run: |
@@ -62,14 +59,11 @@ jobs:
           rm -f xnglofonts/woff2/xi52woff2/xi52utf/*.woff2
           rm -f xnglofonts/woff2/xi38woff2/xi38utf/*.woff2
 
-      - name: Generate ASC TTF/WOFF2
+      - name: Generate TTF/WOFF2
         run: |
           fontforge -script scripts/xi52py/main.py --only 11
-          fontforge -script scripts/xi52py/main.py --only 13
-
-      - name: Generate UTF TTF/WOFF2
-        run: |
           fontforge -script scripts/xi52py/main.py --only 12
+          fontforge -script scripts/xi52py/main.py --only 13
           fontforge -script scripts/xi52py/main.py --only 14
 
       - name: Upload SFDs

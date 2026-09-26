@@ -45,16 +45,16 @@ ttf_dir.mkdir(parents=True, exist_ok=True)
 woff2_dir.mkdir(parents=True, exist_ok=True)
 
 FONTS = {
-    'xh38asc.sfd': 'hindixh38utf.sfd',
-    'xb38asc.sfd': 'bengalixb38utf.sfd',
-    'xp38asc.sfd': 'pnzabixp38utf.sfd',
-    'xg38asc.sfd': 'guzrajixg38utf.sfd',
-    'xo38asc.sfd': 'oriyaxo38utf.sfd',
-    'xt38asc.sfd': 'tmilxt38utf.sfd',
-    'xj38asc.sfd': 'jeluguxj38utf.sfd',
-    'xk38asc.sfd': 'knRaxk38utf.sfd',
-    'xm38asc.sfd': 'mlyalxmxm38utf.sfd',
-    'xs38asc.sfd': 'sinhlaxs38utf.sfd',
+    'xh38asc.sfd': 'xh38utf.sfd',
+    'xb38asc.sfd': 'xb38utf.sfd',
+    'xp38asc.sfd': 'xp38utf.sfd',
+    'xg38asc.sfd': 'xg38utf.sfd',
+    'xo38asc.sfd': 'xo38utf.sfd',
+    'xt38asc.sfd': 'xt38utf.sfd',
+    'xj38asc.sfd': 'xj38utf.sfd',
+    'xk38asc.sfd': 'xk38utf.sfd',
+    'xm38asc.sfd': 'xm38utf.sfd',
+    'xs38asc.sfd': 'xs38utf.sfd',
 }
 
 # 10 Unicode ranges
