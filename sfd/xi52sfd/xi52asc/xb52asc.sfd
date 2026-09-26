@@ -16,14 +16,13 @@ LayerCount: 2
 Layer: 0 1 "Back" 1
 Layer: 1 1 "Fore" 0
 XUID: [1021 242 -508030597 9470343]
-UniqueID: 986939448
 StyleMap: 0x0040
 FSType: 0
 OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1432194851
-ModificationTime: 1790295287
+ModificationTime: 1790385458
 PfmFamily: 81
 TTFWeight: 400
 TTFWidth: 5
@@ -97,7 +96,7 @@ ShortTable: maxp 16
   3
   1
 EndShort
-LangName: 1033 "github.com/zawa8/font hscii4(4phinger maths) hscii5" "" "regular" "bengalixb52 hscii 4finger1thumb 4f1t maths 2025-04-18 0.000;zawa;hscii5 bengalixb52-regular" "" "wersion 0.0000" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "license file present in : https://github.com/zawa8/font/" "https://github.com/zawa8/font"
+LangName: 1033 "Copyright 2025 The Xnglo Project Authors (https://github.com/zawa8/pff)" "" "regular" "Version 1.000; zawa; xb52asc" "" "Version 1.000" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "This Font Software is licensed under the SIL Open Font License, Version 1.1." "https://openfontlicense.org"
 GaspTable: 1 65535 15 1
 Encoding: UnicodeFull
 UnicodeInterp: none
