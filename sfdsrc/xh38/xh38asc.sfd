@@ -1,7 +1,7 @@
 SplineFontDB: 3.2
-FontName: hindixv38
-FullName: hindixv38
-FamilyName: hindixv38
+FontName: xh38asc
+FullName: xh38asc
+FamilyName: xh38asc
 Weight: Regular
 Copyright: github.com/zawa8/font hscii 4finger1thumb 4f1t maths
 Version: w0.000
@@ -16,7 +16,6 @@ LayerCount: 2
 Layer: 0 1 "Back" 1
 Layer: 1 1 "Fore" 0
 XUID: [1021 242 -508030597 9470343]
-UniqueID: -1818643775
 StyleMap: 0x0040
 FSType: 0
 OS2Version: 4
@@ -97,7 +96,7 @@ ShortTable: maxp 16
   3
   1
 EndShort
-LangName: 1033 "github.com/zawa8/font hscii4(4phinger maths) hscii5" "" "regular" "hindixv38 hscii 4finger1thumb 4f1t maths 2025-04-18 0.000;zawa;hscii5 hindixv38-regular" "" "wersion 0.0000" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "license file present in : https://github.com/zawa8/font/" "https://github.com/zawa8/font"
+LangName: 1033 "Copyright 2025 The Xnglo Project Authors (https://github.com/zawa8/pff)" "" "regular" "Version 1.000; zawa; xh38asc" "" "Version 1.000" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "This Font Software is licensed under the SIL Open Font License, Version 1.1." "https://openfontlicense.org"
 GaspTable: 1 65535 15 1
 Encoding: UnicodeFull
 UnicodeInterp: none
@@ -5304,19 +5303,19 @@ Flags: W
 LayerCount: 2
 Fore
 SplineSet
-262.104492188 -0.107421875 m 5
- 14.4658203125 620.107421875 l 5
- 99.94921875 620.107421875 l 5
- 172.213867188 413.435546875 l 5
- 424.260742188 413.435546875 l 5
- 500.05078125 620.107421875 l 5
- 585.534179688 620.107421875 l 5
- 334.369140625 -0.107421875 l 5
- 262.104492188 -0.107421875 l 5
-300 74.1953125 m 5
- 399.584960938 342.587890625 l 5
- 200.415039062 342.587890625 l 5
- 300 74.1953125 l 5
+262.104492188 -0.107421875 m 5,0,-1
+ 14.4658203125 620.107421875 l 5,1,-1
+ 99.94921875 620.107421875 l 5,2,-1
+ 172.213867188 413.435546875 l 5,3,-1
+ 424.260742188 413.435546875 l 5,4,-1
+ 500.05078125 620.107421875 l 5,5,-1
+ 585.534179688 620.107421875 l 5,6,-1
+ 334.369140625 -0.107421875 l 5,7,-1
+ 262.104492188 -0.107421875 l 5,0,-1
+300 74.1953125 m 5,8,-1
+ 399.584960938 342.587890625 l 5,9,-1
+ 200.415039062 342.587890625 l 5,10,-1
+ 300 74.1953125 l 5,8,-1
 EndSplineSet
 Refer: 77 104 N 0.410592 0 0 0.38688 223.027 570.036 2
 EndChar
