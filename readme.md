@@ -69,7 +69,7 @@ Two families:
 
 ## GitHub Actions
 
-`.github/workflows/build-xi52-p1onli.yml` runs on push:
+`.github/workflows/build-xi52.yml` runs on push:
 
 1. Sources → targets
 2. Build ASC (xi38asc + xi52asc)

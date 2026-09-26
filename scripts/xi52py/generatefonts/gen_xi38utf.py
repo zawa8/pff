@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate TTF and WOFF2 from xi38utf SFD files (p1onli branch).
+Generate TTF and WOFF2 from xi38utf SFD files.
 
 Adapted from scripts/xi38py/generate_utf_ttf.py: same FONTS list and
 generate_fonts() logic, but pointed at this branch's canonical output
@@ -10,7 +10,7 @@ and the same convention build_asc_fonts.py already uses
 for xi38asc) instead of the original's hardcoded Windows path.
 
 This is the step that was missing from main.py's pipeline: step 3
-(build_utf_fonts.py) builds the p1onli-restricted
+(build_utf_fonts.py)
 sfd/xi38sfd/xi38utf/*.sfd files, but nothing turned those into usable
 .ttf/.woff2 -- this script is that step.
 """
@@ -27,7 +27,7 @@ pff_root = script_dir.parent.parent.parent  # generatefonts/ is 2 levels deeper 
 # Log
 log_dir = pff_root / "logs"
 log_dir.mkdir(exist_ok=True)
-log_file = log_dir / "generate_xi38utf_ttf_p1onli.log"
+log_file = log_dir / "generate_xi38utf_ttf.log"
 
 logging.basicConfig(
     filename=str(log_file),
