@@ -2,17 +2,13 @@
 """
 Generate TTF and WOFF2 from xi38utf SFD files.
 
-Adapted from scripts/xi38py/generate_utf_ttf.py: same FONTS list and
-generate_fonts() logic, but pointed at this branch's canonical output
-location (xnglofonts/ttf|woff2/xi38woff2/xi38utf, matching the
-xnglofonts/ttf/xi38ttf/readme.md placeholder already in the repo,
-and the same convention build_asc_fonts.py already uses
-for xi38asc) instead of the original's hardcoded Windows path.
+Reads sfd/xi38sfd/xi38utf/*.sfd and writes
+xnglofonts/ttf/xi38ttf/xi38utf/*.ttf and
+xnglofonts/woff2/xi38woff2/xi38utf/*.woff2.
 
-This is the step that was missing from main.py's pipeline: step 3
-(build_utf_fonts.py)
-sfd/xi38sfd/xi38utf/*.sfd files, but nothing turned those into usable
-.ttf/.woff2 -- this script is that step.
+Pipeline position: phase `gen`, step 13.
+(Phase `utf`, steps 4-7, produce the *.sfd inputs via
+build_utf_fonts.py; this script turns those into usable fonts.)
 """
 
 import fontforge

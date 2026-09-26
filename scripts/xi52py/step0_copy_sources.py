@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """
-step0_copy_sources.py — step 0 of pipeline.
+step0_copy_sources.py — step 1 of pipeline.
+
+Copies master SFDs from sfdsrc/ into sfd/ targets.
+Sources are never modified.
 """
 
 import shutil
