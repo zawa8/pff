@@ -39,17 +39,17 @@ target_dir.mkdir(parents=True, exist_ok=True)
 
 # Font mappings: (src_file, old_name, new_name)
 FONTS = [
-    ('hindixh38utf.sfd',    'hindixh38utf',    'hindixh52utf'),
-    ('bengalixb38utf.sfd',  'bengalixb38utf',  'bengalixb52utf'),
-    ('pnzabixp38utf.sfd',   'pnzabixp38utf',   'pnzabixp52utf'),
-    ('guzrajixg38utf.sfd',  'guzrajixg38utf',  'guzrajixg52utf'),
-    ('oriyaxo38utf.sfd',    'oriyaxo38utf',    'oriyaxo52utf'),
-    ('tmilxt38utf.sfd',     'tmilxt38utf',     'tmilxt52utf'),
-    ('jeluguxj38utf.sfd',   'jeluguxj38utf',   'jeluguxj52utf'),
-    ('knRaxk38utf.sfd',     'knRaxk38utf',     'knRaxk52utf'),
-    ('mlyalxmxm38utf.sfd',  'mlyalxmxm38utf',  'mlyalxmxm52utf'),
-    ('sinhlaxs38utf.sfd',   'sinhlaxs38utf',   'sinhlaxs52utf'),
-    ('eNgliSxe38utf.sfd',   'eNgliSxe38utf',   'eNgliSxe52utf'),
+    ('xh38utf.sfd',    'xh38utf',    'xh52utf'),
+    ('xb38utf.sfd',  'xb38utf',  'xb52utf'),
+    ('xp38utf.sfd',   'xp38utf',   'xp52utf'),
+    ('xg38utf.sfd',  'xg38utf',  'xg52utf'),
+    ('xo38utf.sfd',    'xo38utf',    'xo52utf'),
+    ('xt38utf.sfd',     'xt38utf',     'xt52utf'),
+    ('xj38utf.sfd',   'xj38utf',   'xj52utf'),
+    ('xk38utf.sfd',     'xk38utf',     'xk52utf'),
+    ('xm38utf.sfd',  'xm38utf',  'xm52utf'),
+    ('xs38utf.sfd',   'xs38utf',   'xs52utf'),
+    ('xe38utf.sfd',   'xe38utf',   'xe52utf'),
 ]
 
 

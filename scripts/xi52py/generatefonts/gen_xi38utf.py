@@ -45,17 +45,17 @@ ttf_dir.mkdir(parents=True, exist_ok=True)
 woff2_dir.mkdir(parents=True, exist_ok=True)
 
 FONTS = [
-    'hindixh38utf.sfd',
-    'bengalixb38utf.sfd',
-    'pnzabixp38utf.sfd',
-    'guzrajixg38utf.sfd',
-    'oriyaxo38utf.sfd',
-    'tmilxt38utf.sfd',
-    'jeluguxj38utf.sfd',
-    'knRaxk38utf.sfd',
-    'mlyalxmxm38utf.sfd',
-    'sinhlaxs38utf.sfd',
-    'eNgliSxe38utf.sfd',
+    'xh38utf.sfd',
+    'xb38utf.sfd',
+    'xp38utf.sfd',
+    'xg38utf.sfd',
+    'xo38utf.sfd',
+    'xt38utf.sfd',
+    'xj38utf.sfd',
+    'xk38utf.sfd',
+    'xm38utf.sfd',
+    'xs38utf.sfd',
+    'xe38utf.sfd',
 ]
 
 
@@ -70,7 +70,7 @@ def generate_fonts(sfd_path):
     try:
         font = fontforge.open(str(sfd_path))
 
-        base_name = sfd_path.stem  # e.g. hindixh38utf
+        base_name = sfd_path.stem  # e.g. xh38utf
 
         # Generate TTF
         ttf_path = ttf_dir / f"{base_name}.ttf"

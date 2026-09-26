@@ -37,17 +37,17 @@ target_dir.mkdir(parents=True, exist_ok=True)
 
 # Font mappings: (src_file, old_name, new_name)
 FONTS = [
-    ('hindixh52utf.sfd',    'hindixh52utf',    'hindixh52mono'),
-    ('bengalixb52utf.sfd',  'bengalixb52utf',  'bengalixb52mono'),
-    ('pnzabixp52utf.sfd',   'pnzabixp52utf',   'pnzabixp52mono'),
-    ('guzrajixg52utf.sfd',  'guzrajixg52utf',  'guzrajixg52mono'),
-    ('oriyaxo52utf.sfd',    'oriyaxo52utf',    'oriyaxo52mono'),
-    ('tmilxt52utf.sfd',     'tmilxt52utf',     'tmilxt52mono'),
-    ('jeluguxj52utf.sfd',   'jeluguxj52utf',   'jeluguxj52mono'),
-    ('knRaxk52utf.sfd',     'knRaxk52utf',     'knRaxk52mono'),
-    ('mlyalxmxm52utf.sfd',  'mlyalxmxm52utf',  'mlyalxmxm52mono'),
-    ('sinhlaxs52utf.sfd',   'sinhlaxs52utf',   'sinhlaxs52mono'),
-    ('eNgliSxe52utf.sfd',   'eNgliSxe52utf',   'eNgliSxe52mono'),
+    ('xh52utf.sfd',    'xh52utf',    'xh52mono'),
+    ('xb52utf.sfd',  'xb52utf',  'xb52mono'),
+    ('xp52utf.sfd',   'xp52utf',   'xp52mono'),
+    ('xg52utf.sfd',  'xg52utf',  'xg52mono'),
+    ('xo52utf.sfd',    'xo52utf',    'xo52mono'),
+    ('xt52utf.sfd',     'xt52utf',     'xt52mono'),
+    ('xj52utf.sfd',   'xj52utf',   'xj52mono'),
+    ('xk52utf.sfd',     'xk52utf',     'xk52mono'),
+    ('xm52utf.sfd',  'xm52utf',  'xm52mono'),
+    ('xs52utf.sfd',   'xs52utf',   'xs52mono'),
+    ('xe52utf.sfd',   'xe52utf',   'xe52mono'),
 ]
 
 # Monospace width

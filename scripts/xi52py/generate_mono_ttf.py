@@ -37,17 +37,17 @@ ttf_dir.mkdir(parents=True, exist_ok=True)
 woff2_dir.mkdir(parents=True, exist_ok=True)
 
 FONTS = [
-    'hindixh52mono.sfd',
-    'bengalixb52mono.sfd',
-    'pnzabixp52mono.sfd',
-    'guzrajixg52mono.sfd',
-    'oriyaxo52mono.sfd',
-    'tmilxt52mono.sfd',
-    'jeluguxj52mono.sfd',
-    'knRaxk52mono.sfd',
-    'mlyalxmxm52mono.sfd',
-    'sinhlaxs52mono.sfd',
-    'eNgliSxe52mono.sfd',
+    'xh52mono.sfd',
+    'xb52mono.sfd',
+    'xp52mono.sfd',
+    'xg52mono.sfd',
+    'xo52mono.sfd',
+    'xt52mono.sfd',
+    'xj52mono.sfd',
+    'xk52mono.sfd',
+    'xm52mono.sfd',
+    'xs52mono.sfd',
+    'xe52mono.sfd',
 ]
 
 
