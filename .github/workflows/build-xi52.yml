@@ -7,7 +7,7 @@ on:
       - "scripts/xi52py/**"
       - "sfdsrc/**"
       - "notofonts/**"
-      - ".github/workflows/build-xi52-p1onli.yml"
+      - ".github/workflows/build-xi52.yml"
   pull_request:
     branches: [main]
   workflow_dispatch: {}
