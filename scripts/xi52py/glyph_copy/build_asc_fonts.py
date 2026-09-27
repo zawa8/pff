@@ -51,27 +51,27 @@ CSV_PATH     = script_dir / "glyph_copy.csv"
 
 # 9 scripts (Sinhala handled separately)
 SCRIPTS = {
-    'hindi':     {'noto': 'NotoSansDevanagari-Regular.ttf', 'base': 0x0900,
+    'hindi':     {'notoindik': 'NotoSansDevanagari-Regular.ttf', 'base': 0x0900,
                   'sfd38': 'xh38asc.sfd',  'sfd52': 'xh52asc.sfd'},
-    'bengali':   {'noto': 'NotoSansBengali-Regular.ttf',    'base': 0x0980,
+    'bengali':   {'notoindik': 'NotoSansBengali-Regular.ttf',    'base': 0x0980,
                   'sfd38': 'xb38asc.sfd','sfd52': 'xb52asc.sfd'},
-    'punjabi':   {'noto': 'NotoSansGurmukhi-Regular.ttf',   'base': 0x0A00,
+    'punjabi':   {'notoindik': 'NotoSansGurmukhi-Regular.ttf',   'base': 0x0A00,
                   'sfd38': 'xp38asc.sfd', 'sfd52': 'xp52asc.sfd'},
-    'gujarati':  {'noto': 'NotoSansGujarati-Regular.ttf',   'base': 0x0A80,
+    'gujarati':  {'notoindik': 'NotoSansGujarati-Regular.ttf',   'base': 0x0A80,
                   'sfd38': 'xg38asc.sfd','sfd52': 'xg52asc.sfd'},
-    'oriya':     {'noto': 'NotoSansOriya-Regular.ttf',      'base': 0x0B00,
+    'oriya':     {'notoindik': 'NotoSansOriya-Regular.ttf',      'base': 0x0B00,
                   'sfd38': 'xo38asc.sfd',  'sfd52': 'xo52asc.sfd'},
-    'tamil':     {'noto': 'NotoSansTamil-Regular.ttf',      'base': 0x0B80,
+    'tamil':     {'notoindik': 'NotoSansTamil-Regular.ttf',      'base': 0x0B80,
                   'sfd38': 'xt38asc.sfd',   'sfd52': 'xt52asc.sfd'},
-    'telugu':    {'noto': 'NotoSansTelugu-Regular.ttf',     'base': 0x0C00,
+    'telugu':    {'notoindik': 'NotoSansTelugu-Regular.ttf',     'base': 0x0C00,
                   'sfd38': 'xj38asc.sfd', 'sfd52': 'xj52asc.sfd'},
-    'kannada':   {'noto': 'NotoSansKannada-Regular.ttf',    'base': 0x0C80,
+    'kannada':   {'notoindik': 'NotoSansKannada-Regular.ttf',    'base': 0x0C80,
                   'sfd38': 'xk38asc.sfd',   'sfd52': 'xk52asc.sfd'},
-    'malayalam': {'noto': 'NotoSansMalayalam-Regular.ttf',  'base': 0x0D00,
+    'malayalam': {'notoindik': 'NotoSansMalayalam-Regular.ttf',  'base': 0x0D00,
                   'sfd38': 'xm38asc.sfd','sfd52': 'xm52asc.sfd'},
 }
 
-# Indic consonants (Latin <- Noto offset) for the 8 scripts
+# Indic consonants (Latin <- noto_indik offset) for the 8 scripts
 CONSONANT_OFFSETS = {
     0x15: 'k',  0x16: 'K',
     0x17: 'g',  0x18: 'G',
@@ -166,21 +166,21 @@ def apply_source(target_font, dst_cp, src_name, action, e52_char, ctx):
         if math_cp and copy_glyph(ctx["noto_math"], math_cp, target_font, dst_cp):
             return True
         return False
-    if src_name == "noto":
+    if src_name == "notoindik":
         off = offset_for_letter(e52_char)
         if off is None:
             if e52_char in ("x", "A"):
-                return copy_glyph(ctx["noto"], ctx["base"] + SCHWA_OFFSET,
+                return copy_glyph(ctx["notoindik"], ctx["base"] + SCHWA_OFFSET,
                                   target_font, dst_cp)
             return False
-        return copy_glyph(ctx["noto"], ctx["base"] + off, target_font, dst_cp)
+        return copy_glyph(ctx["notoindik"], ctx["base"] + off, target_font, dst_cp)
     return False
 
 
 def process_script(name, cfg, csv_rows, sources):
-    noto_path = pff_root / "notofonts" / cfg["noto"]
+    noto_path = pff_root / "notofonts" / cfg["notoindik"]
     if not noto_path.exists():
-        logging.error(f"Noto not found: {noto_path}")
+        logging.error(f"notoindik source not found: {noto_path}")
         return
 
     noto_font = None
@@ -196,7 +196,7 @@ def process_script(name, cfg, csv_rows, sources):
             "xe38":      sources["xe38"],
             "xh38":      sources.get("xh38"),
             "noto_math": sources["noto_math"],
-            "noto":      noto_font,
+            "notoindik":      noto_font,
             "base":      cfg["base"],
         }
 
