@@ -1,10 +1,10 @@
 SplineFontDB: 3.2
-FontName: xj38asc
-FullName: xj38asc
-FamilyName: xj38asc
+FontName: XngloTelugu-xi38asc
+FullName: Xnglo Telugu xi38 asc Regular
+FamilyName: Xnglo Telugu xi38 asc
 Weight: Regular
 Copyright: github.com/zawa8/font hscii 4finger1thumb 4f1t maths
-Version: w0.000
+Version: Version 1.3.0
 ItalicAngle: 0
 UnderlinePosition: -128
 UnderlineWidth: 51
@@ -96,7 +96,7 @@ ShortTable: maxp 16
   3
   1
 EndShort
-LangName: 1033 "Copyright 2025 The Xnglo Project Authors (https://github.com/zawa8/pff)" "" "regular" "Version 1.000; zawa; xj38asc" "" "Version 1.000" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "This Font Software is licensed under the SIL Open Font License, Version 1.1." "https://openfontlicense.org"
+LangName: 1033 "Copyright 2025 The Xnglo Project Authors (https://github.com/zawa8/pff)" "" "regular" "Version 1.3.0; zawa8; XngloTelugu-xi38asc" "" "Version 1.3.0" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "This Font Software is licensed under the SIL Open Font License, Version 1.1." "https://openfontlicense.org"
 GaspTable: 1 65535 15 1
 Encoding: UnicodeFull
 UnicodeInterp: none
