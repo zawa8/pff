@@ -127,8 +127,8 @@ e52, src, action, notes
 
 - `e52`    — letter (ASCII slot 0x00–0xFF)
 - `src`    — source for that letter:
-             `xe52` | `xe38` | `xh38` | `noto` | `noto_math` | `keep`
-             (`noto` = per-script Indic Noto, e.g. `NotoSansDevanagari`,
+             `xe52` | `xe38` | `xh38` | `notoindik` | `noto_math` | `keep`
+             (`notoindik` = per-script Indic Noto, e.g. `NotoSansDevanagari`,
              `NotoSansBengali`, ...)
 - `action` — `replace` | `keep` | `manual` | `remove`
 - `notes`  — free-form documentation
@@ -143,7 +143,7 @@ e52, src, action, notes
 
 ```
 
-k,noto,replace,Indic consonant
+k,notoindik,replace,Indic consonant
 x,xh38,replace,Hindi schwa design (अ + small x)
 N,xe52,replace,Latin shape
 E,noto_math,replace,math ≡
@@ -157,7 +157,7 @@ T,keep,keep,Sunny Spells T
 
 | Group | Letters | Sources |
 |-------|---------|---------|
-| G1 | `a i u e o h N R L Y V W P F` (14) | noto (except N, R from xe52) |
+| G1 | `a i u e o h N R L Y V W P F` (14) | notoindik (except N, R from xe52) |
 | G2 | `x j J q Q v c C g G` (10) | xh38 (Hindi designs) |
 | G3 | `N R a i u e o h L Y V W P F` (14) | xe52 (Latin shapes) |
 | G4 | `E I O U M X` (6) | noto_math |
