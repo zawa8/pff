@@ -21,7 +21,7 @@ COPIES = [
         pff_root / "sfd/xi52sfd/xi52asc/xe52asc.sfd",
     ),
     (
-        pff_root / "sfdsrc/xh38/xh38asc.sfd",
+        pff_root / "sfdsrc/xi38/xh38asc.sfd",
         pff_root / "sfd/xi38sfd/xi38asc/xh38asc.sfd",
     ),
 ]

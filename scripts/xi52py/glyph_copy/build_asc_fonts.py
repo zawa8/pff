@@ -8,7 +8,7 @@ source/action from glyph_copy.csv (4 columns: e52, src, action, notes).
 Sources:
   - xe52asc.sfd            (English master, from sfdsrc/xe52)
   - xe38asc.sfd            (English xi38)
-  - xh38asc.sfd             (Hindi source, from sfdsrc/xh38)
+  - xh38asc.sfd             (Hindi source, from sfdsrc/xi38)
   - NotoSansMath-Regular.ttf     (EIOUMX symbols)
   - NotoSans{Script}-Regular.ttf (Indic consonants)
 
