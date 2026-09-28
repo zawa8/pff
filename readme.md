@@ -78,7 +78,7 @@ Full metadata scheme in `scripts/pipeline_design.md` §8.
 
 1. Open a source in FontForge:
    - `sfdsrc/xe52/xe52asc.sfd` (English master)
-   - `sfdsrc/xh38/xh38asc.sfd` (Hindi source, example)
+   - `sfdsrc/xi38/xh38asc.sfd` (Hindi source, example)
 2. Edit glyphs
 3. Save `.sfd`
 4. Run pipeline (or Ctrl+G in FontForge to generate TTF/WOFF2 directly)
@@ -89,7 +89,7 @@ New per-script sources will live in `sfdsrc/xi38/`, e.g.
 ## Sources (never overwritten)
 
 - `sfdsrc/xe52/xe52asc.sfd` — English master
-- `sfdsrc/xh38/xh38asc.sfd` — Hindi xi38 source
+- `sfdsrc/xi38/xh38asc.sfd` — Hindi xi38 source
 - `notofonts/*.ttf` — Noto fallback
 
 Future per-script sources will live in `sfdsrc/xi38/`.

@@ -47,7 +47,7 @@ Total: 52 letters
 11-15. Generate all TTF/WOFF2 (xi38asc/utf/mono, xi52asc/utf/mono)
 
 ## Design workflow
-1. Edit sources in `sfdsrc/xe52/` or `sfdsrc/xh38/` (FontForge)
+1. Edit sources in `sfdsrc/xe52/` or `sfdsrc/xi38/` (FontForge)
 2. Run pipeline
 3. Targets rebuilt
 4. Sources never overwritten
