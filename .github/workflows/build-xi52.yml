@@ -45,6 +45,9 @@ jobs:
       - name: Run utf phase
         run: fontforge -script scripts/xi52py/main.py --phase utf
 
+      - name: Run mono phase
+        run: fontforge -script scripts/xi52py/main.py --phase mono
+
       - name: Update font metadata
         run: fontforge -script scripts/xi52py/main.py --phase meta
 
@@ -54,10 +57,12 @@ jobs:
           rm -f xnglofonts/ttf/xi38ttf/xi38asc/*.ttf
           rm -f xnglofonts/ttf/xi52ttf/xi52utf/*.ttf
           rm -f xnglofonts/ttf/xi38ttf/xi38utf/*.ttf
+          rm -f xnglofonts/ttf/xi52ttf/xi52mono/*.ttf
           rm -f xnglofonts/woff2/xi52woff2/xi52asc/*.woff2
           rm -f xnglofonts/woff2/xi38woff2/xi38asc/*.woff2
           rm -f xnglofonts/woff2/xi52woff2/xi52utf/*.woff2
           rm -f xnglofonts/woff2/xi38woff2/xi38utf/*.woff2
+          rm -f xnglofonts/woff2/xi52woff2/xi52mono/*.woff2
 
       - name: Generate TTF/WOFF2
         run: |
@@ -65,6 +70,7 @@ jobs:
           fontforge -script scripts/xi52py/main.py --only 12
           fontforge -script scripts/xi52py/main.py --only 13
           fontforge -script scripts/xi52py/main.py --only 14
+          fontforge -script scripts/xi52py/main.py --only 15
 
       - name: Upload SFDs
         if: always()
