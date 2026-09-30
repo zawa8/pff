@@ -307,7 +307,6 @@ Files in `update_font_metadata.py`'s `SKIP` set are left alone:
 
 - `koreanonlyw8asc.sfd` — pending rename to `xko*` + xi52 pipeline add
 - `russianonlyw8asc.sfd` — pending rename to `xr*` + xi52 pipeline add
-- `xnglosoftw8utf.sfd` — special font, not part of x* scheme
 
 Removed in v1.3.0:
 
@@ -325,5 +324,4 @@ Removed in v1.3.0:
 - `xi38mono` pipeline — not yet implemented
 - Mono phase (steps 7–9, 15) — implemented but not run in CI
 - `koreanonlyw8asc.sfd`, `russianonlyw8asc.sfd` — rename + xi52 add
-- `xnglosoftw8utf.sfd` — decide scheme or remove
 - `glyph_sources.csv` — may not be needed (`.csv` already documents)
