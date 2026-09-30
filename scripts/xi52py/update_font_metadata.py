@@ -14,7 +14,7 @@ Naming:
     xh52utf       -> (Xnglo Hindi xi52 utf, ... Regular, XngloHindi-xi52utf)
     xh52mono      -> (Xnglo Hindi xi52 mono, ... Regular, XngloHindi-xi52mono)
     xbinaryheks   -> (Xnglo Binary Hex, ... Regular, XngloBinary-Hex)
-    xnglosoftw8utf-> (skipped, special case)
+
 
 Version comes from the latest git tag (v1.2.0 -> "Version 1.2.0");
 falls back to "Version 1.000" if git is unavailable.
@@ -99,8 +99,6 @@ SFD_DIRS = [
 SKIP = {
     "koreanonlyw8asc.sfd",
     "russianonlyw8asc.sfd",
-    "xnglosoftw8utf.sfd",
-    "xnglosoftw8mono.sfd",
 }
 
 # --------------------------------------------------------------------------
