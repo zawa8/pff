@@ -58,19 +58,22 @@ jobs:
           rm -f xnglofonts/ttf/xi52ttf/xi52utf/*.ttf
           rm -f xnglofonts/ttf/xi38ttf/xi38utf/*.ttf
           rm -f xnglofonts/ttf/xi52ttf/xi52mono/*.ttf
+          rm -f xnglofonts/ttf/xi38ttf/xi38mono/*.ttf
           rm -f xnglofonts/woff2/xi52woff2/xi52asc/*.woff2
           rm -f xnglofonts/woff2/xi38woff2/xi38asc/*.woff2
           rm -f xnglofonts/woff2/xi52woff2/xi52utf/*.woff2
           rm -f xnglofonts/woff2/xi38woff2/xi38utf/*.woff2
           rm -f xnglofonts/woff2/xi52woff2/xi52mono/*.woff2
+          rm -f xnglofonts/woff2/xi38woff2/xi38mono/*.woff2
 
       - name: Generate TTF/WOFF2
         run: |
-          fontforge -script scripts/xi52py/main.py --only 11
-          fontforge -script scripts/xi52py/main.py --only 12
-          fontforge -script scripts/xi52py/main.py --only 13
           fontforge -script scripts/xi52py/main.py --only 14
           fontforge -script scripts/xi52py/main.py --only 15
+          fontforge -script scripts/xi52py/main.py --only 16
+          fontforge -script scripts/xi52py/main.py --only 17
+          fontforge -script scripts/xi52py/main.py --only 18
+          fontforge -script scripts/xi52py/main.py --only 19
 
       - name: Upload SFDs
         if: always()

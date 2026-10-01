@@ -6,7 +6,7 @@ Phases:
     src   sources -> targets
     asc   xi38asc + xi52asc build (9 scripts + Sinhala)
     utf   xi38utf + xi52utf build
-    mono  xi52mono build            (WIP, not run in CI yet)
+    mono  xi38mono + xi52mono build
     meta  font metadata stamp       (Google Fonts format)
     gen   TTF/WOFF2 generation
 
@@ -18,7 +18,7 @@ Run with FontForge's own Python:
     fontforge -script main.py --phase asc        # run one phase
     fontforge -script main.py --only 11          # run step 11 only
     fontforge -script main.py --from 4           # resume from step 4
-    fontforge -script main.py --skip 8,9,10      # skip mono steps
+    fontforge -script main.py --skip 7,8,9,10,11,12   # skip mono steps
     fontforge -script main.py --dry-run          # print, don't execute
     fontforge -script main.py --continue         # keep going after a failure
 """
@@ -101,7 +101,7 @@ PHASES = [
     ("src",  "Phase 0 -- sources -> targets"),
     ("asc",  "Phase 1 -- asc (xi38asc + xi52asc)"),
     ("utf",  "Phase 2 -- utf (xi38utf + xi52utf)"),
-    ("mono", "Phase 3 -- mono (xi52mono)  [WIP, not in CI]"),
+    ("mono", "Phase 3 -- mono (xi38mono + xi52mono)"),
     ("meta", "Phase 4 -- font metadata (Google Fonts format)"),
     ("gen",  "Phase 5 -- TTF/WOFF2 generation"),
 ]
@@ -129,14 +129,21 @@ PIPELINE = [
     ("utf",  "[utf] add unicode-range refs to xi52utf",
              run_main("add_unicode_ranges_utf_52.py")),
 
-    # ---- mono (WIP) ----
+    # ---- mono ----
+    # xi38mono
+    ("mono", "[mono] xi38utf -> xi38mono",
+             run_main("copy_utf_to_mono_xi38.py")),
+    ("mono", "[mono] center glyphs in xi38mono",
+             run_main("center_glyphs_mono_xi38.py")),
+    ("mono", "[mono] fix widths in xi38mono",
+             run_main("fix_mono_width_xi38.py")),
+    # xi52mono
     ("mono", "[mono] xi52utf -> xi52mono",
              run_main("copy_utf_to_mono_xi52.py")),
     ("mono", "[mono] center glyphs in xi52mono",
              run_main("center_glyphs_mono_xi52.py")),
     ("mono", "[mono] fix widths in xi52mono",
              run_main("fix_mono_width_xi52.py")),
-    # TODO: xi38mono pipeline (not yet implemented)
 
     # ---- meta ----
     ("meta", "[meta] update font metadata (Google Fonts format)",
@@ -151,6 +158,8 @@ PIPELINE = [
              run_main("gen_xi52asc.py")),
     ("gen",  "[gen] TTF/WOFF2 from xi52utf",
              run_main("generatefonts/gen_xi52utf.py")),
+    ("gen",  "[gen] TTF/WOFF2 from xi38mono",
+             run_main("generate_mono_ttf_xi38.py")),
     ("gen",  "[gen] TTF/WOFF2 from xi52mono",
              run_main("generate_mono_ttf.py")),
 ]
