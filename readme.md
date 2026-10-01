@@ -128,7 +128,6 @@ in the fonts is taken from the latest git tag by
 
 - `scripts/pipeline_design.md` — full design doc
 - `scripts/groups_and_pipelines.md` — G1-G5 groups
-- `hskii-encoding-analysis.md` — encoding scheme
 
 ## Related
 
