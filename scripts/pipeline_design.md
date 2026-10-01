@@ -171,7 +171,7 @@ that don't exist in their Noto source.
 
 ---
 
-## 5. Pipeline (15 steps, 6 phases)
+## 5. Pipeline (19 steps, 6 phases)
 
 ### Phase `src` — sources → targets
 1. `[src] copy sources -> targets`
@@ -185,20 +185,24 @@ that don't exist in their Noto source.
 5. `[utf] xi52asc -> xi52utf (copy + refs)`
 6. `[utf] add unicode-range refs to xi52utf`
 
-### Phase `mono` — xi52mono  *(WIP, not run in CI)*
-7. `[mono] xi52asc -> xi52mono`
-8. `[mono] center glyphs in xi52mono`
-9. `[mono] fix widths in xi52mono`
+### Phase `mono` — xi38mono + xi52mono
+7. `[mono] xi38utf -> xi38mono`
+8. `[mono] center glyphs in xi38mono`
+9. `[mono] fix widths in xi38mono`
+10. `[mono] xi52utf -> xi52mono`
+11. `[mono] center glyphs in xi52mono`
+12. `[mono] fix widths in xi52mono`
 
 ### Phase `meta` — font metadata
-10. `[meta] update font metadata (Google Fonts format)`
+13. `[meta] update font metadata (Google Fonts format)`
 
 ### Phase `gen` — TTF/WOFF2 generation
-11. `[gen] TTF/WOFF2 from xi38asc`
-12. `[gen] TTF/WOFF2 from xi38utf`
-13. `[gen] TTF/WOFF2 from xi52asc`
-14. `[gen] TTF/WOFF2 from xi52utf`
-15. `[gen] TTF/WOFF2 from xi52mono`
+14. `[gen] TTF/WOFF2 from xi38asc`
+15. `[gen] TTF/WOFF2 from xi38utf`
+16. `[gen] TTF/WOFF2 from xi52asc`
+17. `[gen] TTF/WOFF2 from xi52utf`
+18. `[gen] TTF/WOFF2 from xi38mono`
+19. `[gen] TTF/WOFF2 from xi52mono`
 
 Metadata is stamped on every SFD **before** the `gen` phase, so TTF/WOFF2
 carry correct Google Fonts metadata (Version, Copyright, License,
@@ -262,10 +266,10 @@ Steps:
 5. `--phase utf`
 6. `--phase meta`
 7. Clean old TTF/WOFF2
-8. `--only 11` through `--only 14` (gen)
+8. `--only 14` through `--only 19` (gen)
 9. Upload SFDs, TTF/WOFF2, logs as artifacts
 
-Mono steps (7–9, 15) are not run in CI yet (see Pending).
+All phases (including mono) run in CI.
 
 ---
 
@@ -321,7 +325,5 @@ Removed in v1.3.0:
 ## 10. Pending
 
 - Non-Hindi scripts — G5 designs pending (per-script designers)
-- `xi38mono` pipeline — not yet implemented
-- Mono phase (steps 7–9, 15) — implemented but not run in CI
 - `koreanonlyw8asc.sfd`, `russianonlyw8asc.sfd` — rename + xi52 add
 - `glyph_sources.csv` — may not be needed (`.csv` already documents)

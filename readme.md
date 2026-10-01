@@ -70,7 +70,7 @@ Full metadata scheme in `scripts/pipeline_design.md` §8.
   src   sources -> targets
   asc   xi38asc + xi52asc build
   utf   xi38utf + xi52utf build
-  mono  xi52mono build (WIP, not in CI)
+  mono  xi38mono + xi52mono build
   meta  font metadata (Google Fonts format)
   gen   TTF/WOFF2 generation
 
@@ -96,7 +96,7 @@ Future per-script sources will live in `sfdsrc/xi38/`.
 
 ## Outputs
 
-- `xnglofonts/ttf/xi38ttf/{xi38asc,xi38utf}/`          — TTF files
+- `xnglofonts/ttf/xi38ttf/{xi38asc,xi38utf,xi38mono}/` — TTF files
 - `xnglofonts/ttf/xi52ttf/{xi52asc,xi52utf,xi52mono}/` — TTF files
 - `xnglofonts/woff2/.../`                              — WOFF2 (same layout)
 
