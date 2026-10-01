@@ -34,3 +34,5 @@ daunlod/fontdrum/
 .*.swp
 
 summary_*.md
+__pycache__/
+*.pyo
