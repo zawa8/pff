@@ -111,7 +111,8 @@ SCHWA_OFFSET = 0x05
 def read_csv(csv_path=None):
     """Read glyph copy CSV: e52, src, action, notes."""
     rows = []
-    path = csv_path or CSV_PATH
+    if csv_path is None:
+        raise ValueError("read_csv: csv_path required")
     with open(path, encoding="utf-8") as f:
         for line in f:
             line = line.strip()
