@@ -113,6 +113,7 @@ def read_csv(csv_path=None):
     rows = []
     if csv_path is None:
         raise ValueError("read_csv: csv_path required")
+    path = csv_path
     with open(path, encoding="utf-8") as f:
         for line in f:
             line = line.strip()
