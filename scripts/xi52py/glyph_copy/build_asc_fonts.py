@@ -88,7 +88,7 @@ CONSONANT_OFFSETS = {
     0x2E: 'm',  0x2F: 'y',
     0x30: 'r',  0x32: 'l',
     0x35: 'w',  0x36: 'S',
-    0x37: 's',  0x38: 's',
+    0x38: 's',    # स (was 0x37 ष - duplicate, dropped)
     0x39: 'H',
 }
 
