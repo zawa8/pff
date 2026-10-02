@@ -20,18 +20,18 @@ l,notoindik,replace,
 w,notoindik,replace,
 s,notoindik,replace,
 S,notoindik,replace,
-# G2 (10) - xh52 from xh38 (Devanagari)
-x,xh38,replace,Hindi schwa design (अ + small x)
-j,xh38,replace,
-J,xh38,replace,
-q,xh38,replace,
-Q,xh38,replace,
-v,xh38,replace,Hindi ha design
-c,xh38,replace,
-C,xh38,replace,
-g,xh38,replace,
-G,xh38,replace,
-# G3 (14) - xh52 from xe52 (Latin)
+# G2 (10) - xi52 from xe52 (Latin dual glyphs)
+x,xe52,replace,Latin dual glyph
+j,xe52,replace,Latin dual glyph
+J,xe52,replace,Latin dual glyph
+q,xe52,replace,Latin dual glyph
+Q,xe52,replace,Latin dual glyph
+v,xe52,replace,Latin dual glyph
+c,xe52,replace,Latin dual glyph
+C,xe52,replace,Latin dual glyph
+g,xe52,replace,Latin dual glyph
+G,xe52,replace,Latin dual glyph
+# G3 (14) - from xe52 (Latin shapes)
 N,xe52,replace,Latin shape
 R,xe52,replace,Latin shape
 a,xe52,replace,
@@ -47,12 +47,12 @@ W,xe52,replace,
 P,xe52,replace,
 F,xe52,replace,
 # G4 (6) - from Noto Math
-E,noto_math,replace,math ≡
-I,noto_math,replace,math ≠
-O,noto_math,replace,math →
-U,noto_math,replace,math ↓
-M,noto_math,replace,math ≥
-X,noto_math,replace,math ≤
-# G5 (4) - xh52 from xh38 (Hindi designs)
-A,xh38,replace,Hindi A design
-H,xh38,replace,Hindi H design
+E,noto_math,replace,math
+I,noto_math,replace,math
+O,noto_math,replace,math
+U,noto_math,replace,math
+M,noto_math,replace,math
+X,noto_math,replace,math
+# G5 (2) - xi52: A,H from xe52
+A,xe52,replace,
+H,xe52,replace,

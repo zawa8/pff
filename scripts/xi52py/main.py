@@ -81,7 +81,8 @@ def run_u9scripts():
     bypassing its argparse-based main().
     """
     mod = load("glyph_copy/build_asc_fonts.py")
-    csv_rows = mod.read_csv()
+    csv_rows_38 = mod.read_csv(mod.CSV_PATH_38)
+    csv_rows_52 = mod.read_csv(mod.CSV_PATH_52)
     with contextlib.ExitStack() as stack:
         sources = {
             "xe52":      stack.enter_context(_open_font(mod, mod.ENGLISH_52)),
@@ -90,7 +91,7 @@ def run_u9scripts():
             "noto_math": stack.enter_context(_open_font(mod, mod.NOTO_MATH)),
         }
         for name, cfg in mod.SCRIPTS.items():
-            mod.process_script(name, cfg, csv_rows, sources)
+            mod.process_script(name, cfg, csv_rows_38, csv_rows_52, sources)
 
 
 # --------------------------------------------------------------------------

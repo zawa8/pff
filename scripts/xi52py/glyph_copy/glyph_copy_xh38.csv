@@ -1,0 +1,58 @@
+e52,xh38_src,action,notes
+# G1 (20) - Indic consonants from Noto
+k,notoindik,replace,Indic consonant
+K,notoindik,replace,
+z,notoindik,replace,
+Z,notoindik,replace,
+t,notoindik,replace,
+T,keep,keep,Sunny Spells design pending
+d,notoindik,replace,
+D,notoindik,replace,
+n,notoindik,replace,
+p,notoindik,replace,
+f,notoindik,replace,
+b,notoindik,replace,
+B,notoindik,replace,
+m,notoindik,replace,
+y,notoindik,replace,
+r,notoindik,replace,
+l,notoindik,replace,
+w,notoindik,replace,
+s,notoindik,replace,
+S,notoindik,replace,
+# G2 (10) - xi38 from xh38 (Hindi designs)
+x,xh38,replace,Hindi schwa design
+j,xh38,replace,
+J,xh38,replace,
+q,xh38,replace,
+Q,xh38,replace,
+v,xh38,replace,Hindi ha design
+c,xh38,replace,
+C,xh38,replace,
+g,xh38,replace,
+G,xh38,replace,
+# G3 (14) - from xe52 (Latin shapes)
+N,xe52,replace,Latin shape
+R,xe52,replace,Latin shape
+a,xe52,replace,
+i,xe52,replace,
+u,xe52,replace,
+e,xe52,replace,
+o,xe52,replace,
+h,xe52,replace,
+L,xe52,replace,
+Y,xe52,replace,
+V,xe52,replace,
+W,xe52,replace,
+P,xe52,replace,
+F,xe52,replace,
+# G4 (6) - from Noto Math
+E,noto_math,replace,math
+I,noto_math,replace,math
+O,noto_math,replace,math
+U,noto_math,replace,math
+M,noto_math,replace,math
+X,noto_math,replace,math
+# G5 (2) - xi38: A,H from notoindik
+A,notoindik,replace,
+H,notoindik,replace,

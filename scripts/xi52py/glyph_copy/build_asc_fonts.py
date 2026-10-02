@@ -3,7 +3,8 @@
 build_asc_fonts.py
 
 Build xi38asc + xi52asc for 9 Indian scripts using per-glyph
-source/action from glyph_copy.csv (4 columns: e52, src, action, notes).
+source/action from per-family CSVs: glyph_copy_xh38.csv and glyph_copy_xh52.csv
+(4 columns: e52, src, action, notes).
 
 Sources:
   - xe52asc.sfd            (English master, from sfdsrc/xe52)
@@ -47,7 +48,8 @@ ENGLISH_52   = pff_root / "sfd/xi52sfd/xi52asc/xe52asc.sfd"
 ENGLISH_38   = pff_root / "sfd/xi38sfd/xi38asc/xe38asc.sfd"
 XH38_SOURCE  = pff_root / "sfd/xi38sfd/xi38asc/xh38asc.sfd"
 NOTO_MATH    = pff_root / "notofonts/NotoSansMath-Regular.ttf"
-CSV_PATH     = script_dir / "glyph_copy.csv"
+CSV_PATH_38  = script_dir / "glyph_copy_xh38.csv"
+CSV_PATH_52  = script_dir / "glyph_copy_xh52.csv"
 
 # 9 scripts (Sinhala handled separately)
 SCRIPTS = {
@@ -109,7 +111,9 @@ SCHWA_OFFSET = 0x05
 def read_csv(csv_path=None):
     """Read glyph copy CSV: e52, src, action, notes."""
     rows = []
-    path = csv_path or CSV_PATH
+    if csv_path is None:
+        raise ValueError("read_csv: csv_path required")
+    path = csv_path
     with open(path, encoding="utf-8") as f:
         for line in f:
             line = line.strip()
@@ -177,7 +181,7 @@ def apply_source(target_font, dst_cp, src_name, action, e52_char, ctx):
     return False
 
 
-def process_script(name, cfg, csv_rows, sources):
+def process_script(name, cfg, csv_rows_38, csv_rows_52, sources):
     noto_path = pff_root / "notofonts" / cfg["notoindik"]
     if not noto_path.exists():
         logging.error(f"notoindik source not found: {noto_path}")
@@ -201,16 +205,21 @@ def process_script(name, cfg, csv_rows, sources):
         }
 
         ok38 = ok52 = 0
-        for row in csv_rows:
+
+        # Apply xi38 mapping
+        for row in csv_rows_38:
             char = row["e52"]
             dst_cp = ord(char)
-
             try:
                 if apply_source(target_38, dst_cp, row["src"], row["action"], char, ctx):
                     ok38 += 1
             except Exception as e:
                 logging.warning(f"{name}: xi38 {char} failed: {e}")
 
+        # Apply xi52 mapping
+        for row in csv_rows_52:
+            char = row["e52"]
+            dst_cp = ord(char)
             try:
                 if apply_source(target_52, dst_cp, row["src"], row["action"], char, ctx):
                     ok52 += 1
@@ -236,8 +245,10 @@ def process_script(name, cfg, csv_rows, sources):
                     logging.warning(f"{name}: close failed: {close_err}")
 
 def main():
-    csv_rows = read_csv()
-    print(f"Read {len(csv_rows)} rows from {CSV_PATH.name}")
+    csv_rows_38 = read_csv(CSV_PATH_38)
+    csv_rows_52 = read_csv(CSV_PATH_52)
+    print(f"Read {len(csv_rows_38)} rows from {CSV_PATH_38.name}")
+    print(f"Read {len(csv_rows_52)} rows from {CSV_PATH_52.name}")
 
     sources = {
         "xe52":      fontforge.open(str(ENGLISH_52)),
@@ -249,12 +260,12 @@ def main():
     if len(sys.argv) >= 2 and sys.argv[1].lower() != "all":
         name = sys.argv[1].lower()
         if name in SCRIPTS:
-            process_script(name, SCRIPTS[name], csv_rows, sources)
+            process_script(name, SCRIPTS[name], csv_rows_38, csv_rows_52, sources)
         else:
             print(f"Unknown script: {name}")
     else:
         for name, cfg in SCRIPTS.items():
-            process_script(name, cfg, csv_rows, sources)
+            process_script(name, cfg, csv_rows_38, csv_rows_52, sources)
 
     for f in sources.values():
         f.close()
