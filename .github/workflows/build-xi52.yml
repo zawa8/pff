@@ -27,7 +27,6 @@ jobs:
       - name: Verify Python syntax
         run: |
           python3 -m py_compile scripts/xi52py/main.py
-          python3 -m py_compile scripts/xi52py/step0_copy_sources.py
           python3 -m py_compile scripts/xi52py/glyph_copy/build_asc_fonts.py
           python3 -m py_compile scripts/xi52py/glyph_copy/build_utf_fonts.py
           python3 -m py_compile scripts/xi52py/gen_xi38asc.py
