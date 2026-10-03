@@ -38,7 +38,6 @@ jobs:
 
       - name: Run src + asc phases
         run: |
-          fontforge -script scripts/xi52py/main.py --phase src
           fontforge -script scripts/xi52py/main.py --phase asc
 
       - name: Run utf phase
