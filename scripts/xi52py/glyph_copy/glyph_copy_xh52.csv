@@ -47,12 +47,12 @@ W,xe52,replace,
 P,xe52,replace,
 F,xe52,replace,
 # G4 (6) - from Noto Math
-E,noto_math,replace,math
-I,noto_math,replace,math
-O,noto_math,replace,math
-U,noto_math,replace,math
-M,noto_math,replace,math
-X,noto_math,replace,math
+E,xe52,replace,
+I,xe52,replace,
+O,xe52,replace,
+U,xe52,replace,
+M,xe52,replace,
+X,xe52,replace,
 # G5 (2) - xi52: A,H from xe52
 A,xe52,replace,
 H,xe52,replace,
