@@ -68,12 +68,12 @@ jobs:
 
       - name: Generate TTF/WOFF2
         run: |
+          fontforge -script scripts/xi52py/main.py --only 13
           fontforge -script scripts/xi52py/main.py --only 14
           fontforge -script scripts/xi52py/main.py --only 15
           fontforge -script scripts/xi52py/main.py --only 16
           fontforge -script scripts/xi52py/main.py --only 17
           fontforge -script scripts/xi52py/main.py --only 18
-          fontforge -script scripts/xi52py/main.py --only 19
 
       - name: Upload SFDs
         if: always()
