@@ -185,12 +185,15 @@ def process_script(name, cfg, csv_rows_38, csv_rows_52, sources):
         return
 
     # Per-script xi38 source from sfdsrc/
-    script_font = None
+    # Hard fail: designer must provide sfdsrc source for each script.
+    # No silent skip — if source missing, pipeline stops here.
     script_src_path = SFDSRC_XI38 / cfg["sfd38"]
-    if script_src_path.exists():
-        script_font = fontforge.open(str(script_src_path))
-    else:
-        logging.warning(f"{name}: sfdsrc/{cfg['sfd38']} not found")
+    if not script_src_path.exists():
+        raise FileNotFoundError(
+            f"{name}: sfdsrc/xi38/{cfg['sfd38']} not found. "
+            f"Designer must prepare it first (copy from sfd/ if needed)."
+        )
+    script_font = fontforge.open(str(script_src_path))
 
     noto_font = None
     target_38 = None
