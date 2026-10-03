@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04    # 24.04 has fontforge 20230101 which crashes
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,11 +23,11 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y fontforge python3-fontforge
+          fontforge --version
 
       - name: Verify Python syntax
         run: |
           python3 -m py_compile scripts/xi52py/main.py
-          python3 -m py_compile scripts/xi52py/step0_copy_sources.py
           python3 -m py_compile scripts/xi52py/glyph_copy/build_asc_fonts.py
           python3 -m py_compile scripts/xi52py/glyph_copy/build_utf_fonts.py
           python3 -m py_compile scripts/xi52py/gen_xi38asc.py
@@ -39,7 +39,6 @@ jobs:
 
       - name: Run src + asc phases
         run: |
-          fontforge -script scripts/xi52py/main.py --phase src
           fontforge -script scripts/xi52py/main.py --phase asc
 
       - name: Run utf phase
@@ -68,12 +67,12 @@ jobs:
 
       - name: Generate TTF/WOFF2
         run: |
+          fontforge -script scripts/xi52py/main.py --only 13
           fontforge -script scripts/xi52py/main.py --only 14
           fontforge -script scripts/xi52py/main.py --only 15
           fontforge -script scripts/xi52py/main.py --only 16
           fontforge -script scripts/xi52py/main.py --only 17
           fontforge -script scripts/xi52py/main.py --only 18
-          fontforge -script scripts/xi52py/main.py --only 19
 
       - name: Upload SFDs
         if: always()

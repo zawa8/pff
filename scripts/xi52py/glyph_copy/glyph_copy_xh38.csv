@@ -21,16 +21,16 @@ w,notoindik,replace,
 s,notoindik,replace,
 S,notoindik,replace,
 # G2 (10) - xi38 from xh38 (Hindi designs)
-x,xh38,replace,Hindi schwa design
-j,xh38,replace,
-J,xh38,replace,
-q,xh38,replace,
-Q,xh38,replace,
-v,xh38,replace,Hindi ha design
-c,xh38,replace,
-C,xh38,replace,
-g,xh38,replace,
-G,xh38,replace,
+x,script,replace,Hindi schwa design
+j,script,replace,
+J,script,replace,
+q,script,replace,
+Q,script,replace,
+v,script,replace,Hindi ha design
+c,script,replace,
+C,script,replace,
+g,script,replace,
+G,script,replace,
 # G3 (14) - from xe52 (Latin shapes)
 N,xe52,replace,Latin shape
 R,xe52,replace,Latin shape

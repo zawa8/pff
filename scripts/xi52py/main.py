@@ -86,8 +86,6 @@ def run_u9scripts():
     with contextlib.ExitStack() as stack:
         sources = {
             "xe52":      stack.enter_context(_open_font(mod, mod.ENGLISH_52)),
-            "xe38":      stack.enter_context(_open_font(mod, mod.ENGLISH_38)),
-            "xh38":      stack.enter_context(_open_font(mod, mod.XH38_SOURCE)),
             "noto_math": stack.enter_context(_open_font(mod, mod.NOTO_MATH)),
         }
         for name, cfg in mod.SCRIPTS.items():
@@ -99,7 +97,6 @@ def run_u9scripts():
 # --------------------------------------------------------------------------
 
 PHASES = [
-    ("src",  "Phase 0 -- sources -> targets"),
     ("asc",  "Phase 1 -- asc (xi38asc + xi52asc)"),
     ("utf",  "Phase 2 -- utf (xi38utf + xi52utf)"),
     ("mono", "Phase 3 -- mono (xi38mono + xi52mono)"),
@@ -112,10 +109,6 @@ PHASE_LABEL = dict(PHASES)
 
 # (phase, label, runner)
 PIPELINE = [
-    # ---- src ----
-    ("src",  "[src] copy sources -> targets",
-             run_main("step0_copy_sources.py")),
-
     # ---- asc ----
     ("asc",  "[asc] build xi38asc + xi52asc, 9 scripts (G1-G5)",
              run_u9scripts),

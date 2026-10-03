@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Script to copy Sinhala glyphs from Noto to xs38asc.sfd.
-Also copies 0x00-0x40, a,e,i,u,o,N, and E,I,M,L,O,P,U,V,W,X,Y from xe38asc.sfd.
+Also copies 0x00-0x40, a,e,i,u,o,N, and E,I,M,L,O,P,U,V,W,X,Y from xe52asc.sfd.
 
 Mapping (ASCII | Sinhala | Hindi):
     B | භ 0DB7 | भ 092D
@@ -65,7 +65,7 @@ logging.getLogger('').addHandler(console)
 
 # Sources
 noto_font_path = pff_root / "notofonts" / "NotoSansSinhala-Regular.ttf"
-english_sfd = pff_root / "sfd/xi38sfd/xi38asc/xe38asc.sfd"
+english_sfd = pff_root / "sfd/xi52sfd/xi52asc/xe52asc.sfd"
 sfd_path = pff_root / "sfd/xi38sfd/xi38asc/xs38asc.sfd"
 
 # Output
@@ -115,7 +115,7 @@ SINHALA_OFFSET_MAP = {
 
 SINHALA_BASE = 0x0D80
 
-# Extra English chars from xe38asc.sfd
+# Extra English chars from xe52asc.sfd
 EXTRA_ENGLISH = [
     ord('N'),  # N | (English)
     ord('a'),  # a | (English)
