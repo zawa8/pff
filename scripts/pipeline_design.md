@@ -4,6 +4,22 @@ Build system for the xi52sfd / xi38sfd font families.
 
 ---
 
+## 0. Roles
+
+### Designer (you)
+- Maintain `sfdsrc/*.sfd` in FontForge
+- Maintain `glyph_copy_xh38.csv` and `glyph_copy_xh52.csv`
+- Verify generated fonts (font viewer / browser)
+- Iterate: change sfdsrc + CSV, re-run pipeline
+
+### Python pipelines (mechanical)
+- Read `sfdsrc/` + CSVs directly (no intermediate copy)
+- Compose `asc`, `utf`, `mono`
+- Generate TTF/WOFF2
+- **Never decide** — only execute
+
+---
+
 ## 1. Folder Structure
 
 ```
@@ -100,20 +116,22 @@ Note: `xv` → `xh` everywhere (`xh` = xNglohinDi).
 - `sfd/*/xi*utf/*.sfd`
 - `sfd/*/xi*mono/*.sfd`
 
-Step 1 (`step0_copy_sources.py`) copies `xe52asc.sfd` and the
-selected `xL38asc.sfd` into `sfd/` targets before the build steps.
-Sources themselves are never modified.
+Python pipelines read `sfdsrc/` directly (no intermediate copy).
+`build_asc_fonts.py` opens `sfdsrc/xe52/xe52asc.sfd` and
+`sfdsrc/xi38/<script>38asc.sfd`, combines them per CSV, and writes
+`sfd/`. Missing `sfdsrc` source = hard error (designer must provide).
 
 ---
 
-## 3. CSV Format — `glyph_copy.csv`
+## 3. CSV Format — `glyph_copy_xh38.csv`, `glyph_copy_xh52.csv`
 
 Per-glyph decision table for the 128 e52 slots. `build_asc_fonts.py`
 reads this CSV and builds each script's `xL52asc.sfd` by copying
 glyphs from the listed sources.
 
 ### Files
-- `glyph_copy.csv`        — main pipeline (all scripts)
+- `glyph_copy_xh38.csv`   — xi38 mappings
+- `glyph_copy_xh52.csv`   — xi52 mappings
 - `glyph_copy_xe38.csv`   — xe38-specific overrides
 - `glyph_sources.csv`     — IPA + Hindi documentation (reference only)
 
@@ -171,38 +189,35 @@ that don't exist in their Noto source.
 
 ---
 
-## 5. Pipeline (19 steps, 6 phases)
-
-### Phase `src` — sources → targets
-1. `[src] copy sources -> targets`
+## 5. Pipeline (18 steps, 5 phases)
 
 ### Phase `asc` — xi38asc + xi52asc
-2. `[asc] build xi38asc + xi52asc, 9 scripts (G1-G5)`
-3. `[asc] build xi38asc + xi52asc, Sinhala`
+1. `[asc] build xi38asc + xi52asc, 9 scripts (G1-G5)`
+2. `[asc] build xi38asc + xi52asc, Sinhala`
 
 ### Phase `utf` — xi38utf + xi52utf
-4. `[utf] xi38asc -> xi38utf (copy 128 + unicode refs)`
-5. `[utf] xi52asc -> xi52utf (copy + refs)`
-6. `[utf] add unicode-range refs to xi52utf`
+3. `[utf] xi38asc -> xi38utf (copy 128 + unicode refs)`
+4. `[utf] xi52asc -> xi52utf (copy + refs)`
+5. `[utf] add unicode-range refs to xi52utf`
 
 ### Phase `mono` — xi38mono + xi52mono
-7. `[mono] xi38utf -> xi38mono`
-8. `[mono] center glyphs in xi38mono`
-9. `[mono] fix widths in xi38mono`
-10. `[mono] xi52utf -> xi52mono`
-11. `[mono] center glyphs in xi52mono`
-12. `[mono] fix widths in xi52mono`
+6. `[mono] xi38utf -> xi38mono`
+7. `[mono] center glyphs in xi38mono`
+8. `[mono] fix widths in xi38mono`
+9. `[mono] xi52utf -> xi52mono`
+10. `[mono] center glyphs in xi52mono`
+11. `[mono] fix widths in xi52mono`
 
 ### Phase `meta` — font metadata
-13. `[meta] update font metadata (Google Fonts format)`
+12. `[meta] update font metadata (Google Fonts format)`
 
 ### Phase `gen` — TTF/WOFF2 generation
-14. `[gen] TTF/WOFF2 from xi38asc`
-15. `[gen] TTF/WOFF2 from xi38utf`
-16. `[gen] TTF/WOFF2 from xi52asc`
-17. `[gen] TTF/WOFF2 from xi52utf`
-18. `[gen] TTF/WOFF2 from xi38mono`
-19. `[gen] TTF/WOFF2 from xi52mono`
+13. `[gen] TTF/WOFF2 from xi38asc`
+14. `[gen] TTF/WOFF2 from xi38utf`
+15. `[gen] TTF/WOFF2 from xi52asc`
+16. `[gen] TTF/WOFF2 from xi52utf`
+17. `[gen] TTF/WOFF2 from xi38mono`
+18. `[gen] TTF/WOFF2 from xi52mono`
 
 Metadata is stamped on every SFD **before** the `gen` phase, so TTF/WOFF2
 carry correct Google Fonts metadata (Version, Copyright, License,
@@ -224,7 +239,7 @@ List phase names:
 
     fontforge -script scripts/xi52py/main.py --list-phases
 
-Run one phase only (src|asc|utf|mono|meta|gen):
+Run one phase only (asc|utf|mono|meta|gen):
 
     fontforge -script scripts/xi52py/main.py --phase asc
 
@@ -262,14 +277,15 @@ Steps:
 1. Install FontForge
 2. Verify Python syntax (`py_compile` on all entry scripts)
 3. Sanity check (`main.py --list`)
-4. `--phase src`, `--phase asc`
+4. `--phase asc`
 5. `--phase utf`
-6. `--phase meta`
-7. Clean old TTF/WOFF2
-8. `--only 14` through `--only 19` (gen)
-9. Upload SFDs, TTF/WOFF2, logs as artifacts
+6. `--phase mono`
+7. `--phase meta`
+8. Clean old TTF/WOFF2
+9. `--only 13` through `--only 18` (gen, 6 steps)
+10. Upload SFDs, TTF/WOFF2, logs as artifacts
 
-All phases (including mono) run in CI.
+All phases run in CI (asc, utf, mono, meta, gen).
 
 ---
 
