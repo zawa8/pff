@@ -8,17 +8,39 @@ Two families:
 - **xi38** — 38-char alphabet (older)
 - **xi52** — 52-char alphabet (current)
 
+## Roles
+
+### Designer (you)
+- Maintain `sfdsrc/*.sfd` in FontForge
+- Maintain `glyph_copy_xh38.csv` and `glyph_copy_xh52.csv`
+- Verify generated fonts (font viewer / browser)
+- Iterate: change sfdsrc + CSV, re-run pipeline
+
+### Python pipelines (mechanical)
+- Read `sfdsrc/` + CSVs directly (no intermediate copy)
+- Compose `asc`, `utf`, `mono`
+- Generate TTF/WOFF2
+- **Never decide** — only execute
+
 ## Structure
 
     pff/
-    ├── sfdsrc/           ← MASTER SOURCES (never overwritten)
+    ├── sfdsrc/           ← MASTER SOURCES (designer-maintained)
     │   ├── xe52/         English master (xe52asc.sfd)
-    │   ├── xh38/         Hindi xi38 source (xh38asc.sfd)
-    │   ├── xi38/         future per-script sources (xi38/xh38asc.sfd, ...)
-    │   └── scripts/      future design scripts
+    │   └── xi38/         per-script sources
+    │       ├── xh38asc.sfd  (Hindi)
+    │       ├── xb38asc.sfd  (Bengali)
+    │       ├── xp38asc.sfd  (Punjabi)
+    │       ├── xg38asc.sfd  (Gujarati)
+    │       ├── xo38asc.sfd  (Oriya)
+    │       ├── xt38asc.sfd  (Tamil)
+    │       ├── xj38asc.sfd  (Telugu)
+    │       ├── xk38asc.sfd  (Kannada)
+    │       ├── xm38asc.sfd  (Malayalam)
+    │       └── xs38asc.sfd  (Sinhala)
     ├── sfd/              ← TARGETS (rebuilt by pipeline)
     │   ├── xi52sfd/      xi52 targets (asc, utf, mono)
-    │   └── xi38sfd/      xi38 targets (asc, utf)
+    │   └── xi38sfd/      xi38 targets (asc, utf, mono)
     ├── notofonts/        Noto TTFs (fallback)
     ├── scripts/          pipeline scripts
     └── xnglofonts/       TTF/WOFF2 outputs
@@ -57,17 +79,16 @@ Full metadata scheme in `scripts/pipeline_design.md` §8.
     # List phase names
     fontforge -script scripts/xi52py/main.py --list-phases
 
-    # Run one phase (src|asc|utf|mono|meta|gen)
+    # Run one phase (asc|utf|mono|meta|gen)
     fontforge -script scripts/xi52py/main.py --phase asc
 
     # Run a single step
-    fontforge -script scripts/xi52py/main.py --only 2
+    fontforge -script scripts/xi52py/main.py --only 1
 
     # Dry run (print without executing)
     fontforge -script scripts/xi52py/main.py --dry-run
 
-6 phases:
-  src   sources -> targets
+5 phases (18 steps):
   asc   xi38asc + xi52asc build
   utf   xi38utf + xi52utf build
   mono  xi38mono + xi52mono build
@@ -83,16 +104,16 @@ Full metadata scheme in `scripts/pipeline_design.md` §8.
 3. Save `.sfd`
 4. Run pipeline (or Ctrl+G in FontForge to generate TTF/WOFF2 directly)
 
-New per-script sources will live in `sfdsrc/xi38/`, e.g.
-`sfdsrc/xi38/xb38asc.sfd` for Bengali.
+Per-script sources live in `sfdsrc/xi38/` (e.g. `xb38asc.sfd` for
+Bengali). Pipeline reads them directly — no intermediate copy.
 
 ## Sources (never overwritten)
 
 - `sfdsrc/xe52/xe52asc.sfd` — English master
-- `sfdsrc/xi38/xh38asc.sfd` — Hindi xi38 source
+- `sfdsrc/xi38/*.sfd` — per-script sources (Hindi, Bengali, ..., Sinhala)
 - `notofonts/*.ttf` — Noto fallback
 
-Future per-script sources will live in `sfdsrc/xi38/`.
+Python reads `sfdsrc/` directly (no copy into `sfd/`).
 
 ## Outputs
 
@@ -117,12 +138,13 @@ in the fonts is taken from the latest git tag by
 1. Install FontForge
 2. Verify Python syntax (`py_compile`)
 3. Sanity check (`main.py --list`)
-4. Run phases: `src`, `asc`
+4. Run phase: `asc`
 5. Run phase: `utf`
-6. Run phase: `meta` (font metadata)
-7. Clean old TTF/WOFF2
-8. Generate ASC + UTF TTF/WOFF2
-9. Upload SFDs, fonts, logs as artifacts
+6. Run phase: `mono`
+7. Run phase: `meta` (font metadata)
+8. Clean old TTF/WOFF2
+9. Generate TTF/WOFF2 (`--only 13` through `--only 18`)
+10. Upload SFDs, fonts, logs as artifacts
 
 ## See also
 
