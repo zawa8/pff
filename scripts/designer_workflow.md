@@ -90,6 +90,8 @@ Test strings:
 - `bus sun star` → स (not ष)
 - `E I O U M X` → ≡ ≠ → ↓ ≥ ≤
 
+See `fontimz/` for example rendering screenshots.
+
 **If OK** → commit/merge.
 **If not** → back to Step 1 (iterate).
 
