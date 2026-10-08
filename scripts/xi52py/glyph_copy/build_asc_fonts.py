@@ -3,7 +3,7 @@
 build_asc_fonts.py
 
 Build xi38asc + xi52asc for 9 Indian scripts using per-glyph
-source/action from per-family CSVs: glyph_copy_xh38.csv and glyph_copy_xh52.csv
+source/action from per-family CSVs: glyph_copy_xi38.csv and glyph_copy_xi52.csv
 (4 columns: e52, src, action, notes).
 
 Sources:
@@ -48,8 +48,8 @@ ENGLISH_52   = pff_root / "sfdsrc/xe52/xe52asc.sfd"
 SFDSRC_XI38  = pff_root / "sfdsrc/xi38"
 NOTO_MATH    = pff_root / "notofonts/NotoSansMath-Regular.ttf"
 SFDSRC_ROOT  = pff_root / "sfdsrc"
-CSV_PATH_38  = SFDSRC_ROOT / "glyph_copy_xh38.csv"
-CSV_PATH_52  = SFDSRC_ROOT / "glyph_copy_xh52.csv"
+CSV_PATH_38  = SFDSRC_ROOT / "glyph_copy_xi38.csv"
+CSV_PATH_52  = SFDSRC_ROOT / "glyph_copy_xi52.csv"
 
 # 9 scripts (Sinhala handled separately)
 SCRIPTS = {

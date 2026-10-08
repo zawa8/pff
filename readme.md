@@ -12,7 +12,7 @@ Two families:
 
 ### Designer (you)
 - Maintain `sfdsrc/*.sfd` in FontForge
-- Maintain `glyph_copy_xh38.csv` and `glyph_copy_xh52.csv`
+- Maintain `glyph_copy_xi38.csv` and `glyph_copy_xi52.csv`
 - Verify generated fonts (font viewer / browser)
 - Iterate: change sfdsrc + CSV, re-run pipeline
 

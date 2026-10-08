@@ -16,8 +16,8 @@ Master sources for the xi52/xi38 font pipeline.
   - `xk38asc.sfd` — Kannada
   - `xm38asc.sfd` — Malayalam
   - `xs38asc.sfd` — Sinhala
-- `glyph_copy_xh38.csv` — xi38 per-glyph decisions (src, action, notes)
-- `glyph_copy_xh52.csv` — xi52 per-glyph decisions
+- `glyph_copy_xi38.csv` — xi38 per-glyph decisions (src, action, notes)
+- `glyph_copy_xi52.csv` — xi52 per-glyph decisions
 - `phoneme_map.csv` — IPA + Hindi reference (documentation)
 
 ## Pipeline
