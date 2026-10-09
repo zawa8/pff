@@ -8,7 +8,7 @@ Build system for the xi52sfd / xi38sfd font families.
 
 ### Designer (you)
 - Maintain `sfdsrc/*.sfd` in FontForge
-- Maintain `sfdsrc/glyph_copy_xh38.csv` and `sfdsrc/glyph_copy_xh52.csv`
+- Maintain `sfdsrc/glyph_copy_xi38.csv` and `sfdsrc/glyph_copy_xi52.csv`
 - Verify generated fonts (font viewer / browser)
 - Iterate: change sfdsrc + CSV, re-run pipeline
 
@@ -123,15 +123,15 @@ Python pipelines read `sfdsrc/` directly (no intermediate copy).
 
 ---
 
-## 3. CSV Format — `sfdsrc/glyph_copy_xh38.csv`, `sfdsrc/glyph_copy_xh52.csv`
+## 3. CSV Format — `sfdsrc/glyph_copy_xi38.csv`, `sfdsrc/glyph_copy_xi52.csv`
 
 Per-glyph decision table for the 128 e52 slots. `build_asc_fonts.py`
 reads this CSV and builds each script's `xL52asc.sfd` by copying
 glyphs from the listed sources.
 
 ### Files
-- `sfdsrc/glyph_copy_xh38.csv` — xi38 per-glyph decisions
-- `sfdsrc/glyph_copy_xh52.csv` — xi52 per-glyph decisions
+- `sfdsrc/glyph_copy_xi38.csv` — xi38 per-glyph decisions
+- `sfdsrc/glyph_copy_xi52.csv` — xi52 per-glyph decisions
 - `sfdsrc/phoneme_map.csv`     — IPA + Hindi reference (documentation)
 
 ### Columns (4)

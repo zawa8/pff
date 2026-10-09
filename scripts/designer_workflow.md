@@ -19,8 +19,8 @@ All designer files live in `sfdsrc/` — one folder for everything.
     │   ├── xk38asc.sfd           Kannada source
     │   ├── xm38asc.sfd           Malayalam source
     │   └── xs38asc.sfd           Sinhala source
-    ├── glyph_copy_xh38.csv       xi38 per-glyph decisions
-    ├── glyph_copy_xh52.csv       xi52 per-glyph decisions
+    ├── glyph_copy_xi38.csv       xi38 per-glyph decisions
+    ├── glyph_copy_xi52.csv       xi52 per-glyph decisions
     └── phoneme_map.csv           IPA + Hindi reference
 
 ## 4-step workflow
