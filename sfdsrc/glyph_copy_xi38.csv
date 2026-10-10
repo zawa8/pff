@@ -1,18 +1,20 @@
 e52,xh38_src,action,notes
 # G5 (2) - xi38: A,H from notoindik
-A,notoindik,replace,
-H,notoindik,replace,
+A,ownsfdsrc,replace,
+H,ownsfdsrc,replace,
+# A,notoindik,replace,
+# H,notoindik,replace,
 # G2 (10) - xi38 from xh38 (Hindi designs)
-x,script,replace,Hindi schwa design
-j,script,replace,
-J,script,replace,
-q,script,replace,
-Q,script,replace,
-v,script,replace,Hindi ha design
-c,script,replace,
-C,script,replace,
-g,script,replace,
-G,script,replace,
+x,ownsfdsrc,replace,Hindi schwa design
+j,ownsfdsrc,replace,
+J,ownsfdsrc,replace,
+q,ownsfdsrc,replace,
+Q,ownsfdsrc,replace,
+v,ownsfdsrc,replace,Hindi ha design
+c,ownsfdsrc,replace,
+C,ownsfdsrc,replace,
+g,ownsfdsrc,replace,
+G,ownsfdsrc,replace,
 # G3 (14) - from xe52 (Latin shapes)
 N,xe52,replace,Latin shape
 R,xe52,replace,Latin shape

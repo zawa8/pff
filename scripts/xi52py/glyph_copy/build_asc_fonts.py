@@ -159,10 +159,10 @@ def apply_source(target_font, dst_cp, src_name, action, e52_char, ctx):
 
     if src_name == "xe52":
         return copy_glyph(ctx["xe52"], dst_cp, target_font, dst_cp)
-    if src_name == "script":
-        if ctx.get("script") is None:
+    if src_name == "ownsfdsrc":
+        if ctx.get("ownsfdsrc") is None:
             return False
-        return copy_glyph(ctx["script"], dst_cp, target_font, dst_cp)
+        return copy_glyph(ctx["ownsfdsrc"], dst_cp, target_font, dst_cp)
     if src_name == "noto_math":
         math_cp = MATH_SYMBOLS.get(dst_cp)
         if math_cp and copy_glyph(ctx["noto_math"], math_cp, target_font, dst_cp):
@@ -206,7 +206,7 @@ def process_script(name, cfg, csv_rows_38, csv_rows_52, sources):
 
         ctx = {
             "xe52":      sources["xe52"],
-            "script":    script_font,
+            "ownsfdsrc": script_font,
             "noto_math": sources["noto_math"],
             "notoindik": noto_font,
             "base":      cfg["base"],
