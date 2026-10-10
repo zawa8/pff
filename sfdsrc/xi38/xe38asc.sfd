@@ -22,7 +22,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1633362791
-ModificationTime: 1791591896
+ModificationTime: 1791615239
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -97,10 +97,10 @@ ShortTable: maxp 16
 EndShort
 LangName: 1033 "Copyright 2025 The Xnglo Project Authors (https://github.com/zawa8/pff)" "" "regular" "Version 1.3.0; zawa8; XngloEnglish-xi38asc" "" "Version 1.3.0" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "This Font Software is licensed under the SIL Open Font License, Version 1.1." "https://openfontlicense.org"
 GaspTable: 1 65535 15 1
-OtfFeatName: 'ss03' 1033 "florin symbol"
-OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
-OtfFeatName: 'ss06' 1033 "Accented Greek SC"
 OtfFeatName: 'ss07' 1033 "iota adscript"
+OtfFeatName: 'ss06' 1033 "Accented Greek SC"
+OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
+OtfFeatName: 'ss03' 1033 "florin symbol"
 Encoding: UnicodeFull
 Compacted: 1
 UnicodeInterp: none
@@ -2689,11 +2689,11 @@ Flags: W
 LayerCount: 2
 Fore
 SplineSet
-51 -38 m 5
- 51 33 l 5
- 521 33 l 5
- 521 -38 l 5
- 51 -38 l 5
+51 -38 m 5,0,-1
+ 51 33 l 5,1,-1
+ 521 33 l 5,2,-1
+ 521 -38 l 5,3,-1
+ 51 -38 l 5,0,-1
 EndSplineSet
 Refer: 32 62 N 1 0 0 1 0 39 2
 EndChar
@@ -3266,11 +3266,11 @@ Flags: W
 LayerCount: 2
 Fore
 SplineSet
-52 -39 m 5
- 52 32 l 5
- 522 32 l 5
- 522 -39 l 5
- 52 -39 l 5
+52 -39 m 5,0,-1
+ 52 32 l 5,1,-1
+ 522 32 l 5,2,-1
+ 522 -39 l 5,3,-1
+ 52 -39 l 5,0,-1
 EndSplineSet
 Refer: 30 60 N 1 0 0 1 1 39 2
 EndChar
@@ -5155,21 +5155,21 @@ Flags: W
 LayerCount: 2
 Fore
 SplineSet
-262.104492188 -0.107421875 m 1,0,-1
- 14.4658203125 620.107421875 l 1,1,-1
- 99.94921875 620.107421875 l 1,2,-1
- 172.213867188 413.435546875 l 1,3,-1
- 424.260742188 413.435546875 l 1,4,-1
- 500.05078125 620.107421875 l 1,5,-1
- 585.534179688 620.107421875 l 1,6,-1
- 334.369140625 -0.107421875 l 1,7,-1
- 262.104492188 -0.107421875 l 1,0,-1
-300 74.1953125 m 1,8,-1
- 399.584960938 342.587890625 l 1,9,-1
- 200.415039062 342.587890625 l 1,10,-1
- 300 74.1953125 l 1,8,-1
+262.104492188 -0.107421875 m 1
+ 14.4658203125 620.107421875 l 1
+ 99.94921875 620.107421875 l 1
+ 172.213867188 413.435546875 l 1
+ 424.260742188 413.435546875 l 1
+ 500.05078125 620.107421875 l 1
+ 585.534179688 620.107421875 l 1
+ 334.369140625 -0.107421875 l 1
+ 262.104492188 -0.107421875 l 1
+300 74.1953125 m 1
+ 399.584960938 342.587890625 l 1
+ 200.415039062 342.587890625 l 1
+ 300 74.1953125 l 1
 EndSplineSet
-Refer: 74 104 S 0.562511 0 0 0.564845 192.878 492.454 2
+Refer: 74 104 S 0.675013 0 0 0.564845 170.097 492.454 2
 EndChar
 
 StartChar: w
