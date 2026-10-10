@@ -44,7 +44,7 @@ Per-glyph decisions. Format:
 - `e52`    — letter (ASCII slot)
 - `src`    — where to take the glyph from:
              - `xe52`       English master
-             - `script`     current script's sfdsrc source
+             - `ownsfdsrc`     current script's sfdsrc source
              - `notoindik`  Noto Indic fallback
              - `noto_math`  Noto Math symbols
              - `keep`       leave target as-is (FontForge work)
