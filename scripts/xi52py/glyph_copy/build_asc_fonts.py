@@ -44,9 +44,10 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Sources: sfdsrc/ (designer-maintained), notofonts/
-ENGLISH_52   = pff_root / "sfdsrc/xe52/xe52asc.sfd"
+ENGLISH_52   = pff_root / "sfdsrc/xi52/xe52asc.sfd"
 ENGLISH_38   = pff_root / "sfdsrc/xi38/xe38asc.sfd"
 SFDSRC_XI38  = pff_root / "sfdsrc/xi38"
+SFDSRC_XI52  = pff_root / "sfdsrc/xi52"
 NOTO_MATH    = pff_root / "notofonts/NotoSansMath-Regular.ttf"
 SFDSRC_ROOT  = pff_root / "sfdsrc"
 CSV_PATH_38  = SFDSRC_ROOT / "glyph_copy_xi38.csv"
@@ -135,15 +136,45 @@ def read_csv(csv_path=None):
 
 
 def copy_glyph(src_font, src_cp, dst_font, dst_cp):
-    if src_cp not in src_font or dst_cp not in dst_font:
+    if src_cp not in src_font:
         return False
-    src_font.selection.select(("unicode",), src_cp)
-    src_font.copy()
-    glyph = dst_font[dst_cp]
-    glyph.clear()
-    dst_font.selection.select(("unicode",), dst_cp)
-    dst_font.paste()
-    return True
+    try:
+        # source select + copy
+        src_font.selection.select(("unicode",), src_cp)
+        src_font.copy()
+        src_glyph = src_font[src_cp]
+        dst_name = src_glyph.glyphname or f"uni{dst_cp:04X}"
+        # target me slot nahi hai to -1 (encoding-independent) se banao
+        if dst_cp not in dst_font and dst_name not in dst_font:
+            dst_font.createChar(-1, dst_name)
+            dst_glyph = dst_font[dst_name]
+            dst_glyph.unicode = dst_cp
+        else:
+            dst_glyph = dst_font[dst_cp] if dst_cp in dst_font else dst_font[dst_name]
+        dst_glyph.clear()
+        dst_font.selection.select(("unicode",), dst_cp)
+        dst_font.paste()
+        return True
+    except Exception as e:
+        logging.warning(f"copy U+{dst_cp:04X} failed: {e}")
+        return False
+    if dst_cp not in dst_font:
+        try:
+            dst_font.createChar(dst_cp)
+        except Exception as e:
+            logging.warning(f"createChar U+{dst_cp:04X} failed: {e}")
+            return False
+    try:
+        src_font.selection.select(("unicode",), src_cp)
+        src_font.copy()
+        glyph = dst_font[dst_cp]
+        glyph.clear()
+        dst_font.selection.select(("unicode",), dst_cp)
+        dst_font.paste()
+        return True
+    except Exception as e:
+        logging.warning(f"copy U+{dst_cp:04X} failed: {e}")
+        return False
 
 
 def offset_for_letter(letter):
@@ -155,7 +186,7 @@ def offset_for_letter(letter):
     return None
 
 
-def apply_source(target_font, dst_cp, src_name, action, e52_char, ctx):
+def apply_source(target_font, dst_cp, src_name, action, e52_char, ctx, ownsfd_key="ownsfd38"):
     """Apply one source value to target_font at dst_cp."""
     if action in ("keep", "manual", "remove"):
         return True  # preserve as-is
@@ -165,15 +196,17 @@ def apply_source(target_font, dst_cp, src_name, action, e52_char, ctx):
     if src_name == "xe38":
         return copy_glyph(ctx["xe38"], dst_cp, target_font, dst_cp)
     if src_name == "ownsfd":
-        if ctx.get("ownsfd") is None:
+        if ctx.get(ownsfd_key) is None:
             return False
-        return copy_glyph(ctx["ownsfd"], dst_cp, target_font, dst_cp)
+        return copy_glyph(ctx[ownsfd_key], dst_cp, target_font, dst_cp)
     if src_name == "noto_math":
         math_cp = MATH_SYMBOLS.get(dst_cp)
         if math_cp and copy_glyph(ctx["noto_math"], math_cp, target_font, dst_cp):
             return True
         return False
     if src_name == "notoindik":
+        if ctx.get("notoindik") is None or ctx.get("base") is None:
+            return False
         off = offset_for_letter(e52_char)
         if off is None:
             if e52_char in ("x", "A"):
@@ -194,7 +227,28 @@ def process_script(name, cfg, csv_rows_38, csv_rows_52, sources):
             f"{name}: sfdsrc/xi38/{cfg['sfd38']} not found. "
             f"Designer must prepare it first (copy from sfd/ if needed)."
         )
-    script_font = fontforge.open(str(script_src_path))
+    # Reuse already-open source font to avoid double-open (FontForge
+    # closes the first handle when the same file is opened twice).
+    if name == "english" and sources.get("xe38") is not None:
+        script_font = sources["xe38"]
+        owns_script_font = False
+    else:
+        script_font = fontforge.open(str(script_src_path))
+        owns_script_font = True
+
+    # 52 series source (designer master, always present)
+    script_src_path_52 = SFDSRC_XI52 / cfg["sfd52"]
+    if not script_src_path_52.exists():
+        raise FileNotFoundError(
+            f"{name}: sfdsrc/xi52/{cfg['sfd52']} not found. "
+            f"Designer must prepare it first."
+        )
+    if name == "english" and sources.get("xe52") is not None:
+        script_font_52 = sources["xe52"]
+        owns_script_font_52 = False
+    else:
+        script_font_52 = fontforge.open(str(script_src_path_52))
+        owns_script_font_52 = True
 
     # notoindik is optional (english/xe38 has no Noto source)
     noto_font = None
@@ -215,7 +269,8 @@ def process_script(name, cfg, csv_rows_38, csv_rows_52, sources):
         ctx = {
             "xe52":      sources["xe52"],
             "xe38":      sources["xe38"],
-            "ownsfd":    script_font,
+            "ownsfd38":  script_font,
+            "ownsfd52":  script_font_52,
             "noto_math": sources["noto_math"],
             "notoindik": noto_font,
             "base":      cfg["base"],
@@ -228,7 +283,7 @@ def process_script(name, cfg, csv_rows_38, csv_rows_52, sources):
             char = row["e52"]
             dst_cp = ord(char)
             try:
-                if apply_source(target_38, dst_cp, row["src"], row["action"], char, ctx):
+                if apply_source(target_38, dst_cp, row["src"], row["action"], char, ctx, ownsfd_key="ownsfd38"):
                     ok38 += 1
             except Exception as e:
                 logging.warning(f"{name}: xi38 {char} failed: {e}")
@@ -238,7 +293,7 @@ def process_script(name, cfg, csv_rows_38, csv_rows_52, sources):
             char = row["e52"]
             dst_cp = ord(char)
             try:
-                if apply_source(target_52, dst_cp, row["src"], row["action"], char, ctx):
+                if apply_source(target_52, dst_cp, row["src"], row["action"], char, ctx, ownsfd_key="ownsfd52"):
                     ok52 += 1
             except Exception as e:
                 logging.warning(f"{name}: xi52 {char} failed: {e}")
@@ -254,12 +309,22 @@ def process_script(name, cfg, csv_rows_38, csv_rows_52, sources):
         print(f"  {name}: FAILED - {e}")
         raise
     finally:
-        for f in (noto_font, target_38, target_52, script_font):
+        for f in (noto_font, target_38, target_52):
             if f is not None:
                 try:
                     f.close()
                 except Exception as close_err:
                     logging.warning(f"{name}: close failed: {close_err}")
+        if owns_script_font and script_font is not None:
+            try:
+                script_font.close()
+            except Exception as close_err:
+                logging.warning(f"{name}: close failed: {close_err}")
+        if owns_script_font_52 and script_font_52 is not None:
+            try:
+                script_font_52.close()
+            except Exception as close_err:
+                logging.warning(f"{name}: close failed: {close_err}")
 
 def main():
     csv_rows_38 = read_csv(CSV_PATH_38)

@@ -1,39 +1,43 @@
 e52,xh52_src,action,notes
+# sfdsrc/xi38/xe52 latin characters ka source sare x*52 ke liye
+# sfdsrc/xi52/(xh52/xb52/...) indik glyphs ka source .sfd ke liye.
+# ownsfd means as in below line:
+# sfdsrc/*/[xh52asc/xb52asc/...]----copy-paste-in---> sfd/*/[xh52asc/xb52asc/...]
 # G1 (20) - Indic consonants from Noto
-k,notoindik,replace,Indic consonant
-K,notoindik,replace,
-z,notoindik,replace,
-Z,notoindik,replace,
-t,notoindik,replace,
-T,keep,keep,Sunny Spells design pending
-d,notoindik,replace,
-D,notoindik,replace,
-n,notoindik,replace,
-p,notoindik,replace,
-f,notoindik,replace,
-b,notoindik,replace,
-B,notoindik,replace,
-m,notoindik,replace,
-y,notoindik,replace,
-r,notoindik,replace,
-l,notoindik,replace,
-w,notoindik,replace,
-s,notoindik,replace,
-S,notoindik,replace,
+k,ownsfd,replace,Indic consonant # from notoindic,replace is done. so today we can replace by keep,keep for notoindik cases 
+K,ownsfd,replace,
+z,ownsfd,replace,
+Z,ownsfd,replace,
+t,ownsfd,replace,
+T,ownsfd,replace,
+d,ownsfd,replace,
+D,ownsfd,replace,
+n,ownsfd,replace,
+p,ownsfd,replace,
+f,ownsfd,replace,
+b,ownsfd,replace,
+B,ownsfd,replace,
+m,ownsfd,replace,
+y,ownsfd,replace,
+r,ownsfd,replace,
+l,ownsfd,replace,
+w,ownsfd,replace,
+s,ownsfd,replace,
+S,ownsfd,replace,
 # G2 (10) - xi52 from xe52 (Latin dual glyphs)
-x,xe52,replace,Latin dual glyph
-j,xe52,replace,Latin dual glyph
-J,xe52,replace,Latin dual glyph
-q,xe52,replace,Latin dual glyph
-Q,xe52,replace,Latin dual glyph
-v,xe52,replace,Latin dual glyph
-c,xe52,replace,Latin dual glyph
-C,xe52,replace,Latin dual glyph
-g,xe52,replace,Latin dual glyph
-G,xe52,replace,Latin dual glyph
+x,xe52,replace,Latin dual glyph for x*52
+j,xe52,replace,Latin dual glyph for x*52
+J,xe52,replace,Latin dual glyph for x*52
+q,xe52,replace,Latin dual glyph for x*52
+Q,xe52,replace,Latin dual glyph for x*52
+v,xe52,replace,Latin dual glyph for x*52
+c,xe52,replace,designed new c glyph for x*52
+C,xe52,replace,designed new C glyph for x*52
+g,xe52,replace,designed new g glyph for x*52
+G,xe52,replace,designed new G glyph for x*52
 # G3 (14) - from xe52 (Latin shapes)
-N,xe52,replace,Latin shape
-R,xe52,replace,Latin shape
+N,xe52,replace,designed new N glyph for x*52/x*38
+R,xe52,replace,designed new R glyph for x*52/x*38
 a,xe52,replace,
 i,xe52,replace,
 u,xe52,replace,
@@ -54,5 +58,5 @@ U,xe52,replace,
 M,xe52,replace,
 X,xe52,replace,
 # G5 (2) - xi52: A,H from xe52
-A,xe52,replace,
-H,xe52,replace,
+A,xe52,replace,designed new A glyph for x*52
+H,xe52,replace,designed new H glyph for x*52

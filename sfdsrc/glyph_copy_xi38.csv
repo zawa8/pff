@@ -1,6 +1,10 @@
 e52,xh38_src,action,notes
+# sfdsrc/xi38/xe38 latin characters ka source
+# sfdsrc/xi38/(xh38/xb38/...) indik glyphs ka source
+# ownsfd means as in below line:
+# sfdsrc/*/[xh38asc/xb38asc/...]----copy-paste-in---> sfd/*/[xh38asc/xb38asc/...]
 # G5 (2) - xi38: A,H from notoindik
-A,ownsfd,replace,
+A,ownsfd,replace, # designed new A glyph for xh38 and for others xb38/xg38/... from notoindik is 1 time done
 H,ownsfd,replace,
 # G2 (10) - xi38 from xh38 (Hindi designs)
 x,ownsfd,replace,Hindi schwa design
@@ -29,14 +33,14 @@ W,xe38,replace,
 P,xe38,replace,
 F,xe38,replace,
 # G1 (20) - Indic consonants from Noto
-T,keep,keep,Sunny Spells design pending
+T,ownsfd,replace,
 D,ownsfd,replace,
-d,ownsfd,replace,
 k,ownsfd,replace,Indic consonant
 K,ownsfd,replace,
 z,ownsfd,replace,
 Z,ownsfd,replace,
 t,ownsfd,replace,
+d,ownsfd,replace,
 n,ownsfd,replace,
 p,ownsfd,replace,
 f,ownsfd,replace,
