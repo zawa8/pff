@@ -86,6 +86,7 @@ def run_u9scripts():
     with contextlib.ExitStack() as stack:
         sources = {
             "xe52":      stack.enter_context(_open_font(mod, mod.ENGLISH_52)),
+            "xe38":      stack.enter_context(_open_font(mod, mod.ENGLISH_38)),
             "noto_math": stack.enter_context(_open_font(mod, mod.NOTO_MATH)),
         }
         for name, cfg in mod.SCRIPTS.items():

@@ -65,7 +65,7 @@ logging.getLogger('').addHandler(console)
 
 # Sources
 noto_font_path = pff_root / "notofonts" / "NotoSansSinhala-Regular.ttf"
-english_sfd = pff_root / "sfd/xi52sfd/xi52asc/xe52asc.sfd"
+english_sfd = pff_root / "sfdsrc/xi52/xe52asc.sfd"
 sfd_path = pff_root / "sfd/xi38sfd/xi38asc/xs38asc.sfd"
 
 # Output
