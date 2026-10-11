@@ -45,6 +45,7 @@ logging.getLogger('').addHandler(console)
 
 # Sources: sfdsrc/ (designer-maintained), notofonts/
 ENGLISH_52   = pff_root / "sfdsrc/xe52/xe52asc.sfd"
+ENGLISH_38   = pff_root / "sfdsrc/xi38/xe38asc.sfd"
 SFDSRC_XI38  = pff_root / "sfdsrc/xi38"
 NOTO_MATH    = pff_root / "notofonts/NotoSansMath-Regular.ttf"
 SFDSRC_ROOT  = pff_root / "sfdsrc"
@@ -53,6 +54,8 @@ CSV_PATH_52  = SFDSRC_ROOT / "glyph_copy_xi52.csv"
 
 # 9 scripts (Sinhala handled separately)
 SCRIPTS = {
+    'english':   {'notoindik': None, 'base': None,
+                  'sfd38': 'xe38asc.sfd', 'sfd52': 'xe52asc.sfd'},
     'hindi':     {'notoindik': 'NotoSansDevanagari-Regular.ttf', 'base': 0x0900,
                   'sfd38': 'xh38asc.sfd',  'sfd52': 'xh52asc.sfd'},
     'bengali':   {'notoindik': 'NotoSansBengali-Regular.ttf',    'base': 0x0980,
@@ -159,10 +162,12 @@ def apply_source(target_font, dst_cp, src_name, action, e52_char, ctx):
 
     if src_name == "xe52":
         return copy_glyph(ctx["xe52"], dst_cp, target_font, dst_cp)
-    if src_name == "ownsfdsrc":
-        if ctx.get("ownsfdsrc") is None:
+    if src_name == "xe38":
+        return copy_glyph(ctx["xe38"], dst_cp, target_font, dst_cp)
+    if src_name == "ownsfd":
+        if ctx.get("ownsfd") is None:
             return False
-        return copy_glyph(ctx["ownsfdsrc"], dst_cp, target_font, dst_cp)
+        return copy_glyph(ctx["ownsfd"], dst_cp, target_font, dst_cp)
     if src_name == "noto_math":
         math_cp = MATH_SYMBOLS.get(dst_cp)
         if math_cp and copy_glyph(ctx["noto_math"], math_cp, target_font, dst_cp):
@@ -180,11 +185,6 @@ def apply_source(target_font, dst_cp, src_name, action, e52_char, ctx):
 
 
 def process_script(name, cfg, csv_rows_38, csv_rows_52, sources):
-    noto_path = pff_root / "notofonts" / cfg["notoindik"]
-    if not noto_path.exists():
-        logging.error(f"notoindik source not found: {noto_path}")
-        return
-
     # Per-script xi38 source from sfdsrc/
     # Hard fail: designer must provide sfdsrc source for each script.
     # No silent skip — if source missing, pipeline stops here.
@@ -196,17 +196,26 @@ def process_script(name, cfg, csv_rows_38, csv_rows_52, sources):
         )
     script_font = fontforge.open(str(script_src_path))
 
+    # notoindik is optional (english/xe38 has no Noto source)
     noto_font = None
+    if cfg.get("notoindik"):
+        noto_path = pff_root / "notofonts" / cfg["notoindik"]
+        if not noto_path.exists():
+            logging.error(f"notoindik source not found: {noto_path}")
+            script_font.close()
+            return
+        noto_font = fontforge.open(str(noto_path))
+
     target_38 = None
     target_52 = None
     try:
-        noto_font = fontforge.open(str(noto_path))
         target_38 = fontforge.open(str(pff_root / "sfd/xi38sfd/xi38asc" / cfg["sfd38"]))
         target_52 = fontforge.open(str(pff_root / "sfd/xi52sfd/xi52asc" / cfg["sfd52"]))
 
         ctx = {
             "xe52":      sources["xe52"],
-            "ownsfdsrc": script_font,
+            "xe38":      sources["xe38"],
+            "ownsfd":    script_font,
             "noto_math": sources["noto_math"],
             "notoindik": noto_font,
             "base":      cfg["base"],
@@ -260,6 +269,7 @@ def main():
 
     sources = {
         "xe52":      fontforge.open(str(ENGLISH_52)),
+        "xe38":      fontforge.open(str(ENGLISH_38)),
         "noto_math": fontforge.open(str(NOTO_MATH)),
     }
 
