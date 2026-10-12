@@ -4,7 +4,7 @@ FullName: Xnglo Punjabi xi38 utf Regular
 FamilyName: Xnglo Punjabi xi38 utf
 Weight: Regular
 Copyright: github.com/zawa8/font hscii 4finger1thumb 4f1t maths
-Version: Version pre-xe38-refactor
+Version: Version 1.5.0
 ItalicAngle: 0
 UnderlinePosition: -128
 UnderlineWidth: 51
@@ -22,7 +22,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1432194851
-ModificationTime: 1791722690
+ModificationTime: 1791763094
 PfmFamily: 81
 TTFWeight: 400
 TTFWidth: 5
@@ -96,7 +96,7 @@ ShortTable: maxp 16
   3
   1
 EndShort
-LangName: 1033 "Copyright 2025 The Xnglo Project Authors (https://github.com/zawa8/pff)" "" "regular" "Version pre-xe38-refactor; zawa8; XngloPunjabi-xi38utf" "" "Version pre-xe38-refactor" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "This Font Software is licensed under the SIL Open Font License, Version 1.1." "https://openfontlicense.org"
+LangName: 1033 "Copyright 2025 The Xnglo Project Authors (https://github.com/zawa8/pff)" "" "regular" "Version 1.5.0; zawa8; XngloPunjabi-xi38utf" "" "Version 1.5.0" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "This Font Software is licensed under the SIL Open Font License, Version 1.1." "https://openfontlicense.org"
 GaspTable: 1 65535 15 1
 Encoding: UnicodeFull
 UnicodeInterp: none
