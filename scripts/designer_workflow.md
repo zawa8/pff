@@ -44,7 +44,7 @@ Per-glyph decisions. Format:
 - `e52`    — letter (ASCII slot)
 - `src`    — where to take the glyph from:
              - `xe52`       English master
-             - `ownsfdsrc`     current script's sfdsrc source
+             - `ownsfd`       current script's sfdsrc source
              - `notoindik`  Noto Indic fallback
              - `noto_math`  Noto Math symbols
              - `keep`       leave target as-is (FontForge work)
@@ -53,10 +53,10 @@ Per-glyph decisions. Format:
 
 Example:
 
-    k,notoindik,replace,Indic consonant
-    x,script,replace,current script's schwa
+    k,ownsfd,replace,Indic consonant
+    x,ownsfd,replace,current script's schwa
     v,xe52,replace,Latin dual glyph
-    T,keep,keep,Sunny Spells T
+    A,ownsfd,replace,designed new A glyph
 
 ### Step 3 — Run the pipeline
 
