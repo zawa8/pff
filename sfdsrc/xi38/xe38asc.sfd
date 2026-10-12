@@ -22,7 +22,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1633362791
-ModificationTime: 1791615239
+ModificationTime: 1791797847
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -97,12 +97,11 @@ ShortTable: maxp 16
 EndShort
 LangName: 1033 "Copyright 2025 The Xnglo Project Authors (https://github.com/zawa8/pff)" "" "regular" "Version 1.3.0; zawa8; XngloEnglish-xi38asc" "" "Version 1.3.0" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "This Font Software is licensed under the SIL Open Font License, Version 1.1." "https://openfontlicense.org"
 GaspTable: 1 65535 15 1
-OtfFeatName: 'ss07' 1033 "iota adscript"
-OtfFeatName: 'ss06' 1033 "Accented Greek SC"
-OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
 OtfFeatName: 'ss03' 1033 "florin symbol"
+OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
+OtfFeatName: 'ss06' 1033 "Accented Greek SC"
+OtfFeatName: 'ss07' 1033 "iota adscript"
 Encoding: UnicodeFull
-Compacted: 1
 UnicodeInterp: none
 NameList: AGL For New Fonts
 DisplaySize: -48
@@ -5155,21 +5154,21 @@ Flags: W
 LayerCount: 2
 Fore
 SplineSet
-262.104492188 -0.107421875 m 1
- 14.4658203125 620.107421875 l 1
- 99.94921875 620.107421875 l 1
- 172.213867188 413.435546875 l 1
- 424.260742188 413.435546875 l 1
- 500.05078125 620.107421875 l 1
- 585.534179688 620.107421875 l 1
- 334.369140625 -0.107421875 l 1
- 262.104492188 -0.107421875 l 1
-300 74.1953125 m 1
- 399.584960938 342.587890625 l 1
- 200.415039062 342.587890625 l 1
- 300 74.1953125 l 1
+262.104492188 1.9140625 m 1
+ 14.4658203125 498.0859375 l 1
+ 99.94921875 498.0859375 l 1
+ 172.213867188 332.748046875 l 1
+ 424.260742188 332.748046875 l 1
+ 500.05078125 498.0859375 l 1
+ 585.534179688 498.0859375 l 1
+ 334.369140625 1.9140625 l 1
+ 262.104492188 1.9140625 l 1
+300 61.3564453125 m 1
+ 399.584960938 276.0703125 l 1
+ 200.415039062 276.0703125 l 1
+ 300 61.3564453125 l 1
 EndSplineSet
-Refer: 74 104 S 0.675013 0 0 0.564845 170.097 492.454 2
+Refer: 74 104 S 0.675013 0 0 0.677814 170.097 421.659 2
 EndChar
 
 StartChar: w
