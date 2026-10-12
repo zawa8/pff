@@ -80,14 +80,28 @@ pff/
 - `asc` — first 128 glyph slots (0x00–0xFF). Not "ASCII" — glyph-slot count.
 - `utf` — 128 glyphs from `asc`, ref/copy-pasted into Unicode ranges
   0x0900–0xD800 per-language mappings (`xNglo_phoneme_grapheme.csv`).
-- `mono` — 128 glyphs from `asc`, equal width + center-aligned.
-  Built from `asc`, NOT from `utf`.
+- `mono` — built from `asc`: `A-Za-z` glyphs copied, then equal width +
+  center-align. Glyphs that don't fit in the target width are
+  size-transformed to fit.
 
 ### Transformations
-- `asc` → `utf`      : copy 128 + ref/copy-paste at Unicode positions
-- `asc` → `mono`     : copy 128 + equal-width + center-align
-- `xL38asc` → `xL52asc` : copy script-specific glyphs from `xL38asc`
-  + Latin/symbol glyphs from `xe52asc`, per `sfdsrc/glyph_copy_*.csv`
+
+**`asc` → `utf`:**
+1. `asc` ke `A-Za-z` glyphs → `utf` ke `A-Za-z` glyphs (copy-paste)
+2. `utf` ke `A-Za-z` glyphs → ref/copy-paste into all Indic Unicode ranges
+   (per `xNglo_phoneme_grapheme.csv` map)
+
+**`asc` → `mono`:**
+1. `asc` ke `A-Za-z` glyphs → `mono` ke `A-Za-z` glyphs (copy-paste)
+2. Make all glyph widths same; transform (scale) glyphs that don't fit
+   in that width so they fit; center-align all glyphs
+
+**`xi38` / `xi52` build:**
+- Per `sfdsrc/glyph_copy_xi38.csv` / `sfdsrc/glyph_copy_xi52.csv`
+- `xi38`: uses `xe38asc` + `sfdsrc/xi38/<script>38asc.sfd`
+- `xi52`: uses `xe52asc` + `sfdsrc/xi52/<script>52asc.sfd`
+
+See `sfdsrc/csv_details.md` for canonical source mapping.
 
 ### File naming
 - `sfd/xi52sfd/xi52asc/xh52asc.sfd`
@@ -172,19 +186,35 @@ T,keep,keep,Sunny Spells T
 
 ## 4. Groups
 
-| Group | Letters | Sources |
-|-------|---------|---------|
-| G1 | `a i u e o h N R L Y V W P F` (14) | notoindik (except N, R from xe52) |
-| G2 | `x j J q Q v c C g G` (10) | xh38 (Hindi designs) |
-| G3 | `N R a i u e o h L Y V W P F` (14) | xe52 (Latin shapes) |
-| G4 | `E I O U M X` (6) | noto_math |
-| G5 | `A H` (2) | xh38 (Hindi designs) |
+### xi52 (52 chars)
 
-Total: 14 + 10 + 14 + 6 + 2 = 46 letters
+| Group | Letters | Count | Source |
+|-------|---------|-------|--------|
+| G1 | `k K z Z t T d D n p f b B m y r l w s S` | 20 | `ownsfd` (`sfdsrc/xi52/<script>52asc.sfd`) |
+| G2 | `x j J q Q v c C g G` | 10 | `xe52` (`sfdsrc/xi52/xe52asc.sfd`) |
+| G3 | `N R a i u e o h L Y V W P F` | 14 | `xe52` |
+| G4 | `E I O U M X` | 6 | `xe52` |
+| G5 | `A H` | 2 | `xe52` |
+
+Total: 20 + 10 + 14 + 6 + 2 = **52**
+
+### xi38 (52 chars)
+
+| Group | Letters | Count | Source |
+|-------|---------|-------|--------|
+| G1 | `k K z Z t T d D n p f b B m y r l w s S` | 20 | `ownsfd` (`sfdsrc/xi38/<script>38asc.sfd`) |
+| G2 | `x j J q Q v c C g G` | 10 | `ownsfd` |
+| G3 | `N R a i u e o h L Y V W P F` | 14 | `xe38` (`sfdsrc/xi38/xe38asc.sfd`) |
+| G4 | `E I O U M X` | 6 | `xe38` |
+| G5 | `A H` | 2 | `ownsfd` |
+
+Total: 20 + 10 + 14 + 6 + 2 = **52**
 
 Note: Actual letter counts depend on each script. Tamil has fewer
 consonants, Bengali has no `w`, etc. Scripts gracefully skip letters
-that don't exist in their Noto source.
+that don't exist in their source.
+
+See `sfdsrc/csv_details.md` for the canonical source mapping.
 
 ---
 
