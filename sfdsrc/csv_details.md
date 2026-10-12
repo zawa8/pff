@@ -74,7 +74,9 @@ Target: `sfd/xi38sfd/xi38asc/<script>38asc.sfd`
 
 ### CSV mapping
 
-| CSV | `xe52` / `xe38` rows | `ownsfd` rows | `keep` rows |
-|-----|----------------------|---------------|-------------|
-| `glyph_copy_xi38.csv` | 20 (`xe38`) | 30 | 1 (`T`) |
-| `glyph_copy_xi52.csv` | 32 (`xe52`) | 20 | 1 (`T`) |
+| CSV | `xe52` / `xe38` rows | `ownsfd` rows |
+|-----|----------------------|---------------|
+| `glyph_copy_xi38.csv` | 20 (`xe38`) | 32 |
+| `glyph_copy_xi52.csv` | 32 (`xe52`) | 20 |
+
+Note: `T` and `D` get the same treatment (`ownsfd,replace`).
