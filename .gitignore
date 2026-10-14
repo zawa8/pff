@@ -39,3 +39,7 @@ __pycache__/
 *.bak*
 *.bak
 
+
+# Generated sfd (from pipeline)
+sfd/xi38sfd/
+sfd/xi52sfd/
