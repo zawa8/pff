@@ -123,4 +123,4 @@ See `sfdsrc/csv_details.md` for canonical mapping.
 
 ## Pipeline
 
-See `scripts/pipeline_design.md` for the 18-step pipeline.
+See `pysk/pipeline_design.md` for the 18-step pipeline.
