@@ -42,7 +42,7 @@ Two families:
     │   ├── xi52sfd/      xi52 targets (asc, utf, mono)
     │   └── xi38sfd/      xi38 targets (asc, utf, mono)
     ├── notofonts/        Noto TTFs (fallback)
-    ├── scripts/          pipeline scripts
+    ├── pysk/          pipeline scripts
     └── xnglofonts/       TTF/WOFF2 outputs
 
 ## Font naming
@@ -66,27 +66,27 @@ Prefix table (technical names in filenames):
 PostScript names follow the pattern
 `Xnglo<Script>-xi<38|52><variant>` (e.g. `XngloHindi-xi38asc`).
 
-Full metadata scheme in `scripts/pipeline_design.md` §8.
+Full metadata scheme in `pysk/pipeline_design.md` §8.
 
 ## Build
 
     # Full pipeline (needs FontForge)
-    fontforge -script scripts/xi52py/main.py
+    fontforge -script pysk/xi52py/main.py
 
     # List numbered steps
-    fontforge -script scripts/xi52py/main.py --list
+    fontforge -script pysk/xi52py/main.py --list
 
     # List phase names
-    fontforge -script scripts/xi52py/main.py --list-phases
+    fontforge -script pysk/xi52py/main.py --list-phases
 
     # Run one phase (asc|utf|mono|meta|gen)
-    fontforge -script scripts/xi52py/main.py --phase asc
+    fontforge -script pysk/xi52py/main.py --phase asc
 
     # Run a single step
-    fontforge -script scripts/xi52py/main.py --only 1
+    fontforge -script pysk/xi52py/main.py --only 1
 
     # Dry run (print without executing)
-    fontforge -script scripts/xi52py/main.py --dry-run
+    fontforge -script pysk/xi52py/main.py --dry-run
 
 5 phases (18 steps):
   asc   xi38asc + xi52asc build
@@ -148,9 +148,9 @@ in the fonts is taken from the latest git tag by
 
 ## See also
 
-- `scripts/pipeline_design.md` — full design doc
-- `scripts/groups_and_pipelines.md` — G1-G5 groups
-- `scripts/utf_design.md` — utf build philosophy
+- `pysk/pipeline_design.md` — full design doc
+- `pysk/groups_and_pipelines.md` — G1-G5 groups
+- `pysk/utf_design.md` — utf build philosophy
 
 ## Related
 

@@ -38,7 +38,7 @@ Each per-script source follows `<script>38asc.sfd` (e.g. `xh38asc.sfd`
 3. Edit `.csv` files to set per-glyph decisions.
 4. Run pipeline to propagate to targets.
 
-See `scripts/designer_workflow.md` for the full 4-step workflow.
+See `pysk/designer_workflow.md` for the full 4-step workflow.
 
 ## Noto fallback
 

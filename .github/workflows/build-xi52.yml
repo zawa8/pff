@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "scripts/xi52py/**"
+      - "pysk/xi52py/**"
       - "sfdsrc/**"
       - "notofonts/**"
       - ".github/workflows/build-xi52.yml"
@@ -27,28 +27,28 @@ jobs:
 
       - name: Verify Python syntax
         run: |
-          python3 -m py_compile scripts/xi52py/main.py
-          python3 -m py_compile scripts/xi52py/glyph_copy/build_asc_fonts.py
-          python3 -m py_compile scripts/xi52py/glyph_copy/build_utf_fonts.py
-          python3 -m py_compile scripts/xi52py/gen_xi38asc.py
-          python3 -m py_compile scripts/xi52py/gen_xi52asc.py
-          python3 -m py_compile scripts/xi52py/update_font_metadata.py
+          python3 -m py_compile pysk/xi52py/main.py
+          python3 -m py_compile pysk/xi52py/glyph_copy/build_asc_fonts.py
+          python3 -m py_compile pysk/xi52py/glyph_copy/build_utf_fonts.py
+          python3 -m py_compile pysk/xi52py/gen_xi38asc.py
+          python3 -m py_compile pysk/xi52py/gen_xi52asc.py
+          python3 -m py_compile pysk/xi52py/update_font_metadata.py
 
       - name: Sanity -- print pipeline
-        run: fontforge -script scripts/xi52py/main.py --list
+        run: fontforge -script pysk/xi52py/main.py --list
 
       - name: Run src + asc phases
         run: |
-          fontforge -script scripts/xi52py/main.py --phase asc
+          fontforge -script pysk/xi52py/main.py --phase asc
 
       - name: Run utf phase
-        run: fontforge -script scripts/xi52py/main.py --phase utf
+        run: fontforge -script pysk/xi52py/main.py --phase utf
 
       - name: Run mono phase
-        run: fontforge -script scripts/xi52py/main.py --phase mono
+        run: fontforge -script pysk/xi52py/main.py --phase mono
 
       - name: Update font metadata
-        run: fontforge -script scripts/xi52py/main.py --phase meta
+        run: fontforge -script pysk/xi52py/main.py --phase meta
 
       - name: Clean old fonts
         run: |
@@ -66,7 +66,7 @@ jobs:
           rm -f xnglofonts/woff2/xi38woff2/xi38mono/*.woff2
 
       - name: Generate TTF/WOFF2
-        run: fontforge -script scripts/xi52py/main.py --phase gen
+        run: fontforge -script pysk/xi52py/main.py --phase gen
 
       - name: Upload SFDs
         if: always()

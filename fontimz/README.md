@@ -15,4 +15,4 @@ Visual reference of how xnglo fonts render text:
 - Symbol ranges (EIOUMX → ≡ ≠ → ↓ ≥ ≤)
 - Mixed Latin/Hindi (xnglo-style: `xndroid`, `xksre`)
 
-See `scripts/designer_workflow.md` for the designer workflow.
+See `pysk/designer_workflow.md` for the designer workflow.
