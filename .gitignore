@@ -39,6 +39,3 @@ __pycache__/
 *.bak*
 *.bak
 
-# Generated fonts (from pysk/xi52py pipeline)
-sfd/xi38/
-sfd/xi52/
