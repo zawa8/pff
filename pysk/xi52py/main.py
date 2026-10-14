@@ -25,6 +25,7 @@ Run with FontForge's own Python:
 import argparse
 import contextlib
 import importlib.util
+import shutil
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -92,12 +93,26 @@ def run_u9scripts():
         for name, cfg in mod.indik_skripts.items():
             mod.process_script(name, cfg, csv_rows_38, csv_rows_52, sources)
 
+def run_copy_xe_fonts():
+    """Copy xe52asc.sfd and xe38asc.sfd as-is (no glyph copy)."""
+    copies = [
+        (REPO_ROOT / "sfdsrc/xi52/xe52asc.sfd", REPO_ROOT / "sfd/xi52/xe52asc.sfd"),
+        (REPO_ROOT / "sfdsrc/xi38/xe38asc.sfd", REPO_ROOT / "sfd/xi38/xe38asc.sfd"),
+    ]
+    for src, dst in copies:
+        if not src.exists():
+            print(f"SKIP (missing): {src.name}")
+            continue
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
+        print(f"COPIED: {src.name} -> {dst.parent.name}/")
 
 # --------------------------------------------------------------------------
 # pipeline definition
 # --------------------------------------------------------------------------
 
 PHASES = [
+    ("src",  "Phase 0 -- src (copy xe fonts as-is)"),      # ← naya
     ("asc",  "Phase 1 -- asc (xi38asc + xi52asc)"),
     ("utf",  "Phase 2 -- utf (xi38utf + xi52utf)"),
     ("mono", "Phase 3 -- mono (xi38mono + xi52mono)"),
@@ -110,6 +125,9 @@ PHASE_LABEL = dict(PHASES)
 
 # (phase, label, runner)
 PIPELINE = [
+    # ---- src ----
+    ("src",  "[src] copy xe52asc.sfd + xe38asc.sfd as-is",
+             run_copy_xe_fonts),  
     # ---- asc ----
     ("asc",  "[asc] build xi38asc + xi52asc, 9 scripts (G1-G5)",
              run_u9scripts),

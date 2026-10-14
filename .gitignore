@@ -37,3 +37,4 @@ summary_*.md
 __pycache__/
 *.pyo
 *.bak*
+*.bak
