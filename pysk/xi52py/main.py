@@ -89,7 +89,7 @@ def run_u9scripts():
             "xe38":      stack.enter_context(_open_font(mod, mod.ENGLISH_38)),
             "noto_math": stack.enter_context(_open_font(mod, mod.NOTO_MATH)),
         }
-        for name, cfg in mod.SCRIPTS.items():
+        for name, cfg in mod.indik_skripts.items():
             mod.process_script(name, cfg, csv_rows_38, csv_rows_52, sources)
 
 

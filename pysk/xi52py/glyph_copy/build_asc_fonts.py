@@ -54,7 +54,7 @@ CSV_PATH_38  = SFDSRC_ROOT / "glyph_copy_xi38.csv"
 CSV_PATH_52  = SFDSRC_ROOT / "glyph_copy_xi52.csv"
 
 # 9 scripts (Sinhala handled separately)
-SCRIPTS = {
+indik_skripts = {
     'english':   {'notoindik': None, 'base': None,
                   'sfd38': 'xe38asc.sfd', 'sfd52': 'xe52asc.sfd'},
     'hindi':     {'notoindik': 'NotoSansDevanagari-Regular.ttf', 'base': 0x0900,
@@ -340,12 +340,12 @@ def main():
 
     if len(sys.argv) >= 2 and sys.argv[1].lower() != "all":
         name = sys.argv[1].lower()
-        if name in SCRIPTS:
-            process_script(name, SCRIPTS[name], csv_rows_38, csv_rows_52, sources)
+        if name in indik_skripts:
+            process_script(name, indik_skripts[name], csv_rows_38, csv_rows_52, sources)
         else:
             print(f"Unknown script: {name}")
     else:
-        for name, cfg in SCRIPTS.items():
+        for name, cfg in indik_skripts.items():
             process_script(name, cfg, csv_rows_38, csv_rows_52, sources)
 
     for f in sources.values():
