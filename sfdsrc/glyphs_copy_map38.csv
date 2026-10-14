@@ -1,0 +1,65 @@
+# this filename path/name is pff/sfdsrc/glyphs_copy_map38.csv
+# header row with column names below
+char,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+# latin wowels glyphs (not designed)
+a,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+e,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+i,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+o,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+u,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+h,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+# latin glyphs designed in sfdsrc/*/xi38asc.sfd
+N,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+R,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+# latin glyphs (not designed)
+L,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+Y,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+V,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+W,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+P,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+F,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+# maths special symbol glyphs once copied from pff/notofonts/NotoSansMath-Regular.ttf
+# now these are present in sfdsrc/xi38/xe38asc.sfd so we can copy from xe38asc.sfd
+E,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+I,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+O,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+U,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+M,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+X,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38,xe38
+# indik designed/already_copied_from_notosans_ownsfd
+A,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+x,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+H,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+v,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+# indik already_copied_from_notosans_ownsfd -> sfdsrc/*/ownsfd
+c,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+C,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+g,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+G,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+j,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+J,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+q,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+Q,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+# indik copied from below notosans as per map
+# char,Devanagari,Bengali,Punjabi,Gujarati,Oriya,Tamil,Telugu,Kannada,Malayalam,Sinhala
+# so now we can copy glyphs from sfdsrc/*/xi38 instead from notoindik
+k,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+K,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+z,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+Z,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+t,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+T,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+d,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+D,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+n,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+p,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+f,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+b,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+B,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+m,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+y,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+r,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+l,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+w,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+s,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
+S,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
