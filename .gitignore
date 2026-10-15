@@ -43,3 +43,7 @@ __pycache__/
 # Generated sfd (from pipeline)
 sfd/xi38sfd/
 sfd/xi52sfd/
+
+# Generated fonts (distributed via GitHub Releases)
+xnglofonts/ttf/
+xnglofonts/woff2/
