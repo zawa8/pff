@@ -26,24 +26,31 @@ Two families:
 
     pff/
     ├── sfdsrc/           ← MASTER SOURCES (designer-maintained)
-    │   ├── xe52/         English master (xe52asc.sfd)
-    │   └── xi38/         per-script sources
-    │       ├── xh38asc.sfd  (Hindi)
-    │       ├── xb38asc.sfd  (Bengali)
-    │       ├── xp38asc.sfd  (Punjabi)
-    │       ├── xg38asc.sfd  (Gujarati)
-    │       ├── xo38asc.sfd  (Oriya)
-    │       ├── xt38asc.sfd  (Tamil)
-    │       ├── xj38asc.sfd  (Telugu)
-    │       ├── xk38asc.sfd  (Kannada)
-    │       ├── xm38asc.sfd  (Malayalam)
-    │       └── xs38asc.sfd  (Sinhala)
+    │   ├── xi38/         per-script sources (xh38, xb38, ..., xs38)
+    │   ├── xi52/         per-script sources (xh52, xb52, ..., xs52)
+    │   ├── *.csv         glyph copy maps
+    │   └── *.md          documentation
     ├── sfd/              ← TARGETS (rebuilt by pipeline)
-    │   ├── xi52sfd/      xi52 targets (asc, utf, mono)
-    │   └── xi38sfd/      xi38 targets (asc, utf, mono)
+    │   ├── xi38sfd/      xi38 targets (asc, utf, mono)
+    │   └── xi52sfd/      xi52 targets (asc, utf, mono)
     ├── notofonts/        Noto TTFs (fallback)
-    ├── pysk/          pipeline scripts
+    ├── pysk/             pipeline scripts
     └── xnglofonts/       TTF/WOFF2 outputs
+
+## CSV files
+
+| File | Purpose |
+|------|---------|
+| `glyph_copy_xi38.csv` | xi38 glyph copy rules (legacy) |
+| `glyph_copy_xi52.csv` | xi52 glyph copy rules (legacy) |
+| `glyphs_copy_map38.csv` | xi38 glyph map (all scripts) |
+| `glyphs_copy_map52.csv` | xi52 glyph map (all scripts) |
+| `glyphs_copy_map38_noto_tu_sfdsrc.csv` | Noto source mapping (all scripts) |
+| `glyphs_copyref_map38_for_utf.csv` | copyref mapping for UTF phase |
+
+Details:
+- `glyphs_copy_map38_noto_tu_sfdsrc.md` — Noto mapping doc
+- `glyphs_copyref_map38_for_utf.md` — copyref mapping doc
 
 ## Font naming
 
@@ -79,7 +86,9 @@ Full metadata scheme in `pysk/pipeline_design.md` §8.
     # List phase names
     fontforge -script pysk/xi52py/main.py --list-phases
 
-    # Run one phase (asc|utf|mono|meta|gen)
+    # Run one phase (src|asc|utf|mono|meta|gen)
+
+    fontforge -script pysk/xi52py/main.py --phase src
     fontforge -script pysk/xi52py/main.py --phase asc
 
     # Run a single step
@@ -88,12 +97,20 @@ Full metadata scheme in `pysk/pipeline_design.md` §8.
     # Dry run (print without executing)
     fontforge -script pysk/xi52py/main.py --dry-run
 
-5 phases (18 steps):
+6 phases (19 steps):
+  src   copy xe fonts as-is (no glyph copy)
   asc   xi38asc + xi52asc build
   utf   xi38utf + xi52utf build
   mono  xi38mono + xi52mono build
   meta  font metadata (Google Fonts format)
   gen   TTF/WOFF2 generation
+
+## Releases
+
+Latest: [v1.6.0](https://github.com/zawa8/pff/releases/tag/v1.6.0)
+
+- **66 TTF + 66 WOFF2** (xi38 + xi52 families)
+- Download: [xnglo-fonts-v1.6.0.tar.gz](https://github.com/zawa8/pff/releases/download/v1.6.0/xnglo-fonts-v1.6.0.tar.gz)
 
 ## Manual design
 
