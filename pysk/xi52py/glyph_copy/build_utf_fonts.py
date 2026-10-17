@@ -30,6 +30,7 @@ from pathlib import Path
 # Paths
 script_dir = Path(__file__).parent
 pff_root = script_dir.parent.parent.parent
+CSV_PATH = pff_root / "sfdsrc/glyphs_copyref_map38_for_utf.csv"
 
 # Log
 log_dir = pff_root / "logs"
@@ -296,9 +297,40 @@ def _add_ref(utf_font, dst_unicode, src_ascii):
         logging.warning(f"Error ref U+{dst_unicode:04X}: {e}")
         return False
 
+def read_glyph_map(csv_path):
+    """Read glyphs_copyref_map38_for_utf.csv and return list of rows."""
+    rows = []
+    try:
+        with open(csv_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith('#'):
+                    continue
+                if line.startswith('nil,') or line.startswith('ascii,'):
+                    continue
+                parts = [p.strip() for p in line.split(',')]
+                if len(parts) < 12:
+                    continue
+                rows.append({
+                    'ascii': parts[0],
+                    'offset': parts[1],
+                    'xh38': parts[2],
+                    'xb38': parts[3],
+                    'xp38': parts[4],
+                    'xg38': parts[5],
+                    'xo38': parts[6],
+                    'xt38': parts[7],
+                    'xj38': parts[8],
+                    'xk38': parts[9],
+                    'xm38': parts[10],
+                    'xs38': parts[11],
+                })
+    except Exception as e:
+        logging.error(f"Error reading CSV: {e}")
+    return rows
 
 def add_unicode_ranges(utf_path):
-    """Step 2: Add Unicode ranges with references."""
+    """Step 2: Add Unicode ranges with references from CSV."""
     logging.info(f"Adding Unicode ranges to {utf_path.name}")
 
     try:
@@ -309,29 +341,35 @@ def add_unicode_ranges(utf_path):
 
     total_refs = 0
 
-    # 9 ranges: same Hindi-based mapping
-    for base_unicode in RANGES_9:
+    # CSV se values padho
+    csv_rows = read_glyph_map(CSV_PATH)
+
+    # Column names in CSV order (after ascii, offset)
+    SCRIPT_COLUMNS = ['xh38', 'xb38', 'xp38', 'xg38', 'xo38', 'xt38', 'xj38', 'xk38', 'xm38', 'xs38']
+
+    # Unicode bases for each script (same order as columns)
+    SCRIPT_BASES = [0x0900, 0x0980, 0x0A00, 0x0A80, 0x0B00, 0x0B80, 0x0C00, 0x0C80, 0x0D00, 0x0D80]
+
+    # Har script ke liye alag
+    for base_unicode, col in zip(SCRIPT_BASES, SCRIPT_COLUMNS):
         range_count = 0
-        for offset in range(128):
-            hskii_chars = UNICODE_HINDI_ARRAY[offset] if offset < len(UNICODE_HINDI_ARRAY) else ""
-            if not hskii_chars:
+        for row in csv_rows:
+            try:
+                offset = int(row['offset'], 16)
+            except:
                 continue
-            src_ascii = ord(hskii_chars[0])
+            value = row[col]
+            if value == 'skip' or not value:
+                continue
+            # ascii column se Latin character lo
+            ascii_char = row['ascii']
+            if not ascii_char:
+                continue
+            src_ascii = ord(ascii_char[0])
             if _add_ref(utf_font, base_unicode + offset, src_ascii):
                 range_count += 1
                 total_refs += 1
         logging.info(f"  U+{base_unicode:04X}: {range_count} refs")
-
-    # Sinhala range: sparse mapping
-    sinhala_count = 0
-    for offset, hskii_char in SINHALA_OFFSET_MAP.items():
-        if not hskii_char:
-            continue
-        src_ascii = ord(hskii_char)
-        if _add_ref(utf_font, SINHALA_BASE + offset, src_ascii):
-            sinhala_count += 1
-            total_refs += 1
-    logging.info(f"  U+{SINHALA_BASE:04X} (Sinhala): {sinhala_count} refs")
 
     try:
         utf_font.save(str(utf_path))
@@ -341,7 +379,6 @@ def add_unicode_ranges(utf_path):
 
     utf_font.close()
     return total_refs
-
 
 def main():
     logging.info("=" * 60)
