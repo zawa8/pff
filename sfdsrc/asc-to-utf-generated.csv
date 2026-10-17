@@ -1,0 +1,263 @@
+# asc-to-utf-generated.csv
+# Auto-generated from local Noto fonts via FontForge
+# glyphs of these chars can will be refcopied : 0123456789 ADHT KGCZNRBS abcdefghijklmnopqrstuwyz
+"# 'clear' = no glyph present, '?' = glyph present, refcopy not yet decided"
+# 'empty' hint in a #NN line forces 'clear' regardless of glyph presence
+# auto-hint format:  # <cp>=<short> | <cp>=<short> | ...
+offset,900,980,A00,A80,B00,B80,C00,C80,D00,D80
+# 0900=candrabindu | 0980=siddhirastu | 0C00=above | 0C80=candrabindu | 0D00=above
+00,?,?,clear,clear,clear,clear,?,?,?,clear
+# 0901=anunasika | 0981=candrabindu | 0A01=bindi | 0A81=candrabindu | 0B01=candrabindu | 0C01=arasunna | 0C81=candrabindu | 0D01=candrabindu | 0D81=candrabindu
+01,?,?,?,?,?,clear,?,?,?,?
+# 0902=bindu | 0982=anusvara | 0A02=bindi | 0A82=anusvara | 0B02=anusvara | 0B82=anusvara | 0C02=sunna | 0C82=anusvara | 0D02=anusvara | 0D82=anusvara
+02,?,?,?,?,?,?,?,?,?,?
+# 0903=visarga | 0983=visarga | 0A03=visarga | 0A83=visarga | 0B03=visarga | 0B83=aytham | 0C03=visarga | 0C83=visarga | 0D03=visarga | 0D83=visarga
+03,?,?,?,?,?,?,?,?,?,?
+# 0904=a | 0C04=above | 0C84=siddhirastu | 0D04=anusvara
+04,?,clear,clear,clear,clear,clear,?,?,?,clear
+# 0905=a | 0985=a | 0A05=aira | 0A85=a | 0B05=a | 0B85=a | 0C05=a | 0C85=a | 0D05=a | 0D85=a
+05,?,?,?,?,?,?,?,?,?,?
+# 0906=aa | 0986=aa | 0A06=aa | 0A86=aa | 0B06=aa | 0B86=aa | 0C06=aa | 0C86=aa | 0D06=aa | 0D86=aa
+06,?,?,?,?,?,?,?,?,?,?
+# 0907=i | 0987=i | 0A07=i | 0A87=i | 0B07=i | 0B87=i | 0C07=i | 0C87=i | 0D07=i | 0D87=ae
+07,?,?,?,?,?,?,?,?,?,?
+# 0908=ii | 0988=ii | 0A08=ii | 0A88=ii | 0B08=ii | 0B88=ii | 0C08=ii | 0C88=ii | 0D08=ii | 0D88=aae
+08,?,?,?,?,?,?,?,?,?,?
+# 0909=u | 0989=u | 0A09=u | 0A89=u | 0B09=u | 0B89=u | 0C09=u | 0C89=u | 0D09=u | 0D89=i
+09,?,?,?,?,?,?,?,?,?,?
+# 090A=uu | 098A=uu | 0A0A=uu | 0A8A=uu | 0B0A=uu | 0B8A=uu | 0C0A=uu | 0C8A=uu | 0D0A=uu | 0D8A=ii
+0A,?,?,?,?,?,?,?,?,?,?
+# 090B=r | 098B=r | 0A8B=r | 0B0B=r | 0C0B=r | 0C8B=r | 0D0B=r | 0D8B=u
+0B,?,?,clear,?,?,clear,?,?,?,?
+# 090C=l | 098C=l | 0A8C=l | 0B0C=l | 0C0C=l | 0C8C=l | 0D0C=l | 0D8C=uu
+0C,?,?,clear,?,?,clear,?,?,?,?
+# 090D=e | 0A8D=e | 0D8D=r
+0D,?,clear,clear,?,clear,clear,clear,clear,clear,?
+# 090E=e | 0B8E=e | 0C0E=e | 0C8E=e | 0D0E=e | 0D8E=rr
+0E,?,clear,clear,clear,clear,?,?,?,?,?
+# 090F=e | 098F=e | 0A0F=ee | 0A8F=e | 0B0F=e | 0B8F=ee | 0C0F=ee | 0C8F=ee | 0D0F=ee | 0D8F=l
+0F,?,?,?,?,?,?,?,?,?,?
+# 0910=ai | 0990=ai | 0A10=ai | 0A90=ai | 0B10=ai | 0B90=ai | 0C10=ai | 0C90=ai | 0D10=ai | 0D90=ll
+10,?,?,?,?,?,?,?,?,?,?
+# 0911=o | 0A91=o | 0D91=e
+11,?,clear,clear,?,clear,clear,clear,clear,clear,?
+# 0912=o | 0B92=o | 0C12=o | 0C92=o | 0D12=o | 0D92=ee
+12,?,clear,clear,clear,clear,?,?,?,?,?
+# 0913=o | 0993=o | 0A13=oo | 0A93=o | 0B13=o | 0B93=oo | 0C13=oo | 0C93=oo | 0D13=oo | 0D93=ai
+13,?,?,?,?,?,?,?,?,?,?
+# 0914=au | 0994=au | 0A14=au | 0A94=au | 0B14=au | 0B94=au | 0C14=au | 0C94=au | 0D14=au | 0D94=o
+14,?,?,?,?,?,?,?,?,?,?
+# 0915=ka | 0995=ka | 0A15=ka | 0A95=ka | 0B15=ka | 0B95=ka | 0C15=ka | 0C95=ka | 0D15=ka | 0D95=oo
+15,?,?,?,?,?,?,?,?,?,?
+# 0916=kha | 0996=kha | 0A16=kha | 0A96=kha | 0B16=kha | 0C16=kha | 0C96=kha | 0D16=kha | 0D96=au
+16,?,?,?,?,?,clear,?,?,?,?
+# 0917=ga | 0997=ga | 0A17=ga | 0A97=ga | 0B17=ga | 0C17=ga | 0C97=ga | 0D17=ga
+17,?,?,?,?,?,clear,?,?,?,clear
+# 0918=gha | 0998=gha | 0A18=gha | 0A98=gha | 0B18=gha | 0C18=gha | 0C98=gha | 0D18=gha
+18,?,?,?,?,?,clear,?,?,?,clear
+# 0919=nga | 0999=nga | 0A19=nga | 0A99=nga | 0B19=nga | 0B99=nga | 0C19=nga | 0C99=nga | 0D19=nga
+19,?,?,?,?,?,?,?,?,?,clear
+# 091A=ca | 099A=ca | 0A1A=ca | 0A9A=ca | 0B1A=ca | 0B9A=ca | 0C1A=ca | 0C9A=ca | 0D1A=cha | 0D9A=ka
+1A,?,?,?,?,?,?,?,?,?,?
+# 091B=cha | 099B=cha | 0A1B=cha | 0A9B=cha | 0B1B=cha | 0C1B=cha | 0C9B=cha | 0D1B=chha | 0D9B=kha
+1B,?,?,?,?,?,clear,?,?,?,?
+# 091C=ja | 099C=ja | 0A1C=ja | 0A9C=ja | 0B1C=ja | 0B9C=ja | 0C1C=ja | 0C9C=ja | 0D1C=ja | 0D9C=ga
+1C,?,?,?,?,?,?,?,?,?,?
+# 091D=jha | 099D=jha | 0A1D=jha | 0A9D=jha | 0B1D=jha | 0C1D=jha | 0C9D=jha | 0D1D=jha | 0D9D=gha
+1D,?,?,?,?,?,clear,?,?,?,?
+# 091E=nya | 099E=nya | 0A1E=nya | 0A9E=nya | 0B1E=nya | 0B9E=nya | 0C1E=nya | 0C9E=nya | 0D1E=nha | 0D9E=nga
+1E,?,?,?,?,?,?,?,?,?,?
+# 091F=tta | 099F=tta | 0A1F=tta | 0A9F=tta | 0B1F=tta | 0B9F=tta | 0C1F=tta | 0C9F=tta | 0D1F=ta | 0D9F=nnga
+1F,?,?,?,?,?,?,?,?,?,?
+# 0920=ttha | 09A0=ttha | 0A20=ttha | 0AA0=ttha | 0B20=ttha | 0C20=ttha | 0CA0=ttha | 0D20=tta | 0DA0=ca
+20,?,?,?,?,?,clear,?,?,?,?
+# 0921=dda | 09A1=dda | 0A21=dda | 0AA1=dda | 0B21=dda | 0C21=dda | 0CA1=dda | 0D21=da | 0DA1=cha
+21,?,?,?,?,?,clear,?,?,?,?
+# 0922=ddha | 09A2=ddha | 0A22=ddha | 0AA2=ddha | 0B22=ddha | 0C22=ddha | 0CA2=ddha | 0D22=dda | 0DA2=ja
+22,?,?,?,?,?,clear,?,?,?,?
+# 0923=nna | 09A3=nna | 0A23=nna | 0AA3=nna | 0B23=nna | 0BA3=nna | 0C23=nna | 0CA3=nna | 0D23=na | 0DA3=jha
+23,?,?,?,?,?,?,?,?,?,?
+# 0924=ta | 09A4=ta | 0A24=ta | 0AA4=ta | 0B24=ta | 0BA4=ta | 0C24=ta | 0CA4=ta | 0D24=tha | 0DA4=nya
+24,?,?,?,?,?,?,?,?,?,?
+# 0925=tha | 09A5=tha | 0A25=tha | 0AA5=tha | 0B25=tha | 0C25=tha | 0CA5=tha | 0D25=ttha | 0DA5=jnya
+25,?,?,?,?,?,clear,?,?,?,?
+# 0926=da | 09A6=da | 0A26=da | 0AA6=da | 0B26=da | 0C26=da | 0CA6=da | 0D26=da | 0DA6=nyja
+26,?,?,?,?,?,clear,?,?,?,?
+# 0927=dha | 09A7=dha | 0A27=dha | 0AA7=dha | 0B27=dha | 0C27=dha | 0CA7=dha | 0D27=dda | 0DA7=tta
+27,?,?,?,?,?,clear,?,?,?,?
+# 0928=na | 09A8=na | 0A28=na | 0AA8=na | 0B28=na | 0BA8=na | 0C28=na | 0CA8=na | 0D28=na | 0DA8=ttha
+28,?,?,?,?,?,?,?,?,?,?
+# 0929=nnna | 0BA9=nnna | 0D29=nnna | 0DA9=dda
+29,?,clear,clear,clear,clear,?,clear,clear,?,?
+# 092A=pa | 09AA=pa | 0A2A=pa | 0AAA=pa | 0B2A=pa | 0BAA=maa | 0C2A=pa | 0CAA=pa | 0D2A=pa | 0DAA=ddha
+2A,?,?,?,?,?,?,?,?,?,?
+# 092B=pha | 09AB=pha | 0A2B=pha | 0AAB=pha | 0B2B=pha | 0C2B=pha | 0CAB=pha | 0D2B=pha | 0DAB=nna
+2B,?,?,?,?,?,clear,?,?,?,?
+# 092C=ba | 09AC=wa | 0A2C=ba | 0AAC=ba | 0B2C=ba | 0C2C=ba | 0CAC=ba | 0D2C=ba | 0DAC=nndda
+2C,?,?,?,?,?,clear,?,?,?,?
+# 092D=bha | 09AD=bha | 0A2D=bha | 0AAD=bha | 0B2D=bha | 0C2D=bha | 0CAD=bha | 0D2D=bha | 0DAD=ta
+2D,?,?,?,?,?,clear,?,?,?,?
+# 092E=ma | 09AE=ma | 0A2E=ma | 0AAE=ma | 0B2E=ma | 0BAE=ma | 0C2E=ma | 0CAE=ma | 0D2E=ma | 0DAE=tha
+2E,?,?,?,?,?,?,?,?,?,?
+# 092F=ya | 09AF=ya | 0A2F=ya | 0AAF=ya | 0B2F=ja | 0BAF=ya | 0C2F=ya | 0CAF=ya | 0D2F=ya | 0DAF=da
+2F,?,?,?,?,?,?,?,?,?,?
+# 0930=ra | 09B0=ra | 0A30=ra | 0AB0=ra | 0B30=ra | 0BB0=ra | 0C30=ra | 0CB0=ra | 0D30=ra | 0DB0=dha
+30,?,?,?,?,?,?,?,?,?,?
+# 0931=rra | 0BB1=rra | 0C31=rra | 0CB1=rra | 0D31=rra | 0DB1=na
+31,?,clear,clear,clear,clear,?,?,?,?,?
+# 0932=la | 09B2=la | 0A32=la | 0AB2=la | 0B32=la | 0BB2=la | 0C32=la | 0CB2=la | 0D32=la
+32,?,?,?,?,?,?,?,?,?,clear
+# 0933=lla | 0A33=lla | 0AB3=lla | 0B33=lla | 0BB3=lla | 0C33=lla | 0CB3=lla | 0D33=lla | 0DB3=nda
+33,?,clear,?,?,?,?,?,?,?,?
+# 0934=llla | 0BB4=llla | 0C34=llla | 0D34=zha | 0DB4=pa
+34,?,clear,clear,clear,clear,?,?,clear,?,?
+# 0935=va | 0A35=va | 0AB5=va | 0B35=va | 0BB5=va | 0C35=va | 0CB5=va | 0D35=va | 0DB5=pha
+35,?,clear,?,?,?,?,?,?,?,?
+# 0936=sha | 09B6=sha | 0A36=sha | 0AB6=sha | 0B36=sha | 0BB6=sha | 0C36=sha | 0CB6=sha | 0D36=sha | 0DB6=ba
+36,?,?,?,?,?,?,?,?,?,?
+# 0937=ssa | 09B7=ssa | 0AB7=ssa | 0B37=ssa | 0BB7=ssa | 0C37=ssa | 0CB7=ssa | 0D37=sha | 0DB7=bha
+37,?,?,clear,?,?,?,?,?,?,?
+# 0938=sa | 09B8=sa | 0A38=sa | 0AB8=sa | 0B38=sa | 0BB8=sa | 0C38=sa | 0CB8=sa | 0D38=sa | 0DB8=ma
+38,?,?,?,?,?,?,?,?,?,?
+# 0939=ha | 09B9=ha | 0A39=ha | 0AB9=ha | 0B39=ha | 0BB9=ha | 0C39=ha | 0CB9=ha | 0D39=ha | 0DB9=mba
+39,?,?,?,?,?,?,?,?,?,?
+# 093A=oe | 0D3A=ttta | 0DBA=ya
+3A,?,clear,clear,clear,clear,clear,clear,clear,?,?
+# 093B=ooe | 0D3B=virama | 0DBB=ra
+3B,?,clear,clear,clear,clear,clear,clear,clear,?,?
+# 093C=nukta | 09BC=nukta | 0A3C=bindi | 0ABC=nukta | 0B3C=nukta | 0C3C=nukta | 0CBC=nukta | 0D3C=virama
+3C,?,?,?,?,?,clear,?,?,?,clear
+# 093D=avagraha | 09BD=avagraha | 0ABD=avagraha | 0B3D=avagraha | 0C3D=avagraha | 0CBD=avagraha | 0D3D=praslesham | 0DBD=la
+3D,?,?,clear,?,?,clear,?,?,?,?
+# 093E=aa | 09BE=aa | 0A3E=kanna | 0ABE=aa | 0B3E=aa | 0BBE=aa | 0C3E=aa | 0CBE=aa | 0D3E=aa
+3E,?,?,?,?,?,?,?,?,?,clear
+# 093F=i | 09BF=i | 0A3F=sihari | 0ABF=i | 0B3F=i | 0BBF=i | 0C3F=i | 0CBF=i | 0D3F=i
+3F,?,?,?,?,?,?,?,?,?,clear
+# 0940=ii | 09C0=ii | 0A40=bihari | 0AC0=ii | 0B40=ii | 0BC0=ii | 0C40=ii | 0CC0=ii | 0D40=ii | 0DC0=va
+40,?,?,?,?,?,?,?,?,?,?
+# 0941=u | 09C1=u | 0A41=aunkar | 0AC1=u | 0B41=u | 0BC1=u | 0C41=u | 0CC1=u | 0D41=u | 0DC1=sha
+41,?,?,?,?,?,?,?,?,?,?
+# 0942=uu | 09C2=uu | 0A42=dulainkar | 0AC2=uu | 0B42=uu | 0BC2=uu | 0C42=uu | 0CC2=uu | 0D42=uu | 0DC2=ssa
+42,?,?,?,?,?,?,?,?,?,?
+# 0943=r | 09C3=r | 0AC3=r | 0B43=r | 0C43=r | 0CC3=r | 0D43=r | 0DC3=sa
+43,?,?,clear,?,?,clear,?,?,?,?
+# 0944=rr | 09C4=rr | 0AC4=rr | 0B44=rr | 0C44=rr | 0CC4=rr | 0D44=rr | 0DC4=ha
+44,?,?,clear,?,?,clear,?,?,?,?
+# 0945=candra | 0AC5=e | 0DC5=lla
+45,?,clear,clear,?,clear,clear,clear,clear,clear,?
+# 0946=e | 0BC6=e | 0C46=e | 0CC6=e | 0D46=e | 0DC6=fa
+46,?,clear,clear,clear,clear,?,?,?,?,?
+# 0947=e | 09C7=e | 0A47=lanvan | 0AC7=e | 0B47=e | 0BC7=ee | 0C47=ee | 0CC7=ee | 0D47=ee
+47,?,?,?,?,?,?,?,?,?,clear
+# 0948=ai | 09C8=ai | 0A48=dulanvan | 0AC8=ai | 0B48=ai | 0BC8=ai | 0C48=ai | 0CC8=ai | 0D48=ai
+48,?,?,?,?,?,?,?,?,?,clear
+# 0949=o | 0AC9=o
+49,?,clear,clear,?,clear,clear,clear,clear,clear,clear
+# 094A=o | 0BCA=o | 0C4A=o | 0CCA=o | 0D4A=o | 0DCA=virama
+4A,?,clear,clear,clear,clear,?,?,?,?,?
+# 094B=o | 09CB=o | 0A4B=hora | 0ACB=o | 0B4B=o | 0BCB=oo | 0C4B=oo | 0CCB=oo | 0D4B=oo
+4B,?,?,?,?,?,?,?,?,?,clear
+# 094C=au | 09CC=au | 0A4C=kanaura | 0ACC=au | 0B4C=au | 0BCC=au | 0C4C=au | 0CCC=au | 0D4C=au
+4C,?,?,?,?,?,?,?,?,?,clear
+# 094D=name) | 09CD=halant) | 0A4D=virama | 0ACD=virama | 0B4D=virama | 0BCD=pulli | 0C4D=name) | 0CCD=virama | 0D4D=name)
+4D,?,?,?,?,?,?,?,?,?,clear
+# 094E=e | 09CE=ta | 0D4E=reph
+4E,?,?,clear,clear,clear,clear,clear,clear,?,clear
+# 094F=aw | 0D4F=para | 0DCF=aa
+4F,?,clear,clear,clear,clear,clear,clear,clear,?,?
+# 0950=om | 0AD0=om | 0BD0=om | 0DD0=ae
+50,?,clear,clear,?,clear,?,clear,clear,clear,?
+# 0951=svarita | 0A51=udaat | 0DD1=aae
+51,?,clear,?,clear,clear,clear,clear,clear,clear,?
+# 0952=anudatta | 0DD2=i
+52,?,clear,clear,clear,clear,clear,clear,clear,clear,?
+# 0953=accent | 0DD3=ii
+53,?,clear,clear,clear,clear,clear,clear,clear,clear,?
+# 0954=accent | 0D54=m | 0DD4=u
+54,?,clear,clear,clear,clear,clear,clear,clear,?,?
+# 0955=e | 0B55=overline | 0C55=mark | 0CD5=mark | 0D55=y
+55,?,clear,clear,clear,?,clear,?,?,?,clear
+# 0956=ue | 0B56=mark | 0C56=mark | 0CD6=mark | 0D56=lll | 0DD6=uu
+56,?,clear,clear,clear,?,clear,?,?,?,?
+# 0957=uue | 09D7=mark | 0B57=mark | 0BD7=mark | 0D57=mark
+57,?,?,clear,clear,?,?,clear,clear,?,clear
+# 0958=qa | 0C58=tsa | 0D58=arakaani | 0DD8=r
+58,?,clear,clear,clear,clear,clear,?,clear,?,?
+# 0959=khha | 0A59=khha | 0C59=dza | 0D59=aramaa | 0DD9=e
+59,?,clear,?,clear,clear,clear,?,clear,?,?
+# 095A=ghha | 0A5A=ghha | 0C5A=rrra | 0D5A=muunnukaani | 0DDA=ee
+5A,?,clear,?,clear,clear,clear,?,clear,?,?
+# 095B=za | 0A5B=za | 0D5B=orumaa | 0DDB=ai
+5B,?,clear,?,clear,clear,clear,clear,clear,?,?
+# 095C=dddha | 09DC=rra | 0A5C=rra | 0B5C=dda | 0D5C=rantumaa | 0DDC=o
+5C,?,?,?,clear,?,clear,clear,clear,?,?
+# 095D=rha | 09DD=rha | 0B5D=ddha | 0C5D=pollu | 0CDD=pollu | 0D5D=muunnumaa | 0DDD=oo
+5D,?,?,clear,clear,?,clear,?,?,?,?
+# 095E=fa | 0A5E=fa | 0CDE=fa | 0D5E=naalumaa | 0DDE=au
+5E,?,clear,?,clear,clear,clear,clear,?,?,?
+# 095F=yya | 09DF=yya | 0B5F=ya | 0D5F=ii | 0DDF=l
+5F,?,?,clear,clear,?,clear,clear,clear,?,?
+# 0960=rr | 09E0=rr | 0AE0=rr | 0B60=rr | 0C60=rr | 0CE0=rr | 0D60=rr
+60,?,?,clear,?,?,clear,?,?,?,clear
+# 0961=ll | 09E1=ll | 0AE1=ll | 0B61=ll | 0C61=ll | 0CE1=ll | 0D61=ll
+61,?,?,clear,?,?,clear,?,?,?,clear
+# 0962=l | 09E2=l | 0AE2=l | 0B62=l | 0C62=l | 0CE2=l | 0D62=l
+62,?,?,clear,?,?,clear,?,?,?,clear
+# 0963=ll | 09E3=ll | 0AE3=ll | 0B63=ll | 0C63=ll | 0CE3=ll | 0D63=ll
+63,?,?,clear,?,?,clear,?,?,?,clear
+# 0964=viram
+64,?,clear,clear,clear,clear,clear,clear,clear,clear,clear
+# 0965=viram
+65,?,clear,clear,clear,clear,clear,clear,clear,clear,clear
+# 0966=zero | 09E6=zero | 0A66=zero | 0AE6=zero | 0B66=zero | 0BE6=zero | 0C66=zero | 0CE6=zero | 0D66=zero | 0DE6=zero
+66,?,?,?,?,?,?,?,?,?,?
+# 0967=one | 09E7=one | 0A67=one | 0AE7=one | 0B67=one | 0BE7=one | 0C67=one | 0CE7=one | 0D67=one | 0DE7=one
+67,?,?,?,?,?,?,?,?,?,?
+# 0968=two | 09E8=two | 0A68=two | 0AE8=two | 0B68=two | 0BE8=two | 0C68=two | 0CE8=two | 0D68=two | 0DE8=two
+68,?,?,?,?,?,?,?,?,?,?
+# 0969=three | 09E9=three | 0A69=three | 0AE9=three | 0B69=three | 0BE9=three | 0C69=three | 0CE9=three | 0D69=three | 0DE9=three
+69,?,?,?,?,?,?,?,?,?,?
+# 096A=four | 09EA=four | 0A6A=four | 0AEA=four | 0B6A=four | 0BEA=four | 0C6A=four | 0CEA=four | 0D6A=four | 0DEA=four
+6A,?,?,?,?,?,?,?,?,?,?
+# 096B=five | 09EB=five | 0A6B=five | 0AEB=five | 0B6B=five | 0BEB=five | 0C6B=five | 0CEB=five | 0D6B=five | 0DEB=five
+6B,?,?,?,?,?,?,?,?,?,?
+# 096C=six | 09EC=six | 0A6C=six | 0AEC=six | 0B6C=six | 0BEC=six | 0C6C=six | 0CEC=six | 0D6C=six | 0DEC=six
+6C,?,?,?,?,?,?,?,?,?,?
+# 096D=seven | 09ED=seven | 0A6D=seven | 0AED=seven | 0B6D=seven | 0BED=seven | 0C6D=seven | 0CED=seven | 0D6D=seven | 0DED=seven
+6D,?,?,?,?,?,?,?,?,?,?
+# 096E=eight | 09EE=eight | 0A6E=eight | 0AEE=eight | 0B6E=eight | 0BEE=eight | 0C6E=eight | 0CEE=eight | 0D6E=eight | 0DEE=eight
+6E,?,?,?,?,?,?,?,?,?,?
+# 096F=nine | 09EF=nine | 0A6F=nine | 0AEF=nine | 0B6F=nine | 0BEF=nine | 0C6F=nine | 0CEF=nine | 0D6F=nine | 0DEF=nine
+6F,?,?,?,?,?,?,?,?,?,?
+# 0970=sign | 09F0=ra | 0A70=tippi | 0AF0=sign | 0B70=isshar | 0BF0=ten | 0D70=ten
+70,?,?,?,?,?,?,clear,clear,?,clear
+# 0971=dot | 09F1=wa | 0A71=addak | 0AF1=sign | 0B71=wa | 0BF1=hundred | 0CF1=jihvamuliya | 0D71=hundred
+71,?,?,?,?,?,?,clear,?,?,clear
+# 0972=a | 09F2=taka | 0A72=iri | 0B72=quarter | 0BF2=thousand | 0CF2=upadhmaniya | 0D72=thousand | 0DF2=rr
+72,?,?,?,clear,?,?,clear,?,?,?
+# 0973=oe | 09F3=taka | 0A73=ura | 0B73=half | 0BF3=naali/padi | 0CF3=right | 0D73=kaal | 0DF3=ll
+73,?,?,?,clear,?,?,clear,?,?,?
+# 0974=ooe | 09F4=one | 0A74=onkar | 0B74=quarters | 0BF4=maatham | 0D74=ara | 0DF4=kunddaliya
+74,?,?,?,clear,?,?,clear,clear,?,?
+# 0975=aw | 09F5=two | 0A75=yakash | 0B75=sixteenth | 0BF5=varudam | 0D75=mukkaal
+75,?,?,?,clear,?,?,clear,clear,?,clear
+# 0976=ue | 09F6=three | 0A76=sign | 0B76=eighth | 0BF6=patru | 0D76=maakaani
+76,?,?,?,clear,?,?,clear,clear,?,clear
+# 0977=uue | 09F7=four | 0B77=sixteenths | 0BF7=eduppu | 0C77=siddhirastu | 0D77=arakkaal
+77,?,?,clear,clear,?,?,?,clear,?,clear
+# 0978=dda | 09F8=denominator | 0BF8=merpadi | 0C78=four | 0D78=muntaani
+78,?,?,clear,clear,clear,?,?,clear,?,clear
+# 0979=zha | 09F9=sixteen | 0AF9=zha | 0BF9=rupai | 0C79=four | 0D79=mark
+79,?,?,clear,?,clear,?,?,clear,?,clear
+# 097A=ya | 09FA=ishvar | 0AFA=sukun | 0BFA=niluvai | 0C7A=four | 0D7A=nn
+7A,?,?,clear,?,clear,?,?,clear,?,clear
+# 097B=gga | 09FB=mark | 0AFB=shadda | 0C7B=four | 0D7B=n
+7B,?,?,clear,?,clear,clear,?,clear,?,clear
+# 097C=jja | 09FC=anusvara | 0AFC=maddah | 0C7C=four | 0D7C=rr
+7C,?,?,clear,?,clear,clear,?,clear,?,clear
+# 097D=stop | 09FD=sign | 0AFD=above | 0C7D=four | 0D7D=l
+7D,?,?,clear,?,clear,clear,?,clear,?,clear
+# 097E=ddda | 09FE=mark | 0AFE=above | 0C7E=four | 0D7E=ll
+7E,?,?,clear,?,clear,clear,?,clear,?,clear
+# 097F=bba | 0AFF=above | 0C7F=tuumu | 0D7F=k
+7F,?,clear,clear,?,clear,clear,?,clear,?,clear
