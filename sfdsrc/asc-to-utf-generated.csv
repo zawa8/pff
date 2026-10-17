@@ -1,9 +1,9 @@
 # asc-to-utf-generated.csv
 # Auto-generated from local Noto fonts via FontForge
 # glyphs of these chars can will be refcopied : 0123456789 ADHT KGCZNRBS abcdefghijklmnopqrstuwyz
-"# 'clear' = no glyph present, '?' = glyph present, refcopy not yet decided"
+# 'clear' = no glyph present, '?' = glyph present, refcopy not yet decided
 # 'empty' hint in a #NN line forces 'clear' regardless of glyph presence
-# auto-hint format:  # <cp>=<short> | <cp>=<short> | ...
+# auto-hint format:  # <cp>=<short> | <cp>=<short> | ...  (one entry per column)
 offset,900,980,A00,A80,B00,B80,C00,C80,D00,D80
 # 0900=candrabindu | 0980=siddhirastu | 0C00=above | 0C80=candrabindu | 0D00=above
 00,?,?,clear,clear,clear,clear,?,?,?,clear
@@ -27,8 +27,9 @@ offset,900,980,A00,A80,B00,B80,C00,C80,D00,D80
 09,?,?,?,?,?,?,?,?,?,?
 # 090A=uu | 098A=uu | 0A0A=uu | 0A8A=uu | 0B0A=uu | 0B8A=uu | 0C0A=uu | 0C8A=uu | 0D0A=uu | 0D8A=ii
 0A,?,?,?,?,?,?,?,?,?,?
-# 090B=r | 098B=r | 0A8B=r | 0B0B=r | 0C0B=r | 0C8B=r | 0D0B=r | 0D8B=u
-0B,?,?,clear,?,?,clear,?,?,?,?
+#0B,r,r,empty,r,r,empty,r,r,r,u
+# 090B=r | 098B=r | 0A0B=empty | 0A8B=r | 0B0B=r | 0B8B=empty | 0C0B=r | 0C8B=r | 0D0B=r | 0D8B=u
+0B,r,r,clear,r,r,clear,r,r,r,u
 # 090C=l | 098C=l | 0A8C=l | 0B0C=l | 0C0C=l | 0C8C=l | 0D0C=l | 0D8C=uu
 0C,?,?,clear,?,?,clear,?,?,?,?
 # 090D=e | 0A8D=e | 0D8D=r

@@ -2,10 +2,12 @@
 """
 fill_asc-to-utf-csv.py
 
-Auto-hint format:  # 0914=AU | 0994=AU | ... | 0D9A=ka | ...
-Short name priority:
-  1. Unicode NamesList.txt alias  ("= sinhala letter ka" -> "ka")
-  2. fallback: last word of Unicode name, lowercased
+Regenerates sfdsrc/asc-to-utf-generated.csv from local Noto fonts.
+
+Comment lines in the CSV:
+
+  #NN,<f0>,...,<f9>       MANUAL designer hint for offset NN.
+  # <cp>=<short> | ...    AUTO hint (worksheet).
 """
 
 import csv
@@ -16,7 +18,7 @@ import unicodedata
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUT_PATH   = os.path.join(SCRIPT_DIR, "..", "sfdsrc", "asc-to-utf-generated.csv")
-NAMESLIST  = os.path.join(SCRIPT_DIR, "NamesList.txt")   # download separately
+NAMESLIST  = os.path.join(SCRIPT_DIR, "NamesList.txt")
 
 FONTS = {
     "900": "NotoSansDevanagari-Regular.ttf",
@@ -40,15 +42,12 @@ HEADER_COMMENTS = [
     "0123456789 ADHT KGCZNRBS abcdefghijklmnopqrstuwyz",
     "# 'clear' = no glyph present, '?' = glyph present, refcopy not yet decided",
     "# 'empty' hint in a #NN line forces 'clear' regardless of glyph presence",
-    "# auto-hint format:  # <cp>=<short> | <cp>=<short> | ...",
+    "# auto-hint format:  # <cp>=<short> | <cp>=<short> | ...  (one entry per column)",
 ]
 
 REFCOPY_LETTERS = set("0123456789ADHTKGCZNRBSabcdefghijklmnopqrstuwyz")
 
 
-# --------------------------------------------------------------------------- #
-# NamesList.txt parser -> {codepoint_int: short_alias_lowercase}
-# --------------------------------------------------------------------------- #
 def load_nameslist(path):
     aliases = {}
     if not os.path.exists(path):
@@ -61,7 +60,6 @@ def load_nameslist(path):
             line = line.rstrip("\n")
             if not line:
                 continue
-            # Codepoint line: starts at col 0, hex digits, then tab
             if line[0] not in ("\t", "@", ";", "#") and "\t" in line:
                 head = line.split("\t", 1)[0]
                 try:
@@ -69,20 +67,16 @@ def load_nameslist(path):
                 except ValueError:
                     cur_cp = None
                 continue
-            # Alias line: starts with "= "
             if cur_cp is not None and line.startswith("\t= "):
                 alias = line[3:].strip()
                 if alias and not alias.startswith("<"):
-                    # "sinhala letter ka" -> "ka"
                     short = alias.split()[-1].lower()
                     aliases.setdefault(cur_cp, short)
-            # Skip cross-refs / refs, but keep scanning
     print(f"# Loaded {len(aliases)} alias(es) from {os.path.basename(path)}",
           file=sys.stderr)
     return aliases
 
 
-# --------------------------------------------------------------------------- #
 def short_name(cp, unicode_name, aliases):
     if cp in aliases:
         return aliases[cp]
@@ -93,7 +87,7 @@ def short_name(cp, unicode_name, aliases):
 
 def scan_fonts(aliases):
     import fontforge
-    present = {col: {} for col in FONTS}     # col -> {offset: (cp, name, short)}
+    present = {col: {} for col in FONTS}
     for col, fname in FONTS.items():
         path = os.path.join(SCRIPT_DIR, fname)
         if not os.path.exists(path):
@@ -160,39 +154,51 @@ def cell_value(col_idx, present_col, hint_fields):
     return "?"
 
 
-def auto_hint_line(off, present):
+def auto_hint_line(off, present, hint_fields):
     parts = []
-    for col in FONTS:
+    for idx, col in enumerate(FONTS):
+        raw = hint_fields[idx] if hint_fields is not None else None
+        u = BLOCK_STARTS[col] + off
+
+        if raw is not None and raw.strip() == "empty":
+            parts.append(f"{u:04X}=empty")
+            continue
+
         if off in present[col]:
-            cp, _name, short = present[col][off]
-            parts.append(f"{cp:04X}={short}")
+            _cp, _name, short = present[col][off]
+            parts.append(f"{u:04X}={short}")
+
     if not parts:
         return None
     return "# " + " | ".join(parts)
 
 
 def write_csv(present, hints, out_path):
+    """Write CSV manually (no csv.writer) so hint lines stay unquoted."""
     out_dir = os.path.dirname(os.path.abspath(out_path))
     os.makedirs(out_dir, exist_ok=True)
     fd, tmp_path = tempfile.mkstemp(prefix=".asc-to-utf-", suffix=".csv.tmp",
                                     dir=out_dir)
     try:
         with os.fdopen(fd, "w", newline="", encoding="utf-8") as f:
-            w = csv.writer(f, lineterminator="\n")
             for c in HEADER_COMMENTS:
-                w.writerow([c])
-            w.writerow(COLUMNS)
+                f.write(c + "\n")
+            f.write(",".join(COLUMNS) + "\n")
+
             for off in range(0x80):
                 manual = hints.get(off)
-                auto   = auto_hint_line(off, present)
+                auto   = auto_hint_line(off, present, manual)
+
                 if manual is not None:
-                    w.writerow([f"#{off:02X}," + ",".join(manual)])
-                elif auto is not None:
-                    w.writerow([auto])
+                    f.write(f"#{off:02X}," + ",".join(manual) + "\n")
+                if auto is not None:
+                    f.write(auto + "\n")
+
                 row = [f"{off:02X}"]
                 for idx, col in enumerate(FONTS):
                     row.append(cell_value(idx, off in present[col], manual))
-                w.writerow(row)
+                f.write(",".join(row) + "\n")
+
         os.replace(tmp_path, out_path)
     except BaseException:
         try:
