@@ -126,7 +126,7 @@
     "79": ["Z", "s", "clear", "Z", "clear", "r", "f", "clear", "m", "clear"],
     "7A": ["y", "i", "clear", "s", "clear", "n", "f", "clear", "n", "clear"],
     "7B": ["g", "m", "clear", "S", "clear", "clear", "f", "clear", "n", "clear"],
-    "7C": ["j", "a", "clear", "m", "clear", "clear", "f", "clear", "r", "clear"],
+    "7C": ["z", "a", "clear", "m", "clear", "clear", "f", "clear", "r", "clear"],
     "7D": ["s", "s", "clear", "a", "clear", "clear", "f", "clear", "l", "clear"],
     "7E": ["d", "m", "clear", "a", "clear", "clear", "f", "clear", "l", "clear"],
     "7F": ["b", "clear", "clear", "a", "clear", "clear", "t", "clear", "k", "clear"]

@@ -65,6 +65,7 @@ AUTO_REFCOPY_EXCEPTIONS = {
     "ddha": "Q",
     "ja":   "z",
     "jha":  "Z",
+    "jja":  "z",
     "nya":  "N",
     "ttha": "J",
     "ta":   "T",

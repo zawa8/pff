@@ -256,7 +256,7 @@ offset,900,980,A00,A80,B00,B80,C00,C80,D00,D80
 # 097B=gga | 09FB=mark | 0AFB=shadda | 0C7B=four | 0D7B=n
 7B,g,m,clear,S,clear,clear,f,clear,n,clear
 # 097C=jja | 09FC=anusvara | 0AFC=maddah | 0C7C=four | 0D7C=rr
-7C,j,a,clear,m,clear,clear,f,clear,r,clear
+7C,z,a,clear,m,clear,clear,f,clear,r,clear
 # 097D=stop | 09FD=sign | 0AFD=above | 0C7D=four | 0D7D=l
 7D,s,s,clear,a,clear,clear,f,clear,l,clear
 # 097E=ddda | 09FE=mark | 0AFE=above | 0C7E=four | 0D7E=ll
