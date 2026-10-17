@@ -47,3 +47,5 @@ sfd/xi52sfd/
 # Generated fonts (distributed via GitHub Releases)
 xnglofonts/ttf/
 xnglofonts/woff2/
+sfdsrc/*.bak*
+notofonts/.asc-to-utf-*.csv.tmp
