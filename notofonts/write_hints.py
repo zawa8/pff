@@ -5,6 +5,7 @@ Run with: ffz -c 'exec(open("write_hints.py").read())'
 Or: python3 write_hints.py
 """
 import os
+import builtins
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__)) if "__file__" in dir() else os.getcwd()
 OUT = os.path.join(SCRIPT_DIR, "hints.md")
@@ -147,7 +148,6 @@ before rewriting. Backups of the previous CSV are safe to delete
 | Manual hint not applied | check `#NN,` prefix, 10 comma-separated fields, valid Latin first char |
 | `empty` cell still shows `?` | make sure the field text is exactly `empty` (lowercase) |
 """
-
-with open(OUT, "w", encoding="utf-8", newline="\n") as f:
+with builtins.open(OUT, "w", encoding="utf-8", newline="\n") as f:
     f.write(CONTENT)
 print(f"# Wrote {OUT} ({len(CONTENT)} bytes, {CONTENT.count(chr(10))} lines)")
