@@ -30,7 +30,7 @@ from pathlib import Path
 # Paths
 script_dir = Path(__file__).parent
 pff_root = script_dir.parent.parent.parent
-CSV_PATH = pff_root / "sfdsrc/glyphs_copyref_map38_for_utf.csv"
+JSON_PATH = pff_root / "sfdsrc/asc-to-utf.json"
 
 # Log
 log_dir = pff_root / "logs"
@@ -272,10 +272,7 @@ def create_utf_font(asc_name, utf_name):
 
 
 def _add_ref(utf_font, dst_unicode, src_ascii):
-    """Add a reference at dst_unicode pointing to base glyph at src_ascii.
-
-    Returns True on success, False on skip/error.
-    """
+    """Add a reference at dst_unicode pointing to base glyph at src_ascii."""
     try:
         src_glyph = utf_font[src_ascii]
         if src_glyph is None:
@@ -291,44 +288,21 @@ def _add_ref(utf_font, dst_unicode, src_ascii):
             utf_font.createChar(dst_unicode)
         dst_glyph = utf_font[dst_unicode]
         dst_glyph.clear()
-        dst_glyph.addReference(src_name, (0, 0, 0, 0, 0, 0))
+        # Use copyReference + paste (not addReference)
+        src_glyph.copyReference()
+        dst_glyph.paste()
         return True
     except Exception as e:
         logging.warning(f"Error ref U+{dst_unicode:04X}: {e}")
         return False
 
-def read_glyph_map(csv_path):
-    """Read glyphs_copyref_map38_for_utf.csv and return list of rows."""
-    rows = []
-    try:
-        with open(csv_path, 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if not line or line.startswith('#'):
-                    continue
-                if line.startswith('nil,') or line.startswith('ascii,'):
-                    continue
-                parts = [p.strip() for p in line.split(',')]
-                if len(parts) < 12:
-                    continue
-                rows.append({
-                    'ascii': parts[0],
-                    'offset': parts[1],
-                    'xh38': parts[2],
-                    'xb38': parts[3],
-                    'xp38': parts[4],
-                    'xg38': parts[5],
-                    'xo38': parts[6],
-                    'xt38': parts[7],
-                    'xj38': parts[8],
-                    'xk38': parts[9],
-                    'xm38': parts[10],
-                    'xs38': parts[11],
-                })
-    except Exception as e:
-        logging.error(f"Error reading CSV: {e}")
-    return rows
-
+def read_glyph_map(json_path):
+    """Read asc-to-utf.json and return dict of rows."""
+    import json
+    with open(json_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    return data['rows']
+    
 def add_unicode_ranges(utf_path):
     """Step 2: Add Unicode ranges with references from CSV."""
     logging.info(f"Adding Unicode ranges to {utf_path.name}")
@@ -342,30 +316,28 @@ def add_unicode_ranges(utf_path):
     total_refs = 0
 
     # CSV se values padho
-    csv_rows = read_glyph_map(CSV_PATH)
+    json_rows = read_glyph_map(JSON_PATH)
 
     # Column names in CSV order (after ascii, offset)
-    SCRIPT_COLUMNS = ['xh38', 'xb38', 'xp38', 'xg38', 'xo38', 'xt38', 'xj38', 'xk38', 'xm38', 'xs38']
+    SCRIPT_COLUMNS = ['900', '980', 'A00', 'A80', 'B00', 'B80', 'C00', 'C80', 'D00', 'D80']
 
     # Unicode bases for each script (same order as columns)
     SCRIPT_BASES = [0x0900, 0x0980, 0x0A00, 0x0A80, 0x0B00, 0x0B80, 0x0C00, 0x0C80, 0x0D00, 0x0D80]
 
     # Har script ke liye alag
-    for base_unicode, col in zip(SCRIPT_BASES, SCRIPT_COLUMNS):
+    for idx, (base_unicode, col) in enumerate(zip(SCRIPT_BASES, SCRIPT_COLUMNS)):
         range_count = 0
-        for row in csv_rows:
+        for offset_hex, row_values in json_rows.items():
             try:
-                offset = int(row['offset'], 16)
+                offset = int(offset_hex, 16)
             except:
                 continue
-            value = row[col]
-            if value == 'skip' or not value:
+            value = row_values[idx] if idx < len(row_values) else 'clear'
+            if value in ('clear', '?', 'skip', ''):
                 continue
-            # ascii column se Latin character lo
-            ascii_char = row['ascii']
-            if not ascii_char:
+            if not value:
                 continue
-            src_ascii = ord(ascii_char[0])
+            src_ascii = ord(value[0])
             if _add_ref(utf_font, base_unicode + offset, src_ascii):
                 range_count += 1
                 total_refs += 1
