@@ -30,21 +30,22 @@ U,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52
 M,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52
 X,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52
 # latin glyphs designed in sfdsrc/xi52/xe52asc.sfd
+# so we can copy these glyphs from sfdsrc/xi52/xe52asc.sfd
+c,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52
+C,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52
+g,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52
+G,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52
+j,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52
+J,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52
+q,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52
+Q,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52
+w,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52,xe52
+# latin glyphs designed in sfdsrc/xi52/xe52asc.sfd
 # so we can copy these glyphs from sfdsrc/xi52/xi52asc.sfd
 A,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
 x,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
 H,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
 v,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
-# latin glyphs designed in sfdsrc/xi52/xe52asc.sfd
-# so we can copy these glyphs from sfdsrc/xi52/xi52asc.sfd
-c,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
-C,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
-g,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
-G,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
-j,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
-J,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
-q,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
-Q,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
 # indik copied from below notosans as per map
 # char,Devanagari,Bengali,Punjabi,Gujarati,Oriya,Tamil,Telugu,Kannada,Malayalam,Sinhala
 # so now we can copy glyphs from sfdsrc/*/xi52 instead from notoindik
@@ -65,6 +66,5 @@ m,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
 y,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
 r,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
 l,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
-w,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
 s,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
 S,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52

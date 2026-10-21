@@ -21,7 +21,6 @@ m,ownsfd,replace,
 y,ownsfd,replace,
 r,ownsfd,replace,
 l,ownsfd,replace,
-w,ownsfd,replace,
 s,ownsfd,replace,
 S,ownsfd,replace,
 # G2 (10) - xi52 from xe52 (Latin dual glyphs)
@@ -35,6 +34,7 @@ c,xe52,replace,designed new c glyph for x*52
 C,xe52,replace,designed new C glyph for x*52
 g,xe52,replace,designed new g glyph for x*52
 G,xe52,replace,designed new G glyph for x*52
+w,xe52,replace,designed new G glyph for x*52
 # G3 (14) - from xe52 (Latin shapes)
 N,xe52,replace,designed new N glyph for x*52/x*38
 R,xe52,replace,designed new R glyph for x*52/x*38
