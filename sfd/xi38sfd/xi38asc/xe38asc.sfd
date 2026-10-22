@@ -22,7 +22,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1633362791
-ModificationTime: 1791797847
+ModificationTime: 1792670442
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -97,10 +97,10 @@ ShortTable: maxp 16
 EndShort
 LangName: 1033 "Copyright 2025 The Xnglo Project Authors (https://github.com/zawa8/pff)" "" "regular" "Version pre-xe38-refactor; zawa8; XngloEnglish-xi38asc" "" "Version pre-xe38-refactor" "" "hscii5/4 fonts 5/4phingrmaths" "simbxls hscii github zawa8" "wimxl kumar merged and changed fonts" "merged changed by zawa8 pff(python fontforge)" "https://github.com/zawa8/font" "https://github.com/zawa8/pff" "This Font Software is licensed under the SIL Open Font License, Version 1.1." "https://openfontlicense.org"
 GaspTable: 1 65535 15 1
-OtfFeatName: 'ss03' 1033 "florin symbol"
-OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
-OtfFeatName: 'ss06' 1033 "Accented Greek SC"
 OtfFeatName: 'ss07' 1033 "iota adscript"
+OtfFeatName: 'ss06' 1033 "Accented Greek SC"
+OtfFeatName: 'ss04' 1033 "Titling Alternates I and J for titling and all cap settings"
+OtfFeatName: 'ss03' 1033 "florin symbol"
 Encoding: UnicodeFull
 UnicodeInterp: none
 NameList: AGL For New Fonts
