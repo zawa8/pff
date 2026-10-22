@@ -94,8 +94,8 @@
 095D-rha
 095E-fa
 095F-yya
-0960-rr
-0961-ll
+0960-R
+0961-l
 0962-L
 0963-LL
 0964-viram
@@ -130,7 +130,7 @@
 0981-candrabindu
 0982-anusvara
 0983-visarga
-0985-a
+0985-A
 0986-aa
 0987-i
 0988-i
@@ -193,8 +193,8 @@
 09DC-R#R=rr=dh
 09DD-rha
 09DF-yya
-09E0-rr
-09E1-ll
+09E0-R
+09E1-l
 09E2-L
 09E3-LL
 09E4-<reserved>
@@ -309,7 +309,7 @@
 0A81-candrabindu
 0A82-anusvara
 0A83-visarga
-0A85-a
+0A85-A
 0A86-aa
 0A87-i
 0A88-i
@@ -374,8 +374,8 @@
 0ACC-AU
 0ACD-virama
 0AD0-om
-0AE0-rr
-0AE1-ll
+0AE0-R
+0AE1-l
 0AE2-L
 0AE3-LL
 0AE4-<reserved>
@@ -402,7 +402,7 @@
 0B01-candrabindu
 0B02-anusvara
 0B03-visarga
-0B05-a
+0B05-A
 0B06-aa
 0B07-i
 0B08-i
@@ -470,8 +470,8 @@
 0B5C-d
 0B5D-Q
 0B5F-y
-0B60-rr
-0B61-ll
+0B60-R
+0B61-l
 0B62-L
 0B63-LL
 0B64-<reserved>
@@ -496,7 +496,7 @@
 0B77-THREE SIXTEENTHS
 0B82-anusvara
 0B83-aytham
-0B85-a
+0B85-A
 0B86-aa
 0B87-i
 0B88-i
@@ -573,7 +573,7 @@
 0C02-sunna
 0C03-visarga
 0C04-COMBINING ANUSVARA ABOVE
-0C05-a
+0C05-A
 0C06-aa
 0C07-i
 0C08-i
@@ -643,11 +643,11 @@
 0C56-LENGTH MARK
 0C58-tsa
 0C59-dza
-0C5A-rrra
+0C5A-Rra
 0C5C-shrii
 0C5D-pollu
-0C60-rr
-0C61-ll
+0C60-R
+0C61-l
 0C62-L
 0C63-LL
 0C64-<reserved>
@@ -676,7 +676,7 @@
 0C82-anusvara
 0C83-visarga
 0C84-siddhirastu
-0C85-a
+0C85-A
 0C86-aa
 0C87-i
 0C88-i
@@ -746,8 +746,8 @@
 0CDC-shrii
 0CDD-pollu
 0CDE-fa
-0CE0-rr
-0CE1-ll
+0CE0-R
+0CE1-l
 0CE2-VOCALIC L
 0CE3-VOCALIC LL
 0CE4-<reserved>
@@ -770,7 +770,7 @@
 0D02-anusvara
 0D03-visarga
 0D04-anusvara
-0D05-a
+0D05-A
 0D06-aa
 0D07-i
 0D08-i
@@ -843,7 +843,7 @@
 0D4F-pra
 0D54-m
 0D55-y
-0D56-lll
+0D56-ll
 0D57-LENGTH MARK
 0D58-arakaani
 0D59-aramaa
@@ -853,8 +853,8 @@
 0D5D-muunnumaa
 0D5E-nalumaa
 0D5F-i
-0D60-rr
-0D61-ll
+0D60-R
+0D61-l
 0D62-L
 0D63-LL
 0D64-<reserved>
@@ -881,25 +881,25 @@
 0D79-mark
 0D7A-nn
 0D7B-n
-0D7C-rr
+0D7C-R
 0D7D-l
-0D7E-ll
+0D7E-l
 0D7F-k
 0D81-candrabindu
 0D82-anusvara
 0D83-visarga
-0D85-a
+0D85-A
 0D86-aa
-0D87-ae
-0D88-aae
+0D87-e
+0D88-a
 0D89-i
 0D8A-i
 0D8B-u
 0D8C-u
 0D8D-r
-0D8E-rr
+0D8E-R
 0D8F-l
-0D90-ll
+0D90-l
 0D91-e
 0D92-ee
 0D93-ai
@@ -949,8 +949,8 @@
 0DC6-fa
 0DCA-virama
 0DCF-aa
-0DD0-ae
-0DD1-aae
+0DD0-e
+0DD1-a
 0DD2-i
 0DD3-i
 0DD4-u
@@ -963,6 +963,6 @@
 0DDD-o
 0DDE-au
 0DDF-l
-0DF2-rr
-0DF3-ll
+0DF2-R
+0DF3-l
 0DF4-kunddaliya

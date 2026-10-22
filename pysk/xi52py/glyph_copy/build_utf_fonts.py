@@ -284,14 +284,22 @@ def _add_ref(utf_font, dst_unicode, src_ascii):
         return False
 
     try:
+        # Create dst glyph if not exists
         if dst_unicode not in utf_font:
             utf_font.createChar(dst_unicode)
-        dst_glyph = utf_font[dst_unicode]
+        dst_glyph = utf_font[dst_unicode]   # ← OUTSIDE if!
         dst_glyph.clear()
-        # Use copyReference + paste (not addReference)
-        src_glyph.copyReference()
-        dst_glyph.paste()
+        # Use font-level copyReference + paste
+        utf_font.selection.select(src_ascii)
+        utf_font.copyReference()
+        utf_font.selection.select(dst_unicode)
+        utf_font.paste()
+        # Force foreground resolution
+        # dst_glyph.foreground = dst_glyph.foreground
+        dst_glyph.foreground = list(dst_glyph.foreground)
+        dst_glyph.correctDirection()
         return True
+
     except Exception as e:
         logging.warning(f"Error ref U+{dst_unicode:04X}: {e}")
         return False
