@@ -43,6 +43,9 @@ jobs:
 
       - name: Run utf phase
         run: fontforge -script pysk/xi52py/main.py --phase utf
+        
+      - name: Verify UTF references
+        run: fontforge -script pysk/xi52py/verify_utf.py
 
       - name: Run mono phase
         run: fontforge -script pysk/xi52py/main.py --phase mono

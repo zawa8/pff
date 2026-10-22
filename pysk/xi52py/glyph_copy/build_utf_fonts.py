@@ -289,7 +289,7 @@ def _add_ref(utf_font, dst_unicode, src_ascii):
         dst_glyph = utf_font[dst_unicode]
         dst_glyph.clear()
         # Use addReference (generates Refer: line in SFD)
-        dst_glyph.addReference(src_name, (0, 0, 0, 0, 0, 0))
+        dst_glyph.addReference(src_name, (1, 0, 0, 1, 0, 0))
         return True
     except Exception as e:
         logging.warning(f"Error ref U+{dst_unicode:04X}: {e}")
