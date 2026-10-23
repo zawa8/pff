@@ -355,10 +355,15 @@ def main():
     logging.info("=" * 60)
     logging.info(f"Started: {datetime.now()}")
 
+    # step 1: copy asc -> utf for ALL fonts (each has unique glyph shapes)
     for asc_name, utf_name in FONTS.items():
-        utf_path = create_utf_font(asc_name, utf_name)
-        if utf_path:
-            add_unicode_ranges(utf_path)
+        create_utf_font(asc_name, utf_name)
+
+    # step 2: add unicode ranges ONLY for xh38utf.sfd.
+    # pysk/xi52py/copy_utf_unicode_blocks.py propagates the unicode blocks
+    # to the other 9 fonts (Refer lines are identical across all xi38 fonts).
+    xh38_utf = utf_dir / "xh38utf.sfd"
+    add_unicode_ranges(xh38_utf)
 
     logging.info("=" * 60)
     logging.info(f"Finished: {datetime.now()}")
@@ -367,3 +372,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
