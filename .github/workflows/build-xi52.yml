@@ -33,6 +33,9 @@ jobs:
           python3 -m py_compile pysk/xi52py/gen_xi38asc.py
           python3 -m py_compile pysk/xi52py/gen_xi52asc.py
           python3 -m py_compile pysk/xi52py/update_font_metadata.py
+          python3 -m py_compile pysk/xi52py/gen_asc_to_utf_json.py
+          python3 -m py_compile pysk/xi52py/copy_utf_unicode_blocks.py
+          python3 -m py_compile pysk/xi52py/verify_utf.py
 
       - name: Sanity -- print pipeline
         run: fontforge -script pysk/xi52py/main.py --list
@@ -43,7 +46,10 @@ jobs:
 
       - name: Run utf phase
         run: fontforge -script pysk/xi52py/main.py --phase utf
-        
+
+      - name: Copy unicode blocks to other xi38utf fonts
+        run: python3 pysk/xi52py/copy_utf_unicode_blocks.py
+
       - name: Verify UTF references
         run: fontforge -script pysk/xi52py/verify_utf.py
 
@@ -93,3 +99,4 @@ jobs:
         with:
           name: build-logs
           path: logs/
+
