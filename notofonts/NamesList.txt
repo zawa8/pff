@@ -789,7 +789,7 @@
 0D17-ga
 0D18-gha
 0D19-nga
-0D1A-C#C=ch
+0D1A-ca#C=ch
 0D1B-chha
 0D1C-z
 0D1D-Z#Z=zh
