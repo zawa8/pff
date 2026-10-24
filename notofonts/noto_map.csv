@@ -1,13 +1,15 @@
 # this pff/notofonts/noto_map.csv is used to:
-# copy glyphs from pff/notofonts/NotoSans*.ttf to pff/notosfd/xi38/*.sfd
+# copying glyphs from pff/notofonts/NotoSans*.ttf to pff/notosfd/xi38/*.sfd
 # for eksample if row is A,0905,0985,0A01,0A85,0B05,0B85,0C05,0C85,0D00,0D85
 # then :
 # we hawe to copy glyph at 'A' from pff/notofonts/NotoSansDevanagari-Regular.ttf
 # and paste to 0x0905 location in pff/notosfd/xi38/xh38asc.sfd using
-# some .py(pls Claude keep some name)
-# if some entry is ignore then nothing to do.
+# pff/pysk/notopy/noto_copy.py
+# if some entry is xe38asc then copy glyph from same location as in column 1
+# eksample as per row 11 : "a" glyph copy from pff/notosfd/xi52/xe38asc.sfd
+# to pff/notosfd/xi52/xi52asc.sfd (i=h/b/p/g/o/t/j/k/m/s)
 ascii,xh38,xb38,xp38,xg38,xo38,xt38,xj38,xk38,xm38,xs38
-[aieuoh LYVWPF EIOUMX NR],ignore,ignore,ignore,ignore,ignore,ignore,ignore,ignore,ignore,ignore
+[aieuoh LYVWPF EIOUMX NR],xe38asc,xe38asc,xe38asc,xe38asc,xe38asc,xe38asc,xe38asc,xe38asc,xe38asc,xe38asc
 A,0905,0985,0A01,0A85,0B05,0B85,0C05,0C85,0D00,0D85
 k,0915,0995,0A15,0A95,0B15,0B95,0C15,0C95,0D15,0D9A
 K,0916,0996,0A16,0A96,0B16,ignore,0C16,0C96,0D16,0D9B
