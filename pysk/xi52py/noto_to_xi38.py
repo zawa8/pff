@@ -67,16 +67,35 @@ def read_csv(path):
     Parse CSV and return:
       font_cols : list of font prefix strings  e.g. ['xh38','xb38',...]
       glyph_rows: list of (ascii_char, {font_prefix: unicode_int})
+
+    Skips lines starting with '#' (comments) and the [ignore...] row.
+    Cell value 'ignore' or empty = skip that glyph for that font.
     """
     font_cols  = []
     glyph_rows = []
     with open(path, encoding="utf-8", newline="") as f:
         reader = csv.reader(f)
-        header = next(reader)          # ascii, xh38, xb38, ...
-        font_cols = [c.strip() for c in header[1:]]
-        next(reader)                   # skip [ignore...] row
+
+        # skip comment lines, find actual header row
+        header = None
         for row in reader:
-            if not row or not row[0].strip():
+            if not row or row[0].strip().startswith("#"):
+                continue
+            header = [c.strip() for c in row]
+            break
+        if not header:
+            raise ValueError(f"no header row found in {path}")
+        font_cols = header[1:]          # ['xh38', 'xb38', ...]
+
+        # skip [ignore...] row
+        for row in reader:
+            if not row or row[0].strip().startswith("#"):
+                continue
+            break                       # consumed the ignore row
+
+        # data rows
+        for row in reader:
+            if not row or not row[0].strip() or row[0].strip().startswith("#"):
                 continue
             ascii_char = row[0].strip()
             col_map = {}
