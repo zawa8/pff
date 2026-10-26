@@ -22,7 +22,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1432194851
-ModificationTime: 1792843071
+ModificationTime: 1793011590
 PfmFamily: 81
 TTFWeight: 400
 TTFWidth: 5
@@ -107,7 +107,7 @@ FitToEm: 0
 WinInfo: 27 27 9
 BeginPrivate: 0
 EndPrivate
-BeginChars: 1114651 128
+BeginChars: 1114651 129
 
 StartChar: CR
 Encoding: 13 13 0
@@ -7986,6 +7986,31 @@ SplineSet
  71 601 71 601 55.5 616 c 0,126,127
  40 631 40 631 40 648 c 256,96,97
 EndSplineSet
+EndChar
+
+StartChar: cent
+Encoding: 162 162 128
+Width: 600
+VWidth: 1000
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+262.104492188 0.9140625 m 1
+ 14.4658203125 497.0859375 l 1
+ 99.94921875 497.0859375 l 1
+ 172.213867188 331.748046875 l 1
+ 424.260742188 331.748046875 l 1
+ 500.05078125 497.0859375 l 1
+ 585.534179688 497.0859375 l 1
+ 334.369140625 0.9140625 l 1
+ 262.104492188 0.9140625 l 1
+300 60.3564453125 m 1
+ 399.584960938 275.0703125 l 1
+ 200.415039062 275.0703125 l 1
+ 300 60.3564453125 l 1
+EndSplineSet
+Refer: 45 72 N 0.56 0 0 0.44 81.22 513.84 2
 EndChar
 EndChars
 EndSplineFont
