@@ -50,3 +50,4 @@ xnglofonts/ttf/
 xnglofonts/woff2/
 sfdsrc/*.bak*
 notofonts/.asc-to-utf-*.csv.tmp
+notosfd/**/*_copy.sfd
