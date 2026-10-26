@@ -6,8 +6,8 @@ noto_copy.py
 Copy glyphs into notosfd/xi38/*asc.sfd and notosfd/xi52/*asc.sfd.
 
 Two CSV files control what gets copied:
-  notofonts/noto_map.csv    -> xi38 series
-  notofonts/noto_map_52.csv -> xi52 series
+  pysk/notopy/noto_map_38.csv -> xi38 series
+  pysk/notopy/noto_map_52.csv -> xi52 series
 
 CSV structure:
   row 1 (header)  : ascii, xh38, xb38, ... xs38
@@ -71,11 +71,11 @@ NOTO_TTF = {
 # series config
 SERIES = {
     "xi38": {
-        "csv"    : pff_root / "notofonts/noto_map.csv",
+        "csv"    : pff_root / "pysk/notopy/noto_map_38.csv",
         "sfd_dir": pff_root / "notosfd/xi38",
     },
     "xi52": {
-        "csv"    : pff_root / "notofonts/noto_map_52.csv",
+        "csv"    : pff_root / "pysk/notopy/noto_map_52.csv",
         "sfd_dir": pff_root / "notosfd/xi52",
     },
 }
