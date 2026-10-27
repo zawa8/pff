@@ -18,7 +18,7 @@ import json
 from pathlib import Path
 
 pff_root   = Path(__file__).resolve().parents[2]
-NAMES_FILE = pff_root / "notofonts/NamesList.txt"
+NAMES_FILE = pff_root / "pysk/notopy/NamesList.txt"
 JSON_OUT   = pff_root / "sfdsrc/asc-to-utf.json"
 
 SCRIPT_BASES = [0x0900, 0x0980, 0x0A00, 0x0A80, 0x0B00, 0x0B80, 0x0C00, 0x0C80, 0x0D00, 0x0D80]
