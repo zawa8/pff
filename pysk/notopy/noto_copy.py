@@ -39,7 +39,7 @@ from pathlib import Path
 from datetime import datetime
 
 pff_root = Path(__file__).resolve().parents[2]
-NOTO_DIR = pff_root / "notofonts"
+NOTO_DIR = pff_root / "pysk/notopy"
 LOG_DIR  = pff_root / "logs"
 LOG_FILE = LOG_DIR  / "noto_copy.log"
 
