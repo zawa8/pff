@@ -201,6 +201,10 @@ def process_series(series_name, cfg, wanted_fonts):
     log.info(f"  src_sfd: {src_sfd_name}  ignore chars({len(ignore_chars)}): {''.join(sorted(ignore_chars))}")
     log.info(f"  glyph rows: {len(glyph_rows)}")
 
+    # caches must be init BEFORE src_sfd_font block
+    noto_cache = {}     # ttf filename -> fontforge.font
+    sfd_cache   = {}     # sfd stem -> fontforge.font (ignore-row + data-row sfd sources)
+
     # open source SFD for ignore chars (merged into sfd_cache to avoid double-open)
     src_sfd_font = None
     if src_sfd_name:
@@ -212,10 +216,6 @@ def process_series(series_name, cfg, wanted_fonts):
             src_sfd_font = sfd_cache[src_sfd_name]
         else:
             log.warning(f"  src SFD not found: {src_sfd_path}")
-
-    # open NotoSans TTFs (lazy, cache by prefix)
-    noto_cache = {}     # ttf filename -> fontforge.font
-    sfd_cache   = {}     # sfd stem -> fontforge.font (ignore-row + data-row sfd sources)
 
     total_copied = total_failed = 0
 
