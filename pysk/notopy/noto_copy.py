@@ -135,7 +135,7 @@ def read_csv(path):
             col_map = {}
             for i, font in enumerate(font_cols):
                 cell = row[i + 1].strip() if i + 1 < len(row) else ""
-                if cell and cell.lower() not in ("", "ignore"):
+                if cell and cell.lower() not in ("", "ignore", "skip"):
                     try:
                         col_map[font] = int(cell, 16)    # unicode codepoint
                     except ValueError:
@@ -201,19 +201,21 @@ def process_series(series_name, cfg, wanted_fonts):
     log.info(f"  src_sfd: {src_sfd_name}  ignore chars({len(ignore_chars)}): {''.join(sorted(ignore_chars))}")
     log.info(f"  glyph rows: {len(glyph_rows)}")
 
-    # open source SFD once (for ignore chars)
+    # open source SFD for ignore chars (merged into sfd_cache to avoid double-open)
     src_sfd_font = None
     if src_sfd_name:
         src_sfd_path = sfd_dir / f"{src_sfd_name}.sfd"
         if src_sfd_path.exists():
-            log.info(f"  opening src SFD: {src_sfd_path.name}")
-            src_sfd_font = fontforge.open(str(src_sfd_path))
+            if src_sfd_name not in sfd_cache:
+                log.info(f"  opening src SFD: {src_sfd_path.name}")
+                sfd_cache[src_sfd_name] = fontforge.open(str(src_sfd_path))
+            src_sfd_font = sfd_cache[src_sfd_name]
         else:
             log.warning(f"  src SFD not found: {src_sfd_path}")
 
     # open NotoSans TTFs (lazy, cache by prefix)
     noto_cache = {}     # ttf filename -> fontforge.font
-    sfd_cache   = {}     # sfd stem -> fontforge.font (for data-row sfd sources)
+    sfd_cache   = {}     # sfd stem -> fontforge.font (ignore-row + data-row sfd sources)
 
     total_copied = total_failed = 0
 
@@ -296,8 +298,7 @@ def process_series(series_name, cfg, wanted_fonts):
         f.close()
     for f in sfd_cache.values():
         f.close()
-    if src_sfd_font:
-        src_sfd_font.close()
+    # src_sfd_font is in sfd_cache, closed above
 
     return total_copied, total_failed
 
