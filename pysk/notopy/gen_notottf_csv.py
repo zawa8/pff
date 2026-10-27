@@ -18,8 +18,8 @@ from pathlib import Path
 from collections import defaultdict
 
 pff_root   = Path(__file__).resolve().parents[2]
-NAMES_FILE = pff_root / "notofonts/NamesList.txt"
-CSV_OUT    = pff_root / "notofonts/notottf-x38ascsfd.csv"
+NAMES_FILE = pff_root / "pysk/notopy/NamesList.txt"
+CSV_OUT    = pff_root / "pysk/notopy/notottf-x38ascsfd.csv"
 
 # Script ranges → font prefix (CSV column order)
 SCRIPTS = [
