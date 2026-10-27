@@ -137,9 +137,10 @@ def read_csv(path):
                 cell = row[i + 1].strip() if i + 1 < len(row) else ""
                 if cell and cell.lower() not in ("", "ignore"):
                     try:
-                        col_map[font] = int(cell, 16)
+                        col_map[font] = int(cell, 16)    # unicode codepoint
                     except ValueError:
-                        log.warning(f"bad hex '{cell}' char '{ascii_char}' col '{font}'")
+                        col_map[font] = cell              # SFD source name e.g. 'xe38asc'
+                        log.info(f"  sfd-source '{cell}' char '{ascii_char}' col '{font}'")
             glyph_rows.append((ascii_char, col_map))
 
     return font_cols, src_sfd, ignore_chars, glyph_rows
@@ -211,7 +212,8 @@ def process_series(series_name, cfg, wanted_fonts):
             log.warning(f"  src SFD not found: {src_sfd_path}")
 
     # open NotoSans TTFs (lazy, cache by prefix)
-    noto_cache = {}
+    noto_cache = {}     # ttf filename -> fontforge.font
+    sfd_cache   = {}     # sfd stem -> fontforge.font (for data-row sfd sources)
 
     total_copied = total_failed = 0
 
@@ -254,9 +256,34 @@ def process_series(series_name, cfg, wanted_fonts):
                     if font_col not in col_map:
                         skipped += 1
                         continue
-                    ok = copy_from_ttf(noto, dst, col_map[font_col], ascii_char, label=font_col)
-                    if ok: copied += 1
-                    else:  failed  += 1
+                    val = col_map[font_col]
+                    if isinstance(val, str):
+                        # SFD source name in data row (e.g. 'xe38asc')
+                        sfd_src_path = sfd_dir / f"{val}.sfd"
+                        if not sfd_src_path.exists():
+                            log.warning(f"  [{font_col}] sfd-source '{val}' not found for '{ascii_char}'")
+                            failed += 1
+                        else:
+                            if val not in sfd_cache:
+                                log.info(f"  opening sfd-source: {val}.sfd")
+                                sfd_cache[val] = fontforge.open(str(sfd_src_path))
+                            src_sfd = sfd_cache[val]
+                            cp = ord(ascii_char)
+                            try:
+                                src_sfd.selection.select(cp)
+                                src_sfd.copy()
+                                dst.selection.select(cp)
+                                dst.paste()
+                                dst[cp].width = src_sfd[cp].width
+                                copied += 1
+                                log.debug(f"  [{font_col}] sfd-copy '{ascii_char}' from {val}")
+                            except Exception as e:
+                                log.warning(f"  [{font_col}] sfd-copy '{ascii_char}' from {val}: {e}")
+                                failed += 1
+                    else:
+                        ok = copy_from_ttf(noto, dst, val, ascii_char, label=font_col)
+                        if ok: copied += 1
+                        else:  failed  += 1
 
         dst.save(str(sfd_path))
         dst.close()
@@ -266,6 +293,8 @@ def process_series(series_name, cfg, wanted_fonts):
 
     # close cached fonts
     for f in noto_cache.values():
+        f.close()
+    for f in sfd_cache.values():
         f.close()
     if src_sfd_font:
         src_sfd_font.close()
