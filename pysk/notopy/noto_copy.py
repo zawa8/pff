@@ -148,32 +148,24 @@ def read_csv(path):
 def copy_from_sfd(src_font, dst_font, chars, label=""):
     """Copy glyphs for each ASCII char from src_font to dst_font.
 
-    isWorthOutputting() is NOT used here — user-edited glyphs may have
-    references that make it return False even when the glyph is valid.
-    We attempt copy for every char and log failures explicitly.
+    No content check — user-edited glyphs are trusted to be valid.
+    fontforge.glyph does not support len(), so we skip that check entirely.
     """
-    copied = skipped = failed = 0
+    copied = failed = 0
     for ch in sorted(chars):
         cp = ord(ch)
         try:
-            src_g = src_font[cp]
-            # check glyph exists and has some content (contours OR references)
-            has_content = (len(src_g) > 0 or len(src_g.references) > 0)
-            if not has_content:
-                log.debug(f"  {label} sfd-copy '{ch}' U+{cp:04X}: empty glyph, skipping")
-                skipped += 1
-                continue
             src_font.selection.select(cp)
             src_font.copy()
             dst_font.selection.select(cp)
             dst_font.paste()
-            dst_font[cp].width = src_g.width
+            dst_font[cp].width = src_font[cp].width
             copied += 1
-            log.debug(f"  {label} sfd-copy '{ch}' U+{cp:04X} ok  w={src_g.width}")
+            log.debug(f"  {label} sfd-copy '{ch}' U+{cp:04X} ok")
         except Exception as e:
             log.warning(f"  {label} sfd-copy '{ch}' U+{cp:04X}: {e}")
             failed += 1
-    return copied, skipped, failed
+    return copied, failed
 
 
 def copy_from_ttf(src_font, dst_font, src_cp, dst_ch, label=""):
@@ -239,9 +231,9 @@ def process_series(series_name, cfg, wanted_fonts):
 
         # step 1: copy ignore chars from src SFD
         if src_sfd_font and ignore_chars:
-            c, sk, f = copy_from_sfd(src_sfd_font, dst, ignore_chars, label=font_col)
+            c, f = copy_from_sfd(src_sfd_font, dst, ignore_chars, label=font_col)
             copied += c; failed += f
-            log.info(f"    sfd-copy: {c} copied, {sk} skipped, {f} failed")
+            log.info(f"    sfd-copy: {c} copied, {f} failed")
 
         # step 2: copy noto glyphs from TTF
         prefix = font_col[:2]   # "xh", "xb", etc.
