@@ -26,52 +26,52 @@
   ],
   "rows": {
     "00": [
-      "c",
-      "s",
+      "clear",
+      "clear",
       "clear",
       "clear",
       "clear",
       "clear",
       "C",
-      "c",
+      "clear",
       "A",
       "clear"
     ],
     "01": [
-      "a",
-      "c",
+      "clear",
+      "clear",
       "A",
-      "c",
-      "c",
+      "clear",
+      "clear",
       "clear",
       "a",
-      "c",
-      "c",
-      "c"
+      "clear",
+      "clear",
+      "clear"
     ],
     "02": [
-      "b",
-      "a",
-      "b",
-      "a",
-      "a",
-      "a",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
       "s",
-      "a",
-      "a",
-      "a"
+      "clear",
+      "clear",
+      "clear"
     ],
     "03": [
-      "v",
-      "v",
-      "v",
-      "v",
-      "v",
-      "a",
-      "v",
-      "v",
-      "v",
-      "v"
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear"
     ],
     "04": [
       "e",
@@ -82,13 +82,13 @@
       "clear",
       "C",
       "clear",
-      "a",
+      "clear",
       "clear"
     ],
     "05": [
       "A",
       "A",
-      "a",
+      "A",
       "A",
       "A",
       "A",
@@ -218,15 +218,15 @@
       "l"
     ],
     "10": [
-      "a",
-      "a",
-      "a",
-      "a",
-      "a",
-      "a",
-      "a",
-      "a",
-      "a",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
       "l"
     ],
     "11": [
@@ -263,18 +263,18 @@
       "o",
       "o",
       "o",
-      "a"
+      "e"
     ],
     "14": [
-      "a",
-      "a",
-      "a",
-      "a",
-      "a",
-      "a",
-      "a",
-      "a",
-      "a",
+      "o",
+      "o",
+      "o",
+      "o",
+      "o",
+      "o",
+      "o",
+      "o",
+      "o",
       "o"
     ],
     "15": [
@@ -299,7 +299,7 @@
       "K",
       "K",
       "K",
-      "a"
+      "o"
     ],
     "17": [
       "g",
@@ -314,27 +314,27 @@
       "clear"
     ],
     "18": [
-      "g",
-      "g",
-      "g",
-      "g",
-      "g",
+      "G",
+      "G",
+      "G",
+      "G",
+      "G",
       "clear",
-      "g",
-      "g",
-      "g",
+      "G",
+      "G",
+      "G",
       "clear"
     ],
     "19": [
-      "n",
-      "n",
-      "n",
-      "n",
-      "n",
-      "n",
-      "n",
-      "n",
-      "n",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
       "clear"
     ],
     "1A": [
@@ -346,7 +346,7 @@
       "c",
       "c",
       "c",
-      "C",
+      "c",
       "k"
     ],
     "1B": [
@@ -358,7 +358,7 @@
       "clear",
       "C",
       "C",
-      "c",
+      "C",
       "K"
     ],
     "1C": [
@@ -383,7 +383,7 @@
       "Z",
       "Z",
       "Z",
-      "g"
+      "G"
     ],
     "1E": [
       "n",
@@ -394,8 +394,8 @@
       "n",
       "n",
       "n",
-      "n",
-      "n"
+      "clear",
+      "clear"
     ],
     "1F": [
       "t",
@@ -407,7 +407,7 @@
       "t",
       "t",
       "T",
-      "n"
+      "clear"
     ],
     "20": [
       "J",
@@ -479,7 +479,7 @@
       "j",
       "j",
       "J",
-      "j"
+      "clear"
     ],
     "26": [
       "D",
@@ -491,7 +491,7 @@
       "D",
       "D",
       "D",
-      "n"
+      "clear"
     ],
     "27": [
       "q",
@@ -563,7 +563,7 @@
       "b",
       "b",
       "b",
-      "n"
+      "clear"
     ],
     "2D": [
       "B",
@@ -647,7 +647,7 @@
       "l",
       "l",
       "l",
-      "n"
+      "clear"
     ],
     "34": [
       "l",
@@ -719,10 +719,9 @@
       "H",
       "H",
       "H",
-      "m"
+      "clear"
     ],
     "3A": [
-      "O",
       "clear",
       "clear",
       "clear",
@@ -730,11 +729,11 @@
       "clear",
       "clear",
       "clear",
-      "t",
+      "clear",
+      "clear",
       "y"
     ],
     "3B": [
-      "O",
       "clear",
       "clear",
       "clear",
@@ -743,48 +742,49 @@
       "clear",
       "clear",
       "clear",
+      "B",
       "r"
     ],
     "3C": [
-      "n",
-      "n",
-      "b",
-      "n",
-      "n",
       "clear",
-      "n",
-      "n",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
       "clear",
       "clear"
     ],
     "3D": [
-      "a",
-      "a",
       "clear",
-      "a",
-      "a",
       "clear",
-      "a",
-      "a",
-      "p",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
       "l"
     ],
     "3E": [
-      "A",
-      "A",
-      "k",
-      "A",
-      "A",
-      "A",
-      "A",
       "a",
-      "A",
+      "a",
+      "clear",
+      "a",
+      "a",
+      "a",
+      "a",
+      "a",
+      "a",
       "clear"
     ],
     "3F": [
       "I",
       "I",
-      "s",
+      "clear",
       "I",
       "I",
       "I",
@@ -796,7 +796,7 @@
     "40": [
       "I",
       "I",
-      "b",
+      "clear",
       "I",
       "I",
       "I",
@@ -808,7 +808,7 @@
     "41": [
       "U",
       "U",
-      "a",
+      "clear",
       "U",
       "U",
       "U",
@@ -820,7 +820,7 @@
     "42": [
       "U",
       "U",
-      "d",
+      "clear",
       "U",
       "U",
       "U",
@@ -880,7 +880,7 @@
     "47": [
       "E",
       "E",
-      "l",
+      "clear",
       "E",
       "E",
       "E",
@@ -890,15 +890,15 @@
       "clear"
     ],
     "48": [
-      "A",
-      "A",
-      "d",
-      "A",
-      "A",
-      "A",
-      "A",
-      "a",
-      "A",
+      "e",
+      "e",
+      "clear",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
       "clear"
     ],
     "49": [
@@ -923,12 +923,12 @@
       "O",
       "o",
       "O",
-      "v"
+      "clear"
     ],
     "4B": [
       "O",
       "O",
-      "h",
+      "clear",
       "O",
       "O",
       "O",
@@ -938,26 +938,26 @@
       "clear"
     ],
     "4C": [
-      "A",
-      "A",
-      "k",
-      "A",
-      "A",
-      "A",
-      "A",
-      "a",
-      "A",
+      "o",
+      "o",
+      "clear",
+      "o",
+      "o",
+      "o",
+      "o",
+      "o",
+      "o",
       "clear"
     ],
     "4D": [
       "n",
       "h",
-      "v",
-      "v",
-      "v",
-      "p",
+      "clear",
+      "clear",
+      "clear",
+      "clear",
       "n",
-      "v",
+      "clear",
       "n",
       "clear"
     ],
@@ -970,11 +970,10 @@
       "clear",
       "clear",
       "clear",
-      "r",
+      "clear",
       "clear"
     ],
     "4F": [
-      "A",
       "clear",
       "clear",
       "clear",
@@ -982,25 +981,26 @@
       "clear",
       "clear",
       "clear",
-      "p",
+      "clear",
+      "clear",
       "a"
     ],
     "50": [
-      "o",
       "clear",
       "clear",
-      "o",
       "clear",
-      "o",
+      "clear",
+      "clear",
+      "clear",
       "clear",
       "clear",
       "clear",
       "e"
     ],
     "51": [
-      "s",
       "clear",
-      "u",
+      "clear",
+      "clear",
       "clear",
       "clear",
       "clear",
@@ -1010,7 +1010,7 @@
       "a"
     ],
     "52": [
-      "a",
+      "clear",
       "clear",
       "clear",
       "clear",
@@ -1022,11 +1022,11 @@
       "i"
     ],
     "53": [
-      "a",
       "clear",
       "clear",
       "clear",
       "clear",
+      "D",
       "clear",
       "clear",
       "clear",
@@ -1034,11 +1034,11 @@
       "i"
     ],
     "54": [
-      "a",
       "clear",
       "clear",
       "clear",
       "clear",
+      "D",
       "clear",
       "clear",
       "clear",
@@ -1050,10 +1050,10 @@
       "clear",
       "clear",
       "clear",
+      "o",
       "clear",
       "clear",
-      "m",
-      "m",
+      "clear",
       "y",
       "clear"
     ],
@@ -1062,11 +1062,11 @@
       "clear",
       "clear",
       "clear",
-      "clear",
+      "L",
       "clear",
       "L",
-      "m",
-      "l",
+      "clear",
+      "clear",
       "u"
     ],
     "57": [
@@ -1074,7 +1074,7 @@
       "L",
       "clear",
       "clear",
-      "clear",
+      "L",
       "L",
       "clear",
       "clear",
@@ -1090,31 +1090,31 @@
       "clear",
       "t",
       "clear",
-      "clear",
+      "a",
       "r"
     ],
     "59": [
-      "k",
+      "K",
       "clear",
-      "k",
+      "K",
       "clear",
       "clear",
       "clear",
       "d",
       "clear",
-      "clear",
+      "a",
       "e"
     ],
     "5A": [
-      "g",
+      "G",
       "clear",
-      "g",
+      "G",
       "clear",
       "clear",
       "clear",
       "R",
       "clear",
-      "clear",
+      "m",
       "e"
     ],
     "5B": [
@@ -1126,11 +1126,11 @@
       "clear",
       "clear",
       "clear",
-      "clear",
-      "a"
+      "o",
+      "e"
     ],
     "5C": [
-      "d",
+      "clear",
       "R",
       "R",
       "clear",
@@ -1138,19 +1138,19 @@
       "clear",
       "clear",
       "clear",
-      "clear",
+      "r",
       "o"
     ],
     "5D": [
-      "r",
-      "r",
+      "clear",
+      "clear",
       "clear",
       "clear",
       "Q",
       "clear",
       "clear",
       "clear",
-      "clear",
+      "m",
       "o"
     ],
     "5E": [
@@ -1161,9 +1161,9 @@
       "clear",
       "clear",
       "clear",
-      "clear",
-      "clear",
-      "a"
+      "f",
+      "n",
+      "o"
     ],
     "5F": [
       "y",
@@ -1174,7 +1174,7 @@
       "clear",
       "clear",
       "clear",
-      "clear",
+      "i",
       "l"
     ],
     "60": [
@@ -1226,7 +1226,7 @@
       "clear"
     ],
     "64": [
-      "v",
+      "clear",
       "clear",
       "clear",
       "clear",
@@ -1238,7 +1238,7 @@
       "clear"
     ],
     "65": [
-      "v",
+      "clear",
       "clear",
       "clear",
       "clear",
@@ -1370,135 +1370,135 @@
       "clear"
     ],
     "70": [
-      "s",
+      "clear",
       "r",
+      "clear",
+      "clear",
+      "clear",
       "t",
-      "s",
-      "i",
       "clear",
       "clear",
-      "clear",
-      "clear",
+      "t",
       "clear"
     ],
     "71": [
       "H",
       "w",
-      "a",
-      "s",
+      "clear",
+      "clear",
       "w",
+      "O",
       "clear",
-      "clear",
-      "clear",
-      "clear",
+      "j",
+      "O",
       "clear"
     ],
     "72": [
       "a",
-      "clear",
-      "i",
-      "clear",
+      "t",
       "clear",
       "clear",
+      "O",
+      "O",
       "clear",
-      "clear",
-      "clear",
+      "u",
+      "O",
       "R"
     ],
     "73": [
-      "o",
       "clear",
-      "u",
-      "clear",
+      "t",
       "clear",
       "clear",
+      "O",
+      "n",
       "clear",
-      "clear",
-      "clear",
+      "A",
+      "k",
       "l"
     ],
     "74": [
       "u",
-      "clear",
-      "o",
-      "clear",
+      "1",
       "clear",
       "clear",
+      "T",
+      "m",
       "clear",
       "clear",
-      "clear",
+      "a",
       "clear"
     ],
     "75": [
       "o",
-      "clear",
-      "y",
-      "clear",
+      "2",
       "clear",
       "clear",
+      "O",
+      "v",
       "clear",
       "clear",
-      "clear",
+      "m",
       "clear"
     ],
     "76": [
       "u",
-      "clear",
-      "s",
-      "clear",
+      "3",
       "clear",
       "clear",
+      "O",
+      "p",
       "clear",
       "clear",
-      "clear",
+      "m",
       "clear"
     ],
     "77": [
       "u",
+      "4",
       "clear",
       "clear",
+      "T",
+      "e",
       "clear",
       "clear",
-      "clear",
-      "clear",
-      "clear",
-      "clear",
+      "a",
       "clear"
     ],
     "78": [
       "d",
+      "N",
       "clear",
       "clear",
       "clear",
+      "m",
+      "4",
       "clear",
-      "clear",
-      "clear",
-      "clear",
-      "clear",
+      "m",
       "clear"
     ],
     "79": [
       "z",
-      "clear",
+      "D",
       "clear",
       "z",
       "clear",
-      "clear",
-      "clear",
+      "r",
+      "4",
       "clear",
       "clear",
       "clear"
     ],
     "7A": [
       "y",
-      "clear",
-      "clear",
-      "clear",
-      "clear",
+      "i",
       "clear",
       "clear",
       "clear",
       "n",
+      "4",
+      "clear",
+      "clear",
       "clear"
     ],
     "7B": [
@@ -1508,7 +1508,7 @@
       "clear",
       "clear",
       "clear",
-      "clear",
+      "4",
       "clear",
       "n",
       "clear"
@@ -1520,7 +1520,7 @@
       "clear",
       "clear",
       "clear",
-      "clear",
+      "4",
       "clear",
       "R",
       "clear"
@@ -1529,10 +1529,10 @@
       "?",
       "clear",
       "clear",
+      "T",
       "clear",
       "clear",
-      "clear",
-      "clear",
+      "4",
       "clear",
       "l",
       "clear"
@@ -1541,10 +1541,10 @@
       "d",
       "clear",
       "clear",
+      "C",
       "clear",
       "clear",
-      "clear",
-      "clear",
+      "4",
       "clear",
       "l",
       "clear"
@@ -1553,10 +1553,10 @@
       "b",
       "clear",
       "clear",
+      "T",
       "clear",
       "clear",
-      "clear",
-      "clear",
+      "t",
       "clear",
       "k",
       "clear"
