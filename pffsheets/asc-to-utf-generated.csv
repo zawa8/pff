@@ -1,0 +1,265 @@
+# asc-to-utf-generated.csv
+# Auto-generated from local Noto fonts via FontForge
+# glyphs of these chars can will be refcopied : 0123456789 ADHT KGCZNRBS abcdefghijklmnopqrstuwyz
+# 'clear' = no glyph present, '?' = glyph present, refcopy not yet decided
+# 'empty' hint in a #NN line forces 'clear' regardless of glyph presence
+# auto-hint format:  # <cp>=<short> | <cp>=<short> | ...  (one entry per column)
+# auto refcopy: first char of short name, uppercased if 'h' appears after the first char. Exceptions: pha->f, dha->q, ddha->Q, ja->z, jha->Z, nya->N, ttha->J, ta->T, tha->j, da->D, va->w, ha->H.
+offset,900,980,A00,A80,B00,B80,C00,C80,D00,D80
+# 0900=candrabindu | 0980=anji | 0C00=above | 0C80=candrabindu | 0D00=above
+00,c,a,clear,clear,clear,clear,a,c,a,clear
+# 0901=candrabindu | 0981=candrabindu | 0A01=bindi | 0A81=candrabindu | 0B01=candrabindu | 0C01=candrabindu | 0C81=candrabindu | 0D01=candrabindu | 0D81=candrabindu
+01,c,c,b,c,c,clear,c,c,c,c
+# 0902=anusvara | 0982=anusvara | 0A02=bindi | 0A82=anusvara | 0B02=anusvara | 0B82=anusvara | 0C02=anusvara | 0C82=anusvara | 0D02=anusvara | 0D82=anusvaraya
+02,a,a,b,a,a,a,a,a,a,a
+# 0903=visarga | 0983=visarga | 0A03=visarga | 0A83=visarga | 0B03=visarga | 0B83=visarga | 0C03=visarga | 0C83=visarga | 0D03=visarga | 0D83=visargaya
+03,?,?,?,?,?,?,?,?,?,?
+# 0904=a | 0C04=above | 0C84=siddham | 0D04=anusvara
+04,a,clear,clear,clear,clear,clear,a,S,a,clear
+# 0905=a | 0985=a | 0A05=a | 0A85=a | 0B05=a | 0B85=a | 0C05=a | 0C85=a | 0D05=a | 0D85=ayanna
+05,a,a,a,a,a,a,a,a,a,a
+# 0906=aa | 0986=aa | 0A06=aa | 0A86=aa | 0B06=aa | 0B86=aa | 0C06=aa | 0C86=aa | 0D06=aa | 0D86=aayanna
+06,a,a,a,a,a,a,a,a,a,a
+# 0907=i | 0987=i | 0A07=i | 0A87=i | 0B07=i | 0B87=i | 0C07=i | 0C87=i | 0D07=i | 0D87=aeyanna
+07,i,i,i,i,i,i,i,i,i,a
+# 0908=ii | 0988=ii | 0A08=ii | 0A88=ii | 0B08=ii | 0B88=ii | 0C08=ii | 0C88=ii | 0D08=ii | 0D88=aeeyanna
+08,i,i,i,i,i,i,i,i,i,a
+# 0909=u | 0989=u | 0A09=u | 0A89=u | 0B09=u | 0B89=u | 0C09=u | 0C89=u | 0D09=u | 0D89=iyanna
+09,u,u,u,u,u,u,u,u,u,i
+# 090A=uu | 098A=uu | 0A0A=uu | 0A8A=uu | 0B0A=uu | 0B8A=uu | 0C0A=uu | 0C8A=uu | 0D0A=uu | 0D8A=iiyanna
+0A,u,u,u,u,u,u,u,u,u,i
+#0B,r,r,empty,r,r,empty,r,r,r,u
+# 090B=r | 098B=r | 0A0B=empty | 0A8B=r | 0B0B=r | 0B8B=empty | 0C0B=r | 0C8B=r | 0D0B=r | 0D8B=uyanna
+0B,r,r,clear,r,r,clear,r,r,r,u
+# 090C=l | 098C=l | 0A8C=l | 0B0C=l | 0C0C=l | 0C8C=l | 0D0C=l | 0D8C=uuyanna
+0C,l,l,clear,l,l,clear,l,l,l,u
+# 090D=e | 0A8D=e | 0D8D=iruyanna
+0D,e,clear,clear,e,clear,clear,clear,clear,clear,i
+# 090E=e | 0B8E=e | 0C0E=e | 0C8E=e | 0D0E=e | 0D8E=iruuyanna
+0E,e,clear,clear,clear,clear,e,e,e,e,i
+# 090F=e | 098F=e | 0A0F=ee | 0A8F=e | 0B0F=e | 0B8F=ee | 0C0F=ee | 0C8F=ee | 0D0F=ee | 0D8F=iluyanna
+0F,e,e,e,e,e,e,e,e,e,i
+# 0910=ai | 0990=ai | 0A10=ai | 0A90=ai | 0B10=ai | 0B90=ai | 0C10=ai | 0C90=ai | 0D10=ai | 0D90=iluuyanna
+10,a,a,a,a,a,a,a,a,a,i
+# 0911=o | 0A91=o | 0D91=eyanna
+11,o,clear,clear,o,clear,clear,clear,clear,clear,e
+# 0912=o | 0B92=o | 0C12=o | 0C92=o | 0D12=o | 0D92=eeyanna
+12,o,clear,clear,clear,clear,o,o,o,o,e
+# 0913=o | 0993=o | 0A13=oo | 0A93=o | 0B13=o | 0B93=oo | 0C13=oo | 0C93=oo | 0D13=oo | 0D93=aiyanna
+13,o,o,o,o,o,o,o,o,o,a
+# 0914=au | 0994=au | 0A14=au | 0A94=au | 0B14=au | 0B94=au | 0C14=au | 0C94=au | 0D14=au | 0D94=oyanna
+14,a,a,a,a,a,a,a,a,a,o
+# 0915=ka | 0995=ka | 0A15=ka | 0A95=ka | 0B15=ka | 0B95=ka | 0C15=ka | 0C95=ka | 0D15=ka | 0D95=ooyanna
+15,k,k,k,k,k,k,k,k,k,o
+# 0916=kha | 0996=kha | 0A16=kha | 0A96=kha | 0B16=kha | 0C16=kha | 0C96=kha | 0D16=kha | 0D96=auyanna
+16,K,K,K,K,K,clear,K,K,K,a
+# 0917=ga | 0997=ga | 0A17=ga | 0A97=ga | 0B17=ga | 0C17=ga | 0C97=ga | 0D17=ga
+17,g,g,g,g,g,clear,g,g,g,clear
+# 0918=gha | 0998=gha | 0A18=gha | 0A98=gha | 0B18=gha | 0C18=gha | 0C98=gha | 0D18=gha
+18,G,G,G,G,G,clear,G,G,G,clear
+# 0919=nga | 0999=nga | 0A19=nga | 0A99=nga | 0B19=nga | 0B99=nga | 0C19=nga | 0C99=nga | 0D19=nga
+19,n,n,n,n,n,n,n,n,n,clear
+# 091A=ca | 099A=ca | 0A1A=ca | 0A9A=ca | 0B1A=ca | 0B9A=ca | 0C1A=ca | 0C9A=ca | 0D1A=ca | 0D9A=kayanna
+1A,c,c,c,c,c,c,c,c,c,k
+# 091B=cha | 099B=cha | 0A1B=cha | 0A9B=cha | 0B1B=cha | 0C1B=cha | 0C9B=cha | 0D1B=cha | 0D9B=kayanna
+1B,C,C,C,C,C,clear,C,C,C,k
+# 091C=ja | 099C=ja | 0A1C=ja | 0A9C=ja | 0B1C=ja | 0B9C=ja | 0C1C=ja | 0C9C=ja | 0D1C=ja | 0D9C=gayanna
+1C,z,z,z,z,z,z,z,z,z,g
+# 091D=jha | 099D=jha | 0A1D=jha | 0A9D=jha | 0B1D=jha | 0C1D=jha | 0C9D=jha | 0D1D=jha | 0D9D=gayanna
+1D,Z,Z,Z,Z,Z,clear,Z,Z,Z,g
+# 091E=nya | 099E=nya | 0A1E=nya | 0A9E=nya | 0B1E=nya | 0B9E=nya | 0C1E=nya | 0C9E=nya | 0D1E=nya | 0D9E=naasikyaya
+1E,N,N,N,N,N,N,N,N,N,n
+# 091F=tta | 099F=tta | 0A1F=tta | 0A9F=tta | 0B1F=tta | 0B9F=tta | 0C1F=tta | 0C9F=tta | 0D1F=tta | 0D9F=gayanna
+1F,t,t,t,t,t,t,t,t,t,g
+# 0920=ttha | 09A0=ttha | 0A20=ttha | 0AA0=ttha | 0B20=ttha | 0C20=ttha | 0CA0=ttha | 0D20=ttha | 0DA0=cayanna
+20,J,J,J,J,J,clear,J,J,J,c
+# 0921=dda | 09A1=dda | 0A21=dda | 0AA1=dda | 0B21=dda | 0C21=dda | 0CA1=dda | 0D21=dda | 0DA1=cayanna
+21,d,d,d,d,d,clear,d,d,d,c
+# 0922=ddha | 09A2=ddha | 0A22=ddha | 0AA2=ddha | 0B22=ddha | 0C22=ddha | 0CA2=ddha | 0D22=ddha | 0DA2=jayanna
+22,Q,Q,Q,Q,Q,clear,Q,Q,Q,j
+# 0923=nna | 09A3=nna | 0A23=nna | 0AA3=nna | 0B23=nna | 0BA3=nna | 0C23=nna | 0CA3=nna | 0D23=nna | 0DA3=jayanna
+23,n,n,n,n,n,n,n,n,n,j
+# 0924=ta | 09A4=ta | 0A24=ta | 0AA4=ta | 0B24=ta | 0BA4=ta | 0C24=ta | 0CA4=ta | 0D24=ta | 0DA4=naasikyaya
+24,T,T,T,T,T,T,T,T,T,n
+# 0925=tha | 09A5=tha | 0A25=tha | 0AA5=tha | 0B25=tha | 0C25=tha | 0CA5=tha | 0D25=tha | 0DA5=naaksikyaya
+25,j,j,j,j,j,clear,j,j,j,n
+# 0926=da | 09A6=da | 0A26=da | 0AA6=da | 0B26=da | 0C26=da | 0CA6=da | 0D26=da | 0DA6=jayanna
+26,D,D,D,D,D,clear,D,D,D,j
+# 0927=dha | 09A7=dha | 0A27=dha | 0AA7=dha | 0B27=dha | 0C27=dha | 0CA7=dha | 0D27=dha | 0DA7=ttayanna
+27,q,q,q,q,q,clear,q,q,q,t
+# 0928=na | 09A8=na | 0A28=na | 0AA8=na | 0B28=na | 0BA8=na | 0C28=na | 0CA8=na | 0D28=na | 0DA8=ttayanna
+28,n,n,n,n,n,n,n,n,n,t
+# 0929=nnna | 0BA9=nnna | 0D29=nnna | 0DA9=ddayanna
+29,n,clear,clear,clear,clear,n,clear,clear,n,d
+# 092A=pa | 09AA=pa | 0A2A=pa | 0AAA=pa | 0B2A=pa | 0BAA=pa | 0C2A=pa | 0CAA=pa | 0D2A=pa | 0DAA=ddayanna
+2A,p,p,p,p,p,p,p,p,p,d
+# 092B=pha | 09AB=pha | 0A2B=pha | 0AAB=pha | 0B2B=pha | 0C2B=pha | 0CAB=pha | 0D2B=pha | 0DAB=nayanna
+2B,f,f,f,f,f,clear,f,f,f,n
+# 092C=ba | 09AC=ba | 0A2C=ba | 0AAC=ba | 0B2C=ba | 0C2C=ba | 0CAC=ba | 0D2C=ba | 0DAC=ddayanna
+2C,b,b,b,b,b,clear,b,b,b,d
+# 092D=bha | 09AD=bha | 0A2D=bha | 0AAD=bha | 0B2D=bha | 0C2D=bha | 0CAD=bha | 0D2D=bha | 0DAD=tayanna
+2D,B,B,B,B,B,clear,B,B,B,t
+# 092E=ma | 09AE=ma | 0A2E=ma | 0AAE=ma | 0B2E=ma | 0BAE=ma | 0C2E=ma | 0CAE=ma | 0D2E=ma | 0DAE=tayanna
+2E,m,m,m,m,m,m,m,m,m,t
+# 092F=ya | 09AF=ya | 0A2F=ya | 0AAF=ya | 0B2F=ya | 0BAF=ya | 0C2F=ya | 0CAF=ya | 0D2F=ya | 0DAF=dayanna
+2F,y,y,y,y,y,y,y,y,y,d
+# 0930=ra | 09B0=ra | 0A30=ra | 0AB0=ra | 0B30=ra | 0BB0=ra | 0C30=ra | 0CB0=ra | 0D30=ra | 0DB0=dayanna
+30,r,r,r,r,r,r,r,r,r,d
+# 0931=rra | 0BB1=rra | 0C31=rra | 0CB1=rra | 0D31=rra | 0DB1=nayanna
+31,r,clear,clear,clear,clear,r,r,r,r,n
+# 0932=la | 09B2=la | 0A32=la | 0AB2=la | 0B32=la | 0BB2=la | 0C32=la | 0CB2=la | 0D32=la
+32,l,l,l,l,l,l,l,l,l,clear
+# 0933=lla | 0A33=lla | 0AB3=lla | 0B33=lla | 0BB3=lla | 0C33=lla | 0CB3=lla | 0D33=lla | 0DB3=dayanna
+33,l,clear,l,l,l,l,l,l,l,d
+# 0934=llla | 0BB4=llla | 0C34=llla | 0D34=llla | 0DB4=payanna
+34,l,clear,clear,clear,clear,l,l,clear,l,p
+# 0935=va | 0A35=va | 0AB5=va | 0B35=va | 0BB5=va | 0C35=va | 0CB5=va | 0D35=va | 0DB5=payanna
+35,w,clear,w,w,w,w,w,w,w,p
+# 0936=sha | 09B6=sha | 0A36=sha | 0AB6=sha | 0B36=sha | 0BB6=sha | 0C36=sha | 0CB6=sha | 0D36=sha | 0DB6=bayanna
+36,S,S,S,S,S,S,S,S,S,b
+# 0937=ssa | 09B7=ssa | 0AB7=ssa | 0B37=ssa | 0BB7=ssa | 0C37=ssa | 0CB7=ssa | 0D37=ssa | 0DB7=bayanna
+37,s,s,clear,s,s,s,s,s,s,b
+# 0938=sa | 09B8=sa | 0A38=sa | 0AB8=sa | 0B38=sa | 0BB8=sa | 0C38=sa | 0CB8=sa | 0D38=sa | 0DB8=mayanna
+38,s,s,s,s,s,s,s,s,s,m
+# 0939=ha | 09B9=ha | 0A39=ha | 0AB9=ha | 0B39=ha | 0BB9=ha | 0C39=ha | 0CB9=ha | 0D39=ha | 0DB9=bayanna
+39,H,H,H,H,H,H,H,H,H,b
+# 093A=oe | 0D3A=ttta | 0DBA=yayanna
+3A,o,clear,clear,clear,clear,clear,clear,clear,t,y
+# 093B=ooe | 0D3B=virama | 0DBB=rayanna
+3B,o,clear,clear,clear,clear,clear,clear,clear,?,r
+# 093C=nukta | 09BC=nukta | 0A3C=nukta | 0ABC=nukta | 0B3C=nukta | 0C3C=nukta | 0CBC=nukta | 0D3C=virama
+3C,n,n,n,n,n,clear,n,n,?,clear
+# 093D=avagraha | 09BD=avagraha | 0ABD=avagraha | 0B3D=avagraha | 0C3D=avagraha | 0CBD=avagraha | 0D3D=avagraha | 0DBD=layanna
+3D,A,A,clear,A,A,clear,A,A,A,l
+# 093E=aa | 09BE=aa | 0A3E=aa | 0ABE=aa | 0B3E=aa | 0BBE=aa | 0C3E=aa | 0CBE=aa | 0D3E=aa
+3E,a,a,a,a,a,a,a,a,a,clear
+# 093F=i | 09BF=i | 0A3F=i | 0ABF=i | 0B3F=i | 0BBF=i | 0C3F=i | 0CBF=i | 0D3F=i
+3F,i,i,i,i,i,i,i,i,i,clear
+# 0940=ii | 09C0=ii | 0A40=ii | 0AC0=ii | 0B40=ii | 0BC0=ii | 0C40=ii | 0CC0=ii | 0D40=ii | 0DC0=vayanna
+40,i,i,i,i,i,i,i,i,i,?
+# 0941=u | 09C1=u | 0A41=u | 0AC1=u | 0B41=u | 0BC1=u | 0C41=u | 0CC1=u | 0D41=u | 0DC1=sayanna
+41,u,u,u,u,u,u,u,u,u,s
+# 0942=uu | 09C2=uu | 0A42=uu | 0AC2=uu | 0B42=uu | 0BC2=uu | 0C42=uu | 0CC2=uu | 0D42=uu | 0DC2=sayanna
+42,u,u,u,u,u,u,u,u,u,s
+# 0943=r | 09C3=r | 0AC3=r | 0B43=r | 0C43=r | 0CC3=r | 0D43=r | 0DC3=sayanna
+43,r,r,clear,r,r,clear,r,r,r,s
+# 0944=rr | 09C4=rr | 0AC4=rr | 0B44=rr | 0C44=rr | 0CC4=rr | 0D44=rr | 0DC4=hayanna
+44,r,r,clear,r,r,clear,r,r,r,h
+# 0945=e | 0AC5=e | 0DC5=layanna
+45,e,clear,clear,e,clear,clear,clear,clear,clear,l
+# 0946=e | 0BC6=e | 0C46=e | 0CC6=e | 0D46=e | 0DC6=fayanna
+46,e,clear,clear,clear,clear,e,e,e,e,f
+# 0947=e | 09C7=e | 0A47=ee | 0AC7=e | 0B47=e | 0BC7=ee | 0C47=ee | 0CC7=ee | 0D47=ee
+47,e,e,e,e,e,e,e,e,e,clear
+# 0948=ai | 09C8=ai | 0A48=ai | 0AC8=ai | 0B48=ai | 0BC8=ai | 0C48=ai | 0CC8=ai | 0D48=ai
+48,a,a,a,a,a,a,a,a,a,clear
+# 0949=o | 0AC9=o
+49,o,clear,clear,o,clear,clear,clear,clear,clear,clear
+# 094A=o | 0BCA=o | 0C4A=o | 0CCA=o | 0D4A=o | 0DCA=al-lakuna
+4A,o,clear,clear,clear,clear,o,o,o,o,a
+# 094B=o | 09CB=o | 0A4B=oo | 0ACB=o | 0B4B=o | 0BCB=oo | 0C4B=oo | 0CCB=oo | 0D4B=oo
+4B,o,o,o,o,o,o,o,o,o,clear
+# 094C=au | 09CC=au | 0A4C=au | 0ACC=au | 0B4C=au | 0BCC=au | 0C4C=au | 0CCC=au | 0D4C=au
+4C,a,a,a,a,a,a,a,a,a,clear
+# 094D=virama | 09CD=virama | 0A4D=virama | 0ACD=virama | 0B4D=virama | 0BCD=virama | 0C4D=virama | 0CCD=virama | 0D4D=virama
+4D,?,?,?,?,?,?,?,?,?,clear
+# 094E=e | 09CE=ta | 0D4E=reph
+4E,e,T,clear,clear,clear,clear,clear,clear,R,clear
+# 094F=aw | 0D4F=para | 0DCF=aela-pilla
+4F,a,clear,clear,clear,clear,clear,clear,clear,p,a
+# 0950=om | 0AD0=om | 0BD0=om | 0DD0=aeda-pilla
+50,o,clear,clear,o,clear,o,clear,clear,clear,a
+# 0951=udatta | 0A51=udaat | 0DD1=aeda-pilla
+51,u,clear,u,clear,clear,clear,clear,clear,clear,a
+# 0952=anudatta | 0DD2=is-pilla
+52,a,clear,clear,clear,clear,clear,clear,clear,clear,i
+# 0953=accent | 0DD3=is-pilla
+53,a,clear,clear,clear,clear,clear,clear,clear,clear,i
+# 0954=accent | 0D54=m | 0DD4=paa-pilla
+54,a,clear,clear,clear,clear,clear,clear,clear,m,p
+# 0955=e | 0B55=overline | 0C55=mark | 0CD5=mark | 0D55=y
+55,e,clear,clear,clear,o,clear,m,m,y,clear
+# 0956=ue | 0B56=mark | 0C56=mark | 0CD6=mark | 0D56=lll | 0DD6=paa-pilla
+56,u,clear,clear,clear,m,clear,m,m,l,p
+# 0957=uue | 09D7=mark | 0B57=mark | 0BD7=mark | 0D57=mark
+57,u,m,clear,clear,m,m,clear,clear,m,clear
+# 0958=qa | 0C58=tsa | 0D58=one-hundred-and-sixtieth | 0DD8=gaetta-pilla
+58,q,clear,clear,clear,clear,clear,t,clear,o,g
+# 0959=khha | 0A59=khha | 0C59=dza | 0D59=fortieth | 0DD9=kombuva
+59,K,clear,K,clear,clear,clear,d,clear,f,k
+# 095A=ghha | 0A5A=ghha | 0C5A=rrra | 0D5A=eightieths | 0DDA=kombuva
+5A,G,clear,G,clear,clear,clear,r,clear,e,k
+# 095B=za | 0A5B=za | 0D5B=twentieth | 0DDB=deka
+5B,z,clear,z,clear,clear,clear,clear,clear,T,d
+# 095C=dddha | 09DC=rra | 0A5C=rra | 0B5C=rra | 0D5C=tenth | 0DDC=aela-pilla
+5C,D,r,r,clear,r,clear,clear,clear,T,a
+# 095D=rha | 09DD=rha | 0B5D=rha | 0C5D=pollu | 0CDD=pollu | 0D5D=twentieths | 0DDD=aela-pilla
+5D,R,R,clear,clear,R,clear,p,p,T,a
+# 095E=fa | 0A5E=fa | 0CDE=fa | 0D5E=fifth | 0DDE=gayanukitta
+5E,f,clear,f,clear,clear,clear,clear,f,f,g
+# 095F=yya | 09DF=yya | 0B5F=yya | 0D5F=ii | 0DDF=gayanukitta
+5F,y,y,clear,clear,y,clear,clear,clear,i,g
+# 0960=rr | 09E0=rr | 0AE0=rr | 0B60=rr | 0C60=rr | 0CE0=rr | 0D60=rr
+60,r,r,clear,r,r,clear,r,r,r,clear
+# 0961=ll | 09E1=ll | 0AE1=ll | 0B61=ll | 0C61=ll | 0CE1=ll | 0D61=ll
+61,l,l,clear,l,l,clear,l,l,l,clear
+# 0962=l | 09E2=l | 0AE2=l | 0B62=l | 0C62=l | 0CE2=l | 0D62=l
+62,l,l,clear,l,l,clear,l,l,l,clear
+# 0963=ll | 09E3=ll | 0AE3=ll | 0B63=ll | 0C63=ll | 0CE3=ll | 0D63=ll
+63,l,l,clear,l,l,clear,l,l,l,clear
+# 0964=danda
+64,d,clear,clear,clear,clear,clear,clear,clear,clear,clear
+# 0965=danda
+65,d,clear,clear,clear,clear,clear,clear,clear,clear,clear
+# 0966=zero | 09E6=zero | 0A66=zero | 0AE6=zero | 0B66=zero | 0BE6=zero | 0C66=zero | 0CE6=zero | 0D66=zero | 0DE6=zero
+66,z,z,z,z,z,z,z,z,z,z
+# 0967=one | 09E7=one | 0A67=one | 0AE7=one | 0B67=one | 0BE7=one | 0C67=one | 0CE7=one | 0D67=one | 0DE7=one
+67,o,o,o,o,o,o,o,o,o,o
+# 0968=two | 09E8=two | 0A68=two | 0AE8=two | 0B68=two | 0BE8=two | 0C68=two | 0CE8=two | 0D68=two | 0DE8=two
+68,t,t,t,t,t,t,t,t,t,t
+# 0969=three | 09E9=three | 0A69=three | 0AE9=three | 0B69=three | 0BE9=three | 0C69=three | 0CE9=three | 0D69=three | 0DE9=three
+69,T,T,T,T,T,T,T,T,T,T
+# 096A=four | 09EA=four | 0A6A=four | 0AEA=four | 0B6A=four | 0BEA=four | 0C6A=four | 0CEA=four | 0D6A=four | 0DEA=four
+6A,f,f,f,f,f,f,f,f,f,f
+# 096B=five | 09EB=five | 0A6B=five | 0AEB=five | 0B6B=five | 0BEB=five | 0C6B=five | 0CEB=five | 0D6B=five | 0DEB=five
+6B,f,f,f,f,f,f,f,f,f,f
+# 096C=six | 09EC=six | 0A6C=six | 0AEC=six | 0B6C=six | 0BEC=six | 0C6C=six | 0CEC=six | 0D6C=six | 0DEC=six
+6C,s,s,s,s,s,s,s,s,s,s
+# 096D=seven | 09ED=seven | 0A6D=seven | 0AED=seven | 0B6D=seven | 0BED=seven | 0C6D=seven | 0CED=seven | 0D6D=seven | 0DED=seven
+6D,s,s,s,s,s,s,s,s,s,s
+# 096E=eight | 09EE=eight | 0A6E=eight | 0AEE=eight | 0B6E=eight | 0BEE=eight | 0C6E=eight | 0CEE=eight | 0D6E=eight | 0DEE=eight
+6E,e,e,e,e,e,e,e,e,e,e
+# 096F=nine | 09EF=nine | 0A6F=nine | 0AEF=nine | 0B6F=nine | 0BEF=nine | 0C6F=nine | 0CEF=nine | 0D6F=nine | 0DEF=nine
+6F,n,n,n,n,n,n,n,n,n,n
+# 0970=sign | 09F0=diagonal | 0A70=tippi | 0AF0=sign | 0B70=isshar | 0BF0=ten | 0D70=ten
+70,s,d,t,s,i,t,clear,clear,t,clear
+# 0971=dot | 09F1=diagonal | 0A71=addak | 0AF1=sign | 0B71=wa | 0BF1=hundred | 0CF1=jihvamuliya | 0D71=hundred
+71,d,d,a,s,w,h,clear,j,h,clear
+# 0972=a | 09F2=mark | 0A72=iri | 0B72=quarter | 0BF2=thousand | 0CF2=upadhmaniya | 0D72=thousand | 0DF2=gaetta-pilla
+72,a,m,i,clear,q,T,clear,u,T,g
+# 0973=oe | 09F3=sign | 0A73=ura | 0B73=half | 0BF3=sign | 0CF3=right | 0D73=quarter | 0DF3=gayanukitta
+73,o,s,u,clear,h,s,clear,R,q,g
+# 0974=ooe | 09F4=one | 0A74=onkar | 0B74=quarters | 0BF4=sign | 0D74=half | 0DF4=kunddaliya
+74,o,o,o,clear,q,s,clear,clear,h,k
+# 0975=aw | 09F5=two | 0A75=yakash | 0B75=sixteenth | 0BF5=sign | 0D75=quarters
+75,a,t,y,clear,S,s,clear,clear,q,clear
+# 0976=ue | 09F6=three | 0A76=sign | 0B76=eighth | 0BF6=sign | 0D76=sixteenth
+76,u,T,s,clear,e,s,clear,clear,S,clear
+# 0977=uue | 09F7=four | 0B77=sixteenths | 0BF7=sign | 0C77=siddham | 0D77=eighth
+77,u,f,clear,clear,S,s,S,clear,e,clear
+# 0978=dda | 09F8=denominator | 0BF8=sign | 0C78=four | 0D78=sixteenths
+78,d,d,clear,clear,clear,s,f,clear,S,clear
+# 0979=zha | 09F9=sixteen | 0AF9=zha | 0BF9=sign | 0C79=four | 0D79=mark
+79,Z,s,clear,Z,clear,s,f,clear,m,clear
+# 097A=ya | 09FA=isshar | 0AFA=sukun | 0BFA=sign | 0C7A=four | 0D7A=nn
+7A,y,i,clear,s,clear,s,f,clear,n,clear
+# 097B=gga | 09FB=mark | 0AFB=shadda | 0C7B=four | 0D7B=n
+7B,g,m,clear,S,clear,clear,f,clear,n,clear
+# 097C=jja | 09FC=anusvara | 0AFC=maddah | 0C7C=four | 0D7C=rr
+7C,z,a,clear,m,clear,clear,f,clear,r,clear
+# 097D=stop | 09FD=sign | 0AFD=above | 0C7D=four | 0D7D=l
+7D,s,s,clear,a,clear,clear,f,clear,l,clear
+# 097E=ddda | 09FE=mark | 0AFE=above | 0C7E=four | 0D7E=ll
+7E,d,m,clear,a,clear,clear,f,clear,l,clear
+# 097F=bba | 0AFF=above | 0C7F=tuumu | 0D7F=k
+7F,b,clear,clear,a,clear,clear,t,clear,k,clear
