@@ -118,11 +118,17 @@ def step_update_metadata():
         for sfd_path in sorted(utf_dir.glob("*utf.sfd")):
             try:
                 f = fontforge.open(str(sfd_path))
+                # update fontname / familyname / fullname
                 for attr in ("fontname", "familyname", "fullname"):
                     val = getattr(f, attr, "") or ""
                     new_val = val.replace("asc", "utf").replace("Asc", "Utf")
                     if new_val != val:
                         setattr(f, attr, new_val)
+                # update sfnt name table (unique-id, version string, etc.)
+                for lang, nid, val in list(f.sfnt_names):
+                    if "asc" in val or "Asc" in val:
+                        new_val = val.replace("asc", "utf").replace("Asc", "Utf")
+                        f.appendSFNTName(lang, nid, new_val)
                 f.save(str(sfd_path))
                 f.close()
                 count += 1
