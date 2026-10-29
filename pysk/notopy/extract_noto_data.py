@@ -115,23 +115,19 @@ def main():
 
         with open(out_csv, 'w', newline='', encoding='utf-8') as f:
             w = csv.writer(f)
-            w.writerow(["hex","unicode","noto_name","nameslist","hskii","width","has_glyph","in_json","script","prefix"])
+            w.writerow(["hex","nameslist","hskii","width","has_glyph","in_json"])
             for offset in range(0x80):
                 cp = base + offset
                 try:
                     g         = noto[cp]
-                    noto_name = g.glyphname
                     width     = g.width
                     has_glyph = "Y" if g.isWorthOutputting() else "N"
                 except Exception:
-                    noto_name = "-"
                     width     = 0
                     has_glyph = "N"
                 nl_raw, nl_hskii = nl_map.get(cp, ("-", "clear"))
                 in_json = json_map.get((col_idx, offset), "clear")
-                w.writerow([f"{cp:04X}", f"U+{cp:04X}", noto_name,
-                            nl_raw, nl_hskii, width, has_glyph, in_json,
-                            script, prefix])
+                w.writerow([f"{cp:04X}", nl_raw, nl_hskii, width, has_glyph, in_json])
 
         noto.close()
         print(f"  written {out_csv}")
