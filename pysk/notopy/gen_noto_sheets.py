@@ -31,8 +31,8 @@ SCRIPTS_ORDER = [
     "xt38","xj38","xk38","xm38","xs38",
 ]
 
-HEADERS    = ["hex","unicode","noto_name","nameslist","hskii","width","has_glyph","in_json"]
-COL_WIDTHS = [8,    11,       24,         20,         8,      7,      10,          9]
+HEADERS    = ["hex","nameslist","hskii","width","has_glyph","in_json"]
+COL_WIDTHS = [8,    22,         8,      7,      10,          9]
 
 HEADER_FILL  = PatternFill("solid", fgColor="1F497D")
 HEADER_FONT  = Font(bold=True, color="FFFFFF", name="Consolas", size=10)
@@ -72,15 +72,14 @@ def build_sheet(ws, csv_path, prefix):
             else:
                 fill = CLEAR_FILL
 
-            vals = [rec["hex"], rec["unicode"], rec["noto_name"],
-                    rec["nameslist"], hskii, int(rec["width"]),
-                    rec["has_glyph"], in_json]
+            vals = [rec["hex"], rec["nameslist"], hskii,
+                    int(rec["width"]), rec["has_glyph"], in_json]
 
             for c, v in enumerate(vals, 1):
                 cell = ws.cell(row=row_num, column=c, value=v)
                 cell.font = DATA_FONT
                 cell.fill = fill
-                if c in (1, 2, 5, 7, 8):
+                if c in (1, 3, 5, 6):
                     cell.alignment = CENTER
 
             row_num += 1
