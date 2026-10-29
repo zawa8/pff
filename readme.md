@@ -15,7 +15,7 @@ xskii4 encoding xnd fonts bxsed on xskii4:
 - **0123456789LYVWPF** — in xskii4 encoding 0123456789LYVWPF are continuos-dedicated 4-finger-mxjhs dizits
 - **LYVWPF** — in xi38/xi52/x4i : 9+7 = L+6 = Y+5 = V+4 = W+3 = P+2 = F+1 = 10 = wnti
 - **dedicated 4finger-mAThs-dizits** - in xi38/xi52 LYVWPF are dedicated for 4-fingers-mAThss(m4).
-- **dedicated-continuous 4finger-mAThs-dizits** - in x4i 0123456789LYVWPF are dedicated-continuous for 4-fingers-mAThss(m4).
+- **dedicated-continuous 4finger-mAThs-dizits** - in x4i 0123456789LYVWPF are dedicated-continuous for 4-fingers-mAThs(m4).
 - **:;<=>?** in xskii4 encoding glyphs for  :;<=>? are not after 0123456789.
 
 duxl(duAl) wisuxl(visuAl) glyphs of j,q,v,x in xi52/xi38/x4i:
