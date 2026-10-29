@@ -65,7 +65,7 @@ def extract_unicode_blocks(text):
 def remove_unicode_blocks(text):
     """Remove existing Indic unicode blocks from SFD text."""
     def keep(m):
-        enc = int(m.group(2))
+        enc = int(m.group(1))   # only 1 group in this pattern
         if UNICODE_START <= enc <= UNICODE_END:
             return ''
         return m.group(0)
