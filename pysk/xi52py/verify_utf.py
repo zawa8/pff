@@ -6,7 +6,9 @@ import fontforge
 
 root = Path(__file__).resolve().parents[2]
 utf_dir = root / "sfd/xi38sfd/xi38utf"
-fonts = sorted(utf_dir.glob("*.sfd"))
+# xe38utf.sfd is a base font with no unicode refs — skip it
+SKIP = {"xe38utf.sfd", "xe52utf.sfd"}
+fonts = [p for p in sorted(utf_dir.glob("*.sfd")) if p.name not in SKIP]
 if not fonts:
     sys.exit(f"no utf sfd found in {utf_dir}")
 
