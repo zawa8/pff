@@ -1,12 +1,29 @@
-# pff — Font Pipeline for xnglo
+# pff — font pipeline for xnglo unicase(A-Za-z same heights) fonts
 
-Python + FontForge pipeline to generate **xnglo** fonts for 11 Indian
-scripts + English.
+python + fontForge pipeline to generate **xnglo unicase** fonts for ten(8+2) indiAn skripts + english.
 
-Two families:
+three families:
 
 - **xi38** — 38-char alphabet (older)
 - **xi52** — 52-char alphabet (current)
+- **x4i** — xnglo4inglish based on xskii4 (xnglo(Anglo) symbolik kod for information intercenz)
+
+xskii4 encoding xnd fonts bxsed on xskii4:
+
+- **4 finger mxjhs(mAThs)** — 4 fingers countxbles xnd 1 jhumb kaunter
+- **4*4=10=wnti=8+8** — xskii4 encoding default mxjhs is 4fingers 1jhumb(Thumb) based.
+- **0123456789LYVWPF** — in xskii4 encoding 0123456789LYVWPF are continuos-dedicated 4-finger-mxjhs dizits
+- **LYVWPF** — in xi38/xi52/x4i : 9+7 = L+6 = Y+5 = V+4 = W+3 = P+2 = F+1 = 10 = wnti
+- **dedicated 4finger-mAThs-dizits** - in xi38/xi52 LYVWPF are dedicated for 4-fingers-mAThss(m4).
+- **dedicated-continuous 4finger-mAThs-dizits** - in x4i 0123456789LYVWPF are dedicated-continuous for 4-fingers-mAThss(m4).
+- **:;<=>?** in xskii4 encoding glyphs for  :;<=>? are not after 0123456789.
+
+duxl(duAl) wisuxl(visuAl) glyphs of j,q,v,x in xi52/xi38/x4i:
+
+- **duAl wisuxl (visuAl) glyph for x** — in xi52/xi38/x4i x is for mainly A(अ) sound/woice/voice. for ascii(5) compatibilty its glyph looks like (vertically flipped capital-V-glyph + small x glyph inside so that it looks like A/x for अ/अकस-sound/woice/voice)
+- **duAl wisuxl (visuAl) glyph for v** — in xi52/xi38/x4i v is for mainly H(ह) sound/woice/voice. for ascii(5) compatibilty its glyph looks like (capital-V-glyph+h-glyph-at-top so that it looks like V/h for व/ह-sound/woice/voice ).
+- **duAl wisuxl (visuAl) glyph for j** — in xi52/xi38/x4i j is for mainly T(त) sound/woice/voice. for ascii(5) compatibilty its glyph looks like (↧-glyph so that it looks like T/J).
+- **duAl wisuxl (visuAl) glyph for q** — in xi52/xi38/x4i q is for mainly D(द) sound/woice/voice. for ascii(5) compatibilty its glyph also looks like (D-glyph with small \-glyph inside D-glyph so that new-q-glyph looks D/Q ).
 
 ## Roles
 
