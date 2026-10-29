@@ -4,9 +4,20 @@ python + fontForge pipeline to generate **xnglo unicase** fonts for ten(8+2) ind
 
 three families:
 
-- **xi38** — 38-char alphabet (older)
-- **xi52** — 52-char alphabet (current)
+- **xi52** — can render E52/xe38/e23/e26 all English/hinglish/kAnglish/... 
+    - latin-glyphs-for:aiueohNR gGcC jJqQ w
+    - indik-glyphs-for: kKzZ tTdD n pfbBmyrlsS
+    - dual-wisual-glyphs-for: xvAH
+- **xi38** — can render xe38/e23 english only. (e23 english is small case English with all j->z,q->k,v->w transliterated)
+    - latin-glyphs-for:aiueohNR
+    - indik-glyphs-for: kKgGcCzZ tTdD jJqQ n pfbBmyrlwsS
+    - dual-wisual-glyphs-for: xvAH
 - **x4i** — xnglo4inglish based on xskii4 (xnglo(Anglo) symbolik kod for information intercenz)
+    - only 1 x4i.sfd/x4i.ttf/x4i.woff2
+    - x4i fonts are not for ascii(m5:maths 5fingers) , x4i fonts are for xskii(m4:maths 4fingers:4*4=10=8+8)
+    - in xskii4 glyphs for 0123456789LYVWPF are continuous by shifting glyphs for :;<=>? somewhere in locations A-Z(65-90)
+    - x4i cannot render English52. x4i can render only small case english:e26
+    - in x4i 20 capital-AZ locations will be for more programming symbols/glyphs.
 
 xskii4 encoding xnd fonts bxsed on xskii4:
 
