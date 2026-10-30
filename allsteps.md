@@ -3,14 +3,17 @@
 ## full flow overview
 
 ```
-[PIPELINE 1]  NotoSans*.ttf + xe*asc.sfd + noto_map*.csv
+[PIPELINE 1]  NotoSans*.ttf + xe*asc.sfd + noto_map*.csv (only use .csv pliiz no ffz-design here.)
               ──────────────────────────────────────────
-              noto_copy.py
+              pysk/notopy/noto_copy.py
               ──────────────────────────────────────────
               notosfd/xi38/x*38asc.sfd
               notosfd/xi52/x*52asc.sfd
 
-[MANUAL A]    notosfd/**/*.sfd  ──copy+design──>  sfdsrc/**/*.sfd
+[MANUAL A]    notosfd/**/*.sfd  ──copy+**can-design-here(mostly xAvH)**──>  sfdsrc/**/*.sfd. we can use:
+1. cp notosfd/xi38/*.sfd sfdsrc/xi38/ # for xi38
+2. cp notosfd/xi52/*.sfd sfdsrc/xi52/ # for xi52
+3. in fontforge we can design some glyphs like xAvH
 
 [MANUAL B]    update NamesList.txt / asc-to-utf.json / noto_map*.csv
 
