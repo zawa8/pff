@@ -5,8 +5,8 @@ on:
     branches: [main]
     paths:
       - "pysk/xi52py/**"
+      - "pysk/notopy/**"
       - "sfdsrc/**"
-      - "notofonts/**"
       - ".github/workflows/build-xi52.yml"
   pull_request:
     branches: [main]
@@ -19,35 +19,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install FontForge
+      - name: Install FontForge + openpyxl
         run: |
           sudo apt-get update
           sudo apt-get install -y fontforge python3-fontforge
           fontforge --version
+          pip3 install openpyxl --break-system-packages || true
 
       - name: Verify Python syntax
         run: |
           python3 -m py_compile pysk/xi52py/main.py
-          python3 -m py_compile pysk/xi52py/glyph_copy/build_asc_fonts.py
-          python3 -m py_compile pysk/xi52py/glyph_copy/build_utf_fonts.py
-          python3 -m py_compile pysk/xi52py/gen_xi38asc.py
-          python3 -m py_compile pysk/xi52py/gen_xi52asc.py
-          python3 -m py_compile pysk/xi52py/update_font_metadata.py
-          python3 -m py_compile pysk/xi52py/gen_asc_to_utf_json.py
+          python3 -m py_compile pysk/xi52py/prep_utf.py
           python3 -m py_compile pysk/xi52py/copy_utf_unicode_blocks.py
           python3 -m py_compile pysk/xi52py/verify_utf.py
+          python3 -m py_compile pysk/xi52py/p5generate.py
+          python3 -m py_compile pysk/xi52py/gen_asc_to_utf_json.py
+          python3 -m py_compile pysk/notopy/noto_copy.py
+          python3 -m py_compile pysk/notopy/extract_noto_data.py
+          python3 -m py_compile pysk/notopy/gen_noto_sheets.py
 
       - name: Sanity -- print pipeline
         run: fontforge -script pysk/xi52py/main.py --list
 
-      - name: Run src + asc phases
-        run: |
-          fontforge -script pysk/xi52py/main.py --phase asc
+      - name: Run prep_utf (sfdsrc -> sfd xi38asc + xi38utf + xi52utf + unicode refs)
+        run: fontforge -script pysk/xi52py/prep_utf.py
 
-      - name: Run utf phase
-        run: fontforge -script pysk/xi52py/main.py --phase utf
-
-      - name: Copy unicode blocks to other xi38utf fonts
+      - name: Copy unicode blocks to all xi38utf + xi52utf fonts
         run: python3 pysk/xi52py/copy_utf_unicode_blocks.py
 
       - name: Verify UTF references
@@ -99,4 +96,3 @@ jobs:
         with:
           name: build-logs
           path: logs/
-
