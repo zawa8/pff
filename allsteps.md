@@ -5,10 +5,18 @@
 ```
 [PIPELINE 1]  NotoSans*.ttf + xe*asc.sfd + noto_map*.csv (only use .csv pliiz no ffz-design here.)
               ──────────────────────────────────────────
-              pysk/notopy/noto_copy.py
-              ──────────────────────────────────────────
+              ffz pysk/notopy/noto_copy.py
+			  # some usual warning/errors comes in large numbers.
+			  # At least one anchor point was lost when pasting from one font to another
+			  # because no matching anchor class could be found in the new font.
+			  # Bad device table
+			  # Invalid 2nd order spline in SplineRefigure2
+			  xt present we are ignoring these errors. xt end below sfd gets generated.
+		      ──────────────────────────────────────────
               notosfd/xi38/x*38asc.sfd
               notosfd/xi52/x*52asc.sfd
+              ──────────────────────────────────────────
+			  werify aal .sfd aar good as per pffsheets\xi38-latin-indik-glyphs.csv
 
 [MANUAL A]    notosfd/**/*.sfd  ──copy+**can-design-here(mostly xAvH)**──>  sfdsrc/**/*.sfd. we can use:
 1. cp notosfd/xi38/*.sfd sfdsrc/xi38/ # for xi38

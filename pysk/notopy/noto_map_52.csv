@@ -12,10 +12,10 @@
 # H,0939,09B9,0A39,0AB9,0B39,0BB9,0C39,0CB9,0D39,0DC4
 ascii,xh52,xb52,xp52,xg52,xo52,xt52,xj52,xk52,xm52,xs52
 [aieuohcg vwx CG jq JQ LYVWPF EIOUMX NR],xe52asc,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc
-x,skip,skip,skip,xe52asc,xe52asc,xe52asc,xe52asc,skip,xe52asc,xe52asc
-A,skip,skip,skip,0A85,0B05,0B85,0C05,skip,0D05,0D85
-v,skip,skip,skip,xe52asc,xe52asc,xe52asc,xe52asc,skip,xe52asc,xe52asc
-H,skip,skip,skip,0AB9,0B39,0BB9,0C39,skip,0D39,0DC4
+x,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc
+A,0905,0985,0A05,0A85,0B05,0B85,0C05,0C85,0D05,0D85
+v,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc,xe52asc
+H,0939,09B9,0A39,0AB9,0B39,0BB9,0C39,0CB9,0D39,0DC4
 B,092D,09AD,0A2D,0AAD,0B2D,xe52asc,0C2D,0CAD,0D2D,0DB7
 D,0926,09A6,0A26,0AA6,0B26,xe52asc,0C26,0CA6,0D21,0DAF
 K,0916,0996,0A16,0A96,0B16,xe52asc,0C16,0C96,0D16,0D9B
