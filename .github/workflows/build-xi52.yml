@@ -80,17 +80,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          # show what was generated
           echo "=== generated fonts ==="
           find xnglofonts/ -name "*.ttf" -o -name "*.woff2" | sort | head -30
           echo "total: $(find xnglofonts/ -name '*.ttf' -o -name '*.woff2' | wc -l) files"
-          # pull latest to avoid push rejection
-          git pull --rebase origin main
           git add xnglofonts/
-          git status
-          git diff --staged --quiet && echo "no changes to commit" ||             (git commit -m "ci: update xnglofonts [skip ci]" && git push origin main)
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git diff --staged --quiet && echo "no changes to commit" ||             git commit -m "ci: update xnglofonts [skip ci]"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
 
       - name: Upload SFDs
         if: always()
