@@ -45,9 +45,7 @@ __pycache__/
 sfd/xi38sfd/
 sfd/xi52sfd/
 
-# Generated fonts (distributed via GitHub Releases)
-xnglofonts/ttf/
-xnglofonts/woff2/
+# fonts are committed to repo for CDN access via jsdelivr
 sfdsrc/*.bak*
 notofonts/.asc-to-utf-*.csv.tmp
 notosfd/**/*_copy.sfd
