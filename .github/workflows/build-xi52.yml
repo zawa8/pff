@@ -81,9 +81,16 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           echo "=== generated fonts ==="
-          find xnglofonts/ -name "*.ttf" -o -name "*.woff2" | sort | head -30
-          echo "total: $(find xnglofonts/ -name '*.ttf' -o -name '*.woff2' | wc -l) files"
+          find xnglofonts/ -type f | sort
+          echo "total: $(find xnglofonts/ -type f | wc -l) files"
+          echo "=== gitignore check ==="
+          cat .gitignore | grep -i "xnglo\|font\|ttf\|woff" || echo "no font rules in gitignore"
+          echo "=== git status before add ==="
+          git status --short xnglofonts/
+          git add -f xnglofonts/ttf/ xnglofonts/woff2/ 2>/dev/null || true
           git add xnglofonts/
+          echo "=== git status after add ==="
+          git status --short
           git diff --staged --quiet && echo "no changes to commit" ||             git commit -m "ci: update xnglofonts [skip ci]"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
 
