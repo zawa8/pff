@@ -53,7 +53,10 @@ def process_sfd(sfd_path):
     name = sfd_path.stem  # xh38asc
     
     # Output dirs
-    ttf_dir = TTF_ROOT / family.replace("sfd", "ttf") / variant
+    # family: xi38sfd or xi52sfd
+    # variant: xi38asc, xi38utf, xi38mono, ...
+    family_short = family.replace("sfd", "ttf")  # xi38ttf
+    ttf_dir = TTF_ROOT / family_short / variant
     woff2_dir = WOFF2_ROOT / family.replace("sfd", "woff2") / variant
     ttf_dir.mkdir(parents=True, exist_ok=True)
     woff2_dir.mkdir(parents=True, exist_ok=True)

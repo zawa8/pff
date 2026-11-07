@@ -239,10 +239,10 @@ ffz pysk/xi52py/p5generate.py
 ```
 
 reads `sfdfinal/**/*.sfd` → generates:
-- `xnglofonts/ttf/xi38ttf/xi38asc/*.ttf`
-- `xnglofonts/ttf/xi38ttf/xi38utf/*.ttf`
-- `xnglofonts/ttf/xi38ttf/xi38mono/*.ttf`
-- `xnglofonts/ttf/xi52ttf/**/*.ttf`
+- `xnglofonts/ttf/38/asc/*.ttf`
+- `xnglofonts/ttf/38/utf/*.ttf`
+- `xnglofonts/ttf/38/mono/*.ttf`
+- `xnglofonts/ttf/52/**/*.ttf`
 - `xnglofonts/woff2/**/*.woff2`
 
 log: `logs/p5generate.log`
@@ -262,16 +262,16 @@ git push origin v1.x.x
 ### jsdelivr CDN
 after GitHub release is created, fonts are auto-available at:
 ```
-https://cdn.jsdelivr.net/gh/zawa8/pff@v1.x.x/xnglofonts/ttf/xi38ttf/xi38utf/xh38utf.ttf
-https://cdn.jsdelivr.net/gh/zawa8/pff@v1.x.x/xnglofonts/woff2/xi38woff2/xi38utf/xh38utf.woff2
+https://cdn.jsdelivr.net/gh/zawa8/pff@v1.x.x/xnglofonts/ttf/38/utf/xh38utf.ttf
+https://cdn.jsdelivr.net/gh/zawa8/pff@v1.x.x/xnglofonts/woff2/38/utf/xh38utf.woff2
 ```
 
 CSS usage:
 ```css
 @font-face {
   font-family: 'XngloHindi';
-  src: url('https://cdn.jsdelivr.net/gh/zawa8/pff@v1.x.x/xnglofonts/woff2/xi38woff2/xi38utf/xh38utf.woff2') format('woff2'),
-       url('https://cdn.jsdelivr.net/gh/zawa8/pff@v1.x.x/xnglofonts/ttf/xi38ttf/xi38utf/xh38utf.ttf') format('truetype');
+  src: url('https://cdn.jsdelivr.net/gh/zawa8/pff@v1.x.x/xnglofonts/woff2/38/utf/xh38utf.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/zawa8/pff@v1.x.x/xnglofonts/ttf/38/utf/xh38utf.ttf') format('truetype');
 }
 ```
 
