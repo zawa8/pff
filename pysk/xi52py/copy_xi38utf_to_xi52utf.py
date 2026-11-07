@@ -31,10 +31,10 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Source (xi38utf)
-src_dir = pff_root / "sfd/xi38sfd/xi38utf"
+src_dir = pff_root / "sfd/38/utf"
 
 # Target (xi52utf)
-target_dir = pff_root / "sfd/xi52sfd/xi52utf"
+target_dir = pff_root / "sfd/52/utf"
 target_dir.mkdir(parents=True, exist_ok=True)
 
 # Font mappings: (src_file, old_name, new_name)

@@ -1,3 +1,4 @@
+### pff/allsteps.md
 # pff — allsteps: all pipelines + manual steps
 
 ## full flow overview
@@ -13,20 +14,20 @@
 			  # Invalid 2nd order spline in SplineRefigure2
 			  xt present we are ignoring these errors. xt end below sfd gets generated.
 		      ──────────────────────────────────────────
-              notosfd/xi38/x*38asc.sfd
-              notosfd/xi52/x*52asc.sfd
+              notosfd/38/x*38asc.sfd
+              notosfd/52/x*52asc.sfd
               ──────────────────────────────────────────
 			  werify aal .sfd aar good as per pffsheets\xi38-latin-indik-glyphs.csv
 
 [MANUAL A]    notosfd/**/*.sfd  ──copy+**can-design-here(mostly xAvH)**──>  sfdsrc/**/*.sfd. we can use:
-1. cp notosfd/xi38/*.sfd sfdsrc/xi38/ # for xi38
-2. cp notosfd/xi52/*.sfd sfdsrc/xi52/ # for xi52
+1. cp notosfd/38/*.sfd sfdsrc/38asc/ # for xi38
+2. cp notosfd/52/*.sfd sfdsrc/52asc/ # for xi52
 3. in fontforge we can design some glyphs like xAvH
 
 [MANUAL B]    update NamesList.txt / asc-to-utf.json / noto_map*.csv
 
-[PIPELINE 2]  sfdsrc/xi38/x*38asc.sfd
-              sfdsrc/xi52/x*52asc.sfd
+[PIPELINE 2]  sfdsrc/38asc/x*38asc.sfd
+              sfdsrc/52asc/x*52asc.sfd
               sfdsrc/asc-to-utf.json
               ──────────────────────────────────────────
               prep_utf.py
@@ -35,8 +36,8 @@
               main.py --phase mono
               main.py --phase meta
               ──────────────────────────────────────────
-              sfd/38sfd/xi38asc/   xi38utf/   xi38mono/
-              sfd/52sfd/xi52asc/   xi52utf/   xi52mono/
+              sfd/38/asc/   sfd/38/utf/   sfd/38/mono/
+              sfd/52/asc/   sfd/52/utf/   sfd/52/mono/
 
 [MANUAL C]    check sfd/**/*utf.sfd in FontForge
 
@@ -62,8 +63,8 @@
 
 **inputs**:
 - `pysk/notopy/NotoSans*-Regular.ttf` (10 Indic script Noto fonts)
-- `notosfd/xi38/xe38asc.sfd` — shared base glyphs for xi38 (vowels, marks, etc.)
-- `notosfd/xi52/xe52asc.sfd` — shared base glyphs for xi52
+- `notosfd/38/xe38asc.sfd` — shared base glyphs for xi38 (vowels, marks, etc.)
+- `notosfd/52/xe52asc.sfd` — shared base glyphs for xi52
 - `pysk/notopy/noto_map_38.csv` — glyph map: NotoSans codepoint → xi38asc ASCII slot
 - `pysk/notopy/noto_map_52.csv` — glyph map: NotoSans codepoint → xi52asc ASCII slot
 
@@ -82,7 +83,7 @@ ffz pysk/notopy/noto_copy.py xh38      # one font only
 
 **log**: `logs/noto_copy.log`
 
-**outputs**: `notosfd/xi38/x*38asc.sfd` and `notosfd/xi52/x*52asc.sfd`
+**outputs**: `notosfd/38/x*38asc.sfd` and `notosfd/52/x*52asc.sfd`
 
 ---
 
@@ -104,9 +105,9 @@ ffz pysk/notopy/noto_copy.py xh38      # one font only
 | xs* | Sinhala | Sinhala |
 
 **steps**:
-1. copy `notosfd/xi38/*.sfd` → `sfdsrc/xi38/`
-2. copy `notosfd/xi52/*.sfd` → `sfdsrc/xi52/`
-3. open each `sfdsrc/xi38/x*38asc.sfd` in FontForge
+1. copy `notosfd/38/*.sfd` → `sfdsrc/38asc/`
+2. copy `notosfd/52/*.sfd` → `sfdsrc/52asc/`
+3. open each `sfdsrc/38asc/x*38asc.sfd` in FontForge
 4. rewiew + modify glyphs as needed for that script
 5. save
 
@@ -153,9 +154,9 @@ ffz pysk/utfpy/prep_utf.py
 does all of:
 - `sfdsrc/38asc/*.sfd` → `sfd/38/asc/` (copy)
 - `sfdsrc/52asc/*.sfd` → `sfd/52/asc/` (copy)
-- clears `sfd/38sfd/xi38utf/` and `sfd/52sfd/xi52utf/`
-- `sfdsrc/xi38/*asc.sfd` → `sfd/38sfd/xi38utf/*utf.sfd` (copy + rename)
-- `sfdsrc/xi52/*asc.sfd` → `sfd/52sfd/xi52utf/*utf.sfd` (copy + rename)
+- clears `sfd/38/utf/` and `sfd/52/utf/`
+- `sfdsrc/38asc/*asc.sfd` → `sfd/38/utf/*utf.sfd` (copy + rename)
+- `sfdsrc/52asc/*asc.sfd` → `sfd/52/utf/*utf.sfd` (copy + rename)
 - updates font metadata (`fontname`/`familyname`: `asc` → `utf`)
 - updates sfnt name table (unique-id, version string)
 - adds unicode glyph refs to `xh38utf.sfd` only (reads `sfdsrc/asc-to-utf.json`)
@@ -200,7 +201,7 @@ updates font family names and PostScript names (Google Fonts format) in all SFDs
 
 ## [MANUAL C] — check sfd/**/*utf.sfd in FontForge
 
-open `sfd/38sfd/xi38utf/xh38utf.sfd` and werify:
+open `sfd/38/utf/xh38utf.sfd` and werify:
 - U+0915 (क Dewnagri ka) → shows क glyph ✓
 - U+0985 (অ Bengali a) → shows correct glyph ✓
 - U+0900–U+0903 (combining marks) → empty/clear ✓
@@ -210,8 +211,8 @@ open `sfd/38sfd/xi38utf/xh38utf.sfd` and werify:
 
 ## [MANUAL D] — sfd → sfdfinal (copy + designer final rewiew)
 
-1. copy `sfd/38sfd/` → `sfdfinal/xi38sfd/`
-2. copy `sfd/52sfd/` → `sfdfinal/xi52sfd/`
+1. copy `sfd/38/` → `sfdfinal/xi38sfd/`
+2. copy `sfd/52/` → `sfdfinal/xi52sfd/`
 3. each designer opens their `sfdfinal/**/x*utf.sfd` in FontForge
 4. makes final glyph adzustments in unicode ranges if needed
 5. saves to `sfdfinal/`

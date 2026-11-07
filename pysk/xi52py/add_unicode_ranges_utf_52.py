@@ -25,7 +25,7 @@ console = logging.StreamHandler()
 console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
-utf_dir = pff_root / "sfd/xi52sfd/xi52utf"
+utf_dir = pff_root / "sfd/52/utf"
 
 FONTS = [
     'xh52utf.sfd',

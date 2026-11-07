@@ -31,7 +31,7 @@ console = logging.StreamHandler()
 console.setLevel(logging.WARNING)
 logging.getLogger("").addHandler(console)
 
-mono_dir = pff_root / "sfd/xi38sfd/xi38mono"
+mono_dir = pff_root / "sfd/38/mono"
 
 FONTS = [
     "xh38mono.sfd",

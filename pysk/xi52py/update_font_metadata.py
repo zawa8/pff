@@ -88,11 +88,11 @@ SCRIPT_NAMES = {
 # Directories whose .sfd files get metadata stamped.
 # xi38mono does not exist yet (skip).
 SFD_DIRS = [
-    pff_root / "sfd/xi52sfd/xi52asc",
-    pff_root / "sfd/xi38sfd/xi38asc",
-    pff_root / "sfd/xi52sfd/xi52utf",
-    pff_root / "sfd/xi38sfd/xi38utf",
-    pff_root / "sfd/xi52sfd/xi52mono",
+    pff_root / "sfd/52/asc",
+    pff_root / "sfd/38/asc",
+    pff_root / "sfd/52/utf",
+    pff_root / "sfd/38/utf",
+    pff_root / "sfd/52/mono",
 ]
 
 # Files to leave alone (special cases, pending rename, or not in our scheme).

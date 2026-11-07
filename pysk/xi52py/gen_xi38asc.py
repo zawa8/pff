@@ -27,7 +27,7 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Source: xi38asc SFD
-sfd_dir = pff_root / "sfd/xi38sfd/xi38asc"
+sfd_dir = pff_root / "sfd/38/asc"
 
 # Output: xi38asc TTF
 ttf_dir = pff_root / "xnglofonts/ttf/xi38ttf/xi38asc"

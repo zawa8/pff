@@ -2,7 +2,7 @@
 """
 Generate TTF and WOFF2 from xi38utf SFD files.
 
-Reads sfd/xi38sfd/xi38utf/*.sfd and writes
+Reads sfd/38/utf/*.sfd and writes
 xnglofonts/ttf/xi38ttf/xi38utf/*.ttf and
 xnglofonts/woff2/xi38woff2/xi38utf/*.woff2.
 
@@ -36,7 +36,7 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # UTF folder (source)
-utf_dir = pff_root / "sfd/xi38sfd/xi38utf"
+utf_dir = pff_root / "sfd/38/utf"
 
 # Output
 ttf_dir = pff_root / "xnglofonts/ttf/xi38ttf/xi38utf"

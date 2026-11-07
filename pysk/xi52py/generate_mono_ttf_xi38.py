@@ -29,7 +29,7 @@ console = logging.StreamHandler()
 console.setLevel(logging.WARNING)
 logging.getLogger("").addHandler(console)
 
-mono_dir = pff_root / "sfd/xi38sfd/xi38mono"
+mono_dir = pff_root / "sfd/38/mono"
 
 ttf_dir = pff_root / "xnglofonts/ttf/xi38ttf/xi38mono"
 woff2_dir = pff_root / "xnglofonts/woff2/xi38woff2/xi38mono"

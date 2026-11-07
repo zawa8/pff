@@ -28,7 +28,7 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # UTF folder
-utf_dir = pff_root / "sfd/xi52sfd/xi52utf"
+utf_dir = pff_root / "sfd/52/utf"
 
 # Output
 ttf_dir = pff_root / "xnglofonts/ttf/xi52ttf/xi52utf"

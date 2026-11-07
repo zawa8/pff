@@ -28,7 +28,7 @@ console.setLevel(logging.WARNING)
 logging.getLogger('').addHandler(console)
 
 # Mono folder
-mono_dir = pff_root / "sfd/xi52sfd/xi52mono"
+mono_dir = pff_root / "sfd/52/mono"
 
 # Output
 ttf_dir = pff_root / "xnglofonts/ttf/xi52ttf/xi52mono"

@@ -263,8 +263,8 @@ def process_script(name, cfg, csv_rows_38, csv_rows_52, sources):
     target_38 = None
     target_52 = None
     try:
-        target_38 = fontforge.open(str(pff_root / "sfd/xi38sfd/xi38asc" / cfg["sfd38"]))
-        target_52 = fontforge.open(str(pff_root / "sfd/xi52sfd/xi52asc" / cfg["sfd52"]))
+        target_38 = fontforge.open(str(pff_root / "sfd/38/asc" / cfg["sfd38"]))
+        target_52 = fontforge.open(str(pff_root / "sfd/52/asc" / cfg["sfd52"]))
 
         ctx = {
             "xe52":      sources["xe52"],
@@ -298,8 +298,8 @@ def process_script(name, cfg, csv_rows_38, csv_rows_52, sources):
             except Exception as e:
                 logging.warning(f"{name}: xi52 {char} failed: {e}")
 
-        target_38.save(str(pff_root / "sfd/xi38sfd/xi38asc" / cfg["sfd38"]))
-        target_52.save(str(pff_root / "sfd/xi52sfd/xi52asc" / cfg["sfd52"]))
+        target_38.save(str(pff_root / "sfd/38/asc" / cfg["sfd38"]))
+        target_52.save(str(pff_root / "sfd/52/asc" / cfg["sfd52"]))
 
         logging.info(f"{name}: xi38 ok={ok38}, xi52 ok={ok52}")
         print(f"  {name}: xi38={ok38}, xi52={ok52}")

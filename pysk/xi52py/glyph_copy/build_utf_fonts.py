@@ -48,9 +48,9 @@ console.setLevel(logging.WARNING)
 logging.getLogger("").addHandler(console)
 
 # Source (asc)
-asc_dir = pff_root / "sfd/xi38sfd/xi38asc"
+asc_dir = pff_root / "sfd/38/asc"
 # Target (utf)
-utf_dir = pff_root / "sfd/xi38sfd/xi38utf"
+utf_dir = pff_root / "sfd/38/utf"
 utf_dir.mkdir(parents=True, exist_ok=True)
 
 FONTS = {
