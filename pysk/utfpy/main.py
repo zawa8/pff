@@ -96,8 +96,8 @@ def run_u9scripts():
 def run_copy_xe_fonts():
     """Copy xe52asc.sfd and xe38asc.sfd as-is (no glyph copy)."""
     copies = [
-        (REPO_ROOT / "sfdsrc/xi52/xe52asc.sfd", REPO_ROOT / "sfd/52/asc/xe52asc.sfd"),
-        (REPO_ROOT / "sfdsrc/xi38/xe38asc.sfd", REPO_ROOT / "sfd/38/asc/xe38asc.sfd"),
+        (REPO_ROOT / "sfdsrc/52asc/xe52asc.sfd", REPO_ROOT / "sfd/52/asc/xe52asc.sfd"),
+        (REPO_ROOT / "sfdsrc/38asc/xe38asc.sfd", REPO_ROOT / "sfd/38/asc/xe38asc.sfd"),
     ]
     for src, dst in copies:
         if not src.exists():
