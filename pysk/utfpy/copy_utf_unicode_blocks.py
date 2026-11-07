@@ -15,7 +15,7 @@ run AFTER:
   (with build_utf_fonts.py modified to process only xh38utf.sfd)
 
 run:
-  python3 pysk/xi52py/copy_utf_unicode_blocks.py
+  python3 pysk/utfpy/copy_utf_unicode_blocks.py
 """
 
 import re

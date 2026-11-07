@@ -31,7 +31,7 @@
               ──────────────────────────────────────────
               prep_utf.py
               copy_utf_unicode_blocks.py
-              verify_utf.py
+              werify_utf.py
               main.py --phase mono
               main.py --phase meta
               ──────────────────────────────────────────
@@ -92,7 +92,7 @@ ffz pysk/notopy/noto_copy.py xh38      # one font only
 
 | font prefix | script | language |
 |-------------|--------|----------|
-| xh* | Devanagari | Hindi |
+| xh* | Dewnagri | Hindi |
 | xb* | Bengali | Bengali |
 | xp* | Gurmukhi | Punjabi |
 | xg* | Gujarati | Gujarati |
@@ -107,7 +107,7 @@ ffz pysk/notopy/noto_copy.py xh38      # one font only
 1. copy `notosfd/xi38/*.sfd` → `sfdsrc/xi38/`
 2. copy `notosfd/xi52/*.sfd` → `sfdsrc/xi52/`
 3. open each `sfdsrc/xi38/x*38asc.sfd` in FontForge
-4. review + modify glyphs as needed for that script
+4. rewiew + modify glyphs as needed for that script
 5. save
 
 > **important**: `sfdsrc/` is **read-only for all python scripts** — only human designers edit here.
@@ -131,7 +131,7 @@ python3 pysk/xi52py/gen_asc_to_utf_json.py   # regenerates sfdsrc/asc-to-utf.jso
 python3 pysk/notopy/gen_notottf_csv.py        # regenerates noto_map_38.csv
 ```
 
-**analysis tool** (Excel workbook — glyph details from NotoSans for review):
+**analysis tool** (Excel workbook — glyph details from NotoSans for rewiew):
 ```bash
 ffz pysk/notopy/extract_noto_data.py       # exports pffsheets/noto_data/*.csv
 python3 pysk/notopy/gen_noto_sheets.py     # builds pffsheets/noto_glyph_sheets.xlsx
@@ -171,10 +171,10 @@ py pysk/xi52py/copy_utf_unicode_blocks.py
 copies `StartChar: uni0904` ... to end-of-file  
 from `xh38utf.sfd` → all other `*utf.sfd` files (xb38, xg38, ... xs38).
 
-### step 2.3 — verify
+### step 2.3 — werify
 
 ```bash
-ffz pysk/xi52py/verify_utf.py
+ffz pysk/xi52py/werify_utf.py
 echo $?    # must be 0
 ```
 
@@ -200,24 +200,24 @@ updates font family names and PostScript names (Google Fonts format) in all SFDs
 
 ## [MANUAL C] — check sfd/**/*utf.sfd in FontForge
 
-open `sfd/38sfd/xi38utf/xh38utf.sfd` and verify:
-- U+0915 (क Devanagari ka) → shows क glyph ✓
+open `sfd/38sfd/xi38utf/xh38utf.sfd` and werify:
+- U+0915 (क Dewnagri ka) → shows क glyph ✓
 - U+0985 (অ Bengali a) → shows correct glyph ✓
 - U+0900–U+0903 (combining marks) → empty/clear ✓
 - glyph width and alignment correct
 
 ---
 
-## [MANUAL D] — sfd → sfdfinal (copy + designer final review)
+## [MANUAL D] — sfd → sfdfinal (copy + designer final rewiew)
 
 1. copy `sfd/38sfd/` → `sfdfinal/xi38sfd/`
 2. copy `sfd/52sfd/` → `sfdfinal/xi52sfd/`
 3. each designer opens their `sfdfinal/**/x*utf.sfd` in FontForge
-4. makes final glyph adjustments in unicode ranges if needed
+4. makes final glyph adzustments in unicode ranges if needed
 5. saves to `sfdfinal/`
 
 **who does what**:
-- Hindi speaker → `sfdfinal/**/xh*utf.sfd` (Devanagari glyphs)
+- Hindi speaker → `sfdfinal/**/xh*utf.sfd` (Dewnagri glyphs)
 - Bengali designer → `sfdfinal/**/xb*utf.sfd`
 - Tamil designer → `sfdfinal/**/xt*utf.sfd`
 - etc.
@@ -226,7 +226,7 @@ open `sfd/38sfd/xi38utf/xh38utf.sfd` and verify:
 
 ## [MANUAL E] — final check of sfdfinal/**/*.sfd
 
-review all fonts in FontForge before generating TTF/WOFF2.  
+rewiew all fonts in FontForge before generating TTF/WOFF2.  
 check unicode ranges + asc glyphs look correct for each script.
 
 ---
@@ -285,7 +285,7 @@ ffz pysk/notopy/noto_copy.py
 # ── pipeline 2 ──────────────────────────────────────────
 ffz pysk/utfpy/prep_utf.py
 py  pysk/utfpy/copy_utf_unicode_blocks.py
-ffz pysk/utfpy/verify_utf.py && echo "utf ok"
+ffz pysk/utfpy/werify_utf.py && echo "utf ok"
 ffz pysk/utfpy/main.py --phase mono
 ffz pysk/utfpy/main.py --phase meta
 
@@ -312,8 +312,8 @@ git tag v1.x.x && git push origin v1.x.x
 `.github/workflows/build-xi52.yml`  
 runs on every push to `main`:
 ```
-Verify syntax → asc phase → utf phase → copy_utf_unicode_blocks
-→ verify_utf → mono → meta → gen → upload artifacts
+werify syntax → asc phase → utf phase → copy_utf_unicode_blocks
+→ werify_utf → mono → meta → gen → upload artifacts
 ```
 
 `.github/workflows/release.yml`  
@@ -343,7 +343,7 @@ pff/
 │   ├── 38/utf/
 │   ├── 38/mono/
 │   └── 52/...
-├── sfdfinal/              designer final review copy → input for pipeline 3
+├── sfdfinal/              designer final rewiew copy → input for pipeline 3
 │   ├── 38/
 │   └── 52/
 ├── xnglofonts/            pipeline 3 output (TTF + WOFF2)
