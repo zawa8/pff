@@ -11,7 +11,7 @@ Two CSV files control what gets copied:
 
 CSV structure:
   row 1 (header)  : ascii, xh38, xb38, ... xs38
-  row 2 (src-sfd) : [ignore chars], xe38asc, xe38asc, ...
+  row 2 (src-sfd) : [skip chars], xe38asc, xe38asc, ...
   row 3+ (data)   : A, 0905, 0985, ...
 
 row 2 "src-sfd" row:
@@ -95,7 +95,7 @@ def read_csv(path):
     """
     Returns:
       font_cols   : list of font prefixes  e.g. ['xh38','xb38',...]
-      src_sfd     : SFD filename for ignore-row chars  e.g. 'xe38asc'
+      src_sfd     : SFD filename for skip-row chars  e.g. 'xe38asc'
       ignore_chars: set of ASCII chars to copy from src_sfd
       glyph_rows  : list of (ascii_char, {font_prefix: unicode_int})
     """
@@ -114,7 +114,7 @@ def read_csv(path):
             font_cols = [c.strip() for c in row[1:]]
             break
 
-        # src-sfd row (previously "ignore" row)
+        # src-sfd row (previously "skip" row)
         for row in reader:
             if not row or row[0].strip().startswith("#"):
                 continue
@@ -122,7 +122,7 @@ def read_csv(path):
             # src SFD name from first non-empty value cell
             for cell in row[1:]:
                 cell = cell.strip()
-                if cell and cell.lower() != "ignore":
+                if cell and cell.lower() != "skip":
                     src_sfd = cell          # e.g. "xe38asc"
                     break
             break
@@ -135,7 +135,7 @@ def read_csv(path):
             col_map = {}
             for i, font in enumerate(font_cols):
                 cell = row[i + 1].strip() if i + 1 < len(row) else ""
-                if cell and cell.lower() not in ("", "ignore", "skip"):
+                if cell and cell.lower() not in ("", "skip", "skip"):
                     try:
                         col_map[font] = int(cell, 16)    # unicode codepoint
                     except ValueError:
@@ -198,14 +198,14 @@ def process_series(series_name, cfg, wanted_fonts):
     log.info(f"[{series_name}] reading {csv_path.name}")
     font_cols, src_sfd_name, ignore_chars, glyph_rows = read_csv(csv_path)
     log.info(f"  fonts: {font_cols}")
-    log.info(f"  src_sfd: {src_sfd_name}  ignore chars({len(ignore_chars)}): {''.join(sorted(ignore_chars))}")
+    log.info(f"  src_sfd: {src_sfd_name}  skip chars({len(ignore_chars)}): {''.join(sorted(ignore_chars))}")
     log.info(f"  glyph rows: {len(glyph_rows)}")
 
     # caches must be init BEFORE src_sfd_font block
     noto_cache = {}     # ttf filename -> fontforge.font
-    sfd_cache   = {}     # sfd stem -> fontforge.font (ignore-row + data-row sfd sources)
+    sfd_cache   = {}     # sfd stem -> fontforge.font (skip-row + data-row sfd sources)
 
-    # open source SFD for ignore chars (merged into sfd_cache to avoid double-open)
+    # open source SFD for skip chars (merged into sfd_cache to avoid double-open)
     src_sfd_font = None
     if src_sfd_name:
         src_sfd_path = sfd_dir / f"{src_sfd_name}.sfd"
@@ -233,7 +233,7 @@ def process_series(series_name, cfg, wanted_fonts):
 
         copied = skipped = failed = 0
 
-        # step 1: copy ignore chars from src SFD
+        # step 1: copy skip chars from src SFD
         if src_sfd_font and ignore_chars:
             c, f = copy_from_sfd(src_sfd_font, dst, ignore_chars, label=font_col)
             copied += c; failed += f

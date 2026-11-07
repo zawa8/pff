@@ -35,8 +35,8 @@
               main.py --phase mono
               main.py --phase meta
               ──────────────────────────────────────────
-              sfd/xi38sfd/xi38asc/   xi38utf/   xi38mono/
-              sfd/xi52sfd/xi52asc/   xi52utf/   xi52mono/
+              sfd/38sfd/xi38asc/   xi38utf/   xi38mono/
+              sfd/52sfd/xi52asc/   xi52utf/   xi52mono/
 
 [MANUAL C]    check sfd/**/*utf.sfd in FontForge
 
@@ -147,15 +147,15 @@ python3 pysk/notopy/gen_noto_sheets.py     # builds pffsheets/noto_glyph_sheets.
 ### step 2.1 — prep_utf
 
 ```bash
-ffz pysk/xi52py/prep_utf.py
+ffz pysk/utfpy/prep_utf.py
 ```
 
 does all of:
-- `sfdsrc/xi38/*.sfd` → `sfd/xi38sfd/xi38asc/` (copy)
-- `sfdsrc/xi52/*.sfd` → `sfd/xi52sfd/xi52asc/` (copy)
-- clears `sfd/xi38sfd/xi38utf/` and `sfd/xi52sfd/xi52utf/`
-- `sfdsrc/xi38/*asc.sfd` → `sfd/xi38sfd/xi38utf/*utf.sfd` (copy + rename)
-- `sfdsrc/xi52/*asc.sfd` → `sfd/xi52sfd/xi52utf/*utf.sfd` (copy + rename)
+- `sfdsrc/38asc/*.sfd` → `sfd/38/asc/` (copy)
+- `sfdsrc/52asc/*.sfd` → `sfd/52/asc/` (copy)
+- clears `sfd/38sfd/xi38utf/` and `sfd/52sfd/xi52utf/`
+- `sfdsrc/xi38/*asc.sfd` → `sfd/38sfd/xi38utf/*utf.sfd` (copy + rename)
+- `sfdsrc/xi52/*asc.sfd` → `sfd/52sfd/xi52utf/*utf.sfd` (copy + rename)
 - updates font metadata (`fontname`/`familyname`: `asc` → `utf`)
 - updates sfnt name table (unique-id, version string)
 - adds unicode glyph refs to `xh38utf.sfd` only (reads `sfdsrc/asc-to-utf.json`)
@@ -200,7 +200,7 @@ updates font family names and PostScript names (Google Fonts format) in all SFDs
 
 ## [MANUAL C] — check sfd/**/*utf.sfd in FontForge
 
-open `sfd/xi38sfd/xi38utf/xh38utf.sfd` and verify:
+open `sfd/38sfd/xi38utf/xh38utf.sfd` and verify:
 - U+0915 (क Devanagari ka) → shows क glyph ✓
 - U+0985 (অ Bengali a) → shows correct glyph ✓
 - U+0900–U+0903 (combining marks) → empty/clear ✓
@@ -210,8 +210,8 @@ open `sfd/xi38sfd/xi38utf/xh38utf.sfd` and verify:
 
 ## [MANUAL D] — sfd → sfdfinal (copy + designer final review)
 
-1. copy `sfd/xi38sfd/` → `sfdfinal/xi38sfd/`
-2. copy `sfd/xi52sfd/` → `sfdfinal/xi52sfd/`
+1. copy `sfd/38sfd/` → `sfdfinal/xi38sfd/`
+2. copy `sfd/52sfd/` → `sfdfinal/xi52sfd/`
 3. each designer opens their `sfdfinal/**/x*utf.sfd` in FontForge
 4. makes final glyph adjustments in unicode ranges if needed
 5. saves to `sfdfinal/`
@@ -283,23 +283,23 @@ CSS usage:
 ffz pysk/notopy/noto_copy.py
 
 # ── pipeline 2 ──────────────────────────────────────────
-ffz pysk/xi52py/prep_utf.py
-py  pysk/xi52py/copy_utf_unicode_blocks.py
-ffz pysk/xi52py/verify_utf.py && echo "utf ok"
-ffz pysk/xi52py/main.py --phase mono
-ffz pysk/xi52py/main.py --phase meta
+ffz pysk/utfpy/prep_utf.py
+py  pysk/utfpy/copy_utf_unicode_blocks.py
+ffz pysk/utfpy/verify_utf.py && echo "utf ok"
+ffz pysk/utfpy/main.py --phase mono
+ffz pysk/utfpy/main.py --phase meta
 
 # ── pipeline 3 ──────────────────────────────────────────
-ffz pysk/xi52py/p5generate.py
+ffz pysk/ttfwofpy/p5generate.py
 
 # ── helper scripts ───────────────────────────────────────
-python3 pysk/xi52py/gen_asc_to_utf_json.py   # regen asc-to-utf.json
+python3 pysk/utfpy/gen_asc_to_utf_json.py   # regen asc-to-utf.json
 python3 pysk/notopy/gen_notottf_csv.py        # regen noto_map_38.csv
 ffz     pysk/notopy/extract_noto_data.py      # noto glyph → csv
 python3 pysk/notopy/gen_noto_sheets.py        # csv → excel workbook
 
 # ── check pipeline 2 step list ──────────────────────────
-ffz pysk/xi52py/main.py --list
+ffz pysk/utfpy/main.py --list
 
 # ── publish ─────────────────────────────────────────────
 git tag v1.x.x && git push origin v1.x.x
@@ -330,7 +330,7 @@ checkout → collect xnglofonts → zip → create GitHub Release
 pff/
 ├── pysk/
 │   ├── notopy/            pipeline 1 scripts + NotoSans TTFs + NamesList
-│   └── xi52py/            pipeline 2+3 scripts
+│   └── utfpy/            pipeline 2+3 scripts
 ├── notosfd/               pipeline 1 output (DO NOT EDIT MANUALLY)
 │   ├── xi38/
 │   └── xi52/
@@ -339,13 +339,13 @@ pff/
 │   ├── xi52/
 │   └── asc-to-utf.json
 ├── sfd/                   pipeline 2 output
-│   ├── xi38sfd/xi38asc/
-│   ├── xi38sfd/xi38utf/
-│   ├── xi38sfd/xi38mono/
-│   └── xi52sfd/...
+│   ├── 38/asc/
+│   ├── 38/utf/
+│   ├── 38/mono/
+│   └── 52/...
 ├── sfdfinal/              designer final review copy → input for pipeline 3
-│   ├── xi38sfd/
-│   └── xi52sfd/
+│   ├── 38/
+│   └── 52/
 ├── xnglofonts/            pipeline 3 output (TTF + WOFF2)
 ├── pffsheets/             analysis worksheets (Excel)
 └── allsteps.md            this file
