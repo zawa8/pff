@@ -29,6 +29,7 @@ source_utf_sfd = "xh38utf.sfd"
 
 # destination fonts — xi38 series (same dir as source)
 utf38list = [
+    "xe38utf.sfd",
     "xb38utf.sfd",
     "xg38utf.sfd",
     "xj38utf.sfd",
@@ -43,6 +44,7 @@ utf38list = [
 # destination fonts — xi52 series (different dir)
 utf52dir   = pff_root / "sfd/52/utf"
 utf52list = [
+    "xe52utf.sfd",
     "xh52utf.sfd",
     "xb52utf.sfd",
     "xg52utf.sfd",

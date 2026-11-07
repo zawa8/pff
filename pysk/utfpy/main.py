@@ -145,22 +145,22 @@ PIPELINE = [
     # ---- mono ----
     # xi38mono
     ("mono", "[mono] xi38utf -> xi38mono",
-             run_main("copy_utf_to_mono_xi38.py")),
+             run_main("../monopy/copy_utf_to_mono_xi38.py")),
     ("mono", "[mono] center glyphs in xi38mono",
-             run_main("center_glyphs_mono_xi38.py")),
+             run_main("../monopy/center_glyphs_mono_xi38.py")),
     ("mono", "[mono] fix widths in xi38mono",
-             run_main("fix_mono_width_xi38.py")),
+             run_main("../monopy/fix_mono_width_xi38.py")),
     # xi52mono
     ("mono", "[mono] xi52utf -> xi52mono",
-             run_main("copy_utf_to_mono_xi52.py")),
+             run_main("../monopy/copy_utf_to_mono_xi52.py")),
     ("mono", "[mono] center glyphs in xi52mono",
-             run_main("center_glyphs_mono_xi52.py")),
+             run_main("../monopy/center_glyphs_mono_xi52.py")),
     ("mono", "[mono] fix widths in xi52mono",
-             run_main("fix_mono_width_xi52.py")),
+             run_main("../monopy/fix_mono_width_xi52.py")),
 
     # ---- meta ----
     ("meta", "[meta] update font metadata (Google Fonts format)",
-             run_main("update_font_metadata.py")),
+             run_main("../metapy/update_font_metadata.py")),
 
     # ---- gen ----
     ("gen",  "[gen] TTF/WOFF2 from xi38asc",
